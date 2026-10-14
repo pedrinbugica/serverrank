@@ -1,0 +1,62 @@
+# ==================================================================
+#                 RANKUP SUPREMO - PREÇOS DE VENDA
+# ==================================================================
+# Preço base de cada item (por unidade) no /vender e na autovenda.
+# O valor final é multiplicado pelo bônus de prestígio e de VIP.
+# Itens com nome/lore personalizados nunca são vendidos.
+# ==================================================================
+
+precos:
+  # Pedras
+  STONE: 1
+  COBBLESTONE: 1
+  ANDESITE: 1.5
+  DIORITE: 1.5
+  GRANITE: 1.5
+  TUFF: 2
+  DEEPSLATE: 2.5
+  COBBLED_DEEPSLATE: 2.5
+  # Minérios
+  COAL_ORE: 3
+  DEEPSLATE_COAL_ORE: 4
+  COPPER_ORE: 5
+  DEEPSLATE_COPPER_ORE: 6.5
+  IRON_ORE: 8
+  DEEPSLATE_IRON_ORE: 10.5
+  LAPIS_ORE: 12
+  DEEPSLATE_LAPIS_ORE: 15.5
+  REDSTONE_ORE: 14
+  DEEPSLATE_REDSTONE_ORE: 18
+  GOLD_ORE: 20
+  NETHER_GOLD_ORE: 22
+  NETHER_QUARTZ_ORE: 24
+  DEEPSLATE_GOLD_ORE: 26
+  DIAMOND_ORE: 45
+  DEEPSLATE_DIAMOND_ORE: 58
+  EMERALD_ORE: 70
+  DEEPSLATE_EMERALD_ORE: 90
+  # Blocos
+  COAL_BLOCK: 30
+  COPPER_BLOCK: 50
+  OBSIDIAN: 60
+  IRON_BLOCK: 90
+  LAPIS_BLOCK: 120
+  REDSTONE_BLOCK: 140
+  AMETHYST_BLOCK: 160
+  GOLD_BLOCK: 200
+  QUARTZ_BLOCK: 220
+  DIAMOND_BLOCK: 450
+  EMERALD_BLOCK: 700
+  ANCIENT_DEBRIS: 1200
+  NETHERITE_BLOCK: 3000
+  # Barras e gemas (encantamento Fundição: valem mais que o minério)
+  COAL: 5.5
+  COPPER_INGOT: 9
+  IRON_INGOT: 14
+  LAPIS_LAZULI: 20
+  REDSTONE: 23
+  GOLD_INGOT: 34
+  QUARTZ: 40
+  DIAMOND: 75
+  EMERALD: 115
+  NETHERITE_SCRAP: 1560

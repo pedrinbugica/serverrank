@@ -1,0 +1,39 @@
+teleportenabled: true
+teleportauto: false
+godmode: false
+flymode: false
+muted: false
+jailed: false
+ip-address: 127.0.0.1
+afk: false
+socialspy: false
+npc: false
+powertoolsenabled: true
+accepting-pay: true
+baltop-exempt: false
+timestamps:
+  lastteleport: 0
+  lastheal: 0
+  mute: 0
+  jail: 0
+  onlinejail: 0
+  logout: 1791933556721
+  login: 1791933205889
+money: '4019.500'
+last-account-name: 1teste
+logoutlocation:
+  world: 3c89e668-135e-48ba-bd1e-eeddc6b997ab
+  world-name: world
+  x: 1216.577108437594
+  y: 121.0
+  z: -0.8528198254800888
+  yaw: 178.95016479492188
+  pitch: 27.750017166137695
+lastlocation:
+  world: b498a541-ecdd-480e-b656-32aad37cb93f
+  world-name: sobrevivencia
+  x: -30.69999998807907
+  y: 78.0
+  z: 57.095887075871154
+  yaw: 14.099879264831543
+  pitch: 32.8499641418457

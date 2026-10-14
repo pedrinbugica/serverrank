@@ -1,0 +1,3 @@
+&6&l✦ &e&lRANKUP SUPREMO &6&l✦
+&7Olá, &f{PLAYER}&7! Jogadores online: &a{ONLINE}
+&7Use &f/minas&7, &f/vender &7e &f/rankup &7para evoluir!

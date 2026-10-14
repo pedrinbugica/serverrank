@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RankUP Supremo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: guia de servidor em coluna única, com navegação fixa por seções e tabelas "de bancada" (comando, efeito, mundo). */
+:root {
+  --bg: #e9ecef;          /* pedra clara */
+  --surface: #ffffff;
+  --surface-2: #f4f6f8;
+  --fg: #1c2026;
+  --muted: #59626d;
+  --line: #d3d8de;
+  --gold: #8f5b00;        /* ouro legível em fundo claro */
+  --gold-soft: #f6d675;
+  --diamond: #0b7d78;
+  --redstone: #b02a20;
+  --emerald: #1d7a3a;
+  --amethyst: #6b3fa0;
+  --chip: #e3e7ec;
+  --f-display: "Pixelify Sans", "Courier New", monospace;
+  --f-body: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", Consolas, "Courier New", monospace;
+  --r: 6px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15171b; --surface: #1d2026; --surface-2: #23272e; --fg: #e7e9ec; --muted: #9aa3ae; --line: #313640;
+    --gold: #f0b93a; --gold-soft: #5a4310; --diamond: #4fd1c5; --redstone: #ff7b6e; --emerald: #5bd68a; --amethyst: #c49bff; --chip: #2a2f37;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15171b; --surface: #1d2026; --surface-2: #23272e; --fg: #e7e9ec; --muted: #9aa3ae; --line: #313640;
+  --gold: #f0b93a; --gold-soft: #5a4310; --diamond: #4fd1c5; --redstone: #ff7b6e; --emerald: #5bd68a; --amethyst: #c49bff; --chip: #2a2f37;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--f-body); font-size: 16px; line-height: 1.6; margin: 0; }
+.pagina { max-width: 1040px; margin: 0 auto; padding-inline: 20px; padding-block: 0 64px; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 700; line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.9rem; letter-spacing: .01em; }
+h3 { font-size: 1.2rem; font-weight: 500; }
+p { margin: 0; max-width: 68ch; }
+a { color: var(--diamond); }
+code, kbd, .cmd { font-family: var(--f-mono); font-size: .9em; }
+:focus-visible { outline: 2px solid var(--diamond); outline-offset: 2px; }
+
+/* Cabeçalho */
+.topo { display: grid; gap: 18px; padding-block: 40px 28px; }
+.marca { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.marca canvas { width: 56px; height: 56px; image-rendering: pixelated; flex: none; }
+.marca h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); color: var(--gold); }
+.marca h1 span { color: var(--fg); }
+.lead { font-size: 1.15rem; color: var(--muted); }
+.ip { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 12px 14px; max-width: 560px; }
+.ip .rotulo { font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.ip .valor { font-family: var(--f-mono); font-size: 1.15rem; font-weight: 600; flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere; }
+.btn { font: inherit; font-weight: 600; font-size: .9rem; border: 1px solid var(--line); background: var(--surface-2); color: var(--fg); border-radius: var(--r); padding: 7px 12px; cursor: pointer; }
+.btn:hover { border-color: var(--gold); }
+.fatos { display: flex; flex-wrap: wrap; gap: 8px; }
+.fato { background: var(--chip); border-radius: 999px; padding: 4px 12px; font-size: .85rem; font-weight: 600; }
+
+/* Navegação */
+nav.secoes { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); padding-block: 10px; margin-bottom: 8px; }
+nav.secoes ul { list-style: none; display: flex; gap: 6px; padding: 0; margin: 0; overflow-x: auto; scrollbar-width: thin; }
+nav.secoes a { display: block; white-space: nowrap; text-decoration: none; color: var(--fg); font-weight: 600; font-size: .9rem; padding: 5px 11px; border-radius: 999px; }
+nav.secoes a:hover { background: var(--chip); }
+
+section { display: grid; gap: 16px; padding-block: 36px 8px; scroll-margin-top: 64px; }
+.eyebrow { font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; color: var(--gold); font-weight: 700; }
+.passos { display: grid; gap: 10px; counter-reset: passo; padding: 0; margin: 0; list-style: none; }
+.passos li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; counter-increment: passo; }
+.passos li::before { content: counter(passo); font-family: var(--f-display); font-weight: 700; background: var(--gold-soft); color: var(--fg); width: 34px; height: 34px; display: grid; place-items: center; border-radius: 4px; }
+.passos li > div { min-width: 0; }
+.aviso { border-left: 4px solid var(--redstone); background: var(--surface); padding: 12px 14px; border-radius: 0 var(--r) var(--r) 0; }
+.dica { border-left: 4px solid var(--diamond); background: var(--surface); padding: 12px 14px; border-radius: 0 var(--r) var(--r) 0; }
+
+/* Tabelas */
+.tabela { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); }
+table { border-collapse: collapse; width: 100%; font-size: .93rem; }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: .75rem; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); background: var(--surface-2); position: sticky; top: 0; }
+tr:last-child td { border-bottom: 0; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+td .cmd { white-space: nowrap; font-weight: 600; }
+.alias { color: var(--muted); font-family: var(--f-mono); font-size: .8rem; display: block; }
+.selo { display: inline-block; font-size: .72rem; font-weight: 700; padding: 1px 8px; border-radius: 999px; white-space: nowrap; }
+.s-rankup { background: var(--gold-soft); color: var(--fg); }
+.s-surv { background: color-mix(in srgb, var(--emerald) 22%, transparent); color: var(--fg); }
+.s-todos { background: var(--chip); color: var(--fg); }
+
+/* Filtro de comandos */
+.filtro { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.filtro input { font: inherit; flex: 1 1 220px; min-width: 0; padding: 8px 12px; border-radius: var(--r); border: 1px solid var(--line); background: var(--surface); color: var(--fg); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: inherit; font-size: .85rem; font-weight: 600; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.contagem { font-size: .85rem; color: var(--muted); }
+tr.grupo td { background: var(--surface-2); font-weight: 700; font-size: .8rem; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); }
+
+/* Minas: barra de composição com as cores dos minérios */
+.minas { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); }
+.mina { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 12px 14px; display: grid; gap: 8px; min-width: 0; }
+.mina header { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+.mina h3 { font-size: 1.05rem; }
+.mina .custo { font-family: var(--f-mono); font-size: .85rem; color: var(--muted); }
+.barra { display: flex; height: 14px; border-radius: 3px; overflow: hidden; border: 1px solid var(--line); }
+.barra i { display: block; height: 100%; }
+.legenda { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: .8rem; color: var(--muted); padding: 0; margin: 0; list-style: none; }
+.legenda li { display: flex; align-items: center; gap: 5px; }
+.legenda b { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+
+.grade-2 { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.grade-2 > * { min-width: 0; }
+.bloco { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; display: grid; gap: 8px; align-content: start; }
+.bloco ul { margin: 0; padding-left: 20px; }
+.bloco li + li { margin-top: 3px; }
+pre { margin: 0; font-family: var(--f-mono); font-size: .88rem; background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--r); padding: 12px 14px; overflow-x: auto; }
+footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem; display: grid; gap: 6px; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+@media (max-width: 520px) { h2 { font-size: 1.55rem; } th, td { padding: 8px 9px; } }
+</style>
+</head>
+<body>
+
+<div class="pagina">
+  <header class="topo">
+    <div class="marca">
+      <canvas id="icone" width="16" height="16" aria-hidden="true"></canvas>
+      <h1>RANKUP <span>SUPREMO</span></h1>
+    </div>
+    <p class="lead">Servidor brasileiro de Minecraft com <strong>Rankup</strong> (15 ranks, 15 minas e 100 prestígios) e um mundo <strong>Sobrevivência</strong> completo, com Nether e End próprios. Tudo em português.</p>
+    <div class="ip">
+      <span class="rotulo">IP do servidor</span>
+      <span class="valor" id="ip">SEU-IP-AQUI</span>
+      <button class="btn" id="copiar" type="button">Copiar IP</button>
+    </div>
+    <div class="fatos">
+      <span class="fato">Minecraft 1.10 até 26.3</span>
+      <span class="fato">Original e pirata</span>
+      <span class="fato">Paper 26.3</span>
+      <span class="fato">Inventário e dinheiro separados por mundo</span>
+    </div>
+  </header>
+
+  <nav class="secoes" aria-label="Seções">
+    <ul>
+      <li><a href="#comecar">Começar</a></li>
+      <li><a href="#comandos">Comandos</a></li>
+      <li><a href="#ranks">Ranks e minas</a></li>
+      <li><a href="#especiais">Minas especiais</a></li>
+      <li><a href="#picareta">Picareta</a></li>
+      <li><a href="#loja">Tokens e loja</a></li>
+      <li><a href="#prestigio">Prestígio</a></li>
+      <li><a href="#sobrevivencia">Sobrevivência</a></li>
+      <li><a href="#vip">VIP</a></li>
+      <li><a href="#staff">Staff</a></li>
+      <li><a href="#dono">Dono</a></li>
+    </ul>
+  </nav>
+
+  <!-- COMEÇAR -->
+  <section id="comecar">
+    <span class="eyebrow">Para jogadores</span>
+    <h2>Primeiros passos</h2>
+    <ol class="passos">
+      <li><div><strong>Entre no servidor</strong> pelo IP acima (Multijogador → Adicionar servidor).</div></li>
+      <li><div><strong>Crie sua conta</strong> com <code>/registrar SENHA SENHA</code>. Nas próximas vezes, use <code>/logar SENHA</code>. Tem Minecraft original? Use <code>/premium</code> uma vez e entre sem senha.</div></li>
+      <li><div>Você nasce no spawn com a <strong>Picareta Suprema</strong> (inquebrável). Use <code>/minas</code> para ir à sua mina.</div></li>
+      <li><div><strong>Minere</strong>: os blocos vão direto para o inventário. Depois use <code>/vender</code>.</div></li>
+      <li><div>Junte dinheiro e use <code>/rankup</code> para subir de rank e liberar uma mina melhor.</div></li>
+      <li><div>Melhore a picareta com <code>/picareta</code>: Eficiência, Fortuna e Explosão com dinheiro; Laser, Sorte de Token, Velocidade, Visão Noturna e Fundição com <strong>tokens</strong>, que caem enquanto você minera.</div></li>
+      <li><div>Use <code>/loja</code> para comprar boosters de venda e de tokens.</div></li>
+      <li><div>Quer um survival normal? Use <code>/sobrevivencia</code>. O inventário <strong>e o dinheiro</strong> de lá são separados do Rankup.</div></li>
+    </ol>
+    <div class="aviso"><strong>Nunca</strong> use a mesma senha de outros jogos ou do seu e-mail. A staff jamais pede sua senha.</div>
+  </section>
+
+  <!-- COMANDOS -->
+  <section id="comandos">
+    <span class="eyebrow">Referência</span>
+    <h2>Todos os comandos</h2>
+    <p>Filtre por quem pode usar ou procure pelo nome. Os atalhos em português e os nomes originais funcionam igual.</p>
+    <div class="filtro">
+      <input id="busca" type="search" placeholder="Procurar comando (ex.: home, terreno, vender)" aria-label="Procurar comando">
+      <div class="chips" role="group" aria-label="Quem pode usar">
+        <button class="chip" type="button" data-quem="todos" aria-pressed="true">Todos</button>
+        <button class="chip" type="button" data-quem="jogador" aria-pressed="false">Jogador</button>
+        <button class="chip" type="button" data-quem="vip" aria-pressed="false">VIP</button>
+        <button class="chip" type="button" data-quem="staff" aria-pressed="false">Staff</button>
+        <button class="chip" type="button" data-quem="dono" aria-pressed="false">Dono</button>
+      </div>
+    </div>
+    <span class="contagem" id="contagem" aria-live="polite"></span>
+    <div class="tabela">
+      <table id="tabela-comandos">
+        <thead><tr><th>Comando</th><th>O que faz</th><th>Onde</th></tr></thead>
+        <tbody>
+          <tr class="grupo" data-quem="jogador"><td colspan="3">Conta e login</td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/registrar &lt;senha&gt; &lt;senha&gt;</span><span class="alias">/register /reg</span></td><td>Cria sua conta no primeiro acesso.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/logar &lt;senha&gt;</span><span class="alias">/login /l</span></td><td>Entra na sua conta.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/changepassword &lt;antiga&gt; &lt;nova&gt;</span></td><td>Troca sua senha.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/premium</span></td><td>Só para Minecraft original: entra sem senha depois de reconectar uma vez.</td><td><span class="selo s-todos">Todos</span></td></tr>
+
+          <tr class="grupo" data-quem="jogador"><td colspan="3">Rankup</td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/minas</span><span class="alias">/mina &lt;nome&gt; /mines</span></td><td>Menu de minas (as especiais ficam na última linha). Com o nome, teleporta direto (ex.: <code>/mina plebeu</code>, <code>/mina mina_pvp</code>).</td><td><span class="selo s-rankup">Rankup</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/vender</span><span class="alias">/vendertudo</span></td><td>Vende todos os minérios do inventário.</td><td><span class="selo s-rankup">Rankup</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/autovender</span><span class="alias">/autovenda</span></td><td>Vende sozinho enquanto você minera (prestígio 1+ ou VIP).</td><td><span class="selo s-rankup">Rankup</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/rankup</span><span class="alias">/upar</span></td><td>Paga e sobe para o próximo rank (ranks altos também pedem blocos minerados).</td><td><span class="selo s-rankup">Rankup</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/ranks</span></td><td>Menu com todos os ranks. Clique no próximo para upar.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/picareta</span><span class="alias">/melhorar /encantar /pick</span></td><td>Compra melhorias (com dinheiro ou tokens) para a picareta que está na sua mão.</td><td><span class="selo s-rankup">Rankup</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/tokens [jogador]</span><span class="alias">/token /fichas</span></td><td>Mostra seus tokens de mina (ou os de outro jogador).</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/tokens pagar &lt;jogador&gt; &lt;qtd&gt;</span></td><td>Envia tokens para outro jogador.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/loja</span><span class="alias">/mercado /lojinha</span></td><td>Loja do servidor. No Rankup: boosters de venda e de tokens e venda de minérios.</td><td><span class="selo s-rankup">Rankup</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/prestigio</span><span class="alias">/prestige /renascer</span></td><td>Mostra os requisitos do próximo prestígio.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/prestigio confirmar</span></td><td>Renasce no rank Mendigo com bônus permanente.</td><td><span class="selo s-rankup">Rankup</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/toprank</span><span class="alias">/topranks</span></td><td>Os 10 melhores jogadores.</td><td><span class="selo s-todos">Todos</span></td></tr>
+
+          <tr class="grupo" data-quem="jogador"><td colspan="3">Mundos e teleporte</td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/spawn</span><span class="alias">/lobby</span></td><td>Volta ao spawn do Rankup.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/sobrevivencia</span><span class="alias">/survival /sv</span></td><td>Vai para o mundo Sobrevivência, de onde você parou.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/mundos</span><span class="alias">/servidores</span></td><td>Menu para escolher entre Rankup e Sobrevivência.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/rtp</span><span class="alias">/aleatorio /wild</span></td><td>Teleporte para um lugar aleatório e seguro do survival (a cada 60 s).</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/tpa &lt;jogador&gt;</span></td><td>Pede para ir até um jogador. Ele aceita com <code>/tpaccept</code> ou recusa com <code>/tpdeny</code>.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/tpahere &lt;jogador&gt;</span></td><td>Pede para um jogador vir até você. <code>/tpacancel</code> cancela.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/sethome [nome]</span></td><td>Marca uma casa (2 casas; VIP 5; VIP+ 7; MVP 10).</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/home [nome]</span><span class="alias">/delhome [nome]</span></td><td>Vai para a casa ou apaga uma casa.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/back</span></td><td>Volta para onde você estava antes, ou para o local da morte.</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
+
+          <tr class="grupo" data-quem="jogador"><td colspan="3">Sobrevivência</td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">Pá de ouro</span></td><td>Clique com o botão direito em 2 cantos para proteger um terreno (começa com 100 blocos e ganha mais jogando).</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/terrenos</span><span class="alias">/claimslist</span></td><td>Seus terrenos e blocos disponíveis.</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/confiar &lt;jogador&gt;</span><span class="alias">/trust</span></td><td>Deixa um amigo construir no terreno onde você está.</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/confiarbau &lt;jogador&gt;</span><span class="alias">/containertrust</span></td><td>Deixa abrir baús e mexer em animais, sem construir.</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/confiaracesso &lt;jogador&gt;</span><span class="alias">/accesstrust</span></td><td>Deixa usar portas, botões, alavancas e camas.</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/desconfiar &lt;jogador&gt;</span><span class="alias">/untrust</span></td><td>Tira a permissão de um jogador.</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/confiancas</span><span class="alias">/trustlist</span></td><td>Quem tem permissão no terreno onde você está.</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/abandonarterreno</span><span class="alias">/abandonartodos</span></td><td>Remove o terreno onde você está (ou todos) e devolve os blocos.</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/subdividir</span></td><td>Cria áreas menores dentro do seu terreno, com permissões próprias.</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/preso</span><span class="alias">/trapped</span></td><td>Tira você de dentro do terreno de outra pessoa se ficou preso.</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/habilidades</span><span class="alias">/skills /stats</span></td><td>Suas habilidades (mineração, lenhador, combate...) e atributos.</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/loja</span><span class="alias">/mercado /lojinha</span></td><td>Loja do servidor com categorias: Blocos, Comida, Ferramentas (pá de ouro), Farm, Drops de mobs, Minérios e Especiais. Compra e vende.</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/qs</span><span class="alias">/quickshop</span></td><td>Lojas em baú entre jogadores. Para criar: segure o item, bata no baú e digite o preço.</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/sentar</span><span class="alias">/sit · /deitar /lay</span></td><td>Senta ou deita onde você está.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">Agachar + quebrar minério</span></td><td>Minera o veio inteiro de uma vez (até 64 blocos).</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
+
+          <tr class="grupo" data-quem="jogador"><td colspan="3">Dinheiro e conversa</td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/dinheiro</span><span class="alias">/money /bal</span></td><td>Mostra seu saldo no mundo onde você está (Rankup e Sobrevivência têm dinheiro separado).</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/pagar &lt;jogador&gt; &lt;valor&gt;</span><span class="alias">/pay</span></td><td>Envia dinheiro para outro jogador online que esteja no mesmo mundo que você.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/topmoney</span><span class="alias">/baltop</span></td><td>Os jogadores mais ricos.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/msg &lt;jogador&gt; &lt;mensagem&gt;</span><span class="alias">/tell /w · /r para responder</span></td><td>Mensagem privada.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/ignore &lt;jogador&gt;</span></td><td>Para de ver as mensagens de alguém.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/mail</span></td><td>Correio para jogadores offline.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/helpop &lt;mensagem&gt;</span></td><td>Chama a staff.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/rules</span></td><td>Regras do servidor.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/afk · /list · /ping · /seen &lt;jogador&gt;</span></td><td>Ausente, quem está online, sua latência e último acesso de alguém.</td><td><span class="selo s-todos">Todos</span></td></tr>
+
+          <tr class="grupo" data-quem="vip"><td colspan="3">VIP, VIP+ e MVP</td></tr>
+          <tr data-quem="vip"><td><span class="cmd">/mina mina_vip</span><span class="alias">mina_vipplus · mina_mvp</span></td><td>Minas exclusivas de cada cargo, com minérios melhores que os do seu rank.</td><td><span class="selo s-rankup">Rankup</span></td></tr>
+          <tr data-quem="vip"><td><span class="cmd">/feed</span></td><td>Enche a fome (VIP+ e MVP).</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="vip"><td><span class="cmd">/fly</span></td><td>Voar.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="vip"><td><span class="cmd">/hat</span></td><td>Coloca o item da mão na cabeça.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="vip"><td><span class="cmd">/craft</span><span class="alias">/workbench /wb</span></td><td>Mesa de trabalho portátil.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="vip"><td><span class="cmd">/ec</span><span class="alias">/enderchest</span></td><td>Abre seu baú do End.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="vip"><td><span class="cmd">/anvil</span></td><td>Bigorna portátil (MVP).</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="vip"><td><span class="cmd">&amp;a &amp;l no chat</span></td><td>Cores e negrito nas mensagens.</td><td><span class="selo s-todos">Todos</span></td></tr>
+
+          <tr class="grupo" data-quem="staff"><td colspan="3">Staff</td></tr>
+          <tr data-quem="staff"><td><span class="cmd">/mute &lt;jogador&gt; [tempo]</span></td><td>Silencia um jogador (Ajudante+).</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="staff"><td><span class="cmd">/kick &lt;jogador&gt; [motivo]</span></td><td>Expulsa do servidor (Ajudante+).</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="staff"><td><span class="cmd">/tp &lt;jogador&gt;</span></td><td>Teleporta até um jogador (Ajudante+). <code>/tphere</code> traz (Moderador+).</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="staff"><td><span class="cmd">/whois &lt;jogador&gt;</span></td><td>Informações do jogador.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="staff"><td><span class="cmd">/tempban &lt;jogador&gt; &lt;tempo&gt; [motivo]</span></td><td>Banimento temporário (Moderador+). Ex.: <code>/tempban Fulano 3d hack</code>.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="staff"><td><span class="cmd">/ban · /unban &lt;jogador&gt;</span></td><td>Bane ou desbane (Moderador+).</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="staff"><td><span class="cmd">/invsee &lt;jogador&gt;</span></td><td>Vê o inventário de alguém (Moderador+).</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="staff"><td><span class="cmd">/vanish</span><span class="alias">/v</span></td><td>Fica invisível (Moderador+).</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="staff"><td><span class="cmd">/ignoreclaims</span></td><td>Ignora a proteção de terrenos para resolver problemas (Admin).</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
+          <tr data-quem="staff"><td><span class="cmd">/deleteclaim</span></td><td>Apaga o terreno onde você está (Admin).</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
+          <tr data-quem="staff"><td><span class="cmd">/acb &lt;jogador&gt; &lt;quantidade&gt;</span></td><td>Dá blocos de terreno extras (Admin).</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
+          <tr data-quem="staff"><td><span class="cmd">/axgraves list · tp</span></td><td>Lista túmulos e teleporta até eles (Admin).</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
+
+          <tr class="grupo" data-quem="dono"><td colspan="3">Dono e administração</td></tr>
+          <tr data-quem="dono"><td><span class="cmd">/menuop [jogador]</span><span class="alias">/painelop</span></td><td>Painel do dono: dinheiro, picaretas OP, ranks, prestígio, kit OP e utilidades.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="dono"><td><span class="cmd">/rankupadmin</span><span class="alias">/rua</span></td><td>Lista de subcomandos do plugin de rankup (veja a seção Dono).</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="dono"><td><span class="cmd">/rankupadmin tokens &lt;jogador&gt; dar|tirar|definir &lt;qtd&gt;</span></td><td>Mexe nos tokens de mina de um jogador.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="dono"><td><span class="cmd">/eco give|take|set &lt;jogador&gt; &lt;valor&gt;</span></td><td>Mexe no dinheiro de um jogador (no mundo onde ele está agora).</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="dono"><td><span class="cmd">/lp user &lt;jogador&gt; parent add vip</span></td><td>Dá um grupo (vip, vipplus, mvp, ajudante, moderador, admin, dono).</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="dono"><td><span class="cmd">/authme unregister &lt;jogador&gt;</span></td><td>Apaga a conta de login de um jogador (ele registra de novo).</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="dono"><td><span class="cmd">/authme password &lt;jogador&gt; &lt;senha&gt;</span></td><td>Troca a senha de um jogador que esqueceu.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="dono"><td><span class="cmd">/mv list · /mv tp &lt;mundo&gt;</span></td><td>Lista os mundos e teleporta entre eles.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="dono"><td><span class="cmd">/chunky radius 3000 · /chunky start</span></td><td>Pré-gera o mapa do survival (rode com <code>/chunky world sobrevivencia</code> antes).</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- RANKS E MINAS -->
+  <section id="ranks">
+    <span class="eyebrow">Progresso</span>
+    <h2>Ranks e minas</h2>
+    <p>Cada rank libera uma mina nova. Ranks maiores também usam as minas anteriores. As minas resetam sozinhas a cada 8 minutos ou quando 70% dos blocos foram minerados, com aviso no chat 10 segundos antes. O preço aumenta 35% a cada prestígio. A partir do Cavaleiro, upar também pede blocos minerados (contados desde o primeiro dia, não zeram no prestígio).</p>
+    <div class="minas" id="lista-minas"></div>
+  </section>
+
+  <!-- MINAS ESPECIAIS -->
+  <section id="especiais">
+    <span class="eyebrow">Risco e recompensa</span>
+    <h2>Minas especiais</h2>
+    <p>Ficam na última linha do <code>/minas</code>. Em vez dos blocos decorativos, dão os <strong>minérios da mina do seu rank + 1 ou + 2</strong>, então são sempre melhores que a sua mina normal.</p>
+    <div class="tabela">
+      <table>
+        <thead><tr><th>Mina</th><th>Quem entra</th><th>Visual</th><th>Minérios</th><th class="num">Tokens</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Mina VIP</strong></td><td>VIP, VIP+ e MVP</td><td>Caverna de cristal (ametista)</td><td>Seu rank + 1</td><td class="num">×1</td></tr>
+          <tr><td><strong>Mina VIP+</strong></td><td>VIP+ e MVP</td><td>Templo do deserto</td><td>Seu rank + 1</td><td class="num">×1,5</td></tr>
+          <tr><td><strong>Mina MVP</strong></td><td>MVP</td><td>Ilha no céu</td><td>Seu rank + 2</td><td class="num">×2</td></tr>
+          <tr><td><strong>Mina do Prestígio</strong></td><td>Prestígio 1 ou mais</td><td>Templo do End</td><td>Seu rank + 2</td><td class="num">×2</td></tr>
+          <tr><td><strong>⚔ Mina PvP</strong></td><td>Todos</td><td>Arena em ruínas</td><td>Seu rank + 1</td><td class="num">×2</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="aviso"><strong>Mina PvP:</strong> lá dentro um jogador pode atacar o outro. Quem morre perde todos os itens (a Picareta Suprema fica com você). Ao bater ou apanhar você fica <strong>15 segundos em combate</strong>: sem <code>/spawn</code>, <code>/home</code>, <code>/tpa</code>, <code>/minas</code> e sem voar. Quem desloga em combate morre. Isso também vale no PvP da Sobrevivência.</div>
+  </section>
+
+  <!-- PICARETA -->
+  <section id="picareta">
+    <span class="eyebrow">Melhorias</span>
+    <h2>Picareta Suprema</h2>
+    <p>Segure a picareta e use <code>/picareta</code>. Clique esquerdo compra 1 nível; clique direito compra até 10. Cada nível custa mais que o anterior. A primeira linha do menu é paga com dinheiro; a segunda, com <strong>tokens</strong>.</p>
+    <div class="tabela">
+      <table>
+        <thead><tr><th>Melhoria</th><th>Efeito</th><th class="num">Máximo</th><th class="num">1º nível</th><th class="num">Aumento por nível</th><th class="num">Custo do último nível</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Eficiência</strong></td><td>Minera mais rápido.</td><td class="num">20</td><td class="num">$750</td><td class="num">×1,40</td><td class="num" data-custo="750,1.40,20"></td></tr>
+          <tr><td><strong>Fortuna</strong></td><td>Mais itens por bloco (média de 1 + nível ÷ 4).</td><td class="num">50</td><td class="num">$1.500</td><td class="num">×1,18</td><td class="num" data-custo="1500,1.18,50"></td></tr>
+          <tr><td><strong>Explosão</strong></td><td>1,5% de chance por nível de quebrar uma área 3×3×3.</td><td class="num">10</td><td class="num">$10.000</td><td class="num">×1,55</td><td class="num" data-custo="10000,1.55,10"></td></tr>
+          <tr><td><strong>Laser</strong></td><td>0,1% de chance por nível de destruir a camada inteira da mina.</td><td class="num">50</td><td class="num">60 tokens</td><td class="num">×1,10</td><td class="num" data-custo="60,1.10,50,tokens"></td></tr>
+          <tr><td><strong>Sorte de Token</strong></td><td>+10% de chance de tokens por nível.</td><td class="num">25</td><td class="num">40 tokens</td><td class="num">×1,15</td><td class="num" data-custo="40,1.15,25,tokens"></td></tr>
+          <tr><td><strong>Velocidade</strong></td><td>Efeito Velocidade enquanto segura a picareta.</td><td class="num">3</td><td class="num">150 tokens</td><td class="num">×2</td><td class="num" data-custo="150,2,3,tokens"></td></tr>
+          <tr><td><strong>Visão Noturna</strong></td><td>Enxerga no escuro enquanto segura a picareta.</td><td class="num">1</td><td class="num">100 tokens</td><td class="num">—</td><td class="num">100 tokens</td></tr>
+          <tr><td><strong>Fundição</strong></td><td>Minério já sai como barra ou gema, que vale mais na venda (ex.: ferro $8 → barra $14).</td><td class="num">1</td><td class="num">400 tokens</td><td class="num">—</td><td class="num">400 tokens</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- TOKENS E LOJA -->
+  <section id="loja">
+    <span class="eyebrow">Economia</span>
+    <h2>Tokens e loja</h2>
+    <div class="grade-2">
+      <div class="bloco">
+        <h3>Tokens de mina</h3>
+        <ul>
+          <li>Cada bloco minerado no Rankup tem <strong>2% de chance</strong> de dar 1 a 3 tokens.</li>
+          <li>A chance sobe com a Sorte de Token, com o booster de tokens e nas minas especiais.</li>
+          <li>Os tokens aparecem na barra de ação, na scoreboard e no <code>/tokens</code>.</li>
+          <li>Dá para enviar tokens com <code>/tokens pagar NICK QUANTIDADE</code>.</li>
+        </ul>
+      </div>
+      <div class="bloco">
+        <h3>Boosters (<code>/loja</code> no Rankup)</h3>
+        <ul>
+          <li><strong>Venda +50%</strong> por 15 min, <strong>+100%</strong> por 20 min e <strong>+200%</strong> por 15 min.</li>
+          <li><strong>Tokens +50%</strong> por 15 min e <strong>+100%</strong> por 20 min.</li>
+          <li>O preço é uma porcentagem do custo do seu próximo rank, então serve para todo mundo.</li>
+          <li>Comprar o mesmo booster de novo soma o tempo.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="dica">Na Sobrevivência, a <code>/loja</code> vende blocos, comida, ferramentas (incluindo a pá de ouro), sementes e itens especiais, e compra farm, drops de mobs e minérios. O dinheiro da Sobrevivência começa do zero e não se mistura com o do Rankup.</div>
+  </section>
+
+  <!-- PRESTÍGIO -->
+  <section id="prestigio">
+    <span class="eyebrow">Fim de jogo</span>
+    <h2>Prestígio</h2>
+    <div class="grade-2">
+      <div class="bloco">
+        <h3>Como funciona</h3>
+        <ul>
+          <li>Chegue ao rank <strong>Lenda</strong> e use <code>/prestigio confirmar</code>.</li>
+          <li>Custo: $50M × (1 + 0,5 × prestígio atual). O primeiro custa $50M, o segundo $75M.</li>
+          <li>Você volta ao rank Mendigo, mas mantém o dinheiro e a picareta.</li>
+          <li>Máximo de 100 prestígios.</li>
+        </ul>
+      </div>
+      <div class="bloco">
+        <h3>O que você ganha</h3>
+        <ul>
+          <li><strong>+10% no valor de venda</strong> por prestígio, para sempre.</li>
+          <li>A <code>/autovender</code> é liberada no prestígio 1.</li>
+          <li>Tag ✦ no chat com o número do seu prestígio.</li>
+          <li>Em troca, os ranks ficam 35% mais caros a cada prestígio.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBREVIVÊNCIA -->
+  <section id="sobrevivencia">
+    <span class="eyebrow">Segundo mundo</span>
+    <h2>Sobrevivência</h2>
+    <p>Um survival normal, com Nether e End próprios, dificuldade normal, PvP ligado e borda de 10.000 blocos. Inventário, vida, XP, baú do End <strong>e dinheiro</strong> são separados do Rankup: ganhe dinheiro vendendo farm, drops e minérios na <code>/loja</code> ou nas lojas em baú.</p>
+    <div class="grade-2">
+      <div class="bloco">
+        <h3>Proteja sua base</h3>
+        <ul>
+          <li>Pegue uma <strong>pá de ouro</strong> e clique com o botão direito em dois cantos opostos.</li>
+          <li>Você começa com 100 blocos de terreno e ganha mais conforme joga.</li>
+          <li>A proteção vale no mundo normal do survival. No Nether e no End não há terrenos.</li>
+          <li>Dentro do terreno, só você e quem você <code>/confiar</code> pode construir e abrir baús.</li>
+          <li>O spawn do survival é protegido num raio de 24 blocos: use <code>/rtp</code> para começar longe.</li>
+        </ul>
+      </div>
+      <div class="bloco">
+        <h3>Recursos extras</h3>
+        <ul>
+          <li><strong>Habilidades</strong> estilo mcMMO (<code>/habilidades</code>): suba de nível minerando, lutando, cortando árvores e mais.</li>
+          <li><strong>Lojas em baú</strong>: venda e compre itens de outros jogadores.</li>
+          <li><strong>Túmulo</strong>: ao morrer, seus itens ficam num túmulo por 10 minutos e só você pode abri-lo.</li>
+          <li><strong>VeinMiner</strong>: agache e quebre um minério para levar o veio inteiro.</li>
+          <li>Sente e deite com <code>/sentar</code> e <code>/deitar</code>.</li>
+          <li>A noite passa quando 30% dos jogadores dormem.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIP -->
+  <section id="vip">
+    <span class="eyebrow">Apoie o servidor</span>
+    <h2>Vantagens VIP</h2>
+    <div class="tabela">
+      <table>
+        <thead><tr><th>Vantagem</th><th>Jogador</th><th>VIP</th><th>VIP+</th><th>MVP</th></tr></thead>
+        <tbody>
+          <tr><td>Bônus no valor de venda</td><td>—</td><td>+25%</td><td>+35%</td><td>+50%</td></tr>
+          <tr><td>Mina exclusiva</td><td>—</td><td>Mina VIP</td><td>VIP e VIP+</td><td>VIP, VIP+ e MVP</td></tr>
+          <tr><td>Venda automática</td><td>Prestígio 1+</td><td>Sim</td><td>Sim</td><td>Sim</td></tr>
+          <tr><td>Casas (<code>/sethome</code>)</td><td>2</td><td>5</td><td>7</td><td>10</td></tr>
+          <tr><td><code>/fly</code>, <code>/hat</code>, <code>/craft</code>, <code>/ec</code></td><td>—</td><td>Sim</td><td>Sim</td><td>Sim</td></tr>
+          <tr><td><code>/feed</code></td><td>—</td><td>—</td><td>Sim</td><td>Sim</td></tr>
+          <tr><td><code>/anvil</code></td><td>—</td><td>—</td><td>—</td><td>Sim</td></tr>
+          <tr><td>Cores no chat</td><td>—</td><td>Sim</td><td>Sim</td><td>Sim</td></tr>
+          <tr><td>Tag no chat</td><td>—</td><td>[VIP]</td><td>[VIP+]</td><td>[MVP]</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- STAFF -->
+  <section id="staff">
+    <span class="eyebrow">Equipe</span>
+    <h2>Cargos da staff</h2>
+    <div class="tabela">
+      <table>
+        <thead><tr><th>Cargo</th><th>Pode fazer</th><th>Comando para dar o cargo</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Ajudante</strong></td><td>Mutar, expulsar, teleportar até jogadores, ver informações, receber /helpop.</td><td><code>lp user NICK parent set ajudante</code></td></tr>
+          <tr><td><strong>Moderador</strong></td><td>Tudo do Ajudante + banir, banir temporariamente, desbanir, vanish, ver inventários, voar.</td><td><code>lp user NICK parent set moderador</code></td></tr>
+          <tr><td><strong>Admin</strong></td><td>Tudo do Moderador + todos os comandos do EssentialsX, WorldEdit, WorldGuard, terrenos, mundos e <code>/rankupadmin</code>.</td><td><code>lp user NICK parent set admin</code></td></tr>
+          <tr><td><strong>Dono</strong></td><td>Todas as permissões, incluindo o <code>/menuop</code>.</td><td><code>lp user NICK parent set dono</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="dica">Use <code>parent set</code> para trocar o cargo e <code>parent add</code> para somar (ex.: um Moderador que também é VIP).</div>
+  </section>
+
+  <!-- DONO -->
+  <section id="dono">
+    <span class="eyebrow">Administração</span>
+    <h2>Guia do dono</h2>
+    <div class="grade-2">
+      <div class="bloco">
+        <h3>Primeira vez</h3>
+        <ol>
+          <li>Ligue com <code>INICIAR.bat</code> e espere aparecer <code>Done</code>.</li>
+          <li>Entre no jogo e registre seu nick: <code>/registrar SENHA SENHA</code>.</li>
+          <li>No console do servidor: <code>lp user SEU_NICK parent set dono</code>.</li>
+          <li>Registre os nicks da staff antes de divulgar o IP.</li>
+          <li>Para desligar, digite <code>stop</code> no console.</li>
+        </ol>
+      </div>
+      <div class="bloco">
+        <h3>/menuop</h3>
+        <ul>
+          <li><strong>Dinheiro</strong>: +/− $1K, $100K, $1M e $1B (Shift = ×10), ou zerar.</li>
+          <li><strong>Tokens</strong>: +/− 1.000 (Shift = ×10).</li>
+          <li><strong>Picareta MAX</strong> (todas as melhorias no máximo) e <strong>Picareta Divina</strong> (Eficiência 50, Fortuna 300, Explosão 66, Laser 100 e mais).</li>
+          <li><strong>Ranks</strong>: subir/descer, rank máximo, prestígio ±1.</li>
+          <li><strong>Jogador</strong>: criativo, voar, curar, Pressa V, Kit OP, +30 níveis.</li>
+          <li><strong>Servidor</strong>: vanish, modo construção, resetar minas, dia no survival, recarregar.</li>
+          <li>Use em outros jogadores com <code>/menuop NICK</code> ou pela bússola do menu.</li>
+        </ul>
+      </div>
+    </div>
+    <h3>Subcomandos do /rankupadmin</h3>
+    <div class="tabela">
+      <table>
+        <thead><tr><th>Comando</th><th>O que faz</th></tr></thead>
+        <tbody>
+          <tr><td><span class="cmd">/rankupadmin recarregar</span></td><td>Recarrega ranks, minas, preços, mensagens e configurações.</td></tr>
+          <tr><td><span class="cmd">/rankupadmin setrank &lt;nick&gt; &lt;rank&gt;</span></td><td>Define o rank (ex.: <code>lenda</code>).</td></tr>
+          <tr><td><span class="cmd">/rankupadmin setprestigio &lt;nick&gt; &lt;n&gt;</span></td><td>Define o prestígio.</td></tr>
+          <tr><td><span class="cmd">/rankupadmin darpicareta [nick]</span></td><td>Dá uma Picareta Suprema nova.</td></tr>
+          <tr><td><span class="cmd">/rankupadmin setpicareta &lt;melhoria&gt; &lt;nível&gt;</span></td><td>Define o nível da picareta na sua mão (eficiencia, fortuna, explosao, laser, sorte-token, velocidade, visao-noturna, fundicao).</td></tr>
+          <tr><td><span class="cmd">/rankupadmin tokens &lt;nick&gt; dar|tirar|definir &lt;qtd&gt;</span></td><td>Mexe nos tokens de mina de um jogador.</td></tr>
+          <tr><td><span class="cmd">/rankupadmin resetarmina &lt;mina|todas&gt;</span></td><td>Enche a mina na hora.</td></tr>
+          <tr><td><span class="cmd">/rankupadmin reconstruir &lt;mina|spawn&gt;</span></td><td>Reconstrói a estrutura depois de mudar o tamanho na configuração.</td></tr>
+          <tr><td><span class="cmd">/rankupadmin setspawn</span></td><td>Define o spawn do Rankup onde você está.</td></tr>
+          <tr><td><span class="cmd">/rankupadmin construir</span></td><td>Liga/desliga o modo construção (editar spawn e minas).</td></tr>
+          <tr><td><span class="cmd">/rankupadmin info &lt;nick&gt;</span></td><td>Rank, prestígio, blocos e autovenda de um jogador.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>Onde editar</h3>
+    <div class="tabela">
+      <table>
+        <thead><tr><th>Arquivo</th><th>Conteúdo</th></tr></thead>
+        <tbody>
+          <tr><td><code>plugins/RankupSupremo/config.yml</code></td><td>Scoreboard, TAB, chat, hologramas, picareta, tokens, combate, prestígio, VIPs, Sobrevivência.</td></tr>
+          <tr><td><code>plugins/RankupSupremo/ranks.yml</code></td><td>Ranks, preços, tags e requisito de blocos.</td></tr>
+          <tr><td><code>plugins/RankupSupremo/minas.yml</code></td><td>Blocos de cada mina, tempo de reset e as minas especiais.</td></tr>
+          <tr><td><code>plugins/RankupSupremo/loja.yml</code></td><td>Itens e preços da <code>/loja</code> do Rankup e da Sobrevivência.</td></tr>
+          <tr><td><code>plugins/RankupSupremo/vendas.yml</code></td><td>Preço de cada bloco.</td></tr>
+          <tr><td><code>plugins/RankupSupremo/mensagens.yml</code></td><td>Todas as mensagens do plugin.</td></tr>
+          <tr><td><code>plugins/GriefPreventionData/config.yml</code></td><td>Blocos de terreno iniciais e por hora.</td></tr>
+          <tr><td><code>plugins/Essentials/rules.txt</code></td><td>Regras do <code>/rules</code>.</td></tr>
+          <tr><td><code>server.properties</code></td><td>Descrição (MOTD), slots e porta.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="dica">Depois de editar os arquivos do RankupSupremo, use <code>/rankupadmin recarregar</code>. Para os outros plugins, reinicie o servidor.</div>
+  </section>
+
+  <footer>
+    <span>RankUP Supremo · Paper 26.3 · Plugins: RankupSupremo, EssentialsX, LuckPerms, AuthMe, Multiverse, GriefPrevention, AuraSkills, QuickShop, AxGraves, VeinMiner, GSit, WorldEdit, WorldGuard, ViaVersion.</span>
+    <span>Valores de ranks, minas e picareta conferidos com as configurações do servidor.</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  // Ícone: uma picareta desenhada em pixels
+  var c = document.getElementById('icone');
+  if (c && c.getContext) {
+    var g = c.getContext('2d');
+    var px = [
+      '................', '....DDDDDDD.....', '...DCCCCCCCD....', '..DC.......CD...',
+      '.DC....HH...CD..', 'DC.....HH....CD.', 'D.....HH......D.', '......HH........',
+      '.....HH.........', '.....HH.........', '....HH..........', '....HH..........',
+      '...HH...........', '...HH...........', '..HH............', '................'];
+    var cores = { D: '#0f6f6a', C: '#4fd1c5', H: '#8b5a2b' };
+    for (var y = 0; y < 16; y++) for (var x = 0; x < 16; x++) {
+      var k = px[y][x];
+      if (cores[k]) { g.fillStyle = cores[k]; g.fillRect(x, y, 1, 1); }
+    }
+  }
+
+  // Copiar IP
+  var botao = document.getElementById('copiar');
+  botao.addEventListener('click', function () {
+    var ip = document.getElementById('ip').textContent.trim();
+    var feito = function () { botao.textContent = 'Copiado!'; setTimeout(function () { botao.textContent = 'Copiar IP'; }, 1600); };
+    var selecionar = function () {
+      var r = document.createRange(); r.selectNodeContents(document.getElementById('ip'));
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); botao.textContent = 'Use Ctrl+C';
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(ip).then(feito, selecionar);
+    } else { selecionar(); }
+  });
+
+  // Minas (valores iguais ao minas.yml / ranks.yml)
+  var cor = {
+    STONE: ['Pedra', '#8a8d91'], COBBLESTONE: ['Pedregulho', '#6f7276'], ANDESITE: ['Andesito', '#a3a6a8'],
+    DEEPSLATE: ['Ardósia', '#4a4c52'], COAL_ORE: ['Carvão', '#2b2b2b'], COPPER_ORE: ['Cobre', '#c06a3e'],
+    IRON_ORE: ['Ferro', '#d2b48c'], LAPIS_ORE: ['Lápis', '#2b55c0'], REDSTONE_ORE: ['Redstone', '#c81e1e'],
+    GOLD_ORE: ['Ouro', '#e8c33a'], DEEPSLATE_IRON_ORE: ['Ferro de ardósia', '#b99a72'],
+    DEEPSLATE_LAPIS_ORE: ['Lápis de ardósia', '#24459e'], DEEPSLATE_REDSTONE_ORE: ['Redstone de ardósia', '#a51818'],
+    DEEPSLATE_GOLD_ORE: ['Ouro de ardósia', '#c9a42c'], NETHER_QUARTZ_ORE: ['Quartzo', '#e6ddd2'],
+    DIAMOND_ORE: ['Diamante', '#4fd1c5'], COAL_BLOCK: ['Bloco de carvão', '#161616'], EMERALD_ORE: ['Esmeralda', '#2fbf63'],
+    IRON_BLOCK: ['Bloco de ferro', '#d8d8d8'], DEEPSLATE_DIAMOND_ORE: ['Diamante de ardósia', '#36a99f'],
+    DEEPSLATE_EMERALD_ORE: ['Esmeralda de ardósia', '#24994e'], LAPIS_BLOCK: ['Bloco de lápis', '#1f43a8'],
+    REDSTONE_BLOCK: ['Bloco de redstone', '#b01212'], GOLD_BLOCK: ['Bloco de ouro', '#f5cf3c'],
+    AMETHYST_BLOCK: ['Ametista', '#8c5fc4'], QUARTZ_BLOCK: ['Bloco de quartzo', '#efe9e0'],
+    DIAMOND_BLOCK: ['Bloco de diamante', '#67e0d6'], EMERALD_BLOCK: ['Bloco de esmeralda', '#3ad070'],
+    ANCIENT_DEBRIS: ['Detritos ancestrais', '#6b4a3c'], NETHERITE_BLOCK: ['Bloco de netherita', '#3d3a3b']
+  };
+  var minas = [
+    ['Mendigo', 0, { STONE: 60, COBBLESTONE: 25, COAL_ORE: 15 }],
+    ['Plebeu', 1000, { STONE: 35, COAL_ORE: 35, COPPER_ORE: 20, ANDESITE: 10 }],
+    ['Camponês', 3500, { COAL_ORE: 30, COPPER_ORE: 30, IRON_ORE: 25, ANDESITE: 15 }],
+    ['Aprendiz', 9000, { COPPER_ORE: 25, IRON_ORE: 35, LAPIS_ORE: 20, DEEPSLATE: 20 }],
+    ['Minerador', 22000, { IRON_ORE: 30, LAPIS_ORE: 25, REDSTONE_ORE: 25, GOLD_ORE: 20 }],
+    ['Ferreiro', 50000, { DEEPSLATE_IRON_ORE: 25, DEEPSLATE_LAPIS_ORE: 25, DEEPSLATE_REDSTONE_ORE: 25, DEEPSLATE_GOLD_ORE: 25 }],
+    ['Mercador', 110000, { DEEPSLATE_GOLD_ORE: 30, NETHER_QUARTZ_ORE: 30, DIAMOND_ORE: 20, COAL_BLOCK: 20 }],
+    ['Cavaleiro', 240000, { DIAMOND_ORE: 30, EMERALD_ORE: 15, IRON_BLOCK: 20, DEEPSLATE_GOLD_ORE: 35 }, 5000],
+    ['Barão', 500000, { DEEPSLATE_DIAMOND_ORE: 30, DEEPSLATE_EMERALD_ORE: 20, IRON_BLOCK: 25, LAPIS_BLOCK: 25 }, 10000],
+    ['Conde', 1000000, { REDSTONE_BLOCK: 30, GOLD_BLOCK: 25, DEEPSLATE_EMERALD_ORE: 25, LAPIS_BLOCK: 20 }, 20000],
+    ['Duque', 2000000, { GOLD_BLOCK: 35, AMETHYST_BLOCK: 25, QUARTZ_BLOCK: 25, DIAMOND_BLOCK: 15 }, 35000],
+    ['Príncipe', 4000000, { DIAMOND_BLOCK: 30, QUARTZ_BLOCK: 30, GOLD_BLOCK: 25, EMERALD_BLOCK: 15 }, 50000],
+    ['Rei', 8000000, { DIAMOND_BLOCK: 35, EMERALD_BLOCK: 35, AMETHYST_BLOCK: 20, GOLD_BLOCK: 10 }, 75000],
+    ['Imperador', 16000000, { EMERALD_BLOCK: 40, DIAMOND_BLOCK: 35, ANCIENT_DEBRIS: 25 }, 100000],
+    ['Lenda', 32000000, { ANCIENT_DEBRIS: 35, EMERALD_BLOCK: 40, NETHERITE_BLOCK: 10, DIAMOND_BLOCK: 15 }, 150000]
+  ];
+  var dinheiro = function (v) {
+    if (v === 0) return 'inicial';
+    if (v >= 1e6) return '$' + (v / 1e6).toLocaleString('pt-BR') + 'M';
+    if (v >= 1e3) return '$' + (v / 1e3).toLocaleString('pt-BR') + 'K';
+    return '$' + v.toLocaleString('pt-BR');
+  };
+  var lista = document.getElementById('lista-minas');
+  minas.forEach(function (m, i) {
+    var art = document.createElement('article');
+    art.className = 'mina';
+    var total = 0; Object.keys(m[2]).forEach(function (k) { total += m[2][k]; });
+    var barra = '', legenda = '';
+    Object.keys(m[2]).forEach(function (k) {
+      var p = m[2][k] / total * 100, c = cor[k] || ['?', '#999'];
+      barra += '<i style="width:' + p + '%;background:' + c[1] + '" title="' + c[0] + ' ' + Math.round(p) + '%"></i>';
+      legenda += '<li><b style="background:' + c[1] + '"></b>' + c[0] + ' ' + Math.round(p) + '%</li>';
+    });
+    var requisito = m[3] ? '<li>+ ' + (m[3] / 1000).toLocaleString('pt-BR') + ' mil blocos minerados</li>' : '';
+    art.innerHTML = '<header><h3>' + (i + 1) + '. ' + m[0] + '</h3><span class="custo">' + dinheiro(m[1]) + '</span></header>' +
+      '<div class="barra" role="img" aria-label="Composição da mina ' + m[0] + '">' + barra + '</div><ul class="legenda">' + legenda + requisito + '</ul>';
+    lista.appendChild(art);
+  });
+
+  // Custo do último nível da picareta
+  document.querySelectorAll('[data-custo]').forEach(function (td) {
+    var p = td.getAttribute('data-custo').split(',');
+    var v = Number(p[0]) * Math.pow(Number(p[1]), Number(p[2]) - 1);
+    td.textContent = p[3] === 'tokens' ? Math.ceil(v).toLocaleString('pt-BR') + ' tokens' : dinheiro(Math.round(v));
+  });
+
+  // Filtro de comandos
+  var linhas = Array.prototype.slice.call(document.querySelectorAll('#tabela-comandos tbody tr'));
+  var busca = document.getElementById('busca');
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var quem = 'todos';
+  try { quem = localStorage.getItem('rs-quem') || 'todos'; } catch (e) { quem = 'todos'; }
+  function aplicar() {
+    var termo = busca.value.trim().toLowerCase();
+    var visiveis = 0;
+    linhas.forEach(function (tr) {
+      if (tr.classList.contains('grupo')) return;
+      var okQuem = quem === 'todos' || tr.getAttribute('data-quem') === quem;
+      var okTermo = !termo || tr.textContent.toLowerCase().indexOf(termo) >= 0;
+      tr.hidden = !(okQuem && okTermo);
+      if (!tr.hidden) visiveis++;
+    });
+    linhas.forEach(function (tr, i) {
+      if (!tr.classList.contains('grupo')) return;
+      var algum = false;
+      for (var j = i + 1; j < linhas.length && !linhas[j].classList.contains('grupo'); j++) if (!linhas[j].hidden) { algum = true; break; }
+      tr.hidden = !algum;
+    });
+    chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c.getAttribute('data-quem') === quem)); });
+    document.getElementById('contagem').textContent = visiveis + (visiveis === 1 ? ' comando' : ' comandos');
+  }
+  chips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      quem = c.getAttribute('data-quem');
+      try { localStorage.setItem('rs-quem', quem); } catch (e) { /* sem armazenamento */ }
+      aplicar();
+    });
+  });
+  busca.addEventListener('input', aplicar);
+  aplicar();
+})();
+</script>
+</body>
+</html>

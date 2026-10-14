@@ -1,0 +1,48 @@
+hologram:
+- '&#FF0000☠ &#FF0000&lTúmulo de %player% &#FF0000☠'
+- '&#00CC00⌛ &#00FF00%despawn-time% &#00CC00⌛'
+- '&#00AAFF%item% &fitens &8| &#00AAFF%xp% &fXP'
+
+help:
+- ' '
+- <gradient:#FF00FF:#DD00FF><b>Túmulos</b></gradient> <#FF55FF>Ajuda
+- ' <#FF55FF>➤ <white>/axgraves reload <#DDDDDD>| <#FFAAFF>Recarrega o plugin'
+- ' <#FF55FF>➤ <white>/axgraves list <#DDDDDD>| <#FFAAFF>Lista os túmulos existentes'
+- ' <#FF55FF>➤ <white>/axgraves tp <#DDDDDD>| <#FFAAFF>Teleporta para o último túmulo'
+- ' '
+
+gui-name: '&0Túmulo de %player%'
+
+# se o servidor reiniciar, às vezes o nome do dono não é encontrado; este texto é usado no lugar
+unknown-player: Desconhecido
+
+reload:
+  success: '&#33FF33Plugin recarregado com sucesso!'
+  failed: '&#FF3333Falha ao recarregar o plugin! Há um erro no arquivo &f%file%&#FF3333, veja o console ou use um validador de YAML.'
+
+interact:
+  not-your-grave: '&#FFAAFFVocê só pode abrir o seu próprio túmulo!'
+
+death-message:
+  enabled: true
+  message: '&#FFAAAAVocê morreu em &f%world% %x%, %y%, %z%&#FFAAAA! Seus itens estão no seu túmulo por 10 minutos.'
+
+grave-list:
+  header: '&#FF00FF&l=== TÚMULOS ==='
+  grave: '&#FF00FF[TP] &#FFAAFF%player% &7- &#FFAAFF%world% %x%, %y%, %z% &7(%time%)'
+  no-graves: '&#FFAAFFNenhum túmulo encontrado!'
+
+commands:
+  invalid-value: '&#FF0000Valor inválido: &#BB0000%value%'
+  invalid-command: '&#FF0000Comando ou subcomando inválido!'
+  missing-argument: '&#FF0000Faltou um argumento! Informe um valor para &#BB0000%value%&#FF0000.'
+  no-permission: '&#FF0000Você não tem permissão para usar este comando!'
+  out-of-range: '&#FF0000O valor &#BB0000%number% &#FF0000deve estar entre &#BB0000%min% &#FF0000e &#BB0000%max%&#FF0000!'
+  player-only: '&#FF0000Apenas jogadores podem usar este comando!'
+  invalid-player: '&#FF0000O jogador &#BB0000%player% &#FF0000não foi encontrado!'
+  invalid-selector: '&#FF0000Você não pode usar este seletor neste comando!'
+
+update-notifier: '&#FF88FFHá uma nova versão do AxGraves disponível! &#DDDDDD(&#FFFFFFatual: &#FF0000%current% &#DDDDDD| &#FFFFFFnova: &#00FF00%latest%&#DDDDDD)'
+
+# do not edit
+version: 6

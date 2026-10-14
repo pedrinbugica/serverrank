@@ -1,0 +1,265 @@
+# ==================================================================
+#                  RANKUP SUPREMO - MENSAGENS
+# ==================================================================
+# Deixe uma mensagem vazia ("") para não enviá-la.
+# ==================================================================
+
+menuop-confirmar: '<yellow>⚠ Segure <white>Shift<yellow> e clique de novo para confirmar:
+  <white>{acao}'
+menuop-pergunta: <aqua>✎ {pergunta} <gray>(digite no chat, ou <white>cancelar<gray>)
+menuop-pergunta-cancelada: <gray>Cancelado.
+menuop-congelado-aviso: <aqua>Você está congelado pela staff. Só dá para usar /msg
+  e /helpop.
+menuop-mensagem-servidor: <gold>[Servidor] <white>{mensagem}
+menuop-aviso: <red><bold>⚠ AVISO DA STAFF:</bold> <white>{mensagem}
+menuop-chat-limpo: <gray>O chat foi limpo por <white>{jogador}<gray>.
+menuop-mao-vazia: <red>{jogador} não está segurando nenhum item.
+menuop-anuncio: <gold><bold>📢 ANÚNCIO</bold> <dark_gray>» <white>{mensagem}
+menuop-presente: '<gold>✦ Presente do Dono: <white>{presente}<gold>!'
+menuop-desligamento-cancelado: <green>O desligamento do servidor foi cancelado.
+menuop-desligando: <red>⚠ O servidor vai desligar em <white>{segundos}s<red>! <gray>(por
+  {jogador})
+prefixo: <dark_gray>[<gradient:#FFD700:#FF8C00><bold>RS</bold></gradient><dark_gray>]
+  <reset>
+
+# Gerais
+apenas-jogador: <red>Este comando só pode ser usado dentro do jogo.
+sem-permissao: <red>Você não tem permissão para isso.
+economia-indisponivel: <red>A economia está indisponível no momento. Avise a staff!
+erro-transacao: <red>Não foi possível concluir a transação. Tente novamente.
+area-protegida: <red>Você só pode minerar dentro das minas! Use <white>/minas<red>.
+spawn-teleportado: <green>Teleportado para o spawn!
+
+boas-vindas:
+- ''
+- <gradient:#FFD700:#FF8C00><bold>  ✦ BEM-VINDO(A) AO RANKUP SUPREMO! ✦</bold></gradient>
+- ''
+- <gray>  Você recebeu sua <aqua>Picareta Suprema<gray>!
+- <gray>  1. Use <white>/minas <gray>para ir até a sua mina
+- <gray>  2. Minere e use <white>/vender <gray>para ganhar dinheiro
+- <gray>  3. Use <white>/rankup <gray>para subir de rank
+- <gray>  4. Melhore sua picareta com <white>/picareta
+- <gray>  5. Junte <light_purple>tokens<gray> minerando e compre encantamentos especiais
+- <gray>  6. Use <white>/loja <gray>para boosters e <white>/tokens <gray>para ver
+  seus tokens
+- ''
+
+# Rankup
+rankup-ultimo-rank: <yellow>Você já está no último rank! Use <white>/prestigio <yellow>para
+  renascer mais forte.
+rankup-sem-dinheiro: <red>Você precisa de <white>${custo} <red>para upar para {rank}<red>.
+  Faltam <white>${falta}<red>.
+rankup-sucesso: <green>Você subiu para o rank {rank}<green>! <gray>(custou ${custo})
+rankup-transmissao: <gold>✦ <yellow>{jogador} <gray>subiu para o rank {rank}<gray>!
+rankup-titulo: <gradient:#FFD700:#FF8C00><bold>RANK UP!</bold></gradient>
+rankup-subtitulo: <gray>Agora você é {rank}
+rankup-nova-mina: '<aqua>Nova mina liberada: {mina}<aqua>! Use <white>/minas<aqua>.'
+rankup-chegou-ultimo: <light_purple>Você chegou ao último rank! Use <white>/prestigio
+  <light_purple>para renascer com bônus.
+rankup-sem-blocos: <red>Para upar para {rank} <red>você precisa ter minerado <white>{blocos}
+  <red>blocos. Faltam <white>{falta}<red>.
+
+# Prestígio
+prestigio-info:
+- ''
+- <light_purple><bold>  ✦ PRESTÍGIO ✦</bold>
+- ''
+- '<gray>  Prestígio atual: <light_purple>{prestigio} <gray>(bônus de venda <green>+{bonus-atual}%<gray>)'
+- '<gray>  Próximo prestígio: <light_purple>{proximo} <gray>(bônus de venda <green>+{bonus-novo}%<gray>)'
+- ''
+- '<gray>  Requisitos: estar no rank {rank} <gray>e ter <green>${custo}'
+- '<red>  Atenção: <gray>você volta ao primeiro rank e os ranks ficam <white>{aumento}%
+  <gray>mais caros.'
+- ''
+- <yellow>  Para confirmar, digite <white>/prestigio confirmar
+- ''
+prestigio-maximo: <red>Você já atingiu o prestígio máximo!
+prestigio-nao-ultimo-rank: <red>Você precisa estar no rank {rank} <red>para prestigiar.
+prestigio-sem-dinheiro: <red>Você precisa de <white>${custo} <red>para prestigiar.
+  Faltam <white>${falta}<red>.
+prestigio-sucesso: <light_purple>Você renasceu! Agora você tem <white>{prestigio}
+  <light_purple>prestígio(s).
+prestigio-transmissao: <light_purple>✦ <white>{jogador} <light_purple>alcançou o <bold>PRESTÍGIO
+  {prestigio}</bold><light_purple>!
+prestigio-titulo: <gradient:#00F5FF:#B388FF><bold>PRESTÍGIO {prestigio}!</bold></gradient>
+prestigio-subtitulo: <gray>Você renasceu mais forte
+
+# Minas
+mina-sem-acesso: <red>Você precisa do rank {rank} <red>para usar esta mina.
+mina-sem-acesso-cargo: <red>Esta mina é exclusiva para <green>{cargo}<red>!
+mina-sem-acesso-prestigio: <red>Esta mina é só para quem tem <light_purple>prestígio
+  {prestigio}<red> ou mais.
+mina-aviso-reset: <yellow>⚠ A {mina} <yellow>vai resetar em <white>{segundos}s<yellow>!
+  Quem estiver dentro volta para a entrada.
+mina-pvp-aviso: <red><bold>⚔ CUIDADO!</bold> <red>Aqui o PvP é ligado. Se morrer,
+  você perde os itens (a picareta fica com você).
+mina-nao-encontrada: <red>Mina não encontrada. Use <white>/minas<red>.
+mina-teleportado: <green>Bem-vindo(a) à {mina}<green>! Bom trabalho!
+mina-resetada: <aqua>A {mina} <aqua>foi resetada!
+holograma-resetando: <aqua>resetando...
+
+# Vendas
+vender-nada: <red>Você não tem nada para vender.
+vender-sucesso: <green>Você vendeu <white>{quantidade} <green>itens por <white>${valor}
+  <gray>(bônus x{multiplicador})
+autovender-bloqueado: <red>A venda automática é liberada no <white>prestígio {prestigio}
+  <red>ou para <green>VIPs<red>.
+autovender-ativado: <green>Venda automática <bold>ATIVADA</bold><green>!
+autovender-desativado: <red>Venda automática <bold>DESATIVADA</bold><red>.
+autovender-barra: <green>+${valor} <dark_gray>• <gray>autovenda <aqua>x{multiplicador}
+inventario-cheio-titulo: <red><bold>INVENTÁRIO CHEIO!
+inventario-cheio-subtitulo: <gray>Use <white>/vender <gray>para vender seus itens
+laser-barra: <aqua><bold>⚡ LASER!</bold>
+tokens-barra: <light_purple>+{tokens} tokens <dark_gray>(<gray>{total}<dark_gray>)
+
+# Picareta
+picareta-segure: <red>Segure sua picareta na mão para melhorá-la.
+picareta-nivel-maximo: <gold>{melhoria} <yellow>já está no nível máximo!
+picareta-sem-dinheiro: <red>Você precisa de <white>${custo} <red>para esta melhoria.
+  Faltam <white>${falta}<red>.
+picareta-melhorada: <aqua>{melhoria} <green>agora está no nível <white>{nivel}<green>!
+  <gray>(+{niveis} por ${custo})
+picareta-melhorada-tokens: <aqua>{melhoria} <green>agora está no nível <white>{nivel}<green>!
+  <gray>(+{niveis} por {custo} tokens)
+picareta-sem-tokens: <red>Você precisa de <light_purple>{custo} tokens <red>para esta
+  melhoria. Faltam <white>{falta}<red>. Tokens caem minerando!
+picareta-ja-tem: <yellow>Você já tem uma picareta no inventário.
+picareta-recebida: <green>Você recebeu sua <aqua>Picareta Suprema<green>!
+
+# Top
+toprank-cabecalho: <gradient:#FFD700:#FF8C00><bold>  ✪ TOP JOGADORES ✪</bold></gradient>
+toprank-linha: <yellow>  {posicao}º <white>{jogador} <dark_gray>• {rank} <light_purple>✦{prestigio}
+  <dark_gray>• <gold>{blocos} blocos
+toprank-vazio: <gray>  Ninguém no ranking ainda.
+toprank-rodape: ''
+
+# Variáveis exibidas na scoreboard
+variavel-proximo-prestigio: <light_purple>Prestígio!
+variavel-maximo: <gold>MÁXIMO
+variavel-ligado: <green>Ligada
+variavel-desligado: <red>Desligada
+
+# Administração
+admin-ajuda:
+- ''
+- <gold><bold>  RankUP Supremo - Admin</bold>
+- <yellow>  /rankupadmin recarregar <gray>- recarrega as configs
+- <yellow>  /rankupadmin setrank <jogador> <rank> <gray>- define o rank
+- <yellow>  /rankupadmin setprestigio <jogador> <n> <gray>- define o prestígio
+- <yellow>  /rankupadmin darpicareta [jogador] <gray>- dá uma picareta nova
+- <yellow>  /rankupadmin setpicareta <melhoria> <nivel> <gray>- define nível da picareta
+  na mão
+- <yellow>  /rankupadmin tokens <jogador> <dar|tirar|definir> <qtd> <gray>- tokens
+  de mina
+- <yellow>  /rankupadmin resetarmina <mina|todas> <gray>- reseta minas
+- <yellow>  /rankupadmin reconstruir <mina|spawn> <gray>- reconstrói estruturas
+- <yellow>  /rankupadmin setspawn <gray>- define o spawn na sua posição
+- <yellow>  /rankupadmin construir <gray>- liga/desliga o modo construção
+- <yellow>  /rankupadmin info <jogador> <gray>- informações do jogador
+- <yellow>  /menuop [jogador] <gray>- painel do dono (dinheiro, picaretas OP...)
+- ''
+admin-recarregado: <green>Configurações recarregadas!
+admin-uso: '<red>Uso correto: <white>{uso}'
+admin-rank-invalido: '<red>Rank inválido. Ranks: <white>{ranks}'
+admin-rank-definido: <green>Rank de <white>{jogador} <green>definido para {rank}<green>.
+admin-numero-invalido: <red>Número inválido.
+admin-prestigio-definido: <green>Prestígio de <white>{jogador} <green>definido para
+  <white>{prestigio}<green>.
+admin-jogador-nao-encontrado: <red>Jogador não encontrado.
+admin-picareta-dada: <green>Picareta entregue para <white>{jogador}<green>.
+admin-picareta-definida: <green>Melhoria <white>{melhoria} <green>definida para o
+  nível <white>{nivel}<green>.
+admin-mina-resetada: '<green>Reset iniciado: <white>{mina}'
+admin-reconstruindo: <yellow>Reconstruindo {alvo}<yellow>... aguarde.
+admin-reconstruido: <green>{alvo} <green>reconstruído(a) com sucesso!
+admin-spawn-definido: <green>Spawn definido na sua posição!
+admin-construir-ativado: <green>Modo construção <bold>ATIVADO</bold><green>. Você
+  pode quebrar e colocar blocos em qualquer lugar.
+admin-construir-desativado: <red>Modo construção <bold>DESATIVADO</bold><red>.
+admin-tokens-definido: <green>Agora <white>{jogador} <green>tem <light_purple>{tokens}
+  tokens<green>.
+admin-info:
+- ''
+- <gold><bold>  Informações de {jogador}</bold>
+- '<gray>  Rank: {rank}'
+- '<gray>  Prestígio: <light_purple>{prestigio}'
+- '<gray>  Blocos quebrados: <white>{blocos}'
+- '<gray>  Autovenda: <white>{autovender}'
+- '<gray>  Tokens: <light_purple>{tokens}'
+- '<dark_gray>  UUID: {uuid}'
+- ''
+
+# Mundos
+apenas-rankup: <red>Isso só funciona no mundo Rankup. Use <white>/spawn<red> para
+  voltar.
+nome-mundo-rankup: <gold>Rankup
+nome-mundo-sobrevivencia: <green>Sobrevivência
+nome-mundo-nether: <red>Nether
+nome-mundo-end: <light_purple>The End
+sobrevivencia-indisponivel: <red>O mundo Sobrevivência ainda não está disponível.
+sobrevivencia-ja-esta: <yellow>Você já está no mundo Sobrevivência! Use <white>/rtp<yellow>
+  para explorar.
+sobrevivencia-titulo: <gradient:#56AB2F:#A8E063><bold>SOBREVIVÊNCIA</bold></gradient>
+sobrevivencia-subtitulo: <gray>Inventário separado do Rankup
+sobrevivencia-spawn-protegido: <red>O spawn da Sobrevivência é protegido. Use <white>/rtp<red>
+  para achar um lugar.
+sobrevivencia-boas-vindas:
+- ''
+- <gradient:#56AB2F:#A8E063><bold>  ✦ BEM-VINDO(A) À SOBREVIVÊNCIA! ✦</bold></gradient>
+- ''
+- '<gray>  Aqui é o survival clássico: seu inventário é <white>separado<gray> do Rankup.'
+- <gray>  1. Use <white>/rtp <gray>para ir a um lugar aleatório e começar
+- <gray>  2. Proteja sua base com uma <gold>pá de ouro<gray> (clique nos 2 cantos)
+- <gray>  3. Veja suas habilidades com <white>/skills
+- <gray>  4. Marque sua casa com <white>/sethome<gray> e volte com <white>/home
+- <gray>  5. Agache e quebre um minério para minerar o veio inteiro!
+- '<gray>  Para voltar ao Rankup: <white>/spawn'
+- ''
+rtp-procurando: <yellow>Procurando um lugar seguro...
+rtp-cooldown: <red>Aguarde <white>{segundos}s<red> para usar o /rtp de novo.
+rtp-falhou: <red>Não encontrei um lugar seguro. Tente de novo!
+rtp-sucesso: '<green>Você foi para <white>X: {x}, Z: {z}<green>. Boa sorte!'
+
+# Menu OP
+menuop-feito: <green>✔ {acao} <dark_gray>(<gray>{jogador}<dark_gray>)
+menuop-feito-geral: <green>✔ {acao}
+menuop-sem-picareta: <red>{jogador} não está segurando uma picareta.
+
+# Tokens de mina
+tokens-saldo: <gray>Você tem <light_purple>{tokens} tokens<gray>. Use-os em <white>/picareta<gray>.
+tokens-saldo-outro: <white>{jogador} <gray>tem <light_purple>{tokens} tokens<gray>.
+tokens-sem-saldo: <red>Você só tem <light_purple>{tokens} tokens<red>.
+tokens-pagar-si-mesmo: <red>Você não pode enviar tokens para você mesmo.
+tokens-pago: <green>Você enviou <light_purple>{tokens} tokens <green>para <white>{jogador}<green>.
+tokens-recebido: <green>Você recebeu <light_purple>{tokens} tokens <green>de <white>{jogador}<green>!
+
+# Loja (/loja)
+loja-indisponivel: <red>Não há loja neste mundo.
+loja-sem-espaco: <red>Seu inventário não tem espaço para isso.
+loja-sem-dinheiro: <red>Você precisa de <white>${preco}<red>. Faltam <white>${falta}<red>.
+loja-sem-itens: <red>Você precisa de pelo menos <white>{quantidade}x {item} <red>para
+  vender.
+loja-comprou: <green>Você comprou <white>{quantidade}x {item} <green>por <white>${preco}<green>.
+loja-vendeu: <green>Você vendeu <white>{quantidade}x {item} <green>por <white>${valor}<green>.
+booster-ja-ativo: <red>Você já tem um booster melhor ativo (<white>+{bonus}%<red>).
+  Espere ele acabar.
+booster-venda-ativado: '<gold>✦ Booster de venda <white>+{bonus}% <gold>ativado! <gray>Tempo
+  restante: <white>{tempo}'
+booster-tokens-ativado: '<light_purple>✦ Booster de tokens <white>+{bonus}% <light_purple>ativado!
+  <gray>Tempo restante: <white>{tempo}'
+
+# Combate (mina PvP e Sobrevivência)
+combate-entrou: <red>⚔ Você entrou em combate! <gray>Não deslogue pelos próximos <white>{segundos}s<gray>.
+combate-saiu: <green>Você saiu de combate.
+combate-barra: '<red>⚔ Em combate: <white>{segundos}s'
+combate-comando-bloqueado: <red>Você não pode usar este comando em combate! <gray>Aguarde
+  <white>{segundos}s<gray>.
+combate-deslogou: <red>☠ <white>{jogador} <red>deslogou em combate e morreu!
+combate-morreu-pvp: <red>Você morreu na mina PvP e perdeu seus itens. <gray>(A picareta
+  ficou com você.)
+
+# Pagamentos (/pay) - o dinheiro do Rankup e o da Sobrevivência são separados
+pagamento-offline: <red>Só dá para pagar jogadores <white>online<red>.
+pagamento-varios: <red>Pague um jogador de cada vez.
+pagamento-outro-mundo: '<red>{jogador} <red>está em {mundo}<red>. O dinheiro de cada
+  mundo é separado: vocês precisam estar no mesmo mundo.'

@@ -1,0 +1,482 @@
+[20:54:16] [ServerMain/INFO]: [bootstrap] Running Java 25 (OpenJDK 64-Bit Server VM 25.0.4.1+1-LTS; Eclipse Adoptium Temurin-25.0.4.1+1) on Windows 10 10.0 (amd64)
+[20:54:16] [ServerMain/INFO]: [bootstrap] Loading Paper 26.3-178-main@03226a5 (2026-10-12T20:42:19Z) for Minecraft 26.3
+[20:54:16] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[20:54:17] [ServerMain/INFO]: [PluginInitializerManager] Initialized 21 plugins
+[20:54:17] [ServerMain/INFO]: [PluginInitializerManager] Paper plugins (1):
+ - Veinminer (2.12.3)
+[20:54:17] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (20):
+ - AuraSkills (2.4.0), AuthMe (6.0.1-b2770), AxGraves (1.32.1), Chunky (1.5.3), Essentials (2.22.0), GSit (3.7.0), GriefPrevention (16.18.7), LuckPerms (5.5.87), Multiverse-Core (5.8.1), Multiverse-Inventories (5.3.6), Multiverse-NetherPortals (5.1.0), PlaceholderAPI (2.12.3), QuickShop-Hikari (6.3.0.3), RankupSupremo (1.2.0), Vault (2.20.3), ViaBackwards (5.12.1), ViaVersion (5.12.1), WorldEdit (7.4.6-beta-02+2c90a77a1), WorldGuard (7.0.19+2400-f395a16), packetevents (2.14.0)
+[20:54:17] [CrashReport preload thread/WARN]: [oshi.util.platform.windows.PerfDataUtil] Failed to add PDH Counter: \Paging File(_Total)\% Usage, Error code: 0xC0000BB8
+[20:54:17] [CrashReport preload thread/WARN]: [oshi.util.platform.windows.PerfCounterQueryHandler] Failed to add counter for PDH counter: \Paging File(_Total)\% Usage
+[20:54:17] [CrashReport preload thread/INFO]: [oshi.util.platform.windows.PerfCounterQuery] Disabling further attempts to query Paging File.
+[20:54:17] [CrashReport preload thread/WARN]: [oshi.util.platform.windows.WmiQueryHandler] COM exception: Invalid Query: SELECT PERCENTUSAGE FROM Win32_PerfRawData_PerfOS_PagingFile
+[20:54:17] [CrashReport preload thread/ERROR]: [oshi.driver.windows.registry.HkeyPerformanceDataUtil] Error reading performance data from registry for Process.
+[20:54:18] [CrashReport preload thread/WARN]: [oshi.util.platform.windows.PerfCounterWildcardQuery] Failed to locate performance object for Processo in the registry. Performance counters may be corrupt. Pdh call failed with error code 0xC0000BB8
+[20:54:18] [CrashReport preload thread/INFO]: [oshi.util.platform.windows.PerfCounterWildcardQuery] Disabling further attempts to query Process.
+[20:54:18] [CrashReport preload thread/WARN]: [oshi.util.platform.windows.WmiQueryHandler] COM exception: Invalid Query: SELECT NAME,PRIORITYBASE,ELAPSEDTIME,IDPROCESS,CREATINGPROCESSID,IOREADBYTESPERSEC,IOWRITEBYTESPERSEC,PRIVATEBYTES,PAGEFAULTSPERSEC FROM Win32_PerfRawData_PerfProc_Process WHERE NOT Name LIKE "%_Total"
+[20:54:18] [CrashReport preload thread/WARN]: Failed to get system info for Process Loads
+java.lang.NullPointerException: Cannot invoke "oshi.software.os.OSProcess.getUserTime()" because "process" is null
+	at net.minecraft.SystemReport.lambda$putProcessDetails$0(SystemReport.java:191) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.SystemReport.setDetail(SystemReport.java:96) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.SystemReport.putProcessDetails(SystemReport.java:188) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.SystemReport.lambda$putSoftware$0(SystemReport.java:115) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.SystemReport.ignoreErrors(SystemReport.java:120) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.SystemReport.putSoftware(SystemReport.java:115) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.SystemReport.lambda$new$7(SystemReport.java:68) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.SystemReport.ignoreErrors(SystemReport.java:120) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.SystemReport.<init>(SystemReport.java:68) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.CrashReport.<init>(CrashReport.java:32) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.CrashReport.preload(CrashReport.java:240) ~[paper-26.3.jar:26.3-178-03226a5]
+	at java.base/java.lang.Thread.run(Unknown Source) ~[?:?]
+[20:54:18] [CrashReport preload thread/WARN]: Failed to get system info for Process Virtual Size (MiB)
+java.lang.NullPointerException: Cannot invoke "oshi.software.os.OSProcess.getVirtualSize()" because "process" is null
+	at net.minecraft.SystemReport.lambda$putProcessDetails$1(SystemReport.java:208) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.SystemReport.setDetail(SystemReport.java:96) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.SystemReport.putProcessDetails(SystemReport.java:208) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.SystemReport.lambda$putSoftware$0(SystemReport.java:115) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.SystemReport.ignoreErrors(SystemReport.java:120) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.SystemReport.putSoftware(SystemReport.java:115) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.SystemReport.lambda$new$7(SystemReport.java:68) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.SystemReport.ignoreErrors(SystemReport.java:120) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.SystemReport.<init>(SystemReport.java:68) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.CrashReport.<init>(CrashReport.java:32) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.CrashReport.preload(CrashReport.java:240) ~[paper-26.3.jar:26.3-178-03226a5]
+	at java.base/java.lang.Thread.run(Unknown Source) ~[?:?]
+[20:54:18] [CrashReport preload thread/WARN]: Failed to get system info for Process Resident Size (MiB)
+java.lang.NullPointerException: Cannot invoke "oshi.software.os.OSProcess.getResidentSetSize()" because "process" is null
+	at net.minecraft.SystemReport.lambda$putProcessDetails$2(SystemReport.java:209) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.SystemReport.setDetail(SystemReport.java:96) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.SystemReport.putProcessDetails(SystemReport.java:209) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.SystemReport.lambda$putSoftware$0(SystemReport.java:115) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.SystemReport.ignoreErrors(SystemReport.java:120) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.SystemReport.putSoftware(SystemReport.java:115) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.SystemReport.lambda$new$7(SystemReport.java:68) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.SystemReport.ignoreErrors(SystemReport.java:120) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.SystemReport.<init>(SystemReport.java:68) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.CrashReport.<init>(CrashReport.java:32) ~[paper-26.3.jar:26.3-178-03226a5]
+	at net.minecraft.CrashReport.preload(CrashReport.java:240) ~[paper-26.3.jar:26.3-178-03226a5]
+	at java.base/java.lang.Thread.run(Unknown Source) ~[?:?]
+[20:54:20] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Initialising converters for DataConverter...
+[20:54:20] [ServerMain/INFO]: [com.destroystokyo.paper.profile.PaperServicesDiscoveryService] Environment: Environment[discoveryUrl=https://discovery.minecraftservices.com/minecraft/client, name=PROD]
+[20:54:20] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Finished initialising converters for DataConverter in 361,2ms
+[20:54:21] [Worker-Main-3/INFO]: Loaded 1866 advancements
+[20:54:21] [Server thread/INFO]: Starting minecraft server version 26.3
+[20:54:21] [Server thread/INFO]: Loading properties
+[20:54:21] [Server thread/INFO]: This server is running Paper version 26.3-178-main@03226a5 (2026-10-12T20:42:19Z) (Implementing API version 26.3.build.178-stable)
+[20:54:22] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[20:54:22] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[20:54:22] [Server thread/INFO]: Using 4 threads for Netty based IO
+[20:54:22] [Server thread/INFO]: [MoonriseCommon] Paper is using 4 worker threads, 1 I/O threads
+[20:54:22] [Server thread/INFO]: Default game type: SURVIVAL
+[20:54:22] [Server thread/INFO]: Generating keypair
+[20:54:22] [Server thread/INFO]: Starting Minecraft server on *:25565
+[20:54:22] [Server thread/INFO]: Paper: Using Java compression from Velocity.
+[20:54:22] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
+[20:54:23] [Server thread/INFO]: [AxGraves] Library com.artillexstudios.axapi.nms.v26_3:axapi:2.2.0-DEV-NEW-VERSION-6 loaded in 1ms from cache!
+[20:54:23] [Server thread/INFO]: [AxGraves] Library org.apache.commons:commons-math3:3.6.1 loaded in 0ms from cache!
+[20:54:23] [Server thread/INFO]: [AxGraves] Library org.jspecify:jspecify:1.0.0 loaded in 0ms from cache!
+[20:54:23] [Server thread/INFO]: [AxGraves] Library com.google.errorprone:error_prone_annotations:2.43.0 loaded in 0ms from cache!
+[20:54:23] [Server thread/INFO]: [AxGraves] Library com.github.ben-manes.caffeine:caffeine:3.2.3 loaded in 1ms from cache!
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loading 15 libraries... please wait
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\ch\jalu\injector\1.0\injector-1.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\javax\inject\javax.inject\1\javax.inject-1.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\javax\annotation\javax.annotation-api\1.3.1\javax.annotation-api-1.3.1.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\net\ricecode\string-similarity\1.0.0\string-similarity-1.0.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\com\maxmind\geoip2\geoip2\4.3.0\geoip2-4.3.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\com\maxmind\db\maxmind-db\3.1.1\maxmind-db-3.1.1.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\com\fasterxml\jackson\core\jackson-databind\2.19.0\jackson-databind-2.19.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.19.0\jackson-datatype-jsr310-2.19.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\com\fasterxml\jackson\core\jackson-core\2.19.0\jackson-core-2.19.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\com\fasterxml\jackson\core\jackson-annotations\2.19.0\jackson-annotations-2.19.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\javatar\javatar\2.5\javatar-2.5.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\org\apache\commons\commons-email\1.6.0\commons-email-1.6.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\com\sun\mail\jakarta.mail\1.6.7\jakarta.mail-1.6.7.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\com\sun\activation\jakarta.activation\1.2.1\jakarta.activation-1.2.1.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\com\zaxxer\HikariCP\7.0.2\HikariCP-7.0.2.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\org\slf4j\slf4j-api\2.0.17\slf4j-api-2.0.17.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\org\slf4j\slf4j-simple\2.0.13\slf4j-simple-2.0.13.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\ch\jalu\datasourcecolumns\0.1.2\datasourcecolumns-0.1.2.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\com\mysql\mysql-connector-j\9.3.0\mysql-connector-j-9.3.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\com\google\protobuf\protobuf-java\4.29.0\protobuf-java-4.29.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\org\mariadb\jdbc\mariadb-java-client\3.5.7\mariadb-java-client-3.5.7.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\org\postgresql\postgresql\42.7.11\postgresql-42.7.11.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\org\bouncycastle\bcprov-jdk18on\1.79\bcprov-jdk18on-1.79.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\com\warrenstrange\googleauth\1.5.0\googleauth-1.5.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\commons-codec\commons-codec\1.14\commons-codec-1.14.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\org\apache\httpcomponents\httpclient\4.5.12\httpclient-4.5.12.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\commons-logging\commons-logging\1.2\commons-logging-1.2.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\ch\jalu\configme\1.3.1\configme-1.3.1.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\org\yaml\snakeyaml\2.0\snakeyaml-2.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\org\bstats\bstats-bukkit\3.1.0\bstats-bukkit-3.1.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuthMe] Loaded library C:\ServidorRankup\ServidorRankup\libraries\org\bstats\bstats-base\3.1.0\bstats-base-3.1.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuraSkills] Loading 3 libraries... please wait
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuraSkills] Loaded library C:\ServidorRankup\ServidorRankup\libraries\net\kyori\adventure-api\4.25.0\adventure-api-4.25.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuraSkills] Loaded library C:\ServidorRankup\ServidorRankup\libraries\net\kyori\adventure-key\4.25.0\adventure-key-4.25.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuraSkills] Loaded library C:\ServidorRankup\ServidorRankup\libraries\net\kyori\examination-api\1.3.0\examination-api-1.3.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuraSkills] Loaded library C:\ServidorRankup\ServidorRankup\libraries\net\kyori\examination-string\1.3.0\examination-string-1.3.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuraSkills] Loaded library C:\ServidorRankup\ServidorRankup\libraries\org\jetbrains\annotations\26.0.2-1\annotations-26.0.2-1.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuraSkills] Loaded library C:\ServidorRankup\ServidorRankup\libraries\net\kyori\adventure-text-minimessage\4.25.0\adventure-text-minimessage-4.25.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuraSkills] Loaded library C:\ServidorRankup\ServidorRankup\libraries\net\kyori\adventure-platform-bukkit\4.4.1\adventure-platform-bukkit-4.4.1.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuraSkills] Loaded library C:\ServidorRankup\ServidorRankup\libraries\net\kyori\adventure-platform-api\4.4.1\adventure-platform-api-4.4.1.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuraSkills] Loaded library C:\ServidorRankup\ServidorRankup\libraries\net\kyori\adventure-text-serializer-bungeecord\4.4.1\adventure-text-serializer-bungeecord-4.4.1.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuraSkills] Loaded library C:\ServidorRankup\ServidorRankup\libraries\net\kyori\adventure-text-serializer-legacy\4.21.0\adventure-text-serializer-legacy-4.21.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuraSkills] Loaded library C:\ServidorRankup\ServidorRankup\libraries\net\kyori\adventure-nbt\4.21.0\adventure-nbt-4.21.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuraSkills] Loaded library C:\ServidorRankup\ServidorRankup\libraries\net\kyori\adventure-text-serializer-gson\4.21.0\adventure-text-serializer-gson-4.21.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuraSkills] Loaded library C:\ServidorRankup\ServidorRankup\libraries\net\kyori\adventure-text-serializer-json\4.21.0\adventure-text-serializer-json-4.21.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuraSkills] Loaded library C:\ServidorRankup\ServidorRankup\libraries\net\kyori\option\1.1.0\option-1.1.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuraSkills] Loaded library C:\ServidorRankup\ServidorRankup\libraries\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuraSkills] Loaded library C:\ServidorRankup\ServidorRankup\libraries\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuraSkills] Loaded library C:\ServidorRankup\ServidorRankup\libraries\net\kyori\adventure-text-serializer-commons\4.21.0\adventure-text-serializer-commons-4.21.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuraSkills] Loaded library C:\ServidorRankup\ServidorRankup\libraries\net\kyori\adventure-text-serializer-gson-legacy-impl\4.21.0\adventure-text-serializer-gson-legacy-impl-4.21.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuraSkills] Loaded library C:\ServidorRankup\ServidorRankup\libraries\net\kyori\adventure-text-serializer-json-legacy-impl\4.21.0\adventure-text-serializer-json-legacy-impl-4.21.0.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuraSkills] Loaded library C:\ServidorRankup\ServidorRankup\libraries\net\kyori\adventure-platform-facet\4.4.1\adventure-platform-facet-4.4.1.jar
+[20:54:23] [Server thread/INFO]: [SpigotLibraryLoader] [AuraSkills] Loaded library C:\ServidorRankup\ServidorRankup\libraries\net\kyori\adventure-platform-viaversion\4.4.1\adventure-platform-viaversion-4.4.1.jar
+[20:54:23] [Server thread/INFO]: [ViaVersion] Loading server plugin ViaVersion v5.12.1
+[20:54:23] [Server thread/INFO]: [ViaVersion] ViaVersion 5.12.1 is now loaded. Registering protocol transformers and injecting...
+[20:54:23] [Server thread/INFO]: [ViaBackwards] Loading translations...
+[20:54:23] [Server thread/INFO]: [ViaBackwards] Registering protocols...
+[20:54:24] [Server thread/INFO]: [PlaceholderAPI] Loading server plugin PlaceholderAPI v2.12.3
+[20:54:24] [Server thread/INFO]: [LuckPerms] Loading server plugin LuckPerms v5.5.87
+[20:54:24] [Server thread/INFO]: [LuckPerms] Loading configuration...
+[20:54:24] [Server thread/INFO]: [Vault] Loading server plugin Vault v2.20.3
+[20:54:24] [Server thread/INFO]: [WorldEdit] Loading server plugin WorldEdit v7.4.6-beta-02+2c90a77a1
+[20:54:24] [Server thread/INFO]: Got request to register class com.sk89q.worldedit.bukkit.BukkitServerInterface with WorldEdit [com.sk89q.worldedit.extension.platform.PlatformManager@6362e363]
+[20:54:24] [Server thread/INFO]: [CoreLogging] Loading server plugin Multiverse-Core v5.8.1
+[20:54:24] [Server thread/INFO]: [ViaBackwards] Loading server plugin ViaBackwards v5.12.1
+[20:54:24] [Server thread/INFO]: [WorldGuard] Loading server plugin WorldGuard v7.0.19+2400-f395a16
+[20:54:24] [Server thread/INFO]: [InvLogging] Loading server plugin Multiverse-Inventories v5.3.6
+[20:54:24] [Server thread/INFO]: [Essentials] Loading server plugin Essentials v2.22.0
+[20:54:24] [Server thread/INFO]: [packetevents] Loading server plugin packetevents v2.14.0
+[20:54:25] [Server thread/INFO]: [packetevents] Loading packetevents...
+[20:54:25] [Server thread/INFO]: [packetevents] Loading block mappings for V_26_3/23...
+[20:54:26] [Server thread/INFO]: [packetevents] Finished loading block mappings for V_26_3/23 in 214.5238ms
+[20:54:26] [Server thread/INFO]: [packetevents] Loaded packetevents v2.14.0
+[20:54:26] [Server thread/INFO]: [GriefPrevention] Loading server plugin GriefPrevention v16.18.7
+[20:54:26] [Server thread/INFO]: [Veinminer] Loading server plugin Veinminer v2.12.3
+[20:54:26] [Server thread/INFO]: [Veinminer] Detected platform: Paper
+[20:54:26] [Server thread/INFO]: [RankupSupremo] Loading server plugin RankupSupremo v1.2.0
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari] Loading server plugin QuickShop-Hikari v6.3.0.3
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari/Bootstrap] QuickShop-Hikari - Bootstrap -> Execute the initialization sequence
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari/Bootstrap] Bootloader preparing for startup, please wait...
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari/Bootstrap] Initializing libraries...
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari] Maven repository mirror test result:
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari] [CN] HUAWEI: 68ms
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari] [CN] TENCENT: 77ms
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari] [CN] ALIYUN: 91ms
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari] [EU] GOOGLE: 110ms
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari] [US] CENTRAL: 163ms
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari] [US] APACHE: 176ms
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari/Bootstrap] Loading 9 libraries (0 skipped libraries)...
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari/Bootstrap] Loading library org.apache.commons:commons-lang3:3.18.0 [1/9]
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari/Bootstrap] Loading library org.apache.commons:commons-compress:1.25.0 [2/9]
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari/Bootstrap] Loading library com.rollbar:rollbar-java:1.9.0 [3/9]
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari/Bootstrap] Loading library com.h2database:h2:2.1.214 [4/9]
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari/Bootstrap] Loading library com.konghq:unirest-java:3.14.5 [5/9]
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari/Bootstrap] Loading library net.sourceforge.csvjdbc:csvjdbc:1.0.42 [6/9]
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari/Bootstrap] Loading library org.dom4j:dom4j:2.1.4 [7/9]
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari/Bootstrap] Loading library com.vdurmont:semver4j:3.1.0 [8/9]
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari/Bootstrap] Loading library com.ghostchu.crowdin:crowdinota:1.0.3 [9/9]
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari/Bootstrap] Initialing Unirest...
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari/Bootstrap] Initializing platform...
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari/Bootstrap] Platform detected: Paper
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari] Slf4jLogger initialized
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari/Bootstrap] Platform initialized: com.ghostchu.quickshop.platform.paper.PaperPlatform
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari/Bootstrap] Boot QuickShop instance...
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari/Bootstrap] Creating QuickShop instance...
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari] Registering Bukkit Service: com.ghostchu.quickshop.api.QuickShopProvider
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari] Reading the configuration...
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari] QuickShop Hikari - Early boot step - Booting up
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari] Self testing...
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari] Setting up privacy controller...
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari] Setting up QuickShop registry....
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari] Setting up metrics manager...
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari] Initializing bStats....
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari] Initializing FastStats....
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari] Registering bStats....
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari] Registering FastStats....
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari] Loading player name and unique id mapping...
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari] Loading translations (This may take a while)...
+[20:54:26] [Server thread/INFO]: [QuickShop-Hikari] Please wait us fetch the translation updates from Crowdin OTA service...
+[20:54:26] [Server thread/INFO]: [CrowdinOTA] Downloading Crowdin distribution manifest from remote server...
+[20:54:27] [Server thread/INFO]: [OTAFileInstance-0] Downloading translations for 0 locales...
+[20:54:27] [Server thread/INFO]: [OTAFileInstance-1] Downloading translations for 0 locales...
+[20:54:27] [Server thread/INFO]: [QuickShop-Hikari] Loading up translations from Crowdin OTA, this may take a while...
+[20:54:28] [Server thread/INFO]: [QuickShop-Hikari] Register InventoryWrapper...
+[20:54:28] [Server thread/INFO]: [QuickShop-Hikari] QuickShop Hikari - Early boot step - Complete
+[20:54:28] [Server thread/INFO]: [QuickShop-Hikari/Bootstrap] QuickShop-Hikari - Bootstrap -> Complete (1727ms). Waiting for enable...
+[20:54:28] [Server thread/INFO]: [MVPLogging] Loading server plugin Multiverse-NetherPortals v5.1.0
+[20:54:28] [Server thread/INFO]: [GSit] Loading server plugin GSit v3.7.0
+[20:54:28] [Server thread/INFO]: [Chunky] Loading server plugin Chunky v1.5.3
+[20:54:28] [Server thread/INFO]: [AxGraves] Loading server plugin AxGraves v1.32.1
+[20:54:28] [Server thread/INFO]: [AuthMe] Loading server plugin AuthMe v6.0.1-b2770
+[20:54:28] [Server thread/INFO]: [AuraSkills] Loading server plugin AuraSkills v2.4.0
+[20:54:28] [Server thread/INFO]: [LuckPerms] Enabling LuckPerms v5.5.87
+[20:54:28] [Server thread/INFO]:         __    
+[20:54:28] [Server thread/INFO]:   |    |__)   LuckPerms v5.5.87
+[20:54:28] [Server thread/INFO]:   |___ |      Running on Bukkit - Paper
+[20:54:28] [Server thread/INFO]: 
+[20:54:28] [Server thread/INFO]: [LuckPerms] Loading storage provider... [H2]
+[20:54:28] [Server thread/INFO]: [LuckPerms] Loading internal permission managers...
+[20:54:29] [Server thread/INFO]: [LuckPerms] Performing initial data load...
+[20:54:29] [Server thread/INFO]: [LuckPerms] Successfully enabled. (took 783ms)
+[20:54:29] [Server thread/INFO]: [Vault] Enabling Vault v2.20.3
+[20:54:29] [Server thread/INFO]: [Vault] Enabled Version 2.20.3
+[20:54:29] [Server thread/INFO]: [LuckPerms] Registered Vault permission & chat hook.
+[20:54:29] [Server thread/INFO]: [WorldEdit] Enabling WorldEdit v7.4.6-beta-02+2c90a77a1
+[20:54:29] [Server thread/INFO]: Registering commands with com.sk89q.worldedit.bukkit.BukkitServerInterface
+[20:54:29] [Server thread/INFO]: WEPIF: Vault detected! Using Vault for permissions
+[20:54:29] [Server thread/INFO]: Using com.sk89q.worldedit.bukkit.adapter.impl.v26_3.PaperweightAdapter as the Bukkit adapter
+[20:54:29] [Server thread/INFO]: [Veinminer] Enabling Veinminer v2.12.3
+[20:54:29] [Server thread/INFO]: [RankupSupremo] Enabling RankupSupremo v1.2.0
+[20:54:29] [Server thread/INFO]: [RankupSupremo] 15 ranks carregados.
+[20:54:29] [Server thread/INFO]: [RankupSupremo] 20 minas carregadas (5 especiais).
+[20:54:29] [Server thread/INFO]: [RankupSupremo] 49 preços de venda carregados.
+[20:54:29] [Server thread/INFO]: [RankupSupremo] Loja carregada: 2 mundo(s), 99 itens.
+[20:54:29] [Server thread/INFO]: [RankupSupremo] Dados de 3 jogador(es) carregados.
+[20:54:29] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[20:54:29] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[20:54:29] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[20:54:29] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[20:54:29] [Server thread/INFO]: Preparing level "world"
+[20:54:29] [DefaultDispatcher-worker-1/INFO]: [de.miraculixx.veinminer.Veinminer] veinminer is up to date
+[20:54:30] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:overworld'...
+[20:54:30] [Server thread/INFO]: Prepared spawn area in 1 ms
+[20:54:30] [Server thread/INFO]: Done preparing level "world" (0.367s)
+[20:54:30] [Server thread/INFO]: [ViaVersion] Enabling ViaVersion v5.12.1
+[20:54:30] [Server thread/INFO]: [ViaVersion] ViaVersion detected server version: 26.3 (777)
+[20:54:30] [Server thread/INFO]: [PlaceholderAPI] Enabling PlaceholderAPI v2.12.3
+[20:54:30] [Server thread/INFO]: [PlaceholderAPI] Fetching available expansion information...
+[20:54:30] [Server thread/INFO]: [PlaceholderAPI] Successfully registered internal expansion: vaultunlocked [2.13.1]
+[20:54:30] [Server thread/INFO]: [Multiverse-Core] Enabling Multiverse-Core v5.8.1
+[20:54:30] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:sobrevivencia'...
+[20:54:30] [Server thread/INFO]: Prepared spawn area in 2 ms
+[20:54:30] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:sobrevivencia_nether'...
+[20:54:30] [Server thread/INFO]: Prepared spawn area in 0 ms
+[20:54:30] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:sobrevivencia_the_end'...
+[20:54:30] [Server thread/INFO]: Preparing spawn area: 100%
+[20:54:30] [Server thread/INFO]: Prepared spawn area in 1 ms
+[20:54:30] [Server thread/INFO]: [PlaceholderAPI] Successfully registered internal expansion: multiverse-core [5.8.1]
+[20:54:30] [Server thread/INFO]: [Multiverse-Core] API service loaded!
+[20:54:30] [Server thread/INFO]: [Multiverse-Core] Version 5.8.1 (API v5.8) Enabled - By dumptruckman, Rigby, fernferret, lithium3141, main--, benwoo1110 and Zax71
+[20:54:30] [Server thread/INFO]: [Multiverse-Core] Loving Multiverse-Core? Please consider supporting the project with a small donation: https://github.com/sponsors/Multiverse
+[20:54:30] [Server thread/INFO]: [ViaBackwards] Enabling ViaBackwards v5.12.1
+[20:54:30] [Server thread/INFO]: [WorldGuard] Enabling WorldGuard v7.0.19+2400-f395a16
+[20:54:31] [Server thread/INFO]: [WorldGuard] (world) TNT ignition is PERMITTED.
+[20:54:31] [Server thread/INFO]: [WorldGuard] (world) Lighters are PERMITTED.
+[20:54:31] [Server thread/INFO]: [WorldGuard] (world) Lava fire is PERMITTED.
+[20:54:31] [Server thread/INFO]: [WorldGuard] (world) Fire spread is UNRESTRICTED.
+[20:54:31] [Server thread/INFO]: [WorldGuard] Loaded configuration for world 'world'
+[20:54:31] [Server thread/INFO]: [WorldGuard] (sobrevivencia) TNT ignition is PERMITTED.
+[20:54:31] [Server thread/INFO]: [WorldGuard] (sobrevivencia) Lighters are PERMITTED.
+[20:54:31] [Server thread/INFO]: [WorldGuard] (sobrevivencia) Lava fire is PERMITTED.
+[20:54:31] [Server thread/INFO]: [WorldGuard] (sobrevivencia) Fire spread is UNRESTRICTED.
+[20:54:31] [Server thread/INFO]: [WorldGuard] Loaded configuration for world 'sobrevivencia'
+[20:54:31] [Server thread/INFO]: [WorldGuard] (sobrevivencia_nether) TNT ignition is PERMITTED.
+[20:54:31] [Server thread/INFO]: [WorldGuard] (sobrevivencia_nether) Lighters are PERMITTED.
+[20:54:31] [Server thread/INFO]: [WorldGuard] (sobrevivencia_nether) Lava fire is PERMITTED.
+[20:54:31] [Server thread/INFO]: [WorldGuard] (sobrevivencia_nether) Fire spread is UNRESTRICTED.
+[20:54:31] [Server thread/INFO]: [WorldGuard] Loaded configuration for world 'sobrevivencia_nether'
+[20:54:31] [Server thread/INFO]: [WorldGuard] (sobrevivencia_the_end) TNT ignition is PERMITTED.
+[20:54:31] [Server thread/INFO]: [WorldGuard] (sobrevivencia_the_end) Lighters are PERMITTED.
+[20:54:31] [Server thread/INFO]: [WorldGuard] (sobrevivencia_the_end) Lava fire is PERMITTED.
+[20:54:31] [Server thread/INFO]: [WorldGuard] (sobrevivencia_the_end) Fire spread is UNRESTRICTED.
+[20:54:31] [Server thread/INFO]: [WorldGuard] Loaded configuration for world 'sobrevivencia_the_end'
+[20:54:31] [Server thread/INFO]: [WorldGuard] Loading region data...
+[20:54:31] [Server thread/INFO]: [Multiverse-Inventories] Enabling Multiverse-Inventories v5.3.6
+[20:54:31] [Server thread/INFO]: [PlaceholderAPI] Successfully registered internal expansion: multiverse-inventories [5.3.6]
+[20:54:31] [Server thread/INFO]: [Multiverse-Inventories] Loading player names map...
+[20:54:31] [Server thread/INFO]: [Multiverse-Inventories] Version 5.3.6 (API v5.3) Enabled - By dumptruckman and benwoo1110
+[20:54:31] [Server thread/INFO]: [Essentials] Enabling Essentials v2.22.0
+[20:54:31] [Server thread/ERROR]: [Essentials] You are running an unsupported server version!
+[20:54:31] [Server thread/INFO]: [Essentials] Attempting to convert old kits in config.yml to new kits.yml
+[20:54:31] [Server thread/INFO]: [Essentials] No kits found to migrate.
+[20:54:31] [Server thread/INFO]: [Essentials] Selected 1.20.4+ Damage Event Provider as the provider for DamageEventProvider
+[20:54:31] [Server thread/INFO]: [Essentials] Selected Paper Material Tag Provider as the provider for MaterialTagProvider
+[20:54:31] [Server thread/INFO]: [Essentials] Selected 1.20.5+ Banner Data Provider as the provider for BannerDataProvider
+[20:54:31] [Server thread/INFO]: [Essentials] Selected 1.11+ Item Unbreakable Provider as the provider for ItemUnbreakableProvider
+[20:54:31] [Server thread/INFO]: [Essentials] Selected Reflection Formatted Command Alias Provider as the provider for FormattedCommandAliasProvider
+[20:54:31] [Server thread/INFO]: [Essentials] Selected 1.14+ Sign Data Provider as the provider for SignDataProvider
+[20:54:31] [Server thread/INFO]: [Essentials] Selected Paper Serialization Provider as the provider for SerializationProvider
+[20:54:31] [Server thread/INFO]: [Essentials] Selected 1.14.4+ Persistent Data Container Provider as the provider for PersistentDataProvider
+[20:54:31] [Server thread/INFO]: [Essentials] Selected 1.21.4+ Sync Commands Provider as the provider for SyncCommandsProvider
+[20:54:31] [Server thread/INFO]: [Essentials] Selected Paper Tick Count Provider as the provider for TickCountProvider
+[20:54:31] [Server thread/INFO]: [Essentials] Selected 1.20.6+ Potion Meta Provider as the provider for PotionMetaProvider
+[20:54:31] [Server thread/INFO]: [Essentials] Selected Paper 1.13+ Tile Entity Provider as the provider for TileEntityProvider
+[20:54:31] [Server thread/INFO]: [Essentials] Selected Paper Server State Provider as the provider for ServerStateProvider
+[20:54:31] [Server thread/INFO]: [Essentials] Selected Legacy Biome Name Provider as the provider for BiomeNameProvider
+[20:54:31] [Server thread/INFO]: [Essentials] Selected 1.12.2+ Player Locale Provider as the provider for PlayerLocaleProvider
+[20:54:31] [Server thread/INFO]: [Essentials] Selected Paper Container Provider as the provider for ContainerProvider
+[20:54:31] [Server thread/INFO]: [Essentials] Selected 1.21+ InventoryView Interface ABI Provider as the provider for InventoryViewProvider
+[20:54:31] [Server thread/INFO]: [Essentials] Selected 1.13+ Spawn Egg Provider as the provider for SpawnEggProvider
+[20:54:31] [Server thread/INFO]: [Essentials] Selected Reflection Online Mode Provider as the provider for OnlineModeProvider
+[20:54:31] [Server thread/INFO]: [Essentials] Selected 1.12+ Spawner Block Provider as the provider for SpawnerBlockProvider
+[20:54:31] [Server thread/INFO]: [Essentials] No provider found for BiomeKeyProvider, but it is nullable
+[20:54:31] [Server thread/INFO]: [Essentials] Selected 1.17.1+ World Info Provider as the provider for WorldInfoProvider
+[20:54:31] [Server thread/INFO]: [Essentials] Selected Paper Known Commands Provider as the provider for KnownCommandsProvider
+[20:54:31] [Server thread/INFO]: [Essentials] Selected 1.8.3+ Spawner Item Provider as the provider for SpawnerItemProvider
+[20:54:31] [Server thread/INFO]: [Essentials] Loaded 46312 items from items.json.
+[20:54:32] [Server thread/INFO]: [Essentials] Using locale pt_BR
+[20:54:32] [Server thread/INFO]: [Essentials] ServerListPingEvent: Spigot iterator API
+[20:54:32] [Server thread/INFO]: [Essentials] Starting Metrics. Opt-out using the global bStats config.
+[20:54:32] [Server thread/INFO]: [Essentials] Using Vault based permissions (LuckPerms)
+[20:54:32] [Server thread/INFO]: [packetevents] Enabling packetevents v2.14.0
+[20:54:32] [packetevents-update-check-thread/INFO]: [packetevents] Checking for updates, please wait...
+[20:54:32] [Server thread/INFO]: [GriefPrevention] Enabling GriefPrevention v16.18.7
+[20:54:32] [Server thread/INFO]: [GriefPrevention] Finished loading configuration.
+[20:54:32] [Server thread/INFO]: [GriefPrevention] 1 total claims loaded.
+[20:54:32] [Server thread/INFO]: [GriefPrevention] Customizable messages loaded.
+[20:54:32] [Server thread/INFO]: [GriefPrevention] Successfully hooked into WorldGuard.
+[20:54:32] [Server thread/INFO]: [GriefPrevention] Finished loading data (File Mode).
+[20:54:32] [Server thread/INFO]: [GriefPrevention] Boot finished.
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Enabling QuickShop-Hikari v6.3.0.3
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari/Bootstrap] QuickShop-Hikari - Bootstrap -> Execute the enable sequence
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] QuickShop Hikari
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Registering Bukkit Service: com.ghostchu.quickshop.api.QuickShopProvider
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Starting plugin self-test, please wait...
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] [OK] Old QuickShop Test
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] [OK] ModdedServer Based Test
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] [OK] ModdedServer Database Driver Test
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] [OK] CoreSupport Test
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] [OK] Virtual DisplayItem Support Test
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] [OK] ProtocolLib Incorrect Locate Test
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] [OK] GameVersion supporting Test
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] [OK] Permission Manager Test
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] [OK] PacketListenerAPI Conflict Test
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] [OK] Reremake Test
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] [OK] End of life Test
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] [OK] Disable Item Move
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Reading the configuration...
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Contributors: Ghost_chu, PotatoCraft Studio, Netherfoam, Timtower, KaiNoMood (KaiKikuchi), sandtechnology, jho5245, cakoyo, Andre601, Ectabro, Chris6ix, portlek, log4b0at, deadman96385, tiararinne, DoctaEnkoda, CarmJos, YuanYuanOwO, Mgazul, mart-r, Tim269, raphtaliapt, creatorfromhell, LoneDev6, Steven-OS, confuxeon, ibmibmibm, judgetread, mfnalex, Warriorrrr, PyvesB, yannicklamprecht, ORelio, RMSCA, Starmism, yiwenwang2090, PaulBGD, Nlkomaru, harry0198, Draesia, wunanc, golovin12, ExyiN, Euphillya, GeorgeV220, 4drian3d, ericlmao, AsOne2020, Golfing7, SrBedrock, bennycallanan, MidSpike, SpigotRCE, ReconXMaverick, James-P-Bennett, killerprojecte, adabugra, casperwtf, R00tB33rMan, galacticwarrior9, SarahGreyWolf, maxcom1, wling-art, BlvckBytes, TauCu, ItsJuls, bridgelol, YusakiDev, FEZfan, NamiUni, GoodrichDev, Localized community members on Crowdin
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Original author: Netherfoam, Timtower, KaiNoMood, sandtechnology
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Let's start loading the plugin
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Setting up ItemExpressionRegistry...
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Using Virtual Displays. Attempting to initialize packet factory...
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Setting up database...
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Create database backup...
+[20:54:32] [Server thread/INFO]: [com.ghostchu.quickshop.shade.carm.easysql.hikari.HikariDataSource] HikariPool-1 - Starting...
+[20:54:32] [packetevents-update-check-thread/INFO]: [packetevents] You are running the latest release: 2.14.0
+[20:54:32] [Server thread/INFO]: [com.ghostchu.quickshop.shade.carm.easysql.hikari.HikariDataSource] HikariPool-1 - Start completed.
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Checking and updating database columns, it may take a while...
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Database upgrade script running... Current Database Version: 21
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Finished!
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Selected permission provider: Bukkit
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Registering commands...
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Loaded 1 rules for listener blacklist.
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] EventManager selected: QSEventManager
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Loading shops from database...
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Used 2ms to fetch 0 shops from database.
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Loading shops into memory...
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Used 0ms to load 0 shops into memory (0 shops will be loaded after chunks/world loaded).
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Loading shop tags...
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Registering listeners...
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Cleaning MsgUtils...
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Cleaning purchase messages from the database that are over a week old...
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Log actions is enabled. Actions will be logged in the qs.log file!
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] [Shop Purger] Purge not enabled!
+[20:54:32] [Server thread/INFO]: [PlaceholderAPI] Successfully registered internal expansion: qs [6.3.0.3]
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Successfully loaded PlaceHolderAPI support!
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] [OK] Virtual DisplayItem Support Test
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] [OK] Deprecated Item Matcher Check
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari] Initializing built-in hooks...
+[20:54:32] [Server thread/INFO]: [QuickShop-Hikari/Bootstrap] QuickShop-Hikari - Bootstrap -> All Complete. (530ms)
+[20:54:32] [Server thread/INFO]: [Multiverse-NetherPortals] Enabling Multiverse-NetherPortals v5.1.0
+[20:54:32] [Server thread/INFO]: [Multiverse-NetherPortals] Version 5.1.0 (API v5.1) Enabled - By Rigby, fernferret and benwoo1110
+[20:54:32] [Server thread/INFO]: [GSit] Enabling GSit v3.7.0
+[20:54:32] [Server thread/INFO]: [PlaceholderAPI] Successfully registered internal expansion: gsit [3.7.0]
+[20:54:32] [Server thread/INFO]: [WorldGuard] Registering session handler dev.geco.gsit.link.worldguard.RegionFlagHandler
+[20:54:32] [Server thread/INFO]: [GSit] O plugin foi ativado com sucesso.
+[20:54:32] [Server thread/INFO]: [GSit] Conexão com  PlaceholderAPI feita com sucesso!
+[20:54:32] [Server thread/INFO]: [GSit] Conexão com  WorldGuard feita com sucesso!
+[20:54:32] [Server thread/INFO]: [Chunky] Enabling Chunky v1.5.3
+[20:54:32] [Server thread/INFO]: [AxGraves] Enabling AxGraves v1.32.1
+[20:54:33] [Server thread/INFO]: [PlaceholderAPI] Successfully registered internal expansion: axgraves [1.32.1]
+[20:54:33] [Server thread/INFO]: [AuthMe] Enabling AuthMe v6.0.1-b2770
+[20:54:33] [Server thread/INFO]: [AuthMe] SQLite Setup finished
+[20:54:33] [Server thread/INFO]: [AuthMe] Hooked into LuckPerms!
+[20:54:33] [Server thread/INFO]: [AuthMe] Hooked successfully into Essentials
+[20:54:33] [Server thread/INFO]: [AuthMe] Essentials spawn file not found: 'C:\ServidorRankup\ServidorRankup\plugins\Essentials\spawn.yml'
+[20:54:33] [Server thread/INFO]: [AuthMe] AuthMe 6.0.1 build n.2770 successfully enabled!
+[20:54:33] [Server thread/INFO]: [AuraSkills] Enabling AuraSkills v2.4.0
+[20:54:34] [Server thread/INFO]: [AuraSkills] Loaded 21 message files
+[20:54:34] [Server thread/INFO]: [AuraSkills] Successfully registered hook LuckPerms
+[20:54:34] [Server thread/INFO]: [PlaceholderAPI] Successfully registered internal expansion: auraskills [2.4.0]
+[20:54:34] [Server thread/INFO]: [PlaceholderAPI] Successfully registered internal expansion: aureliumskills [2.4.0]
+[20:54:34] [Server thread/INFO]: [AuraSkills] Successfully registered hook PlaceholderAPI
+[20:54:34] [Server thread/INFO]: [AuraSkills] Successfully registered hook Vault
+[20:54:34] [Server thread/INFO]: [AuraSkills] Successfully registered hook WorldGuard
+[20:54:34] [Server thread/INFO]: [AuraSkills] Successfully registered hook packetevents
+[20:54:34] [Server thread/INFO]: [AuraSkills] Loaded 163 config options in 21 ms
+[20:54:34] [Server thread/INFO]: [NBTAPI] [NBTAPI] Found Minecraft: 26.3.build.178! Trying to find NMS support
+[20:54:34] [Server thread/INFO]: [NBTAPI] [NBTAPI] NMS support 'MC26_3' loaded!
+[20:54:34] [Server thread/INFO]: [NBTAPI] [NBTAPI] Using the plugin 'AuraSkills' to create a bStats instance!
+[20:54:34] [Server thread/INFO]: [AuraSkills] Loaded 3 blocked/disabled worlds
+[20:54:34] [Server thread/INFO]: [AuraSkills] [ACF] Enabled Asynchronous Tab Completion Support!
+[20:54:34] [Server thread/INFO]: [spark] Starting background profiler...
+[20:54:34] [Server thread/INFO]: [spark] The async-profiler engine is not supported for your os/arch (windows10/amd64), so the built-in Java engine will be used instead.
+[20:54:35] [Server thread/INFO]: [PlaceholderAPI] Placeholder expansion registration initializing...
+[20:54:35] [Server thread/INFO]: 0 placeholder hook(s) registered!
+[20:54:35] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[20:54:35] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:sobrevivencia
+[20:54:35] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:sobrevivencia_nether
+[20:54:35] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:sobrevivencia_the_end
+[20:54:35] [Server thread/INFO]: Running delayed init tasks
+[20:54:35] [Craft Scheduler Thread - 0 - QuickShop-Hikari/INFO]: [QuickShop-Hikari] Start to caching usernames (async)...
+[20:54:35] [Craft Scheduler Thread - 1 - Essentials/INFO]: [Essentials] Buscando informações da versão...
+[20:54:35] [Craft Scheduler Thread - 1 - Essentials/INFO]: [Essentials] Verificações de atualizações desativadas na configuração.
+[20:54:35] [Server thread/INFO]: [RankupSupremo] Economia conectada via Vault.
+[20:54:35] [Craft Scheduler Thread - 2 - ViaVersion/INFO]: [ViaVersion] Finished mapping loading, shutting down loader executor.
+[20:54:35] [Server thread/INFO]: [PlaceholderAPI] Successfully registered internal expansion: rankup [1.2.0]
+[20:54:35] [Server thread/INFO]: [RankupSupremo] PlaceholderAPI detectado: placeholders %rankup_...% registrados.
+[20:54:35] [Server thread/INFO]: [RankupSupremo] Mundo de sobrevivência 'sobrevivencia' configurado (dificuldade NORMAL, borda 10000).
+[20:54:35] [Server thread/INFO]: [RankupSupremo] Mundo de sobrevivência 'sobrevivencia_nether' configurado (dificuldade NORMAL, borda 10000).
+[20:54:35] [Server thread/INFO]: [RankupSupremo] Mundo de sobrevivência 'sobrevivencia_the_end' configurado (dificuldade NORMAL, borda 10000).
+[20:54:35] [Server thread/INFO]: [RankupSupremo] RankUP Supremo pronto! 15 ranks e 20 minas.
+[20:54:35] [Server thread/INFO]: [Essentials] Essentials found a compatible payment resolution method: Vault Compatibility Layer (v2.20.3)!
+[20:54:35] [Server thread/INFO]: [de.miraculixx.veinminer.Veinminer] All events enabled!
+[20:54:35] [Server thread/INFO]: [QuickShop-Hikari] Using economy system: EssentialsX Economy
+[20:54:35] [Server thread/INFO]: [QuickShop-Hikari] Selected economy bridge: BuiltIn-Vault
+[20:54:36] [Server thread/INFO]: [AuraSkills] Loaded 11 skills with 332 total sources
+[20:54:36] [Server thread/INFO]: [AuraSkills] Loaded 9 stats and 17 traits
+[20:54:36] [Server thread/INFO]: [AuraSkills] Loaded 22 pattern rewards and 0 level rewards
+[20:54:36] [Server thread/INFO]: [AuraSkills] Loaded 53 loot entries in 4 pools and 2 tables
+[20:54:36] [Server thread/INFO]: Environment: Environment[discoveryUrl=https://discovery.minecraftservices.com/minecraft/client, name=PROD]
+[20:54:36] [Server thread/INFO]: [AuraSkills] Loaded 7 menus
+[20:54:36] [Server thread/INFO]: Done (21.102s)! For help, type "help"
+[20:54:36] [Paper Async Task Handler Thread - 1/INFO]: *** Currently you are 3 builds behind ***
+[20:54:36] [Paper Async Task Handler Thread - 1/INFO]: *** It is highly recommended to download the latest build from https://papermc.io/downloads/paper ***
+[20:54:37] [User Authenticator #0/INFO]: UUID of player pedrin_bugica is 21a04d01-7e32-310a-bae8-8e5057de7859
+[20:54:37] [Server thread/INFO]: [HorriblePlayerLoginEventHack] You have plugins listening to the PlayerLoginEvent, this will cause re-configuration APIs to be unavailable: [LuckPerms, GriefPrevention, WorldGuard]
+[20:54:37] [Server thread/INFO]: [RankupSupremo] Mundo de sobrevivência 'sobrevivencia' configurado (dificuldade NORMAL, borda 10000).
+[20:54:37] [Server thread/INFO]: [RankupSupremo] Mundo de sobrevivência 'sobrevivencia_nether' configurado (dificuldade NORMAL, borda 10000).
+[20:54:37] [Server thread/INFO]: [RankupSupremo] Mundo de sobrevivência 'sobrevivencia_the_end' configurado (dificuldade NORMAL, borda 10000).
+[20:54:37] [Server thread/INFO]: System chat: [+] [Lenda] pedrin_bugica
+[20:54:37] [Server thread/INFO]: pedrin_bugica[/127.0.0.1:58151] logged in with entity id 32 at ([minecraft:overworld]4596.6246639281435, 91.0, 18.808980442140196)
+[20:54:53] [Server thread/INFO]: pedrin_bugica issued server command: /menuop
+[20:55:23] [Server thread/INFO]: pedrin_bugica issued server command: /menuop
+[20:55:45] [Async Chat Thread - #0/INFO]: [Not Secure] [✦70] [Lenda] [Dono] pedrin_bugica » clear
+[20:55:53] [Async Chat Thread - #0/INFO]: [Not Secure] [✦70] [Lenda] [Dono] pedrin_bugica » clear
+[20:55:55] [Async Chat Thread - #0/INFO]: [Not Secure] [✦70] [Lenda] [Dono] pedrin_bugica » cancelar
+[20:55:59] [Server thread/INFO]: pedrin_bugica issued server command: /menuop
+[20:56:33] [Server thread/INFO]: pedrin_bugica issued server command: /clear
+[20:56:45] [Server thread/INFO]: pedrin_bugica issued server command: /menuop
+[20:57:54] [Server thread/INFO]: [RS] 📢 ANÚNCIO » ola
+[20:58:03] [Server thread/INFO]: pedrin_bugica issued server command: /menuop
+[21:00:35] [Server thread/INFO]: pedrin_bugica lost connection: Disconnected
+[21:00:35] [Server thread/INFO]: System chat: [-] [Lenda] pedrin_bugica
+[21:01:44] [User Authenticator #1/INFO]: UUID of player pedrin_bugica is 21a04d01-7e32-310a-bae8-8e5057de7859
+[21:01:44] [Server thread/INFO]: System chat: [+] [Lenda] pedrin_bugica
+[21:01:44] [Server thread/INFO]: pedrin_bugica[/127.0.0.1:58589] logged in with entity id 37 at ([minecraft:overworld]4.0462962248668894, 101.0, -11.80901208833553)
+[21:01:44] [Server thread/WARN]: pedrin_bugica moved too quickly! 4.0462962248668894,101.0,-11.80901208833553
+[21:01:49] [Async Chat Thread - #4/INFO]: [Not Secure] [✦70] [Lenda] [Dono] pedrin_bugica » a
+[21:02:10] [Server thread/INFO]: pedrin_bugica issued server command: /skillrank
+[21:02:15] [Server thread/INFO]: pedrin_bugica issued server command: /skill
+[21:02:30] [Server thread/INFO]: pedrin_bugica lost connection: Disconnected
+[21:02:30] [Server thread/INFO]: System chat: [-] [Lenda] pedrin_bugica
+[21:02:36] [Server thread/INFO]: System chat: Stopping the server
+[21:02:36] [Server thread/INFO]: Stopping server
+[21:02:36] [Server thread/INFO]: [AuraSkills] Disabling AuraSkills v2.4.0
+[21:02:36] [Server thread/INFO]: [AuthMe] Disabling AuthMe v6.0.1-b2770
+[21:02:36] [Server thread/INFO]: [AuthMe] Waiting for 0 tasks to finish
+[21:02:36] [Server thread/INFO]: [AuthMe] AuthMe 6.0.1-b2770 disabled!
+[21:02:36] [Server thread/INFO]: [AxGraves] Disabling AxGraves v1.32.1

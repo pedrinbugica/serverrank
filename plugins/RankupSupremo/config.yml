@@ -1,0 +1,508 @@
+# ==================================================================
+#               RANKUP SUPREMO - CONFIGURAÇÃO PRINCIPAL
+# ==================================================================
+# Formatação de textos: MiniMessage  -> <red>, <bold>, <gradient:#FFD700:#FF8C00>texto</gradient>
+#   Editor visual: https://webui.advntr.dev/
+# Também funcionam os códigos clássicos: &a, &l, &#FFAA00
+#
+# Outros arquivos desta pasta:
+#   ranks.yml      -> ranks, preços e tags
+#   minas.yml      -> minas, blocos e tempo de reset
+#   vendas.yml     -> preço de venda de cada bloco
+#   mensagens.yml  -> todas as mensagens do plugin
+#
+# Depois de editar, use /rankupadmin recarregar (ou reinicie o servidor).
+# ==================================================================
+
+site: rankupsupremo.com.br
+discord: discord.gg/rankupsupremo
+
+# Mundo principal (gerado vazio, o plugin constrói o spawn e as minas)
+mundo: world
+
+spawn:
+  # Use /rankupadmin setspawn para mudar sem editar aqui.
+  x: 0.5
+  y: 101.0
+  z: 8.5
+  yaw: 180.0
+  pitch: 0.0
+  teleportar-ao-entrar: true
+  # Se o jogador cair abaixo desta altura, volta para o spawn.
+  altura-minima: 20
+
+geral:
+  desativar-dano: true
+  desativar-fome: true
+  mensagem-entrada: <dark_gray>[<green>+<dark_gray>] {rank} <white>{jogador}
+  mensagem-saida: <dark_gray>[<red>-<dark_gray>] {rank} <white>{jogador}
+  mensagem-primeira-entrada: <gold>✦ <yellow>{jogador} <gray>entrou pela primeira
+    vez no servidor! <dark_gray>(#{numero})
+
+chat:
+  ativado: true
+  # {mundo_tag} {prestigio} {rank} {prefixo} (VIP/Staff do LuckPerms) {jogador} {mensagem}
+  formato: '{mundo_tag}{prestigio}{rank} {prefixo}<white>{jogador} <dark_gray>» <gray>{mensagem}'
+  formato-prestigio: '<dark_purple>[<light_purple>✦{prestigio}<dark_purple>] '
+  # Etiqueta que aparece antes do nome conforme o mundo onde o jogador está
+  tag-mundo:
+    rankup: ''
+    sobrevivencia: '<dark_green>[<green>S<dark_green>] '
+
+prestigio:
+  maximo: 100
+  # Custo do prestígio = custo-base x (1 + prestígio atual x aumento-custo-por-prestigio)
+  custo-base: 50000000
+  aumento-custo-por-prestigio: 0.5
+  # Cada prestígio deixa os ranks mais caros (0.35 = +35% por prestígio)
+  aumento-custo-ranks: 0.35
+  # Cada prestígio aumenta o valor de venda (0.10 = +10% por prestígio)
+  bonus-venda: 0.1
+  resetar-dinheiro: false
+  # Comandos executados pelo console ao prestigiar. Variáveis: {jogador} {prestigio}
+  comandos: []
+
+vendas:
+  autovender:
+    # Prestígio mínimo para usar /autovender (VIPs liberam pela permissão rankupsupremo.autovender)
+    prestigio-minimo: 1
+  # Bônus de venda por permissão (vale o maior que o jogador tiver)
+  multiplicadores:
+    vip:
+      permissao: rankupsupremo.multiplicador.vip
+      bonus: 0.25
+    vipplus:
+      permissao: rankupsupremo.multiplicador.vipplus
+      bonus: 0.35
+    mvp:
+      permissao: rankupsupremo.multiplicador.mvp
+      bonus: 0.5
+
+minas:
+  # As minas ficam enfileiradas no eixo X: x = posicao-x-inicial + indice x espacamento
+  posicao-x-inicial: 1000
+  espacamento: 200
+  posicao-z: 0
+  altura-topo: 120
+  # Blocos recolocados por tick durante o reset (maior = mais rápido, menor = mais leve)
+  blocos-por-tick: 20000
+  # Aviso no chat antes do reset (segundos). O reset por porcentagem também espera este aviso.
+  aviso-reset-segundos: 10
+  estrutura:
+    plataforma: POLISHED_ANDESITE
+    vidro: GLASS
+    luz: SEA_LANTERN
+    largura-plataforma: 6
+
+picareta:
+  material: DIAMOND_PICKAXE
+  nome: <gradient:#00E5FF:#7C4DFF><bold>Picareta Suprema</bold></gradient>
+  # A linha {encantamentos} vira uma linha para cada melhoria que a picareta tiver.
+  # Também funcionam: {eficiencia} {fortuna} {explosao} {laser} {sorte-token} {velocidade} {visao-noturna} {fundicao}
+  lore:
+  - <gray>A picareta oficial do servidor.
+  - ''
+  - '<white>Melhorias:'
+  - '{encantamentos}'
+  - ''
+  - <yellow>Use /picareta para melhorar!
+  # Como cada melhoria aparece na lore. Variáveis: {cor} {simbolo} {nome} {nivel}
+  formato-encantamento: ' {cor}{simbolo} {nome} <white>{nivel}'
+  sem-encantamentos: ' <gray>Nenhuma melhoria ainda'
+  explosao:
+    # Chance (%) por nível de explodir uma área ao quebrar um bloco
+    chance-por-nivel: 1.5
+    # Raio da explosão (1 = área 3x3x3)
+    raio: 1
+  laser:
+    # Chance (%) por nível de destruir a camada inteira da mina
+    chance-por-nivel: 0.1
+  sorte-token:
+    # Cada nível aumenta a chance de ganhar tokens (0.10 = +10%)
+    bonus-por-nivel: 0.1
+  # moeda: dinheiro (Rankup) ou tokens (tokens de mina)
+  melhorias:
+    eficiencia:
+      nome: Eficiência
+      descricao: Minera os blocos mais rápido.
+      icone: GOLDEN_PICKAXE
+      maximo: 20
+      custo-base: 750
+      multiplicador-custo: 1.4
+      moeda: dinheiro
+      simbolo: ⛏
+      cor: <aqua>
+    fortuna:
+      nome: Fortuna
+      descricao: Ganha mais itens por bloco quebrado.
+      icone: DIAMOND
+      maximo: 50
+      custo-base: 1500
+      multiplicador-custo: 1.18
+      moeda: dinheiro
+      simbolo: ✦
+      cor: <gold>
+    explosao:
+      nome: Explosão
+      descricao: Chance de explodir uma área 3x3x3.
+      icone: TNT
+      maximo: 10
+      custo-base: 10000
+      multiplicador-custo: 1.55
+      moeda: dinheiro
+      simbolo: ✸
+      cor: <red>
+    laser:
+      nome: Laser
+      descricao: Chance de destruir a camada inteira da mina.
+      icone: END_ROD
+      maximo: 50
+      custo-base: 60
+      multiplicador-custo: 1.1
+      moeda: tokens
+      simbolo: ⚡
+      cor: <aqua>
+    sorte-token:
+      nome: Sorte de Token
+      descricao: Ganha tokens com mais frequência.
+      icone: AMETHYST_SHARD
+      maximo: 25
+      custo-base: 40
+      multiplicador-custo: 1.15
+      moeda: tokens
+      simbolo: ✪
+      cor: <light_purple>
+    velocidade:
+      nome: Velocidade
+      descricao: Efeito de velocidade segurando a picareta.
+      icone: SUGAR
+      maximo: 3
+      custo-base: 150
+      multiplicador-custo: 2.0
+      moeda: tokens
+      simbolo: »
+      cor: <white>
+    visao-noturna:
+      nome: Visão Noturna
+      descricao: Enxerga no escuro segurando a picareta.
+      icone: ENDER_EYE
+      maximo: 1
+      custo-base: 100
+      multiplicador-custo: 1.0
+      moeda: tokens
+      simbolo: ◉
+      cor: <dark_aqua>
+    fundicao:
+      nome: Fundição
+      descricao: Minérios já saem como barras/gemas (valem mais).
+      icone: BLAST_FURNACE
+      maximo: 1
+      custo-base: 400
+      multiplicador-custo: 1.0
+      moeda: tokens
+      simbolo: ♨
+      cor: <gold>
+
+# Tokens de mina: caem ao minerar e compram as melhorias especiais da picareta (/picareta).
+tokens:
+  # Chance (%) de cada bloco quebrado dar tokens (multiplicada pela Sorte de Token, booster e mina)
+  chance-por-bloco: 2.0
+  minimo: 1
+  maximo: 3
+
+# Combate entre jogadores (mina PvP do Rankup e mundo Sobrevivência)
+combate:
+  ativado: true
+  # Segundos marcado em combate depois de bater/apanhar de um jogador
+  segundos: 15
+  # Quem deslogar em combate morre (e perde os itens na mina PvP)
+  matar-ao-deslogar: true
+  # Comandos bloqueados durante o combate (sem a barra). Staff com rankupsupremo.combate.bypass ignora.
+  comandos-bloqueados:
+  - spawn
+  - lobby
+  - home
+  - homes
+  - tpa
+  - tpahere
+  - tpaccept
+  - tpyes
+  - warp
+  - warps
+  - back
+  - minas
+  - mina
+  - mines
+  - mundos
+  - servidores
+  - worlds
+  - sobrevivencia
+  - survival
+  - sv
+  - sobreviver
+  - rtp
+  - wild
+  - aleatorio
+  - fly
+  - loja
+  - mercado
+  - lojinha
+
+scoreboard:
+  ativado: true
+  titulo: <gradient:#FFD700:#FF8C00><bold>✦ RANKUP SUPREMO ✦</bold></gradient>
+  # Máximo de 15 linhas. Variáveis: {rank} {proximo} {progresso} {barra} {custo} {dinheiro}
+  # {prestigio} {multiplicador} {blocos} {tokens} {booster} {autovender} {online} {max} {jogador} {site} {discord}
+  # Placeholders do PlaceholderAPI (%...%) também funcionam.
+  linhas:
+  - <dark_gray><strikethrough>                              </strikethrough>
+  - ' <white>Rank: {rank}'
+  - ' <white>Próximo: {proximo}'
+  - ' {barra} <gray>{progresso}%'
+  - ''
+  - ' <white>Dinheiro: <green>${dinheiro}'
+  - ' <white>Prestígio: <light_purple>✦ {prestigio}'
+  - ' <white>Bônus de venda: <aqua>x{multiplicador}'
+  - ' <white>Blocos: <gold>{blocos}'
+  - ' <white>Tokens: <light_purple>{tokens}'
+  - ' <white>Autovenda: {autovender}'
+  - ''
+  - ' <white>Online: <green>{online}'
+  - <dark_gray><strikethrough>                              </strikethrough>
+  - '   <yellow>{site}'
+  # Scoreboard mostrada no mundo Sobrevivência (também aceita {mundo}, {online_sobrevivencia}, {online_rankup})
+  linhas-sobrevivencia:
+  - <dark_gray><strikethrough>                              </strikethrough>
+  - ' <white>Mundo: {mundo}'
+  - ''
+  - ' <white>Dinheiro: <green>${dinheiro}'
+  - ' <white>Rank: {rank}'
+  - ' <white>Habilidades: <aqua>%auraskills_power%'
+  - ''
+  - ' <white>No survival: <green>{online_sobrevivencia}'
+  - ' <white>Online total: <green>{online}'
+  - ''
+  - ' <gray>/rtp <dark_gray>» <white>explorar'
+  - ' <gray>Pá de ouro <dark_gray>» <white>proteger'
+  - <dark_gray><strikethrough>                              </strikethrough>
+  - '   <yellow>{site}'
+
+tab:
+  ativado: true
+  nome-jogador: '{rank} <white>{jogador}'
+  cabecalho:
+  - ''
+  - <gradient:#FFD700:#FF8C00><bold>✦ RANKUP SUPREMO ✦</bold></gradient>
+  - <gray>Bem-vindo(a), <white>{jogador}<gray>!
+  - ''
+  rodape:
+  - ''
+  - '<gray>Online: <green>{online}<dark_gray>/<green>{max}'
+  - '<gray>Site: <yellow>{site} <dark_gray>• <gray>Discord: <aqua>{discord}'
+  - ''
+
+hologramas:
+  ativado: true
+  spawn:
+  - <gradient:#FFD700:#FF8C00><bold>✦ RANKUP SUPREMO ✦</bold></gradient>
+  - <gray>O melhor servidor de Rankup!
+  - ''
+  - <white>Minere, venda, evolua e torne-se uma
+  - <gradient:#00F5FF:#B388FF><bold>LENDA</bold></gradient><white>!
+  comandos:
+  - <yellow><bold>COMO JOGAR</bold>
+  - ''
+  - <white>/minas <dark_gray>» <gray>Vá para sua mina
+  - <white>/vender <dark_gray>» <gray>Venda seus minérios
+  - <white>/rankup <dark_gray>» <gray>Suba de rank
+  - <white>/ranks <dark_gray>» <gray>Veja todos os ranks
+  - <white>/picareta <dark_gray>» <gray>Melhore sua picareta
+  - <white>/loja <dark_gray>» <gray>Boosters e loja
+  - <white>/tokens <dark_gray>» <gray>Seus tokens de mina
+  - <white>/autovender <dark_gray>» <gray>Venda automática
+  - <white>/prestigio <dark_gray>» <gray>Renasça mais forte
+  - <white>/toprank <dark_gray>» <gray>Melhores jogadores
+  - ''
+  - <green>/sobrevivencia <dark_gray>» <gray>Mundo survival
+  - <green>/mundos <dark_gray>» <gray>Escolher mundo
+  top-titulo: <gold><bold>✪ TOP JOGADORES ✪</bold>
+  top-linha: <yellow>{posicao}º <white>{jogador} <dark_gray>• {rank} <light_purple>✦{prestigio}
+  top-vazio: <gray>Ninguém ainda... seja o primeiro!
+  # Holograma no spawn do mundo Sobrevivência
+  sobrevivencia:
+  - <gradient:#56AB2F:#A8E063><bold>✦ SOBREVIVÊNCIA ✦</bold></gradient>
+  - <gray>Survival clássico com Nether e End!
+  - ''
+  - <white>/rtp <dark_gray>» <gray>ir para um lugar aleatório
+  - <white>Pá de ouro <dark_gray>» <gray>proteger seu terreno
+  - <white>/skills <dark_gray>» <gray>suas habilidades
+  - <white>/sethome <dark_gray>» <gray>marcar sua casa
+  - <white>/spawn <dark_gray>» <gray>voltar ao Rankup
+  # Holograma em cima de cada mina. Variáveis: {mina} {rank} {restante} {barra} {tempo}
+  mina:
+  - '{mina}'
+  - '<gray>Rank necessário: {rank}'
+  - ''
+  - '<gray>Restante: <white>{restante}%'
+  - '{barra}'
+  - '<gray>Reset em: <yellow>{tempo}'
+
+# Comandos executados UMA ÚNICA VEZ, na primeira vez que o servidor liga.
+# Criam os grupos do LuckPerms (VIP, MVP e Staff) com prefixos e permissões.
+primeira-inicializacao:
+  comandos:
+  - lp group default permission set essentials.home true
+  - lp group default permission set essentials.sethome true
+  - lp group default permission set essentials.delhome true
+  - lp group default permission set essentials.sethome.multiple true
+  - lp group default permission set essentials.tpa true
+  - lp group default permission set essentials.tpahere true
+  - lp group default permission set essentials.tpaccept true
+  - lp group default permission set essentials.tpdeny true
+  - lp group default permission set essentials.tpacancel true
+  - lp group default permission set essentials.msg true
+  - lp group default permission set essentials.r true
+  - lp group default permission set essentials.ignore true
+  - lp group default permission set essentials.mail true
+  - lp group default permission set essentials.mail.send true
+  - lp group default permission set essentials.balance true
+  - lp group default permission set essentials.balance.others true
+  - lp group default permission set essentials.balancetop true
+  - lp group default permission set essentials.pay true
+  - lp group default permission set essentials.list true
+  - lp group default permission set essentials.afk true
+  - lp group default permission set essentials.help true
+  - lp group default permission set essentials.helpop true
+  - lp group default permission set essentials.rules true
+  - lp group default permission set essentials.seen true
+  - lp group default permission set essentials.ping true
+  - lp group default permission set essentials.realname true
+  - lp creategroup vip
+  - lp group vip setweight 10
+  - lp group vip setdisplayname VIP
+  - lp group vip parent add default
+  - lp group vip meta setprefix 10 "&a&l[VIP] &r"
+  - lp group vip permission set rankupsupremo.autovender true
+  - lp group vip permission set rankupsupremo.multiplicador.vip true
+  - lp group vip permission set rankupsupremo.chat.cores true
+  - lp group vip permission set essentials.fly true
+  - lp group vip permission set essentials.hat true
+  - lp group vip permission set essentials.workbench true
+  - lp group vip permission set essentials.enderchest true
+  - lp group vip permission set essentials.sethome.multiple.vip true
+  - lp creategroup mvp
+  - lp group mvp setweight 20
+  - lp group mvp setdisplayname MVP
+  - lp group mvp parent add vip
+  - lp group mvp meta setprefix 20 "&b&l[MVP] &r"
+  - lp group mvp permission set rankupsupremo.multiplicador.mvp true
+  - lp group mvp permission set essentials.sethome.multiple.mvp true
+  - lp group mvp permission set essentials.anvil true
+  - lp creategroup ajudante
+  - lp group ajudante setweight 50
+  - lp group ajudante setdisplayname Ajudante
+  - lp group ajudante parent add default
+  - lp group ajudante meta setprefix 50 "&e&l[Ajudante] &r"
+  - lp group ajudante permission set essentials.mute true
+  - lp group ajudante permission set essentials.mute.notify true
+  - lp group ajudante permission set essentials.kick true
+  - lp group ajudante permission set essentials.kick.notify true
+  - lp group ajudante permission set essentials.whois true
+  - lp group ajudante permission set essentials.tp true
+  - lp group ajudante permission set essentials.helpop.receive true
+  - lp creategroup moderador
+  - lp group moderador setweight 60
+  - lp group moderador setdisplayname Moderador
+  - lp group moderador parent add ajudante
+  - lp group moderador meta setprefix 60 "&2&l[Moderador] &r"
+  - lp group moderador permission set essentials.tempban true
+  - lp group moderador permission set essentials.ban true
+  - lp group moderador permission set essentials.ban.notify true
+  - lp group moderador permission set essentials.unban true
+  - lp group moderador permission set essentials.tphere true
+  - lp group moderador permission set essentials.invsee true
+  - lp group moderador permission set essentials.vanish true
+  - lp group moderador permission set essentials.fly true
+  - lp creategroup admin
+  - lp group admin setweight 70
+  - lp group admin setdisplayname Admin
+  - lp group admin parent add moderador
+  - lp group admin meta setprefix 70 "&c&l[Admin] &r"
+  - lp group admin permission set essentials.* true
+  - lp group admin permission set worldedit.* true
+  - lp group admin permission set worldguard.* true
+  - lp group admin permission set rankupsupremo.* true
+  - lp group admin permission set authme.admin.* true
+  - lp creategroup dono
+  - lp group dono setweight 100
+  - lp group dono setdisplayname Dono
+  - lp group dono parent add admin
+  - lp group dono meta setprefix 100 "&4&l[Dono] &r"
+  - lp group dono permission set * true
+
+# ==================================================================
+#   MUNDO SOBREVIVÊNCIA (survival normal, com Nether e End próprios)
+#   Os mundos são criados pelo Multiverse e o inventário é separado
+#   do Rankup pelo Multiverse-Inventories.
+# ==================================================================
+sobrevivencia:
+  ativado: true
+  # Nome do mundo principal. O Nether e o End usam o sufixo _nether e _the_end.
+  mundo: sobrevivencia
+  dificuldade: NORMAL
+  pvp: true
+  # Raio da borda do mundo (a borda do Nether fica proporcional, 1/8)
+  borda-raio: 10000
+  # Raio protegido em volta do spawn (ninguém quebra/constrói nem faz PvP)
+  protecao-spawn-raio: 24
+  # Porcentagem de jogadores dormindo para pular a noite
+  porcentagem-para-dormir: 30
+  rtp:
+    cooldown-segundos: 60
+    distancia-minima: 300
+    distancia-maxima: 4000
+
+# Blocos de comandos executados UMA ÚNICA VEZ cada (o plugin lembra quais já rodou em estado.yml).
+# Servem para aplicar atualizações em servidores que já existiam.
+comandos-unicos:
+  sobrevivencia-v1:
+  - mv create sobrevivencia normal
+  - mv create sobrevivencia_nether nether
+  - mv create sobrevivencia_the_end the_end
+  - mv modify sobrevivencia set difficulty normal
+  - mv modify sobrevivencia_nether set difficulty normal
+  - mv modify sobrevivencia_the_end set difficulty normal
+  - mvinv create-group sobrevivencia
+  - mvinv add-worlds sobrevivencia sobrevivencia,sobrevivencia_nether,sobrevivencia_the_end
+  - mvinv add-shares sobrevivencia all
+  - lp group default permission set essentials.back true
+  - lp group default permission set essentials.back.ondeath true
+  - lp group default permission set veinminer.use true world=sobrevivencia
+  - lp group default permission set veinminer.use true world=sobrevivencia_nether
+  - lp group default permission set veinminer.use true world=sobrevivencia_the_end
+  - lp group admin permission set griefprevention.* true
+  - lp group admin permission set multiverse.* true
+  - lp group admin permission set axgraves.* true
+  - lp group admin permission set quickshop.* true
+  - lp group admin permission set auraskills.* true
+  - lp group admin permission set chunky.* true
+  - lp group admin permission set gsit.* true
+  - lp group admin permission set veinminer.* true
+  - lp group admin permission set rankupsupremo.menuop false
+  - gpreload
+  # v1.2.0: VIP+, minas VIP/PvP/Prestígio e correção do /menuop para o Dono
+  rankup-v2:
+  - lp group dono permission set rankupsupremo.menuop true
+  - lp creategroup vipplus
+  - lp group vipplus setweight 15
+  - lp group vipplus setdisplayname VIP+
+  - lp group vipplus parent add vip
+  - lp group vipplus meta setprefix 15 "&e&l[VIP+] &r"
+  - lp group vipplus permission set rankupsupremo.multiplicador.vipplus true
+  - lp group vipplus permission set rankupsupremo.mina.vipplus true
+  - lp group vipplus permission set essentials.sethome.multiple.vipplus true
+  - lp group vipplus permission set essentials.feed true
+  - lp group vip permission set rankupsupremo.mina.vip true
+  - lp group mvp parent remove vip
+  - lp group mvp parent add vipplus
+  - lp group mvp permission set rankupsupremo.mina.mvp true

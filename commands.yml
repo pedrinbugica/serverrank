@@ -1,0 +1,53 @@
+# This is the Bukkit commands configuration file for Paper.
+#
+# If you need help with the configuration or have any questions related to Paper,
+# join us in our Discord or check the docs page.
+#
+# File Reference: https://docs.papermc.io/paper/reference/bukkit-commands-configuration/
+# Docs: https://docs.papermc.io/
+# Discord: https://discord.gg/papermc
+# Website: https://papermc.io/
+
+# Atalhos de comandos em português.
+# Documentação: https://docs.papermc.io/paper/reference/commands-configuration/
+command-block-overrides: []
+ignore-vanilla-permissions: false
+aliases:
+  logar:
+  - login $1-
+  registrar:
+  - register $1-
+  dinheiro:
+  - balance $1-
+  pagar:
+  - pay $1-
+  topmoney:
+  - balancetop $1-
+  # Terrenos (GriefPrevention)
+  confiar:
+  - trust $1-
+  desconfiar:
+  - untrust $1-
+  confiarbau:
+  - containertrust $1-
+  confiaracesso:
+  - accesstrust $1-
+  confiancas:
+  - trustlist
+  terrenos:
+  - claimslist $1-
+  abandonarterreno:
+  - abandonclaim
+  abandonartodos:
+  - abandonallclaims $1-
+  preso:
+  - trapped
+  subdividir:
+  - subdivideclaims
+  # Habilidades (AuraSkills) e sentar/deitar (GSit). Lojas de jogadores: /qs
+  habilidades:
+  - skills $1-
+  sentar:
+  - sit
+  deitar:
+  - lay

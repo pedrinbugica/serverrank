@@ -1,0 +1,251 @@
+# ==================================================================
+#                 RANKUP SUPREMO - LOJA (/loja)
+# ==================================================================
+# Cada mundo tem a sua loja, porque o dinheiro do Rankup e o da
+# Sobrevivência são separados. A primeira tela mostra só as categorias.
+#
+# Categoria:
+#   nome / descricao / icone
+#   slot:  posição no menu (opcional)
+#   tipo:  vender-minerios = botão que vende os minérios do inventário (só no Rankup)
+#
+# Itens comuns:
+#   material:   item do Minecraft (ex.: OAK_LOG)
+#   nome:       opcional. Sem nome, aparece o nome do item no idioma do jogo do jogador
+#   quantidade: quantos itens vêm em cada compra/venda
+#   compra:     preço para COMPRAR essa quantidade (0 ou sem = não vende)
+#   venda:      quanto o jogador RECEBE ao vender essa quantidade (0 ou sem = não compra)
+#   (a venda precisa ser menor que a compra, senão vira dinheiro infinito)
+#
+# Boosters (loja do Rankup):
+#   tipo:             booster-venda ou booster-tokens
+#   bonus:            0.5 = +50%
+#   minutos:          duração
+#   custo-percentual: preço = % do custo do próximo rank do jogador (0.10 = 10%)
+#   custo-minimo:     preço mínimo
+#
+# Cliques: esquerdo = comprar | shift + esquerdo = comprar 4x
+#          direito = vender   | shift + direito = vender tudo
+# Depois de editar: /rankupadmin recarregar
+# ==================================================================
+
+rankup:
+  titulo: "<dark_gray>Loja do Rankup"
+  linhas: 4
+  categorias:
+    boosters-venda:
+      nome: "<gold><bold>Boosters de Venda"
+      descricao:
+        - "<gray>Aumentam o dinheiro de tudo"
+        - "<gray>que você vender por um tempo."
+      icone: EXPERIENCE_BOTTLE
+      slot: 11
+      itens:
+        venda-50:
+          tipo: booster-venda
+          nome: "<gold><bold>Booster de Venda +50%"
+          icone: EXPERIENCE_BOTTLE
+          bonus: 0.5
+          minutos: 15
+          custo-percentual: 0.08
+          custo-minimo: 300
+        venda-100:
+          tipo: booster-venda
+          nome: "<gold><bold>Booster de Venda +100%"
+          icone: GLOW_INK_SAC
+          bonus: 1.0
+          minutos: 20
+          custo-percentual: 0.18
+          custo-minimo: 800
+        venda-200:
+          tipo: booster-venda
+          nome: "<gradient:#FFD700:#FF8C00><bold>Booster de Venda +200%</bold></gradient>"
+          icone: NETHER_STAR
+          bonus: 2.0
+          minutos: 15
+          custo-percentual: 0.35
+          custo-minimo: 2000
+    boosters-tokens:
+      nome: "<light_purple><bold>Boosters de Tokens"
+      descricao:
+        - "<gray>Aumentam a chance de ganhar"
+        - "<gray>tokens minerando."
+      icone: AMETHYST_SHARD
+      slot: 13
+      itens:
+        tokens-50:
+          tipo: booster-tokens
+          nome: "<light_purple><bold>Booster de Tokens +50%"
+          icone: AMETHYST_SHARD
+          bonus: 0.5
+          minutos: 15
+          custo-percentual: 0.10
+          custo-minimo: 500
+        tokens-100:
+          tipo: booster-tokens
+          nome: "<light_purple><bold>Booster de Tokens +100%"
+          icone: AMETHYST_CLUSTER
+          bonus: 1.0
+          minutos: 20
+          custo-percentual: 0.22
+          custo-minimo: 1200
+    vender:
+      nome: "<green><bold>Vender Minérios"
+      descricao:
+        - "<gray>Vende todos os minérios"
+        - "<gray>do seu inventário (igual ao /vender)."
+      icone: HOPPER
+      slot: 15
+      tipo: vender-minerios
+
+sobrevivencia:
+  titulo: "<dark_gray>Loja da Sobrevivência"
+  linhas: 4
+  categorias:
+    blocos:
+      nome: "<gold><bold>Blocos"
+      descricao:
+        - "<gray>Madeiras, pedras, vidro e mais"
+        - "<gray>para suas construções."
+      icone: BRICKS
+      slot: 10
+      itens:
+        carvalho: {material: OAK_LOG, quantidade: 16, compra: 48, venda: 8}
+        pinheiro: {material: SPRUCE_LOG, quantidade: 16, compra: 48, venda: 8}
+        betula: {material: BIRCH_LOG, quantidade: 16, compra: 48, venda: 8}
+        carvalho-escuro: {material: DARK_OAK_LOG, quantidade: 16, compra: 56, venda: 8}
+        cerejeira: {material: CHERRY_LOG, quantidade: 16, compra: 64, venda: 8}
+        pedra: {material: STONE, quantidade: 64, compra: 64, venda: 8}
+        pedregulho: {material: COBBLESTONE, quantidade: 64, compra: 32, venda: 4}
+        tijolos-pedra: {material: STONE_BRICKS, quantidade: 64, compra: 96}
+        ardosia: {material: DEEPSLATE_BRICKS, quantidade: 64, compra: 128}
+        tijolos: {material: BRICKS, quantidade: 32, compra: 96}
+        vidro: {material: GLASS, quantidade: 32, compra: 64}
+        areia: {material: SAND, quantidade: 64, compra: 48, venda: 6}
+        terra: {material: DIRT, quantidade: 64, compra: 16}
+        grama: {material: GRASS_BLOCK, quantidade: 16, compra: 32}
+        la: {material: WHITE_WOOL, quantidade: 16, compra: 48, venda: 8}
+        quartzo: {material: QUARTZ_BLOCK, quantidade: 16, compra: 160}
+        terracota: {material: TERRACOTTA, quantidade: 32, compra: 96}
+        lanterna-mar: {material: SEA_LANTERN, quantidade: 8, compra: 120}
+        lanterna: {material: LANTERN, quantidade: 8, compra: 48}
+    comida:
+      nome: "<red><bold>Comida"
+      descricao:
+        - "<gray>Para não passar fome na aventura."
+      icone: COOKED_BEEF
+      slot: 11
+      itens:
+        pao: {material: BREAD, quantidade: 16, compra: 32}
+        bife: {material: COOKED_BEEF, quantidade: 16, compra: 64}
+        porco: {material: COOKED_PORKCHOP, quantidade: 16, compra: 64}
+        frango: {material: COOKED_CHICKEN, quantidade: 16, compra: 48}
+        batata-assada: {material: BAKED_POTATO, quantidade: 16, compra: 40}
+        cenoura-dourada: {material: GOLDEN_CARROT, quantidade: 8, compra: 120}
+        maca-dourada: {material: GOLDEN_APPLE, quantidade: 1, compra: 250}
+        bolo: {material: CAKE, quantidade: 1, compra: 40}
+    ferramentas:
+      nome: "<aqua><bold>Ferramentas e Armas"
+      descricao:
+        - "<gray>Inclui a <gold>pá de ouro<gray> para"
+        - "<gray>proteger o seu terreno!"
+      icone: IRON_PICKAXE
+      slot: 12
+      itens:
+        pa-ouro: {material: GOLDEN_SHOVEL, nome: "<gold><bold>Pá de Ouro <gray>(proteger terreno)", quantidade: 1, compra: 20}
+        picareta-ferro: {material: IRON_PICKAXE, quantidade: 1, compra: 90}
+        machado-ferro: {material: IRON_AXE, quantidade: 1, compra: 90}
+        pa-ferro: {material: IRON_SHOVEL, quantidade: 1, compra: 40}
+        enxada-ferro: {material: IRON_HOE, quantidade: 1, compra: 50}
+        espada-ferro: {material: IRON_SWORD, quantidade: 1, compra: 80}
+        arco: {material: BOW, quantidade: 1, compra: 70}
+        flechas: {material: ARROW, quantidade: 32, compra: 48}
+        escudo: {material: SHIELD, quantidade: 1, compra: 70}
+        vara-pesca: {material: FISHING_ROD, quantidade: 1, compra: 40}
+        tesoura: {material: SHEARS, quantidade: 1, compra: 40}
+        balde: {material: BUCKET, quantidade: 1, compra: 60}
+        tochas: {material: TORCH, quantidade: 32, compra: 32}
+        cama: {material: RED_BED, quantidade: 1, compra: 40}
+        capacete-ferro: {material: IRON_HELMET, quantidade: 1, compra: 100}
+        peitoral-ferro: {material: IRON_CHESTPLATE, quantidade: 1, compra: 160}
+        calca-ferro: {material: IRON_LEGGINGS, quantidade: 1, compra: 140}
+        botas-ferro: {material: IRON_BOOTS, quantidade: 1, compra: 80}
+    farm:
+      nome: "<green><bold>Farm"
+      descricao:
+        - "<gray>Compre sementes e venda"
+        - "<gray>o que você plantar."
+      icone: WHEAT
+      slot: 13
+      itens:
+        sementes-trigo: {material: WHEAT_SEEDS, quantidade: 16, compra: 16}
+        trigo: {material: WHEAT, quantidade: 64, venda: 32}
+        cenoura: {material: CARROT, quantidade: 16, compra: 24, venda: 4}
+        batata: {material: POTATO, quantidade: 16, compra: 24, venda: 4}
+        beterraba: {material: BEETROOT, quantidade: 64, venda: 24}
+        sementes-beterraba: {material: BEETROOT_SEEDS, quantidade: 16, compra: 16}
+        melancia: {material: MELON_SLICE, quantidade: 64, venda: 24}
+        sementes-melancia: {material: MELON_SEEDS, quantidade: 8, compra: 24}
+        abobora: {material: PUMPKIN, quantidade: 16, venda: 24}
+        sementes-abobora: {material: PUMPKIN_SEEDS, quantidade: 8, compra: 24}
+        cana: {material: SUGAR_CANE, quantidade: 64, compra: 160, venda: 40}
+        cacto: {material: CACTUS, quantidade: 64, compra: 160, venda: 40}
+        bambu: {material: BAMBOO, quantidade: 64, venda: 16}
+        cacau: {material: COCOA_BEANS, quantidade: 16, compra: 32, venda: 6}
+        fungo-nether: {material: NETHER_WART, quantidade: 16, compra: 80, venda: 16}
+        farinha-osso: {material: BONE_MEAL, quantidade: 32, compra: 32}
+        mudas: {material: OAK_SAPLING, quantidade: 8, compra: 24}
+    drops:
+      nome: "<dark_green><bold>Drops de Mobs"
+      descricao:
+        - "<gray>Venda o que os monstros"
+        - "<gray>e animais deixam cair."
+      icone: ROTTEN_FLESH
+      slot: 14
+      itens:
+        carne-podre: {material: ROTTEN_FLESH, quantidade: 64, venda: 16}
+        osso: {material: BONE, quantidade: 64, venda: 32}
+        linha: {material: STRING, quantidade: 64, venda: 40}
+        olho-aranha: {material: SPIDER_EYE, quantidade: 16, venda: 16}
+        polvora: {material: GUNPOWDER, quantidade: 16, venda: 40}
+        perola: {material: ENDER_PEARL, quantidade: 16, compra: 400, venda: 80}
+        vara-blaze: {material: BLAZE_ROD, quantidade: 16, venda: 120}
+        slime: {material: SLIME_BALL, quantidade: 16, venda: 64}
+        couro: {material: LEATHER, quantidade: 16, venda: 32}
+        pena: {material: FEATHER, quantidade: 32, venda: 16}
+        lagrima-ghast: {material: GHAST_TEAR, quantidade: 1, venda: 40}
+        membrana: {material: PHANTOM_MEMBRANE, quantidade: 8, venda: 48}
+        flechas-esqueleto: {material: ARROW, quantidade: 64, venda: 16}
+    minerios:
+      nome: "<white><bold>Minérios"
+      descricao:
+        - "<gray>Venda suas barras e gemas."
+      icone: IRON_INGOT
+      slot: 15
+      itens:
+        carvao: {material: COAL, quantidade: 64, compra: 192, venda: 48}
+        cobre: {material: COPPER_INGOT, quantidade: 64, venda: 64}
+        ferro: {material: IRON_INGOT, quantidade: 16, compra: 160, venda: 32}
+        ouro: {material: GOLD_INGOT, quantidade: 16, compra: 240, venda: 48}
+        lapis: {material: LAPIS_LAZULI, quantidade: 64, venda: 48}
+        redstone: {material: REDSTONE, quantidade: 64, compra: 192, venda: 48}
+        quartzo-nether: {material: QUARTZ, quantidade: 64, venda: 64}
+        diamante: {material: DIAMOND, quantidade: 1, compra: 200, venda: 40}
+        esmeralda: {material: EMERALD, quantidade: 1, compra: 120, venda: 25}
+        ametista: {material: AMETHYST_SHARD, quantidade: 16, venda: 32}
+        netherita: {material: NETHERITE_INGOT, quantidade: 1, venda: 1200}
+    especiais:
+      nome: "<light_purple><bold>Especiais"
+      descricao:
+        - "<gray>Itens difíceis de conseguir."
+      icone: NETHER_STAR
+      slot: 16
+      itens:
+        etiqueta: {material: NAME_TAG, quantidade: 1, compra: 200}
+        sela: {material: SADDLE, quantidade: 1, compra: 250}
+        laco: {material: LEAD, quantidade: 2, compra: 80}
+        frascos-xp: {material: EXPERIENCE_BOTTLE, quantidade: 16, compra: 320}
+        bau-ender: {material: ENDER_CHEST, quantidade: 1, compra: 500}
+        casco-shulker: {material: SHULKER_SHELL, quantidade: 2, compra: 1500}
+        tridente: {material: TRIDENT, quantidade: 1, compra: 3000}
+        totem: {material: TOTEM_OF_UNDYING, quantidade: 1, compra: 5000}

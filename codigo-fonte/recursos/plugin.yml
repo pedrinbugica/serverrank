@@ -1,0 +1,104 @@
+name: RankupSupremo
+version: '1.2.0'
+main: br.rankupsupremo.RankupSupremo
+api-version: '1.21'
+load: STARTUP
+description: Sistema completo de Rankup em português - ranks, prestígios, minas (VIP, PvP e Prestígio), tokens, loja, vendas e picaretas.
+authors: [RankUP Supremo]
+softdepend: [Vault, PlaceholderAPI, LuckPerms, Essentials, Multiverse-Core, Multiverse-Inventories]
+
+commands:
+  rankup:
+    description: Sobe para o próximo rank
+    aliases: [upar]
+  ranks:
+    description: Mostra todos os ranks
+    aliases: [listaranks]
+  prestigio:
+    description: Renasce com bônus permanente de venda
+    aliases: [prestige, renascer]
+  minas:
+    description: Abre o menu de minas ou teleporta para uma mina
+    aliases: [mina, mines]
+  vender:
+    description: Vende todos os minérios do inventário
+    aliases: [vendertudo]
+  autovender:
+    description: Ativa ou desativa a venda automática
+    aliases: [autovenda]
+  picareta:
+    description: Abre o menu de melhorias da picareta
+    aliases: [melhorar, encantar, pick]
+  spawn:
+    description: Teleporta para o spawn
+    aliases: [lobby]
+  toprank:
+    description: Mostra os melhores jogadores
+    aliases: [topranks, toprankup]
+  sobrevivencia:
+    description: Vai para o mundo Sobrevivência (de onde você parou)
+    aliases: [survival, sv, sobreviver]
+  mundos:
+    description: Menu para escolher o mundo
+    aliases: [servidores, worlds]
+  rtp:
+    description: Teleporte aleatório no mundo Sobrevivência
+    aliases: [aleatorio, wild]
+  loja:
+    description: Loja do servidor (cada mundo tem a sua)
+    aliases: [mercado, lojinha]
+  tokens:
+    description: Mostra ou envia tokens de mina
+    aliases: [token, fichas]
+  menuop:
+    description: Painel do dono (dinheiro, picaretas OP, ranks...)
+    aliases: [painelop, opmenu]
+    permission: rankupsupremo.menuop
+  rankupadmin:
+    description: Administração do RankUP Supremo
+    aliases: [rua, rsadmin]
+    permission: rankupsupremo.admin
+
+permissions:
+  rankupsupremo.admin:
+    description: Acesso ao /rankupadmin
+    default: op
+  rankupsupremo.autovender:
+    description: Libera o /autovender sem precisar de prestígio
+    default: false
+  rankupsupremo.mina.todas:
+    description: Acesso a todas as minas
+    default: op
+  rankupsupremo.chat.cores:
+    description: Pode usar cores (&a, &l...) no chat
+    default: op
+  rankupsupremo.multiplicador.vip:
+    description: Bônus de venda VIP
+    default: false
+  rankupsupremo.multiplicador.mvp:
+    description: Bônus de venda MVP
+    default: false
+  rankupsupremo.menuop:
+    description: Acesso ao /menuop (painel do dono)
+    default: op
+  rankupsupremo.construir:
+    description: Pode construir no spawn protegido da Sobrevivência
+    default: op
+  rankupsupremo.rtp.semcooldown:
+    description: Usa o /rtp sem esperar
+    default: op
+  rankupsupremo.multiplicador.vipplus:
+    description: Bônus de venda VIP+
+    default: false
+  rankupsupremo.mina.vip:
+    description: Acesso à Mina VIP
+    default: false
+  rankupsupremo.mina.vipplus:
+    description: Acesso à Mina VIP+
+    default: false
+  rankupsupremo.mina.mvp:
+    description: Acesso à Mina MVP
+    default: false
+  rankupsupremo.combate.bypass:
+    description: Ignora as regras de combate (comandos bloqueados e morte ao deslogar)
+    default: op

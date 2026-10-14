@@ -1,0 +1,354 @@
+# ==================================================================
+#                    RANKUP SUPREMO - MINAS
+# ==================================================================
+# Cada mina é construída AUTOMATICAMENTE no mundo na primeira vez que o servidor liga.
+#   nome:              nome exibido (MiniMessage)
+#   rank:              rank necessário (id do ranks.yml). Ranks maiores também acessam.
+#   icone:             item do menu /minas
+#   tamanho:           largura da mina (ímpar, entre 7 e 61)
+#   profundidade:      altura da mina (3 a 80)
+#   reset-minutos:     reset automático a cada X minutos
+#   reset-porcentagem: também reseta quando restar X% dos blocos (30 = quando 70% foi minerado; 0 = desativado)
+#   parede / detalhe:  blocos da estrutura
+#   blocos:            BLOCO: peso (chance relativa)
+#
+# Minas especiais (opcional):
+#   tipo:                 NORMAL, VIP, PVP ou PRESTIGIO
+#   tema:                 PADRAO, CRISTAL, DESERTO, CEU, PVP ou PRESTIGIO (decoração da mina)
+#   permissao / cargo:    permissão exigida e o nome do cargo mostrado (ex.: rankupsupremo.mina.vip / VIP)
+#   prestigio-minimo:     prestígio necessário
+#   drops-rank:           em vez dos blocos da mina, dá os minérios da mina do rank do jogador + N
+#   multiplicador-tokens: multiplica a chance de ganhar tokens
+#   largura-plataforma:   largura da plataforma em volta (3 a 12)
+#
+# Mudou tamanho/profundidade/parede de uma mina já construída?
+#   Use /rankupadmin reconstruir <mina>
+# Os preços de venda ficam em vendas.yml.
+# ==================================================================
+
+minas:
+  mendigo:
+    nome: "<gray><bold>Mina Mendigo"
+    rank: mendigo
+    icone: COBBLESTONE
+    tamanho: 25
+    profundidade: 25
+    reset-minutos: 8
+    reset-porcentagem: 30
+    parede: STONE_BRICKS
+    detalhe: CHISELED_STONE_BRICKS
+    blocos:
+      STONE: 60
+      COBBLESTONE: 25
+      COAL_ORE: 15
+  plebeu:
+    nome: "<white><bold>Mina Plebeu"
+    rank: plebeu
+    icone: COAL_ORE
+    tamanho: 25
+    profundidade: 25
+    reset-minutos: 8
+    reset-porcentagem: 30
+    parede: COBBLESTONE
+    detalhe: MOSSY_COBBLESTONE
+    blocos:
+      STONE: 35
+      COAL_ORE: 35
+      COPPER_ORE: 20
+      ANDESITE: 10
+  campones:
+    nome: "<green><bold>Mina Camponês"
+    rank: campones
+    icone: COPPER_ORE
+    tamanho: 25
+    profundidade: 25
+    reset-minutos: 8
+    reset-porcentagem: 30
+    parede: MOSSY_STONE_BRICKS
+    detalhe: MOSS_BLOCK
+    blocos:
+      COAL_ORE: 30
+      COPPER_ORE: 30
+      IRON_ORE: 25
+      ANDESITE: 15
+  aprendiz:
+    nome: "<dark_green><bold>Mina Aprendiz"
+    rank: aprendiz
+    icone: IRON_ORE
+    tamanho: 25
+    profundidade: 25
+    reset-minutos: 8
+    reset-porcentagem: 30
+    parede: POLISHED_GRANITE
+    detalhe: GRANITE
+    blocos:
+      COPPER_ORE: 25
+      IRON_ORE: 35
+      LAPIS_ORE: 20
+      DEEPSLATE: 20
+  minerador:
+    nome: "<aqua><bold>Mina Minerador"
+    rank: minerador
+    icone: LAPIS_ORE
+    tamanho: 25
+    profundidade: 25
+    reset-minutos: 8
+    reset-porcentagem: 30
+    parede: PRISMARINE_BRICKS
+    detalhe: DARK_PRISMARINE
+    blocos:
+      IRON_ORE: 30
+      LAPIS_ORE: 25
+      REDSTONE_ORE: 25
+      GOLD_ORE: 20
+  ferreiro:
+    nome: "<dark_aqua><bold>Mina Ferreiro"
+    rank: ferreiro
+    icone: DEEPSLATE_IRON_ORE
+    tamanho: 25
+    profundidade: 25
+    reset-minutos: 8
+    reset-porcentagem: 30
+    parede: DEEPSLATE_BRICKS
+    detalhe: CHISELED_DEEPSLATE
+    blocos:
+      DEEPSLATE_IRON_ORE: 25
+      DEEPSLATE_LAPIS_ORE: 25
+      DEEPSLATE_REDSTONE_ORE: 25
+      DEEPSLATE_GOLD_ORE: 25
+  mercador:
+    nome: "<blue><bold>Mina Mercador"
+    rank: mercador
+    icone: GOLD_ORE
+    tamanho: 25
+    profundidade: 25
+    reset-minutos: 8
+    reset-porcentagem: 30
+    parede: POLISHED_DEEPSLATE
+    detalhe: GOLD_BLOCK
+    blocos:
+      DEEPSLATE_GOLD_ORE: 30
+      NETHER_QUARTZ_ORE: 30
+      DIAMOND_ORE: 20
+      COAL_BLOCK: 20
+  cavaleiro:
+    nome: "<yellow><bold>Mina Cavaleiro"
+    rank: cavaleiro
+    icone: DIAMOND_ORE
+    tamanho: 25
+    profundidade: 25
+    reset-minutos: 8
+    reset-porcentagem: 30
+    parede: SMOOTH_SANDSTONE
+    detalhe: CUT_SANDSTONE
+    blocos:
+      DIAMOND_ORE: 30
+      EMERALD_ORE: 15
+      IRON_BLOCK: 20
+      DEEPSLATE_GOLD_ORE: 35
+  barao:
+    nome: "<gold><bold>Mina Barão"
+    rank: barao
+    icone: EMERALD_ORE
+    tamanho: 25
+    profundidade: 25
+    reset-minutos: 8
+    reset-porcentagem: 30
+    parede: POLISHED_BLACKSTONE_BRICKS
+    detalhe: GILDED_BLACKSTONE
+    blocos:
+      DEEPSLATE_DIAMOND_ORE: 30
+      DEEPSLATE_EMERALD_ORE: 20
+      IRON_BLOCK: 25
+      LAPIS_BLOCK: 25
+  conde:
+    nome: "<red><bold>Mina Conde"
+    rank: conde
+    icone: REDSTONE_BLOCK
+    tamanho: 25
+    profundidade: 25
+    reset-minutos: 8
+    reset-porcentagem: 30
+    parede: RED_NETHER_BRICKS
+    detalhe: NETHER_BRICKS
+    blocos:
+      REDSTONE_BLOCK: 30
+      GOLD_BLOCK: 25
+      DEEPSLATE_EMERALD_ORE: 25
+      LAPIS_BLOCK: 20
+  duque:
+    nome: "<dark_red><bold>Mina Duque"
+    rank: duque
+    icone: AMETHYST_BLOCK
+    tamanho: 25
+    profundidade: 25
+    reset-minutos: 8
+    reset-porcentagem: 30
+    parede: PURPUR_BLOCK
+    detalhe: PURPUR_PILLAR
+    blocos:
+      GOLD_BLOCK: 35
+      AMETHYST_BLOCK: 25
+      QUARTZ_BLOCK: 25
+      DIAMOND_BLOCK: 15
+  principe:
+    nome: "<light_purple><bold>Mina Príncipe"
+    rank: principe
+    icone: DIAMOND_BLOCK
+    tamanho: 25
+    profundidade: 25
+    reset-minutos: 8
+    reset-porcentagem: 30
+    parede: QUARTZ_BRICKS
+    detalhe: CHISELED_QUARTZ_BLOCK
+    blocos:
+      DIAMOND_BLOCK: 30
+      QUARTZ_BLOCK: 30
+      GOLD_BLOCK: 25
+      EMERALD_BLOCK: 15
+  rei:
+    nome: "<gradient:#FFD700:#FFF59D><bold>Mina Rei</bold></gradient>"
+    rank: rei
+    icone: EMERALD_BLOCK
+    tamanho: 25
+    profundidade: 25
+    reset-minutos: 8
+    reset-porcentagem: 30
+    parede: GOLD_BLOCK
+    detalhe: SEA_LANTERN
+    blocos:
+      DIAMOND_BLOCK: 35
+      EMERALD_BLOCK: 35
+      AMETHYST_BLOCK: 20
+      GOLD_BLOCK: 10
+  imperador:
+    nome: "<gradient:#FF512F:#DD2476><bold>Mina Imperador</bold></gradient>"
+    rank: imperador
+    icone: ANCIENT_DEBRIS
+    tamanho: 25
+    profundidade: 25
+    reset-minutos: 8
+    reset-porcentagem: 30
+    parede: CRYING_OBSIDIAN
+    detalhe: OBSIDIAN
+    blocos:
+      EMERALD_BLOCK: 40
+      DIAMOND_BLOCK: 35
+      ANCIENT_DEBRIS: 25
+  lenda:
+    nome: "<gradient:#00F5FF:#B388FF><bold>Mina Lenda</bold></gradient>"
+    rank: lenda
+    icone: NETHERITE_BLOCK
+    tamanho: 25
+    profundidade: 25
+    reset-minutos: 8
+    reset-porcentagem: 30
+    parede: END_STONE_BRICKS
+    detalhe: PURPLE_STAINED_GLASS
+    blocos:
+      ANCIENT_DEBRIS: 35
+      EMERALD_BLOCK: 40
+      NETHERITE_BLOCK: 10
+      DIAMOND_BLOCK: 15
+
+  # ---------------------------------------------------------------
+  #  MINAS ESPECIAIS
+  # ---------------------------------------------------------------
+  mina_vip:
+    nome: "<gradient:#B388FF:#E1BEE7><bold>Mina VIP</bold></gradient>"
+    tipo: VIP
+    tema: CRISTAL
+    permissao: rankupsupremo.mina.vip
+    cargo: "VIP"
+    rank: mendigo
+    drops-rank: 1
+    icone: AMETHYST_BLOCK
+    tamanho: 31
+    profundidade: 40
+    reset-minutos: 8
+    reset-porcentagem: 30
+    parede: AMETHYST_BLOCK
+    detalhe: PURPLE_STAINED_GLASS
+    blocos:
+      AMETHYST_BLOCK: 50
+      CALCITE: 30
+      SMOOTH_BASALT: 20
+  mina_vipplus:
+    nome: "<gradient:#FFD54F:#FF8F00><bold>Mina VIP+</bold></gradient>"
+    tipo: VIP
+    tema: DESERTO
+    permissao: rankupsupremo.mina.vipplus
+    cargo: "VIP+"
+    rank: mendigo
+    drops-rank: 1
+    multiplicador-tokens: 1.5
+    icone: SANDSTONE
+    tamanho: 35
+    profundidade: 45
+    reset-minutos: 7
+    reset-porcentagem: 30
+    parede: CUT_SANDSTONE
+    detalhe: CHISELED_SANDSTONE
+    blocos:
+      SANDSTONE: 45
+      SMOOTH_SANDSTONE: 30
+      RED_SANDSTONE: 25
+  mina_mvp:
+    nome: "<gradient:#4FC3F7:#E1F5FE><bold>Mina MVP</bold></gradient>"
+    tipo: VIP
+    tema: CEU
+    permissao: rankupsupremo.mina.mvp
+    cargo: "MVP"
+    rank: mendigo
+    drops-rank: 2
+    multiplicador-tokens: 2.0
+    icone: LIGHT_BLUE_CONCRETE
+    tamanho: 41
+    profundidade: 50
+    reset-minutos: 6
+    reset-porcentagem: 30
+    parede: WHITE_CONCRETE
+    detalhe: LIGHT_BLUE_STAINED_GLASS
+    blocos:
+      WHITE_CONCRETE: 40
+      LIGHT_BLUE_CONCRETE: 35
+      QUARTZ_BLOCK: 25
+  mina_pvp:
+    nome: "<gradient:#FF1744:#B71C1C><bold>⚔ Mina PvP</bold></gradient>"
+    tipo: PVP
+    tema: PVP
+    rank: mendigo
+    drops-rank: 1
+    multiplicador-tokens: 2.0
+    icone: NETHERITE_SWORD
+    tamanho: 41
+    profundidade: 30
+    reset-minutos: 8
+    reset-porcentagem: 30
+    largura-plataforma: 10
+    parede: POLISHED_BLACKSTONE_BRICKS
+    detalhe: RED_NETHER_BRICKS
+    blocos:
+      DEEPSLATE_DIAMOND_ORE: 25
+      DEEPSLATE_EMERALD_ORE: 20
+      DEEPSLATE_GOLD_ORE: 30
+      DEEPSLATE_REDSTONE_ORE: 25
+  mina_prestigio:
+    nome: "<gradient:#00F5FF:#B388FF><bold>✦ Mina do Prestígio</bold></gradient>"
+    tipo: PRESTIGIO
+    tema: PRESTIGIO
+    prestigio-minimo: 1
+    rank: mendigo
+    drops-rank: 2
+    multiplicador-tokens: 2.0
+    icone: END_STONE
+    tamanho: 31
+    profundidade: 40
+    reset-minutos: 8
+    reset-porcentagem: 30
+    parede: PURPUR_PILLAR
+    detalhe: END_STONE_BRICKS
+    blocos:
+      END_STONE: 45
+      PURPUR_BLOCK: 30
+      END_STONE_BRICKS: 25

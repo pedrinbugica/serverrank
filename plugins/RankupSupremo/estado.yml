@@ -1,0 +1,48 @@
+spawn-construido: true
+minas-indices:
+  mendigo: 0
+  plebeu: 1
+  campones: 2
+  aprendiz: 3
+  minerador: 4
+  ferreiro: 5
+  mercador: 6
+  cavaleiro: 7
+  barao: 8
+  conde: 9
+  duque: 10
+  principe: 11
+  rei: 12
+  imperador: 13
+  lenda: 14
+  mina_vip: 15
+  mina_vipplus: 16
+  mina_mvp: 17
+  mina_pvp: 18
+  mina_prestigio: 19
+minas-construidas:
+- mendigo
+- plebeu
+- campones
+- aprendiz
+- minerador
+- ferreiro
+- mercador
+- cavaleiro
+- barao
+- conde
+- duque
+- principe
+- rei
+- imperador
+- lenda
+- mina_vip
+- mina_vipplus
+- mina_mvp
+- mina_pvp
+- mina_prestigio
+comandos-iniciais-executados: true
+spawn-sobrevivencia-construido: true
+comandos-unicos-executados:
+- sobrevivencia-v1
+- rankup-v2

@@ -1,0 +1,123 @@
+# ==================================================================
+#                    RANKUP SUPREMO - RANKS
+# ==================================================================
+# A ordem aqui é a ordem dos ranks (o primeiro é o rank inicial).
+#   nome:     nome do rank
+#   tag:      tag exibida no chat, TAB e scoreboard
+#   custo:    preço para CHEGAR neste rank (o primeiro deve ser 0)
+#   icone:    item mostrado no menu /ranks
+#   requisitos.blocos: blocos minerados (total da conta) necessários para upar (opcional)
+#   comandos: executados pelo console ao chegar no rank ({jogador} {rank})
+#             Ex.: "eco give {jogador} 1000" ou "lp user {jogador} permission set essentials.fly true"
+#
+# O custo real aumenta com o prestígio (veja prestigio.aumento-custo-ranks no config.yml).
+# ==================================================================
+
+ranks:
+  mendigo:
+    nome: "Mendigo"
+    tag: "<gray>[Mendigo]"
+    custo: 0
+    icone: COBBLESTONE
+    comandos: []
+  plebeu:
+    nome: "Plebeu"
+    tag: "<white>[Plebeu]"
+    custo: 1000
+    icone: COAL
+    comandos: []
+  campones:
+    nome: "Camponês"
+    tag: "<green>[Camponês]"
+    custo: 3500
+    icone: COPPER_INGOT
+    comandos: []
+  aprendiz:
+    nome: "Aprendiz"
+    tag: "<dark_green>[Aprendiz]"
+    custo: 9000
+    icone: IRON_INGOT
+    comandos: []
+  minerador:
+    nome: "Minerador"
+    tag: "<aqua>[Minerador]"
+    custo: 22000
+    icone: LAPIS_LAZULI
+    comandos: []
+  ferreiro:
+    nome: "Ferreiro"
+    tag: "<dark_aqua>[Ferreiro]"
+    custo: 50000
+    icone: REDSTONE
+    comandos: []
+  mercador:
+    nome: "Mercador"
+    tag: "<blue>[Mercador]"
+    custo: 110000
+    icone: GOLD_INGOT
+    comandos: []
+  cavaleiro:
+    nome: "Cavaleiro"
+    tag: "<yellow>[Cavaleiro]"
+    custo: 240000
+    icone: DIAMOND
+    requisitos:
+      blocos: 5000
+    comandos: []
+  barao:
+    nome: "Barão"
+    tag: "<gold>[Barão]"
+    custo: 500000
+    icone: EMERALD
+    requisitos:
+      blocos: 10000
+    comandos: []
+  conde:
+    nome: "Conde"
+    tag: "<red>[Conde]"
+    custo: 1000000
+    icone: GOLD_BLOCK
+    requisitos:
+      blocos: 20000
+    comandos: []
+  duque:
+    nome: "Duque"
+    tag: "<dark_red>[Duque]"
+    custo: 2000000
+    icone: AMETHYST_SHARD
+    requisitos:
+      blocos: 35000
+    comandos: []
+  principe:
+    nome: "Príncipe"
+    tag: "<light_purple>[Príncipe]"
+    custo: 4000000
+    icone: DIAMOND_BLOCK
+    requisitos:
+      blocos: 50000
+    comandos: []
+  rei:
+    nome: "Rei"
+    tag: "<gradient:#FFD700:#FFF59D>[Rei]</gradient>"
+    custo: 8000000
+    icone: EMERALD_BLOCK
+    requisitos:
+      blocos: 75000
+    comandos: []
+  imperador:
+    nome: "Imperador"
+    tag: "<gradient:#FF512F:#DD2476>[Imperador]</gradient>"
+    custo: 16000000
+    icone: NETHERITE_INGOT
+    requisitos:
+      blocos: 100000
+    comandos: []
+  lenda:
+    nome: "Lenda"
+    tag: "<gradient:#00F5FF:#B388FF><bold>[Lenda]</bold></gradient>"
+    custo: 32000000
+    icone: NETHER_STAR
+    requisitos:
+      blocos: 150000
+    comandos:
+      - "eco give {jogador} 1000000"

@@ -1,0 +1,39 @@
+libraries:
+- artifact-id: axapi
+  transitive-dependencies: []
+  classifier: all
+  version: 2.2.0-DEV-NEW-VERSION-6
+  group: com.artillexstudios.axapi.nms.v26_3
+- artifact-id: commons-math3
+  transitive-dependencies: []
+  classifier: null
+  version: 3.6.1
+  group: org.apache.commons
+- artifact-id: caffeine
+  transitive-dependencies:
+  - artifact-id: jspecify
+    transitive-dependencies: []
+    classifier: ''
+    version: 1.0.0
+    group: org.jspecify
+  - artifact-id: error_prone_annotations
+    transitive-dependencies: []
+    classifier: ''
+    version: 2.43.0
+    group: com.google.errorprone
+  classifier: null
+  version: 3.2.3
+  group: com.github.ben-manes.caffeine
+
+relocations:
+- from: org.apache.commons.math3
+  to: com.artillexstudios.axgraves.libs.axapi.libs.math3
+- from: com.github.benmanes
+  to: com.artillexstudios.axgraves.libs.axapi.libs.caffeine
+- from: com.artillexstudios.axapi
+  to: com.artillexstudios.axgraves.libs.axapi
+
+repositories:
+- https://repo.artillex-studios.com/releases/
+- https://repo2.artillex-studios.com/releases/
+- https://repo1.maven.org/maven2/

@@ -1,0 +1,34 @@
+21a04d01-7e32-310a-bae8-8e5057de7859:
+  nome: pedrin_bugica
+  rank: lenda
+  prestigio: 70
+  blocos: 206463
+  autovender: true
+  recebeu-picareta: true
+  ultima-sobrevivencia: sobrevivencia;68.22;94.00;-430.49;-152.3;0.2
+  visitou-sobrevivencia: true
+  tokens: 2885
+  booster:
+    bonus: 2.0
+    ate: 1791950967400
+  booster-tokens:
+    bonus: 1.0
+    ate: 1791936253296
+3a35e25a-64d2-3b32-8bcd-18504bd9c1b5:
+  nome: 3teste
+  rank: mendigo
+  prestigio: 0
+  blocos: 0
+  autovender: false
+  recebeu-picareta: true
+  tokens: 0
+3d7000f6-3514-3bbd-8f64-5630c088ff3c:
+  nome: 1teste
+  rank: plebeu
+  prestigio: 0
+  blocos: 1734
+  autovender: true
+  recebeu-picareta: true
+  ultima-sobrevivencia: sobrevivencia;16.50;88.00;0.50;38.7;1.3
+  visitou-sobrevivencia: true
+  tokens: 71

@@ -1,0 +1,266 @@
+=====================================================================
+                   ✦ RANKUP SUPREMO ✦
+         Servidor de Minecraft Rankup - 100% em português
+=====================================================================
+
+Versão do servidor: Paper 26.3 (Minecraft mais recente)
+Versões aceitas:    clientes 1.10 até 26.3 (ViaVersion + ViaBackwards)
+Modo:               Original + Pirata (login com /registrar e /logar)
+Mundos:             Rankup (minas e ranks) + Sobrevivência (survival com Nether e End)
+Java:               já incluso na pasta "java" (Java 25) - não precisa instalar nada
+Site:               pasta "site" (abra site/index.html no navegador)
+
+IMPORTANTE: deixe esta pasta num caminho CURTO, por exemplo C:\ServidorRankup
+ou na Área de Trabalho. Caminhos muito longos (mais de ~200 letras) fazem
+alguns plugins falharem ao abrir seus bancos de dados.
+
+
+---------------------------------------------------------------------
+ 1. COMO LIGAR O SERVIDOR
+---------------------------------------------------------------------
+  1) Dê dois cliques em  INICIAR.bat
+  2) Espere aparecer a mensagem  "Done (...)! For help, type help"
+  3) Abra o Minecraft > Multijogador > Adicionar servidor > IP: localhost
+
+  Para DESLIGAR com segurança, digite  stop  na janela do servidor.
+  (Fechar a janela no "X" pode perder o progresso dos últimos minutos.)
+
+  Quer o servidor reiniciando sozinho (24h)? Abra o INICIAR.bat no Bloco
+  de Notas e troque  AUTO_REINICIAR=nao  por  AUTO_REINICIAR=sim
+  Lá também dá para mudar a memória RAM (padrão: 4G).
+
+
+---------------------------------------------------------------------
+ 2. VIRAR DONO DO SERVIDOR (faça isso primeiro!)
+---------------------------------------------------------------------
+  1) Entre no servidor com o seu nick e registre-se:  /registrar SENHA SENHA
+  2) Na janela do servidor (console), digite:
+        lp user SEU_NICK parent set dono
+  Pronto! Você terá a tag [Dono] e acesso a todos os comandos.
+
+  IMPORTANTE (modo pirata): qualquer pessoa pode entrar com qualquer nick.
+  Por isso registre o nick de todos da staff ANTES de divulgar o servidor,
+  e nunca dê cargo para um nick que ainda não foi registrado.
+
+
+---------------------------------------------------------------------
+ 3. JOGAR COM AMIGOS (fora da sua casa)
+---------------------------------------------------------------------
+  Opção A - Abrir a porta no roteador:
+     Libere a porta 25565 (TCP) no roteador apontando para o IP deste PC.
+     Seus amigos entram pelo seu IP público (veja em https://meuip.com.br).
+     Libere também o Java no Firewall do Windows quando ele perguntar.
+
+  Opção B - Sem mexer no roteador (mais fácil):
+     Use o playit.gg (gratuito), Radmin VPN ou ZeroTier.
+
+  Opção C - Hospedagem paga (24h online):
+     Envie a pasta inteira para uma hospedagem de Minecraft e use o
+     arquivo INICIAR.sh (Linux). A hospedagem precisa ter Java 25.
+
+
+---------------------------------------------------------------------
+ 4. COMO FUNCIONA O RANKUP
+---------------------------------------------------------------------
+  • O jogador nasce no spawn (ilha flutuante com sinalizador dourado).
+  • Recebe a "Picareta Suprema" (inquebrável) ao entrar pela 1ª vez.
+  • /minas  -> vai para a mina do seu rank (15 minas, uma por rank).
+  • Os blocos minerados vão direto para o inventário.
+  • /vender -> vende tudo e ganha dinheiro.
+  • /rankup -> paga para subir de rank e libera uma mina melhor.
+  • /picareta -> melhorias com DINHEIRO: Eficiência, Fortuna e Explosão;
+    e com TOKENS (caem minerando): Laser (quebra a camada inteira),
+    Sorte de Token, Velocidade, Visão Noturna e Fundição (minério sai
+    como barra e vale mais).
+  • No último rank (Lenda), /prestigio reinicia o rank com bônus
+    permanente de +10% no valor de venda (até o prestígio 100).
+  • Prestígio 1+ (ou VIP) libera a /autovender (vende enquanto minera).
+  • As minas resetam sozinhas (a cada X min ou quando 70% foi minerado),
+    com aviso no chat 10 segundos antes.
+  • Ranks altos (Cavaleiro em diante) também pedem blocos minerados.
+  • Minas especiais: VIP (cristal), VIP+ (deserto), MVP (ilha no céu),
+    Prestígio (prestígio 1+) e PvP. Elas dão os minérios do SEU rank + 1
+    ou + 2 e mais tokens. Na mina PvP quem morre perde os itens (menos a
+    picareta) e quem desloga em combate (15 s) morre.
+  • /loja -> boosters de venda (+50%, +100%, +200%) e de tokens. O preço
+    acompanha o custo do seu próximo rank.
+
+  Ranks: Mendigo > Plebeu > Camponês > Aprendiz > Minerador > Ferreiro >
+         Mercador > Cavaleiro > Barão > Conde > Duque > Príncipe > Rei >
+         Imperador > Lenda
+
+
+---------------------------------------------------------------------
+ 5. COMANDOS DOS JOGADORES
+---------------------------------------------------------------------
+  /registrar <senha> <senha>   Cria a conta (1ª vez)
+  /logar <senha>               Entra na conta
+  /premium                     (Somente Minecraft ORIGINAL) entrar sem senha
+  /minas ou /mina <nome>       Menu de minas / ir para uma mina
+  /vender                      Vende os minérios do inventário
+  /autovender                  Liga/desliga a venda automática
+  /rankup                      Sobe de rank
+  /ranks                       Menu com todos os ranks (clique para upar)
+  /picareta                    Menu de melhorias da picareta
+  /tokens [nick]               Seus tokens de mina (ou de outro jogador)
+  /tokens pagar <nick> <qtd>   Envia tokens para alguém
+  /loja                        Loja do mundo onde você está (Rankup ou Sobrevivência)
+  /prestigio                   Informações do prestígio
+  /prestigio confirmar         Renasce (precisa estar no rank Lenda)
+  /toprank                     Melhores jogadores
+  /spawn                       Volta ao spawn
+  /dinheiro  /pagar  /topmoney Economia (também: /money /pay /baltop)
+                               O /pay só funciona com quem está online no mesmo mundo
+  /sethome  /home  /tpa  /tpaccept  /msg  /r  /rules  /helpop
+  /sobrevivencia               Vai para o mundo Sobrevivência (de onde parou)
+  /mundos                      Menu para escolher Rankup ou Sobrevivência
+  /rtp                         Teleporte aleatório e seguro no survival
+  /terrenos /confiar /preso    Terrenos protegidos (pá de ouro)
+  /habilidades  /qs (lojas em baú)  /sentar  /deitar  /back
+  (lista completa e explicada no site: pasta site)
+
+
+---------------------------------------------------------------------
+ 6. COMANDOS DE ADMINISTRAÇÃO
+---------------------------------------------------------------------
+  /menuop [jogador]                      PAINEL DO DONO (só o grupo dono e OPs):
+                                         dinheiro (+/- 1K, 100K, 1M, 1B), Picareta MAX,
+                                         Picareta Divina, rank máximo, prestígio,
+                                         criativo, voar, curar, Pressa V, Kit OP,
+                                         vanish, modo construção, resetar minas,
+                                         tokens (+/- 1.000)...
+  /rankupadmin                           Lista de comandos do plugin
+  /rankupadmin recarregar                Recarrega as configs
+  /rankupadmin setrank <nick> <rank>     Define o rank de alguém
+  /rankupadmin setprestigio <nick> <n>   Define o prestígio
+  /rankupadmin darpicareta [nick]        Dá uma picareta nova
+  /rankupadmin setpicareta <melhoria> <nível>  (picareta na mão)
+  /rankupadmin resetarmina <mina|todas>  Reseta minas na hora
+  /rankupadmin reconstruir <mina|spawn>  Reconstrói uma estrutura
+  /rankupadmin setspawn                  Define o spawn onde você está
+  /rankupadmin construir                 Liga/desliga o modo construção
+                                         (para editar o spawn/minas)
+  /rankupadmin info <nick>               Informações do jogador
+  /rankupadmin tokens <nick> <dar|tirar|definir> <qtd>   Tokens de mina
+
+  Dar VIP:   lp user <nick> parent add vip      (ou vipplus / mvp)
+  Tirar VIP: lp user <nick> parent remove vip
+  Staff:     lp user <nick> parent set ajudante (moderador / admin / dono)
+  Dinheiro:  eco give <nick> <valor>
+
+  Grupos já configurados (tag no chat):
+    [VIP]  +25% de venda, Mina VIP, /autovender, /fly, /hat, /craft, /ec, 5 homes
+    [VIP+] tudo do VIP + 35% de venda, Mina VIP+, /feed, 7 homes
+    [MVP]  tudo do VIP+ + 50% de venda, Mina MVP, /anvil, 10 homes
+    [Ajudante] [Moderador] [Admin] [Dono]  com permissões de staff
+
+
+---------------------------------------------------------------------
+ 7. ONDE EDITAR AS COISAS
+---------------------------------------------------------------------
+  plugins/RankupSupremo/config.yml     Scoreboard, TAB, chat, hologramas,
+                                       picareta, tokens, combate, prestígio, VIPs
+  plugins/RankupSupremo/ranks.yml      Ranks, preços e tags
+  plugins/RankupSupremo/minas.yml      Minas, blocos e tempo de reset
+  plugins/RankupSupremo/vendas.yml     Preço de cada bloco
+  plugins/RankupSupremo/mensagens.yml  Todas as mensagens
+  plugins/RankupSupremo/loja.yml       Itens e preços da /loja (Rankup e Sobrevivência)
+  server.properties                    MOTD (descrição), slots, porta
+  server-icon.png                      Ícone do servidor (64x64)
+  plugins/Essentials/rules.txt         Regras (/rules)
+
+  Os textos usam MiniMessage: <red>, <bold>, <gradient:#FFD700:#FF8C00>...
+  (editor visual: https://webui.advntr.dev/) e também aceitam &a, &l...
+  Depois de editar, use  /rankupadmin recarregar  ou reinicie.
+
+
+---------------------------------------------------------------------
+ 8. PLUGINS INCLUSOS
+---------------------------------------------------------------------
+  RankupSupremo 1.2.0   Plugin próprio deste servidor (código em codigo-fonte)
+  EssentialsX 2.22.0    Economia, homes, tpa, mensagens (pt_BR)
+  LuckPerms 5.5.87      Grupos e permissões
+  VaultUnlocked 2.20.3  Ponte de economia/permissões (substitui o Vault)
+  AuthMe 6.0.1          Login para jogadores piratas (/registrar /logar)
+  PacketEvents 2.14.0   Necessário para o /premium e proteção do AuthMe
+  PlaceholderAPI 2.12.3 Placeholders (%rankup_rank%, %rankup_prestigio%...)
+  ViaVersion 5.12.1     Permite entrar com outras versões do Minecraft
+  ViaBackwards 5.12.1   Permite entrar com versões mais antigas
+  WorldEdit 7.4.6       Edição de mundo para admins
+  WorldGuard 7.0.19     Proteção de regiões para admins
+  -- Mundo Sobrevivência --
+  Multiverse-Core 5.8.1           Cria e gerencia os mundos do survival
+  Multiverse-Inventories 5.3.6    Inventário/vida/XP separados entre Rankup e survival
+  Multiverse-NetherPortals 5.1.0  Liga os portais ao Nether e End do survival
+  GriefPrevention 16.18.7         Terrenos protegidos com pá de ouro (traduzido)
+  AuraSkills 2.4.0                Habilidades estilo mcMMO (em português)
+  QuickShop-Hikari 6.3.0.3        Lojas em baú (em português)
+  AxGraves 1.32.1                 Túmulo ao morrer (traduzido)
+  VeinMiner 2.12.3                Agachar e minerar o veio inteiro
+  GSit 3.7.0                      Sentar e deitar (em português)
+  Chunky 1.5.3                    Pré-gerar o mapa (admin)
+
+
+---------------------------------------------------------------------
+ 8.1 MUNDO SOBREVIVÊNCIA
+---------------------------------------------------------------------
+  • Criado automaticamente na primeira vez que o servidor liga com
+    esta versão (mundos sobrevivencia, sobrevivencia_nether e
+    sobrevivencia_the_end) com uma praça de spawn protegida.
+  • Inventário, vida, XP e baú do End são separados do Rankup.
+    O DINHEIRO também é separado: o do Rankup fica no Rankup e o da
+    Sobrevivência começa do zero (ganhe vendendo farm, drops e minérios
+    na /loja ou nas lojas de baú). Nada de comprar rank com dinheiro
+    do survival, nem o contrário.
+  • Dificuldade normal, PvP ligado, borda de 10.000 blocos.
+  • Terrenos: pá de ouro no mundo normal (Nether/End sem terrenos).
+  • Configurações: plugins/RankupSupremo/config.yml, seção "sobrevivencia".
+  • Dica: pré-gere o mapa para deixar mais leve, no console:
+      chunky world sobrevivencia
+      chunky radius 3000
+      chunky start
+
+
+---------------------------------------------------------------------
+ 9. AVISOS NORMAIS NO CONSOLE (pode ignorar)
+---------------------------------------------------------------------
+  • "[Essentials] You are running an unsupported server version!"
+     O EssentialsX ainda não marcou o 26.3 como oficial, mas funciona
+     normalmente (foi testado: economia, homes, tpa, mensagens).
+  • "SERVER IS RUNNING IN OFFLINE/INSECURE MODE"
+     Normal em servidor pirata. O AuthMe protege as contas.
+  • "[WorldGuard] Failed to initialize SQLite profile cache"
+     É só um cache interno de nomes do WorldGuard; ele passa a usar a
+     memória e tudo continua funcionando.
+  • "WARNING: sun.misc.Unsafe ... AxGraves" ao ligar:
+     Aviso do Java 25 sobre uma biblioteca do AxGraves. Não afeta nada.
+  • Erros com "oshi" ou "Perflib" ao ligar:
+     São contadores de desempenho do Windows deste PC, não do servidor.
+     Não afetam nada. (Opcional: abra o CMD como administrador e rode
+     lodctr /R  para que parem de aparecer.)
+
+
+---------------------------------------------------------------------
+ 9.1 SITE DO SERVIDOR
+---------------------------------------------------------------------
+  A pasta "site" tem o site com todos os comandos, ranks, minas e guias
+  para jogadores, staff e dono. Abra site/index.html no navegador.
+  Antes de publicar, troque SEU-IP-AQUI pelo IP do servidor (procure
+  esse texto no index.html com o Bloco de Notas).
+  Para colocar online de graça: GitHub Pages, Netlify ou Vercel
+  (basta enviar o arquivo index.html).
+
+
+---------------------------------------------------------------------
+ 10. BACKUP
+---------------------------------------------------------------------
+  Com o servidor DESLIGADO, copie as pastas  world  e  plugins  para
+  outro lugar. Isso guarda o mapa, o progresso e as contas de todos.
+
+
+---------------------------------------------------------------------
+ 11. PLUGIN PRÓPRIO (para programadores)
+---------------------------------------------------------------------
+  O código do RankupSupremo está em  codigo-fonte/src  (Java).
+  Para recompilar: instale o JDK 25, desligue o servidor e rode
+  codigo-fonte/compilar.bat

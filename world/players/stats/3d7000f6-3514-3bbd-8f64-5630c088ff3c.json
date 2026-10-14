@@ -1,0 +1,52 @@
+{
+  "stats": {
+    "minecraft:killed_by": {
+      "minecraft:wolf": 1,
+      "minecraft:zombie": 1
+    },
+    "minecraft:mined": {
+      "minecraft:amethyst_block": 284,
+      "minecraft:deepslate_emerald_ore": 1,
+      "minecraft:calcite": 155,
+      "minecraft:smooth_basalt": 110,
+      "minecraft:leaf_litter": 2,
+      "minecraft:deepslate_redstone_ore": 2,
+      "minecraft:andesite": 13,
+      "minecraft:coal_ore": 193,
+      "minecraft:cobblestone": 294,
+      "minecraft:copper_ore": 17,
+      "minecraft:stone": 663,
+      "minecraft:deepslate_gold_ore": 2
+    },
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 19085,
+      "minecraft:walk_one_cm": 49952,
+      "minecraft:leave_game": 4,
+      "minecraft:damage_taken": 490,
+      "minecraft:damage_dealt": 111,
+      "minecraft:play_time": 37584,
+      "minecraft:jump": 134,
+      "minecraft:time_since_death": 19064,
+      "minecraft:sprint_one_cm": 62056,
+      "minecraft:fall_one_cm": 3075,
+      "minecraft:total_world_time": 37584,
+      "minecraft:fly_one_cm": 19653,
+      "minecraft:crouch_one_cm": 110,
+      "minecraft:sneak_time": 34,
+      "minecraft:deaths": 2
+    },
+    "minecraft:picked_up": {
+      "minecraft:leaf_litter": 3
+    },
+    "minecraft:used": {
+      "minecraft:netherite_helmet": 1,
+      "minecraft:leaf_litter": 3,
+      "minecraft:diamond_pickaxe": 141,
+      "minecraft:netherite_boots": 1,
+      "minecraft:netherite_chestplate": 1,
+      "minecraft:netherite_leggings": 1,
+      "minecraft:netherite_pickaxe": 1593
+    }
+  },
+  "DataVersion": 5023
+}
