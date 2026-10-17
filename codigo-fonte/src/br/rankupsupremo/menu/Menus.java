@@ -288,7 +288,7 @@ public final class Menus {
         int rankup = 0;
         int sobrevivencia = 0;
         for (Player outro : org.bukkit.Bukkit.getOnlinePlayers()) {
-            if (plugin.sobrevivencia().ehSobrevivencia(outro.getWorld())) {
+            if (plugin.sobrevivencia().ehReinoRpg(outro.getWorld())) {
                 sobrevivencia++;
             } else if (plugin.ehMundoRankup(outro.getWorld())) {
                 rankup++;
@@ -316,7 +316,7 @@ public final class Menus {
                 "<gray>Jogadores: <green>" + sobrevivencia,
                 "",
                 disponivel ? "<green><bold>CLIQUE PARA IR!" : "<red>Indisponível no momento"),
-                plugin.sobrevivencia().ehSobrevivencia(p.getWorld())), (pl, c) -> {
+                plugin.sobrevivencia().ehReinoRpg(p.getWorld())), (pl, c) -> {
             pl.closeInventory();
             plugin.sobrevivencia().teleportar(pl);
         });

@@ -7,6 +7,7 @@ import dev.pedrobugica.survivalrpg.combate.CombateListener;
 import dev.pedrobugica.survivalrpg.comandos.AdminCommand;
 import dev.pedrobugica.survivalrpg.comandos.JogadorCommand;
 import dev.pedrobugica.survivalrpg.construcao.Capital;
+import dev.pedrobugica.survivalrpg.construcao.Castelos;
 import dev.pedrobugica.survivalrpg.grupo.GrupoService;
 import dev.pedrobugica.survivalrpg.habilidade.HabilidadeService;
 import dev.pedrobugica.survivalrpg.hook.NpcHook;
@@ -17,6 +18,7 @@ import dev.pedrobugica.survivalrpg.jogador.PerfilService;
 import dev.pedrobugica.survivalrpg.masmorra.MasmorraService;
 import dev.pedrobugica.survivalrpg.menu.Menus;
 import dev.pedrobugica.survivalrpg.mob.MobService;
+import dev.pedrobugica.survivalrpg.mundo.LobbyRpg;
 import dev.pedrobugica.survivalrpg.mundo.LugarService;
 import dev.pedrobugica.survivalrpg.mundo.RegiaoService;
 import dev.pedrobugica.survivalrpg.util.Economia;
@@ -67,6 +69,8 @@ public final class SurvivalRpgPlugin extends JavaPlugin implements Listener {
     private Capital capital;
     private MasmorraService masmorras;
     private NpcHook npcHook;
+    private Castelos castelos;
+    private LobbyRpg lobby;
     private File arquivoEstado;
 
     @Override
@@ -92,6 +96,8 @@ public final class SurvivalRpgPlugin extends JavaPlugin implements Listener {
         capital = new Capital(this);
         masmorras = new MasmorraService(this);
         npcHook = new NpcHook(this);
+        castelos = new Castelos(this);
+        lobby = new LobbyRpg(this);
         arquivoEstado = new File(getDataFolder(), "estado.yml");
 
         regioes.carregar();
@@ -106,6 +112,7 @@ public final class SurvivalRpgPlugin extends JavaPlugin implements Listener {
         pm.registerEvents(habilidades, this);
         pm.registerEvents(lugares, this);
         pm.registerEvents(masmorras, this);
+        pm.registerEvents(lobby, this);
         pm.registerEvents(new MenuListener(this), this);
         pm.registerEvents(this, this);
         lugares.ligarGriefPrevention();
@@ -116,6 +123,19 @@ public final class SurvivalRpgPlugin extends JavaPlugin implements Listener {
         }
         AdminCommand admin = new AdminCommand(this);
         registrar("rpgadmin", admin, admin);
+        PluginCommand cmdLobby = getCommand("rpglobby");
+        if (cmdLobby != null) {
+            cmdLobby.setExecutor((s, c, l, a) -> {
+                if (s instanceof Player p) {
+                    if (lobby.ativo()) {
+                        lobby.teleportar(p);
+                    } else {
+                        p.sendMessage(Texto.cor("<red>O lobby do RPG está desligado."));
+                    }
+                }
+                return true;
+            });
+        }
 
         if (pm.isPluginEnabled("PlaceholderAPI")) {
             try {
@@ -130,6 +150,11 @@ public final class SurvivalRpgPlugin extends JavaPlugin implements Listener {
         regioes.iniciar();
         lugares.iniciar();
         masmorras.iniciar();
+        // o lobby do RPG e os reinos esperam o servidor terminar de ligar (mundos e NpcVivos prontos)
+        Bukkit.getScheduler().runTask(this, () -> {
+            lobby.iniciar();
+            npcHook.sincronizarReinos();
+        });
         Bukkit.getScheduler().runTaskTimer(this, () -> perfis.gravarTodos(false), 20L * 300, 20L * 300);
         for (Player p : Bukkit.getOnlinePlayers()) {
             perfis.perfil(p);
@@ -141,6 +166,9 @@ public final class SurvivalRpgPlugin extends JavaPlugin implements Listener {
 
     @Override
     public void onDisable() {
+        if (lobby != null) {
+            lobby.parar();
+        }
         if (habilidades != null) {
             habilidades.desligarTodos();
         }
@@ -229,9 +257,23 @@ public final class SurvivalRpgPlugin extends JavaPlugin implements Listener {
         }
         Runnable depoisDaCapital = () -> {
             masmorras.prepararTodas();
-            if (getConfig().getBoolean("lugares.automatico", true) && !estado().contains("lugares-populados")) {
-                Bukkit.getScheduler().runTaskLater(this, () -> lugares.popular(Bukkit.getConsoleSender(),
-                        () -> marcarEstado("lugares-populados")), 20L * 30);
+            // 1) castelos dos reinos  2) mais vilas, tavernas, masmorras... (v2 = depois da atualização dos reinos)
+            Runnable lugaresDoMapa = () -> {
+                if (getConfig().getBoolean("lugares.automatico", true) && !estado().contains("lugares-populados-v2")) {
+                    Bukkit.getScheduler().runTaskLater(this, () -> lugares.popular(Bukkit.getConsoleSender(), () -> {
+                        marcarEstado("lugares-populados");
+                        marcarEstado("lugares-populados-v2");
+                        npcHook.sincronizarReinos();
+                    }), 20L * 20);
+                }
+            };
+            if (getConfig().getBoolean("reinos.automatico", true) && npcHook.ativo()) {
+                Bukkit.getScheduler().runTaskLater(this, () -> castelos.construirFaltando(Bukkit.getConsoleSender(), () -> {
+                    npcHook.sincronizarReinos();
+                    lugaresDoMapa.run();
+                }), 20L * 20);
+            } else {
+                lugaresDoMapa.run();
             }
         };
         if (!capital.construida() && !estado().contains("capital-tentada")) {
@@ -395,5 +437,13 @@ public final class SurvivalRpgPlugin extends JavaPlugin implements Listener {
 
     public NpcHook npcHook() {
         return npcHook;
+    }
+
+    public Castelos castelos() {
+        return castelos;
+    }
+
+    public LobbyRpg lobby() {
+        return lobby;
     }
 }

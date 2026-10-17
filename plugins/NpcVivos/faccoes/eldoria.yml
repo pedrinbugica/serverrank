@@ -1,0 +1,15 @@
+# Facção do Reino de Eldoria (criada pelo reinos.yml).
+# Depois de editar: /npcv reload
+
+id: eldoria
+nome: <aqua>Reino de Eldoria
+tag: '<dark_gray>[<aqua>Eldoria<dark_gray>] '
+lider: rei_eldoria
+descricao:
+- Reino de magos e eruditos do norte.
+- Suas torres guardam segredos antigos.
+relacoes:
+  valdoria: RIVAL
+  corvanor: RIVAL
+beneficios_membro:
+  desconto: 0.1

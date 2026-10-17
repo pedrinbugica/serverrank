@@ -204,63 +204,150 @@ lugares:
   planos:
     vilas:
       tipo: VILA
-      quantidade: 4
-      anel: [350, 1100]
-      estruturas: [auto-vila]
+      quantidade: 12
+      anel: [350, 2600]
+      estruturas: [auto-vila, auto-vila, auto-vila, nova_structures:hamlet]
       raio-zona: 48
       protegido: true
       raio-foto: 96
     tavernas:
       tipo: TAVERNA
-      quantidade: 3
-      anel: [250, 1400]
+      quantidade: 6
+      anel: [250, 2400]
       estruturas: [auto-taverna]
       raio-zona: 24
       protegido: true
       raio-foto: 48
     torres:
       tipo: TORRE
-      quantidade: 3
-      anel: [400, 1600]
-      estruturas: [structory_towers:wizard_tower, structory_towers:engineer_tower, structory_towers:farmer_outpost, structory:firetower]
+      quantidade: 6
+      anel: [400, 2800]
+      estruturas: [structory_towers:wizard_tower, structory_towers:engineer_tower, structory_towers:farmer_outpost, structory:firetower,
+        structory_towers:taiga_outpost, structory_towers:nomad_outpost, nova_structures:shrine_tower]
       raio-zona: 0
       raio-foto: 40
     ruinas:
       tipo: RUINA
-      quantidade: 4
-      anel: [200, 1800]
-      estruturas: [structory:abandoned_chapel, structory:ruin_grassy, structory:graveyard, structory:old_manor, nova_structures:ruin_town]
+      quantidade: 9
+      anel: [200, 3000]
+      estruturas: [structory:abandoned_chapel, structory:ruin_grassy, structory:graveyard, structory:old_manor, nova_structures:ruin_town,
+        structory:northern_ruin, structory:dense_forest_ruin, nova_structures:wild_ruin, nova_structures:remnant_big_remnant,
+        structory_towers:sacred_relic_temple]
       raio-zona: 0
       raio-foto: 56
     masmorras:
       tipo: MASMORRA
-      quantidade: 5
-      anel: [300, 2400]
-      estruturas: [nova_structures:catacomb, nova_structures:undead_crypt, nova_structures:creeping_crypt, nova_structures:surface_dungeon_default, nova_structures:trial_dungeon, nova_structures:toxic_lair]
+      quantidade: 14
+      anel: [300, 3400]
+      estruturas: [nova_structures:catacomb, nova_structures:undead_crypt, nova_structures:creeping_crypt, nova_structures:surface_dungeon_default,
+        nova_structures:trial_dungeon, nova_structures:toxic_lair, nova_structures:sealing_halls, nova_structures:small_undead_crypt,
+        nova_structures:small_creeping_crypt, nova_structures:illager_hideout, nova_structures:surface_trial_dungeon_default,
+        nova_structures:shrine_combat_tier_3, nova_structures:witch_villa]
       raio-zona: 0
       raio-foto: 56
     castelos:
       tipo: CASTELO
-      quantidade: 3
-      anel: [900, 2600]
-      estruturas: [nova_structures:illager_manor, nova_structures:lone_citadel, nova_structures:remnant_taiga_castle, nova_structures:illager_barracks]
+      quantidade: 6
+      anel: [900, 3400]
+      estruturas: [nova_structures:illager_manor, nova_structures:lone_citadel, nova_structures:remnant_taiga_castle, nova_structures:illager_barracks,
+        nova_structures:stray_fort]
       raio-zona: 0
       raio-foto: 72
     acampamentos:
       tipo: ACAMPAMENTO
-      quantidade: 2
-      anel: [300, 1500]
-      estruturas: [nova_structures:illager_camp, structory:abandoned_camp]
+      quantidade: 5
+      anel: [300, 2800]
+      estruturas: [nova_structures:illager_camp, structory:abandoned_camp, nova_structures:illager_treehouse, nova_structures:deepslate_camp]
       raio-zona: 0
       raio-foto: 40
   nomes:
-    vila: ["<green>Vila de Pedravale", "<green>Vila Ventoleste", "<green>Aldeia do Riacho", "<green>Vila Brumafria", "<green>Aldeia Solaris", "<green>Vila Carvalhal"]
-    taverna: ["<yellow>Taverna do Corvo Bêbado", "<yellow>Estalagem da Lua Cheia", "<yellow>Taverna da Última Gota", "<yellow>Estalagem do Viajante"]
-    torre: ["<aqua>Torre do Arcano", "<aqua>Torre de Vigia do Norte", "<aqua>Torre do Engenheiro", "<aqua>Atalaia Solitária"]
-    ruina: ["<gray>Ruínas de Velhária", "<gray>Capela Abandonada", "<gray>Cemitério dos Antigos", "<gray>Cidade em Ruínas", "<gray>Solar Esquecido"]
-    masmorra: ["<dark_red>Catacumbas Esquecidas", "<dark_red>Cripta dos Lamentos", "<dark_red>Covil Tóxico", "<dark_red>Masmorra do Eco", "<dark_red>Cripta Rastejante", "<dark_red>Salões Selados"]
-    castelo: ["<red>Fortaleza de Grimhold", "<red>Bastião Sombrio", "<red>Cidadela de Ferro", "<red>Solar dos Saqueadores"]
-    acampamento: ["<dark_green>Acampamento Saqueador", "<dark_green>Acampamento Abandonado", "<dark_green>Posto dos Bandidos"]
+    vila: ["<green>Vila de Pedravale", "<green>Vila Ventoleste", "<green>Aldeia do Riacho", "<green>Vila Brumafria", "<green>Aldeia Solaris", "<green>Vila Carvalhal",
+      "<green>Vila Rosaferro", "<green>Aldeia dos Salgueiros", "<green>Vila Pedra Alta", "<green>Aldeia Bruma Dourada", "<green>Vila do Moinho", "<green>Aldeia Vau Sereno",
+      "<green>Vila Trigal", "<green>Aldeia Cerro Azul", "<green>Vila Lumebrasa", "<green>Aldeia Folhaverde"]
+    taverna: ["<yellow>Taverna do Corvo Bêbado", "<yellow>Estalagem da Lua Cheia", "<yellow>Taverna da Última Gota", "<yellow>Estalagem do Viajante",
+      "<yellow>Taverna do Javali Manco", "<yellow>Estalagem do Dragão Sonolento", "<yellow>Taverna da Caneca Furada", "<yellow>Estalagem Três Coroas"]
+    torre: ["<aqua>Torre do Arcano", "<aqua>Torre de Vigia do Norte", "<aqua>Torre do Engenheiro", "<aqua>Atalaia Solitária",
+      "<aqua>Torre das Estrelas", "<aqua>Posto do Nômade", "<aqua>Torre do Santuário", "<aqua>Atalaia do Vento"]
+    ruina: ["<gray>Ruínas de Velhária", "<gray>Capela Abandonada", "<gray>Cemitério dos Antigos", "<gray>Cidade em Ruínas", "<gray>Solar Esquecido",
+      "<gray>Ruínas do Norte", "<gray>Escombros da Floresta", "<gray>Templo da Relíquia", "<gray>Ruínas Selvagens", "<gray>Vestígios de Altamira"]
+    masmorra: ["<dark_red>Catacumbas Esquecidas", "<dark_red>Cripta dos Lamentos", "<dark_red>Covil Tóxico", "<dark_red>Masmorra do Eco", "<dark_red>Cripta Rastejante", "<dark_red>Salões Selados",
+      "<dark_red>Tumba do Rei Sem Nome", "<dark_red>Esconderijo dos Saqueadores", "<dark_red>Santuário de Sangue", "<dark_red>Vila da Bruxa", "<dark_red>Câmaras da Provação",
+      "<dark_red>Ossuário Profundo", "<dark_red>Cripta dos Mil Ossos", "<dark_red>Poço das Almas", "<dark_red>Fosso do Desespero"]
+    castelo: ["<red>Fortaleza de Grimhold", "<red>Bastião Sombrio", "<red>Cidadela de Ferro", "<red>Solar dos Saqueadores",
+      "<red>Forte Gélido", "<red>Torreão Maldito", "<red>Baluarte Negro"]
+    acampamento: ["<dark_green>Acampamento Saqueador", "<dark_green>Acampamento Abandonado", "<dark_green>Posto dos Bandidos",
+      "<dark_green>Casa na Árvore dos Saqueadores", "<dark_green>Acampamento das Profundezas", "<dark_green>Refúgio dos Foras-da-Lei"]
+
+# Castelos dos reinos do NpcVivos (reinos.yml): um por reino, longe da capital
+reinos:
+  automatico: true
+  # Distância do spawn (mínima e máxima)
+  anel: [1100, 1700]
+  tentativas: 50
+  distancia-de-lugares: 220
+
+# Lobby do RPG (Cidadela dos Heróis): quem vem do lobby principal chega aqui
+lobby-rpg:
+  ativado: true
+  mundo: rpg_lobby
+  # 0 = amanhecer, 6000 = meio-dia, 12300 = pôr do sol, 18000 = meia-noite
+  horario: 12300
+  titulo: "<gradient:#FFD700:#FF8C00><bold>⚔ SMP RPG ⚔</bold></gradient>\n<gray>A Cidadela dos Heróis"
+  boas-vindas:
+    - "<gold><bold>⚔ Cidadela dos Heróis</bold>"
+    - "<gray>Oeste: <white>escolha sua classe <dark_gray>| <gray>Norte: <white>todos os comandos"
+    - "<gray>Leste: <white>portais (capital, continuar, terras selvagens, masmorras)"
+    - "<gray>Sul: <white>reinos e ranking <dark_gray>| <yellow>/rpglobby <gray>volta para cá"
+  # Mural de comandos (até 6 quadros, de cima para baixo, da esquerda para a direita)
+  mural:
+    personagem:
+      titulo: "<red><bold>⚔ PERSONAGEM</bold>"
+      linhas:
+        - "<yellow>/rpg <gray>- seu personagem (menu)"
+        - "<yellow>/classe <gray>- escolher ou trocar"
+        - "<yellow>/atributos <gray>- gastar os pontos"
+        - "<yellow>/poderes <gray>- habilidades (F + 1, 2, 3)"
+        - "<yellow>/rpg perfil <nick> <gray>- ver outro herói"
+    mundo:
+      titulo: "<green><bold>🗺 MUNDO</bold>"
+      linhas:
+        - "<yellow>/lugares <gray>- mapa e viagem rápida"
+        - "<yellow>/rtp <gray>- lugar aleatório seguro"
+        - "<yellow>/masmorra <gray>- masmorras com chefes"
+        - "<yellow>/sethome /home /back /spawn"
+        - "<yellow>/rpglobby <gray>| <yellow>/lobby <gray>| <yellow>/sobrevivencia"
+    reinos:
+      titulo: "<gold><bold>👑 REINOS E GUERRAS</bold>"
+      linhas:
+        - "<yellow>/reino <gray>- reinos, castelos e lealdade"
+        - "<yellow>/reino guerras <gray>- placar e exércitos"
+        - "<yellow>/faccao <gray>| <yellow>/reputacao <gray>- facções"
+        - "<yellow>/missoes <gray>- missões dos NPCs"
+        - "<yellow>/mercenario <gray>- seu soldado contratado"
+    moradores:
+      titulo: "<light_purple><bold>🏘 MORADORES</bold>"
+      linhas:
+        - "<gray>Clique num morador para conversar,"
+        - "<gray>dar presentes, flertar e até casar!"
+        - "<yellow>/trabalho <gray>- trabalho pedido por um morador"
+        - "<gray>Ferreiros aprimoram armas <white>+1 a +10"
+        - "<gray>Fale com o rei no castelo do reino"
+    economia:
+      titulo: "<dark_green><bold>💰 ECONOMIA</bold>"
+      linhas:
+        - "<yellow>/dinheiro <gray>| <yellow>/pagar <nick> <valor>"
+        - "<yellow>/loja <gray>- loja do servidor"
+        - "<yellow>/qs <gray>- crie sua loja num baú"
+        - "<yellow>/topmoney <gray>- os mais ricos"
+        - "<gray>Venda drops e colheita aos NPCs"
+    grupo:
+      titulo: "<aqua><bold>🛡 GRUPO E TERRENOS</bold>"
+      linhas:
+        - "<yellow>/grupo convidar <nick> <gray>| <yellow>/g <msg>"
+        - "<gray>Pá de ouro = proteger terreno"
+        - "<yellow>/terrenos <gray>| <yellow>/confiar <nick>"
+        - "<yellow>/tpa <nick> <gray>| <yellow>/msg <nick>"
+        - "<yellow>/sentar <gray>| <yellow>/deitar <gray>| <yellow>/habilidades"
 
 masmorras:
   mundo: sobrevivencia

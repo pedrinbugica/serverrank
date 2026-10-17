@@ -149,6 +149,12 @@ alguns plugins falharem ao abrir seus bancos de dados.
      • Servidor: anúncio, título, manutenção/whitelist, regras do survival
        (PvP, dificuldade, manter inventário...), presentes para todos,
        desempenho e desligar com contagem
+     • RPG, Reinos e NPCs: nível/XP/pontos/classe do jogador, item de RPG
+       lendário, resetar personagem, ir ao lobby do RPG e à capital, espalhar
+       lugares, construir castelos, reconstruir o lobby, masmorras, declarar
+       guerra, fazer as pazes, mandar exército, completar guarnições, lista
+       de castelos/vilas, invasões, gerar moradores, amizade, criar/editar
+       NPC, reputação e reino do jogador, pedras e item +10, recarregar
      Ações perigosas pedem Shift + clique. Textos são digitados no chat.
   /rankupadmin                           Lista de comandos do plugin
   /rankupadmin recarregar                Recarrega as configs
@@ -581,6 +587,93 @@ alguns plugins falharem ao abrir seus bancos de dados.
 
 
 ---------------------------------------------------------------------
+ 8.4 LOBBY DO RPG (Cidadela dos Heróis)
+---------------------------------------------------------------------
+  O portal VERDE do lobby principal (e o /sobrevivencia) leva primeiro
+  para a Cidadela dos Heróis, uma ilha só do RPG:
+    • Centro: a Espada do Herói cravada na pedra.
+    • Norte: MURAL DE COMANDOS (6 quadros com tudo que dá para fazer).
+    • Oeste: SALÃO DAS CLASSES - 5 estátuas; clique para escolher a classe.
+    • Leste: PORTAIS - Vila Aurora (capital), Continuar a Aventura (volta
+      de onde parou), Terras Selvagens (/rtp) e Masmorras.
+    • Sul: estandartes dos REINOS (clique = /reino), painel das guerras,
+      ranking dos HERÓIS MAIS FORTES e o portal para o lobby principal.
+    • Aldo, o Arauto (NPC) dá dicas a quem chega.
+  /rpglobby volta para lá. Ninguém se machuca, sem fome, nada quebra.
+  Inventário e dinheiro são os mesmos da Sobrevivência.
+  Editar: plugins/SurvivalRPG/config.yml, seção "lobby-rpg" (horário,
+  título, boas-vindas e os textos do mural). /rpgadmin lobby reconstruir.
+
+
+---------------------------------------------------------------------
+ 8.5 MORADORES HUMANOS (estilo Humanoid Villagers / MCA)
+---------------------------------------------------------------------
+  Todo aldeão do RPG (e o mercador ambulante) virou GENTE: nome e
+  sobrenome, skin, roupa da profissão (fazendeiro de chapéu de palha,
+  ferreiro de peitoral, bibliotecário com livro...), personalidade,
+  humor e a VIDA em cima da cabeça (❤ 18/20). Crianças são pequenas.
+  O aldeão de verdade continua lá por baixo (invisível): trabalha, dorme
+  na cama (o corpo deita junto), foge de zumbi, troca e tem filhos.
+  Clique com o botão direito para abrir a conversa:
+    Conversar, Piada, Elogiar, Abraçar, Flertar, Brincar (crianças),
+    Dar presente (item da mão), Negociar (as trocas normais),
+    Pedir trabalho (entregas e caçadas pagas), Notícias e boatos
+    (guerras, exércitos, lugares que você não descobriu), Me siga /
+    Fique aqui / Liberar e Pedir em casamento (amizade 90 + diamante).
+  AMIZADE de -100 a 100 (corações) com cada jogador. A chance de cada
+  conversa dar certo depende da personalidade, do humor e da amizade.
+  Casado(a): o cônjuge te dá um presente por dia. Se ele morrer, você
+  é avisado. Bater num morador: amizade e reputação com o reino caem e
+  os soldados te caçam. Moradores falam sozinhos (balão), cumprimentam
+  quem passa, conversam entre si e gritam quando tem monstro perto.
+  Nascimentos e mortes são anunciados para quem está perto.
+    /trabalho [abandonar] ... seu trabalho atual
+    /povo gerar [qtd] [profissão] | info | nome | amizade | recarregar
+  Editar nomes, skins, falas, piadas, presentes e trabalhos:
+  plugins/NpcVivos/povo.yml (depois /povo recarregar).
+  (Mods de Fabric/Forge não rodam no Paper: tudo isso é do NpcVivos e
+  funciona sem o jogador baixar nada.)
+
+
+---------------------------------------------------------------------
+ 8.6 REINOS, CASTELOS E GUERRAS (estilo Villager Recruits)
+---------------------------------------------------------------------
+  Três reinos disputam o mapa do RPG (plugins/NpcVivos/reinos.yml):
+    Reino de Valdoria (dourado) .. Rei Aldric, o Justo
+    Reino de Corvanor (vermelho) . Rainha Morgana, a Implacável
+    Reino de Eldoria (azul) ...... Rei Theron, o Sábio
+  Cada um tem um CASTELO de verdade (muralha, 4 torres, portão com grade,
+  pátio, quartel, estábulo, treino e a fortaleza com a SALA DO TRONO onde
+  o rei/rainha fica), SOLDADOS (espadachins, arqueiros e capitão) e as
+  VILAS mais perto do castelo (vila com soldados de guarda e moradores do
+  reino). /lugares mostra os castelos ("Castelo Real") com viagem rápida.
+  Soldados: defendem o castelo e a vila, matam monstros perto, atacam
+  quem é inimigo do reino ou bateu num morador, e lutam contra os
+  soldados dos reinos em guerra. Não machucam aliados nem moradores.
+  GUERRAS: os reinos declaram guerra sozinhos (a tensão sobe, motivo
+  anunciado) e cada lado manda EXÉRCITOS de tempos em tempos. Longe dos
+  jogadores o exército marcha "no mapa"; quando alguém chega perto, os
+  soldados aparecem e seguem marchando. No alvo começa o CERCO: os
+  atacantes precisam segurar o pátio sem defensores perto (barra no
+  topo). Se conseguirem, o castelo/vila MUDA DE DONO: as bandeiras,
+  tapetes e lã trocam de cor, o rei antigo foge e os soldados que
+  sobraram viram a nova guarnição. Sem nenhum jogador perto a batalha é
+  decidida pela força de cada lado. Reino sem castelo se rende.
+  JOGADORES: /reino (menu dos reinos) ou fale com o rei e jure lealdade.
+  Membro em guerra ganha dinheiro, pontos e drops matando soldados
+  inimigos e ajuda nos cercos (defender conta como defensor).
+    /reino | /reino entrar <reino> | /reino sair | /reino guerras
+  STAFF (/reinoadmin): lista, guerra <a> <b> [horas], paz <a> <b>,
+  ataque <reino> <castelo|vila> [soldados], dono <lugar> <reino>,
+  castelo <reino> [raio], vila <raio> <nome>, guarnicao, limpar, tp,
+  recarregar. Castelos que faltam: /rpgadmin reinos construir.
+  Configurar: plugins/NpcVivos/reinos.yml (reinos, cores, skins, rei,
+  tamanho das guarnições e exércitos, velocidade, chance de guerra...).
+  Mapa: mais 34 lugares - vilas (12 no total), tavernas, torres, ruínas,
+  masmorras (14), fortalezas e acampamentos (SurvivalRPG, lugares.planos).
+
+
+---------------------------------------------------------------------
  9. AVISOS NORMAIS NO CONSOLE (pode ignorar)
 ---------------------------------------------------------------------
   • "[Essentials] You are running an unsupported server version!"
@@ -625,3 +718,5 @@ alguns plugins falharem ao abrir seus bancos de dados.
   codigo-fonte/compilar.bat
   O NpcVivos fica em codigo-npcvivos/src: recompile com
   codigo-npcvivos/compilar.bat (também com o servidor desligado).
+  No Mac/Linux: ./compilar.sh (os três) ou ./compilar.sh rankup|npcvivos|rpg
+  (pode rodar com o servidor ligado; vale depois de reiniciar).

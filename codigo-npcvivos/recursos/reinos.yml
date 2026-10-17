@@ -1,0 +1,108 @@
+# ==================================================================
+#   REINOS, CASTELOS E GUERRAS - NpcVivos
+# ==================================================================
+# Cada reino tem um CASTELO (construído pelo SurvivalRPG no mapa do RPG),
+# um REI ou RAINHA (NPC que aceita novos súditos), SOLDADOS de guarda e
+# as VILAS mais perto do castelo. Os reinos brigam sozinhos: a tensão
+# sobe, alguém declara GUERRA e os EXÉRCITOS marcham pelo mapa para
+# cercar o castelo ou saquear as vilas do inimigo. Se os atacantes
+# tomarem o pátio do castelo, ele MUDA DE DONO (bandeiras e soldados).
+# Jogadores juram lealdade com /reino e lutam pelo seu lado.
+#
+# Cada reino também é uma facção (faccoes/<id>.yml): reputação,
+# tag no chat, descontos e guardas funcionam igual.
+# Depois de editar: /reinoadmin recarregar
+# ==================================================================
+
+ativo: true
+mundo: sobrevivencia
+
+reinos:
+  valdoria:
+    nome: "<gold>Reino de Valdoria"
+    curto: "Valdoria"
+    cor: "<gold>"
+    cor-couro: "#D4A017"
+    # Cor das bandeiras/lã do castelo (WHITE, ORANGE, MAGENTA, LIGHT_BLUE, YELLOW, LIME, PINK, GRAY,
+    # LIGHT_GRAY, CYAN, PURPLE, BLUE, BROWN, GREEN, RED, BLACK)
+    bandeira: YELLOW
+    lema: "Ouro e honra!"
+    rei: "Rei Aldric, o Justo"
+    rei-skin: sunny
+    skins-soldados: [steve, kai, zuri, ari, alex-fino]
+    descricao:
+      - "Reino rico das planícies douradas."
+      - "Seus cavaleiros juram proteger os fracos."
+  corvanor:
+    nome: "<red>Reino de Corvanor"
+    curto: "Corvanor"
+    cor: "<red>"
+    cor-couro: "#9B1C1C"
+    bandeira: RED
+    lema: "Sangue e ferro!"
+    rei: "Rainha Morgana, a Implacável"
+    rei-skin: makena-fino
+    skins-soldados: [steve, kai, noor-fino, efe-fino, zuri]
+    descricao:
+      - "Reino guerreiro das terras vermelhas."
+      - "Dizem que nunca perdoam uma ofensa."
+  eldoria:
+    nome: "<aqua>Reino de Eldoria"
+    curto: "Eldoria"
+    cor: "<aqua>"
+    cor-couro: "#1F6FB2"
+    bandeira: BLUE
+    lema: "Sabedoria acima da espada."
+    rei: "Rei Theron, o Sábio"
+    rei-skin: noor
+    skins-soldados: [steve, sunny, ari, makena-fino, alex-fino]
+    descricao:
+      - "Reino de magos e eruditos do norte."
+      - "Suas torres guardam segredos antigos."
+
+guarnicao:
+  # Soldados de guarda em cada castelo (só aparecem com algum jogador perto)
+  soldados: 8
+  # Parte deles com arco (0.35 = 35%)
+  arqueiros: 0.35
+  raio-ativo: 160
+  # Vilas: soldados de guarda em cada vila de um reino
+  soldados-por-vila: 3
+  # Vilas a até esta distância do castelo pertencem ao reino
+  raio-de-influencia: 1400
+
+soldado:
+  vida: 30
+  dano: 5
+  armadura: 6
+  velocidade: 0.27
+  capitao-vida: 60
+  capitao-dano: 8
+  # Dinheiro por soldado inimigo morto (só em guerra) e reputação perdida ao matar soldado de reino em paz
+  recompensa: 25
+  reputacao-ao-matar: 25
+
+guerra:
+  # Os reinos declaram guerra sozinhos?
+  automatica: true
+  diplomacia-a-cada-minutos: 20
+  # Chance (por ciclo) de dois reinos em paz entrarem em guerra
+  chance-guerra: 0.25
+  maximo-guerras: 2
+  duracao-horas: 48
+  # De quanto em quanto tempo cada lado de uma guerra manda um exército
+  campanha-a-cada-minutos: 12
+  exercito-tamanho: 10
+  # Blocos por segundo quando ninguém está vendo (marcha "no mapa")
+  velocidade-marcha: 1.6
+  # O exército aparece de verdade quando um jogador chega a esta distância
+  raio-materializar: 96
+  tempo-cerco-minutos: 12
+  # Segundos segurando o pátio (sem defensores perto) para tomar o castelo/vila
+  captura-segundos: 45
+  defensores-extra: 4
+  pontos:
+    castelo: 250
+    vila: 120
+    defesa: 80
+    soldado: 5

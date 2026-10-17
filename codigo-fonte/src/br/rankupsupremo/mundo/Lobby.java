@@ -305,7 +305,7 @@ public final class Lobby implements Listener {
         for (Player p : Bukkit.getOnlinePlayers()) {
             if (plugin.ehMundoRankup(p.getWorld())) {
                 rankup++;
-            } else if (plugin.sobrevivencia().ehSobrevivencia(p.getWorld())) {
+            } else if (plugin.sobrevivencia().ehReinoRpg(p.getWorld())) {
                 rpg++;
             }
         }

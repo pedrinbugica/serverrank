@@ -4,6 +4,8 @@ import dev.pedrobugica.npcvivos.comandos.AdminCommand;
 import dev.pedrobugica.npcvivos.comandos.FaccaoCommand;
 import dev.pedrobugica.npcvivos.comandos.MercenarioCommand;
 import dev.pedrobugica.npcvivos.comandos.MissoesCommand;
+import dev.pedrobugica.npcvivos.comandos.PovoCommand;
+import dev.pedrobugica.npcvivos.comandos.ReinoCommand;
 import dev.pedrobugica.npcvivos.combate.BossService;
 import dev.pedrobugica.npcvivos.combate.CombateService;
 import dev.pedrobugica.npcvivos.combate.DueloService;
@@ -33,6 +35,9 @@ import dev.pedrobugica.npcvivos.mundo.InvasaoService;
 import dev.pedrobugica.npcvivos.mundo.MercadoService;
 import dev.pedrobugica.npcvivos.mundo.MundoListener;
 import dev.pedrobugica.npcvivos.mundo.MundoVivoService;
+import dev.pedrobugica.npcvivos.povo.Corpos;
+import dev.pedrobugica.npcvivos.povo.MoradorService;
+import dev.pedrobugica.npcvivos.reino.ReinoService;
 import dev.pedrobugica.npcvivos.upgrade.Pedra;
 import dev.pedrobugica.npcvivos.upgrade.UpgradeListener;
 import dev.pedrobugica.npcvivos.upgrade.UpgradeService;
@@ -80,6 +85,9 @@ public final class NpcVivosPlugin extends JavaPlugin {
     private DiplomaciaService diplomacia;
     private GuerraService guerras;
     private InvasaoService invasoes;
+    private Corpos corpos;
+    private MoradorService moradores;
+    private ReinoService reinos;
 
     @Override
     public void onEnable() {
@@ -134,8 +142,17 @@ public final class NpcVivosPlugin extends JavaPlugin {
         dialogo.carregar();
         missoes.carregar();
         npcs.carregar();
+        // Moradores humanos e reinos (corpo de gente para aldeões e soldados)
+        corpos = new Corpos(this);
+        moradores = new MoradorService(this, corpos);
+        moradores.carregar();
+        reinos = new ReinoService(this, corpos);
+        reinos.carregar();
 
         var pm = getServer().getPluginManager();
+        pm.registerEvents(corpos, this);
+        pm.registerEvents(moradores, this);
+        pm.registerEvents(reinos, this);
         pm.registerEvents(new NpcListener(this), this);
         pm.registerEvents(new MenuListener(this), this);
         pm.registerEvents(missoes, this);
@@ -173,6 +190,22 @@ public final class NpcVivosPlugin extends JavaPlugin {
             cmdMissoes.setExecutor(mc);
             cmdMissoes.setTabCompleter(mc);
         }
+        ReinoCommand rc = new ReinoCommand(this);
+        PovoCommand pc = new PovoCommand(this);
+        for (String nome : List.of("reino", "reinoadmin")) {
+            PluginCommand c = getCommand(nome);
+            if (c != null) {
+                c.setExecutor(rc);
+                c.setTabCompleter(rc);
+            }
+        }
+        for (String nome : List.of("povo", "trabalho")) {
+            PluginCommand c = getCommand(nome);
+            if (c != null) {
+                c.setExecutor(pc);
+                c.setTabCompleter(pc);
+            }
+        }
         PluginCommand cmd = getCommand("npcv");
         if (cmd != null) {
             AdminCommand admin = new AdminCommand(this);
@@ -204,6 +237,9 @@ public final class NpcVivosPlugin extends JavaPlugin {
             mundo.iniciar();
             atualizarExemplosFase9();
             vida.iniciar();
+            moradores.iniciar();
+            reinos.iniciar();
+            corpos.iniciar();
             configurarPermissoes();
             if (getServer().getPluginManager().isPluginEnabled("PlaceholderAPI")) {
                 new dev.pedrobugica.npcvivos.hook.ExpansaoPAPI(this).register();
@@ -216,6 +252,15 @@ public final class NpcVivosPlugin extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        if (reinos != null) {
+            reinos.parar(); // exércitos são temporários
+        }
+        if (moradores != null) {
+            moradores.parar();
+        }
+        if (corpos != null) {
+            corpos.parar(); // tira os corpos e mostra os mobs de novo
+        }
         if (vida != null) {
             vida.parar(); // tira os balões de fala
         }
@@ -263,6 +308,11 @@ public final class NpcVivosPlugin extends JavaPlugin {
         bosses.iniciar();
         mundo.iniciar();
         vida.iniciar();
+        moradores.carregar();
+        reinos.carregar();
+        reinos.iniciar();
+        moradores.iniciar();
+        corpos.iniciar();
     }
 
     /**
@@ -755,6 +805,18 @@ public final class NpcVivosPlugin extends JavaPlugin {
 
     public DueloService duelos() {
         return duelos;
+    }
+
+    public Corpos corpos() {
+        return corpos;
+    }
+
+    public MoradorService moradores() {
+        return moradores;
+    }
+
+    public ReinoService reinos() {
+        return reinos;
     }
 
     public BossService bosses() {

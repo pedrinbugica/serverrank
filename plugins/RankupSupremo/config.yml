@@ -14,6 +14,19 @@
 # Depois de editar, use /rankupadmin recarregar (ou reinicie o servidor).
 # ==================================================================
 
+lobby:
+  ativado: true
+  mundo: lobby
+  # true = todo mundo que entra no servidor aparece no lobby (o portal do SMP leva de volta para onde parou)
+  teleportar-ao-entrar: true
+  horario: 6000
+  mural:
+  - <gold><bold>Bem-vindo(a) ao RankUP Supremo!</bold>
+  - '<gray>⬅ <yellow>Rankup<gray>: minere, venda e suba de rank'
+  - '<gray>➡ <green>SMP RPG<gray>: classes, masmorras e vilas'
+  - ''
+  - <white>Respeite todos • Sem hack • Divirta-se!
+  - <gray>/lobby volta para cá a qualquer hora
 site: rankupsupremo.com.br
 discord: discord.gg/rankupsupremo
 
@@ -250,6 +263,19 @@ combate:
   - lojinha
 
 scoreboard:
+  linhas-lobby:
+  - <dark_gray><strikethrough>                              </strikethrough>
+  - ' <white>Olá, <yellow>{jogador}<white>!'
+  - ''
+  - ' <gold>⬅ Rankup <gray>(portal dourado)'
+  - ' <white>Rank: {rank}'
+  - ''
+  - ' <green>SMP RPG ➡ <gray>(portal verde)'
+  - ' <white>Classe: %rpg_classe_cor% <gray>Nv <yellow>%rpg_nivel%'
+  - ''
+  - ' <white>Online: <green>{online}'
+  - <dark_gray><strikethrough>                              </strikethrough>
+  - '   <yellow>{site}'
   ativado: true
   titulo: <gradient:#FFD700:#FF8C00><bold>✦ RANKUP SUPREMO ✦</bold></gradient>
   # Máximo de 15 linhas. Variáveis: {rank} {proximo} {progresso} {barra} {custo} {dinheiro}
@@ -332,14 +358,14 @@ hologramas:
   top-vazio: <gray>Ninguém ainda... seja o primeiro!
   # Holograma no spawn do mundo Sobrevivência
   sobrevivencia:
-  - '<gradient:#56AB2F:#A8E063><bold>✦ SMP RPG ✦</bold></gradient>'
-  - '<gray>Bem-vindo(a) a Vila Aurora!'
+  - <gradient:#56AB2F:#A8E063><bold>✦ SMP RPG ✦</bold></gradient>
+  - <gray>Bem-vindo(a) a Vila Aurora!
   - ''
-  - '<white>/classe <dark_gray>» <gray>escolha sua classe'
-  - '<white>/rpg <dark_gray>» <gray>seu personagem'
-  - '<white>/lugares <dark_gray>» <gray>vilas, castelos e viagem'
-  - '<white>/rtp <dark_gray>» <gray>ir para longe e construir'
-  - '<white>/lobby <dark_gray>» <gray>voltar ao lobby'
+  - <white>/classe <dark_gray>» <gray>escolha sua classe
+  - <white>/rpg <dark_gray>» <gray>seu personagem
+  - <white>/lugares <dark_gray>» <gray>vilas, castelos e viagem
+  - <white>/rtp <dark_gray>» <gray>ir para longe e construir
+  - <white>/lobby <dark_gray>» <gray>voltar ao lobby
   # Holograma em cima de cada mina. Variáveis: {mina} {rank} {restante} {barra} {tempo}
   mina:
   - '{mina}'
@@ -451,6 +477,10 @@ sobrevivencia:
   ativado: true
   # Nome do mundo principal. O Nether e o End usam o sufixo _nether e _the_end.
   mundo: sobrevivencia
+  # Lobby do RPG (Cidadela dos Heróis, criado pelo SurvivalRPG). Com passar-pelo-lobby-rpg: true, o portal
+  # verde e o /sobrevivencia levam primeiro para lá; de lá o portal "Continuar" leva para onde o jogador parou.
+  lobby-rpg: rpg_lobby
+  passar-pelo-lobby-rpg: true
   dificuldade: NORMAL
   pvp: true
   # Raio da borda do mundo (a borda do Nether fica proporcional, 1/8)

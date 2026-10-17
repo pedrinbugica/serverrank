@@ -86,6 +86,29 @@ public final class AdminCommand implements CommandExecutor, TabCompleter {
                 plugin.lugares().desfazer(s, a[1].toLowerCase(Locale.ROOT));
             }
             case "masmorra", "masmorras" -> masmorra(s, a);
+            case "reinos", "reino" -> {
+                String acao = a.length > 1 ? a[1].toLowerCase(Locale.ROOT) : "";
+                if (acao.equals("construir")) {
+                    plugin.castelos().construirFaltando(s, () -> plugin.npcHook().sincronizarReinos());
+                } else if (acao.equals("sincronizar")) {
+                    plugin.npcHook().sincronizarReinos();
+                    plugin.mensagens().enviar(s, "admin-ok");
+                } else {
+                    s.sendMessage(Texto.cor("<yellow>/rpgadmin reinos construir <gray>- constrói os castelos que faltam"));
+                    s.sendMessage(Texto.cor("<yellow>/rpgadmin reinos sincronizar <gray>- manda vilas e castelos para o NpcVivos"));
+                    s.sendMessage(Texto.cor("<gray>Guerras, exércitos e donos: <yellow>/reinoadmin"));
+                }
+            }
+            case "lobby" -> {
+                String acao = a.length > 1 ? a[1].toLowerCase(Locale.ROOT) : "";
+                if (acao.equals("reconstruir")) {
+                    plugin.lobby().reconstruir(() -> plugin.mensagens().enviar(s, "admin-ok"));
+                } else if (s instanceof Player p && plugin.lobby().ativo()) {
+                    plugin.lobby().teleportar(p);
+                } else {
+                    s.sendMessage(Texto.cor("<yellow>/rpgadmin lobby [ir|reconstruir]"));
+                }
+            }
             case "mapa" -> mapa(s, a);
             case "reload" -> {
                 plugin.recarregar();
@@ -357,13 +380,15 @@ public final class AdminCommand implements CommandExecutor, TabCompleter {
     public List<String> onTabComplete(CommandSender s, Command cmd, String label, String[] a) {
         List<String> o = new ArrayList<>();
         if (a.length == 1) {
-            o.addAll(List.of("nivel", "xp", "pontos", "item", "classe", "resetar", "capital", "lugar", "desfazer", "masmorra", "mapa",
+            o.addAll(List.of("nivel", "xp", "pontos", "item", "classe", "resetar", "capital", "lugar", "desfazer", "masmorra", "reinos", "lobby", "mapa",
                     "reload", "status"));
         } else if (a.length == 2) {
             switch (a[0].toLowerCase(Locale.ROOT)) {
                 case "capital" -> o.addAll(List.of("construir", "ir", "status"));
                 case "lugar", "lugares" -> o.addAll(List.of("popular", "lista", "ir", "remover", "colocar", "marcar"));
                 case "masmorra", "masmorras" -> o.addAll(List.of("construir", "reconstruir", "ir", "lista"));
+                case "reinos", "reino" -> o.addAll(List.of("construir", "sincronizar"));
+                case "lobby" -> o.addAll(List.of("ir", "reconstruir"));
                 case "desfazer" -> {
                     for (Lugar l : plugin.lugares().todos()) {
                         o.add(l.id());

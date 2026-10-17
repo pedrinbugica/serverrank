@@ -12,31 +12,31 @@ powertoolsenabled: true
 accepting-pay: true
 baltop-exempt: true
 timestamps:
-  lastteleport: 1792025601336
+  lastteleport: 1792198708213
   lastheal: 0
   mute: 0
   jail: 0
   onlinejail: 0
-  logout: 1792104659980
-  login: 1792103800567
-money: '2059.0003013762417360000000'
+  logout: 1792200962583
+  login: 1792198355671
+money: '2059.00030137624160000000000000000'
 last-account-name: pedrin_bugica
 logoutlocation:
   world: b498a541-ecdd-480e-b656-32aad37cb93f
   world-name: sobrevivencia
-  x: 1297.417398022562
-  y: 89.7345932960814
-  z: 1241.1228298887415
-  yaw: 38.87251663208008
-  pitch: 22.539003372192383
+  x: -907.8170077754991
+  y: 64.0
+  z: -725.4116301672456
+  yaw: 37.973812103271484
+  pitch: 9.150009155273438
 lastlocation:
   world: b498a541-ecdd-480e-b656-32aad37cb93f
   world-name: sobrevivencia
-  x: 9.453750942426693
-  y: 84.0
-  z: -0.7555970043498011
-  yaw: -153.0020751953125
-  pitch: 33.450523376464844
+  x: 981.321480279441
+  y: 70.0
+  z: 1161.7986585695626
+  yaw: -112.64117431640625
+  pitch: 8.100050926208496
 last-message-reply-recipient: false
 homes:
   home:

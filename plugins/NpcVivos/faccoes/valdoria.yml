@@ -1,0 +1,15 @@
+# Facção do Reino de Valdoria (criada pelo reinos.yml).
+# Depois de editar: /npcv reload
+
+id: valdoria
+nome: <gold>Reino de Valdoria
+tag: '<dark_gray>[<gold>Valdoria<dark_gray>] '
+lider: rei_valdoria
+descricao:
+- Reino rico das planícies douradas.
+- Seus cavaleiros juram proteger os fracos.
+relacoes:
+  corvanor: RIVAL
+  eldoria: RIVAL
+beneficios_membro:
+  desconto: 0.1

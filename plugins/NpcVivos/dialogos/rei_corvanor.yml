@@ -1,0 +1,28 @@
+# Conversa do rei/rainha do Reino de Corvanor. Veja dialogos/borin.yml para entender.
+
+inicio: entrada
+nos:
+  entrada:
+    fala:
+    - Saudações, {jogador}. Eu sou Rainha Morgana, a Implacável, soberano de Corvanor.
+      Sangue e ferro!
+    - Ajoelhe-se diante do trono de Corvanor, {jogador}.
+    fala_retorno:
+    - Bem-vindo de volta, {jogador}.
+    - '{jogador}! O reino precisa de você.'
+    opcoes:
+    - acao: entrar_faccao
+      texto: Quero jurar lealdade a Corvanor
+    - texto: Como anda a guerra?
+      comandos:
+      - reino noticias {jogador}
+      ir: entrada
+    - ir: historia
+      texto: Fale-me do seu reino
+  historia:
+    fala:
+    - Reino guerreiro das terras vermelhas. Dizem que nunca perdoam uma ofensa. Sangue
+      e ferro!
+    opcoes:
+    - ir: entrada
+      texto: Voltar

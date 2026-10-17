@@ -180,7 +180,7 @@ public final class LugarService implements Listener {
     /** Lugar protegido que contém este ponto (null = pode construir). */
     public Lugar protegidoEm(Location loc) {
         for (Lugar l : lugares.values()) {
-            if (l.protegido() && l.raioZona() > 0 && l.distancia(loc) <= l.raioZona() + 2) {
+            if (l.protegido() && l.raioProtecao() > 0 && l.distancia(loc) <= l.raioProtecao() + 2) {
                 return l;
             }
         }

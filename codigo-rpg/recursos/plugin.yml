@@ -1,5 +1,5 @@
 name: SurvivalRPG
-version: '1.0.0'
+version: '1.1.0'
 main: dev.pedrobugica.survivalrpg.SurvivalRpgPlugin
 api-version: '1.21'
 description: O mundo de sobrevivência vira um RPG - classes, níveis, atributos, habilidades, mobs com nível, itens raros, grupos, lugares para descobrir, a capital Vila Aurora e masmorras com chefes.
@@ -38,6 +38,10 @@ commands:
   masmorra:
     description: Masmorras (entre pelo portal da capital) e /masmorra sair
     aliases: [masmorras, dungeon, dg]
+    permission: survivalrpg.usar
+  rpglobby:
+    description: Volta para o lobby do RPG (Cidadela dos Heróis)
+    aliases: [lobbyrpg, hubrpg, spawnrpg, cidadela]
     permission: survivalrpg.usar
   rpgadmin:
     description: Administração do RPG

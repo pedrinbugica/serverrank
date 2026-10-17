@@ -1,0 +1,151 @@
+# Castelos e vilas dos reinos (quem é dono de quê). Mexa pelo /reinoadmin.
+
+territorios:
+  vila_1:
+    tipo: VILA
+    nome: <green>Vila Ventoleste
+    mundo: sobrevivencia
+    x: -647
+    y: 71
+    z: -38
+    raio: 48
+    dono: valdoria
+  vila_2:
+    tipo: VILA
+    nome: <green>Aldeia do Riacho
+    mundo: sobrevivencia
+    x: 398
+    y: 96
+    z: -25
+    raio: 48
+  vila_3:
+    tipo: VILA
+    nome: <green>Vila Carvalhal
+    mundo: sobrevivencia
+    x: 59
+    y: 94
+    z: 440
+    raio: 48
+    dono: eldoria
+  vila_4:
+    tipo: VILA
+    nome: <green>Vila Lumebrasa
+    mundo: sobrevivencia
+    x: -186
+    y: 92
+    z: -380
+    raio: 48
+    dono: valdoria
+  vila_5:
+    tipo: VILA
+    nome: <green>Vila Trigal
+    mundo: sobrevivencia
+    x: -697
+    y: 68
+    z: -1686
+    raio: 48
+    dono: corvanor
+  vila_6:
+    tipo: VILA
+    nome: <green>Aldeia Bruma Dourada
+    mundo: sobrevivencia
+    x: 884
+    y: 71
+    z: -658
+    raio: 48
+    dono: corvanor
+  vila_7:
+    tipo: VILA
+    nome: <green>Aldeia dos Salgueiros
+    mundo: sobrevivencia
+    x: 2044
+    y: 80
+    z: -1156
+    raio: 48
+  vila_8:
+    tipo: VILA
+    nome: <green>Vila Rosaferro
+    mundo: sobrevivencia
+    x: 1580
+    y: 63
+    z: -107
+    raio: 48
+    dono: eldoria
+  vila_9:
+    tipo: VILA
+    nome: <green>Vila Pedra Alta
+    mundo: sobrevivencia
+    x: 1340
+    y: 76
+    z: -99
+    raio: 48
+    dono: eldoria
+  vila_10:
+    tipo: VILA
+    nome: <green>Aldeia Folhaverde
+    mundo: sobrevivencia
+    x: 986
+    y: 65
+    z: 765
+    raio: 48
+    dono: eldoria
+  vila_11:
+    tipo: VILA
+    nome: <green>Vila Brumafria
+    mundo: sobrevivencia
+    x: 135
+    y: 70
+    z: 1443
+    raio: 48
+    dono: eldoria
+  vila_12:
+    tipo: VILA
+    nome: <green>Aldeia Cerro Azul
+    mundo: sobrevivencia
+    x: 447
+    y: 66
+    z: 994
+    raio: 48
+    dono: eldoria
+  castelo_valdoria:
+    tipo: CASTELO
+    nome: <gold>Castelo de Valdoria
+    mundo: sobrevivencia
+    x: -1366
+    y: 71
+    z: 250
+    raio: 25
+    dono: valdoria
+    reino-original: valdoria
+    trono:
+      x: -1365.5
+      y: 72.0
+      z: 225.5
+  castelo_corvanor:
+    tipo: CASTELO
+    nome: <red>Castelo de Corvanor
+    mundo: sobrevivencia
+    x: -133
+    y: 70
+    z: -1412
+    raio: 25
+    dono: corvanor
+    reino-original: corvanor
+    trono:
+      x: -132.5
+      y: 71.0
+      z: -1436.5
+  castelo_eldoria:
+    tipo: CASTELO
+    nome: <aqua>Castelo de Eldoria
+    mundo: sobrevivencia
+    x: 1180
+    y: 68
+    z: 1140
+    raio: 25
+    dono: eldoria
+    reino-original: eldoria
+    trono:
+      x: 1180.5
+      y: 69.0
+      z: 1115.5

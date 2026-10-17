@@ -1,0 +1,43 @@
+# NPC do plugin NpcVivos. Depois de editar, use /npcv reload.
+# skin: steve, alex, ari, efe, kai, makena, noor, sunny, zuri (+ "-fino" para braço fino)
+#       ou jogador:Nick para usar a skin de um jogador (precisa de internet)
+# papeis: COMERCIANTE, FERREIRO, GUIA, MISSIONARIO, GUARDA, MERCENARIO, DUELISTA, BOSS
+# combate: vida, dano, armadura, velocidade, alcance, arqueiro e respawn-segundos só deste NPC
+#          (o que não estiver aqui vem do atributos: do combate.yml)
+# faccao: id de um arquivo em faccoes/ (guardas só protegem a própria facção). Vazio = sem facção.
+# dialogo.arvore: nome de um arquivo em dialogos/ (conversa com opções). Sem ele, a conversa é simples.
+# rotina: tipo PARADO, PASSEAR (anda até 'raio' blocos de casa) ou PATRULHA (segue os 'pontos' "x y z"),
+#         falas = o que ele diz sozinho num balão, dormir = à noite volta para casa
+# loja.compra = o que o JOGADOR COMPRA do NPC | loja.venda = o que o JOGADOR VENDE ao NPC
+# preco_base = preço do lote inteiro (quantidade). estoque_max 0 = infinito. limite_diario 0 = sem limite.
+
+id: anciao_vila_4
+nome: <green><bold>Ancião de Vila Lumebrasa
+skin: noor
+local:
+  mundo: sobrevivencia
+  x: -185.5
+  y: 106.0
+  z: -379.5
+  yaw: 0.0
+papeis:
+- GUIA
+rotina:
+  tipo: PASSEAR
+  raio: 6.0
+  pontos: []
+  falas:
+  - Os mais velhos contam histórias da capital, Vila Aurora...
+  - Cuidado na estrada à noite!
+  - Se tiver mapa, use o /lugares para não se perder.
+  dormir: true
+dialogo:
+  saudacao:
+  - Seja bem-vindo a Vila Lumebrasa, {jogador}.
+  - Viajante! Aqui você está seguro, os monstros não entram na vila.
+  retorno:
+  - De volta, {jogador}? Bom te ver!
+  falas: []
+loja:
+  compra: []
+  venda: []

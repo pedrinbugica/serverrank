@@ -1,0 +1,45 @@
+# NPC do plugin NpcVivos. Depois de editar, use /npcv reload.
+# skin: steve, alex, ari, efe, kai, makena, noor, sunny, zuri (+ "-fino" para braço fino)
+#       ou jogador:Nick para usar a skin de um jogador (precisa de internet)
+# papeis: COMERCIANTE, FERREIRO, GUIA, MISSIONARIO, GUARDA, MERCENARIO, DUELISTA, BOSS
+# combate: vida, dano, armadura, velocidade, alcance, arqueiro e respawn-segundos só deste NPC
+#          (o que não estiver aqui vem do atributos: do combate.yml)
+# faccao: id de um arquivo em faccoes/ (guardas só protegem a própria facção). Vazio = sem facção.
+# dialogo.arvore: nome de um arquivo em dialogos/ (conversa com opções). Sem ele, a conversa é simples.
+# rotina: tipo PARADO, PASSEAR (anda até 'raio' blocos de casa) ou PATRULHA (segue os 'pontos' "x y z"),
+#         falas = o que ele diz sozinho num balão, dormir = à noite volta para casa
+# loja.compra = o que o JOGADOR COMPRA do NPC | loja.venda = o que o JOGADOR VENDE ao NPC
+# preco_base = preço do lote inteiro (quantidade). estoque_max 0 = infinito. limite_diario 0 = sem limite.
+
+id: guardiao_masmorras
+nome: <dark_purple><bold>Morvan, o Guardião
+skin: efe
+local:
+  mundo: sobrevivencia
+  x: -4.5
+  y: 88.0
+  z: 19.5
+  yaw: 150.0
+papeis:
+- GUIA
+equipamento:
+  mao: SOUL_LANTERN
+rotina:
+  tipo: PARADO
+  raio: 2.0
+  pontos: []
+  falas:
+  - Três masmorras, três chefes... quem será o próximo a cair?
+  - O portal sussurra à noite...
+  - Leve um clérigo. Confie em mim.
+  dormir: false
+dialogo:
+  saudacao:
+  - Procura glória, {jogador}? Junte seu grupo e clique na pedra-guia.
+  - As masmorras não perdoam. Mas lá dentro você não perde seus itens se cair.
+  retorno:
+  - De volta, {jogador}? Bom te ver!
+  falas: []
+loja:
+  compra: []
+  venda: []

@@ -1,5 +1,5 @@
 name: NpcVivos
-version: '0.9.0'
+version: '1.0.0'
 main: dev.pedrobugica.npcvivos.NpcVivosPlugin
 api-version: '1.21'
 description: NPCs que conversam, vendem, compram, dão missões, têm facções e guardas, aprimoram itens, lutam (mercenários, duelos e chefes), vivem num mundo que muda sozinho (preços, alianças, guerras e invasões) e lembram dos jogadores e andam e conversam sozinhos (fases 1 a 8 do documento de design + vida própria).
@@ -32,6 +32,22 @@ commands:
     description: Seu mercenário contratado (e /mercenario dispensar)
     aliases: [merc]
     permission: npcvivos.mercenario
+  reino:
+    description: Reinos, castelos e guerras (menu, entrar, sair, guerras)
+    aliases: [reinos, kingdom]
+    permission: npcvivos.reino
+  reinoadmin:
+    description: Administração dos reinos, castelos, exércitos e guerras
+    aliases: [reinosadmin]
+    permission: npcvivos.admin.reino
+  povo:
+    description: Moradores humanos (gerar, info, nome, amizade, recarregar)
+    aliases: [moradores]
+    permission: npcvivos.admin.povo
+  trabalho:
+    description: O trabalho que um morador te pediu (e /trabalho abandonar)
+    aliases: [trabalhos]
+    permission: npcvivos.usar
 
 permissions:
   npcvivos.usar:
@@ -55,6 +71,9 @@ permissions:
   npcvivos.duelo:
     description: Desafiar NPCs duelistas
     default: true
+  npcvivos.reino:
+    description: Usar o /reino (ver os reinos, jurar lealdade, ver as guerras)
+    default: true
   npcvivos.admin.*:
     description: Todos os comandos de administração dos NPCs
     default: op
@@ -68,6 +87,8 @@ permissions:
       npcvivos.admin.combate: true
       npcvivos.admin.guerra: true
       npcvivos.admin.reload: true
+      npcvivos.admin.reino: true
+      npcvivos.admin.povo: true
   npcvivos.admin.criar:
     default: op
   npcvivos.admin.remover:
@@ -89,4 +110,10 @@ permissions:
     description: Guerras de facção e invasões (/npcv guerra, /npcv invasao)
     default: op
   npcvivos.admin.reload:
+    default: op
+  npcvivos.admin.reino:
+    description: /reinoadmin - guerras, exércitos, castelos e vilas
+    default: op
+  npcvivos.admin.povo:
+    description: /povo - gerar e editar moradores humanos
     default: op

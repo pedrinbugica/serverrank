@@ -1,0 +1,49 @@
+# NPC do plugin NpcVivos. Depois de editar, use /npcv reload.
+# skin: steve, alex, ari, efe, kai, makena, noor, sunny, zuri (+ "-fino" para braço fino)
+#       ou jogador:Nick para usar a skin de um jogador (precisa de internet)
+# papeis: COMERCIANTE, FERREIRO, GUIA, MISSIONARIO, GUARDA, MERCENARIO, DUELISTA, BOSS
+# combate: vida, dano, armadura, velocidade, alcance, arqueiro e respawn-segundos só deste NPC
+#          (o que não estiver aqui vem do atributos: do combate.yml)
+# faccao: id de um arquivo em faccoes/ (guardas só protegem a própria facção). Vazio = sem facção.
+# dialogo.arvore: nome de um arquivo em dialogos/ (conversa com opções). Sem ele, a conversa é simples.
+# rotina: tipo PARADO, PASSEAR (anda até 'raio' blocos de casa) ou PATRULHA (segue os 'pontos' "x y z"),
+#         falas = o que ele diz sozinho num balão, dormir = à noite volta para casa
+# loja.compra = o que o JOGADOR COMPRA do NPC | loja.venda = o que o JOGADOR VENDE ao NPC
+# preco_base = preço do lote inteiro (quantidade). estoque_max 0 = infinito. limite_diario 0 = sem limite.
+
+id: arauto_lobby_rpg
+nome: <gold><bold>Aldo, o Arauto
+skin: sunny
+local:
+  mundo: rpg_lobby
+  x: 5.5
+  y: 101.0
+  z: 12.5
+  yaw: 150.0
+papeis:
+- GUIA
+equipamento:
+  mao: GOAT_HORN
+rotina:
+  tipo: PASSEAR
+  raio: 3.0
+  pontos: []
+  falas:
+  - Os reinos estão em guerra... escolha bem o seu lado!
+  - 'Leia o mural ao norte: tem todos os comandos.'
+  - Os moradores das vilas adoram presentes. Flores, bolo, esmeraldas...
+  - Dizem que quem tirar a espada da pedra será rei... hahaha!
+  - Novato? A primeira classe é de graça!
+  dormir: true
+dialogo:
+  saudacao:
+  - Bem-vindo à Cidadela dos Heróis, {jogador}! Escolha sua classe nas estátuas a
+    oeste.
+  - Os portais a leste levam à capital, às terras selvagens e às masmorras.
+  - Três reinos disputam estas terras. Jure lealdade a um deles com /reino!
+  retorno:
+  - De volta, {jogador}? Bom te ver!
+  falas: []
+loja:
+  compra: []
+  venda: []

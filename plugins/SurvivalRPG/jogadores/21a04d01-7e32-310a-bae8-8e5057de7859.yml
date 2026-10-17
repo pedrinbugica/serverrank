@@ -1,0 +1,26 @@
+nome: pedrin_bugica
+classe: MAGO
+nivel: 5
+xp: 265.0
+pontos-livres: 9
+atributos:
+  FORCA: 1
+  DESTREZA: 0
+  INTELIGENCIA: 5
+  VITALIDADE: 1
+  SABEDORIA: 0
+  AGILIDADE: 0
+mana: 110
+trocou-classe-em: 0
+regioes-descobertas:
+- sombria
+- selvagem
+- lugar:torre_3
+- zona:capital
+- zona:vila_2
+- lugar:castelo_2
+- confins
+- fronteira
+- lugar:castelo_1
+- lugar:masmorra_1
+numeros-de-dano: true

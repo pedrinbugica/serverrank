@@ -68,7 +68,7 @@ public final class PagamentoListener implements Listener {
         if (plugin.ehMundoRankup(w)) {
             return "rankup";
         }
-        if (plugin.sobrevivencia().ehSobrevivencia(w)) {
+        if (plugin.sobrevivencia().ehReinoRpg(w)) {
             return "sobrevivencia";
         }
         return w.getName();

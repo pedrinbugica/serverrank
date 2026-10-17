@@ -1,9 +1,13 @@
 # NPC do plugin NpcVivos. Depois de editar, use /npcv reload.
 # skin: steve, alex, ari, efe, kai, makena, noor, sunny, zuri (+ "-fino" para braço fino)
 #       ou jogador:Nick para usar a skin de um jogador (precisa de internet)
-# papeis: COMERCIANTE, FERREIRO, GUIA, MISSIONARIO, GUARDA (os outros papéis chegam nas próximas fases)
+# papeis: COMERCIANTE, FERREIRO, GUIA, MISSIONARIO, GUARDA, MERCENARIO, DUELISTA, BOSS
+# combate: vida, dano, armadura, velocidade, alcance, arqueiro e respawn-segundos só deste NPC
+#          (o que não estiver aqui vem do atributos: do combate.yml)
 # faccao: id de um arquivo em faccoes/ (guardas só protegem a própria facção). Vazio = sem facção.
 # dialogo.arvore: nome de um arquivo em dialogos/ (conversa com opções). Sem ele, a conversa é simples.
+# rotina: tipo PARADO, PASSEAR (anda até 'raio' blocos de casa) ou PATRULHA (segue os 'pontos' "x y z"),
+#         falas = o que ele diz sozinho num balão, dormir = à noite volta para casa
 # loja.compra = o que o JOGADOR COMPRA do NPC | loja.venda = o que o JOGADOR VENDE ao NPC
 # preco_base = preço do lote inteiro (quantidade). estoque_max 0 = infinito. limite_diario 0 = sem limite.
 
@@ -21,6 +25,19 @@ papeis:
 - GUARDA
 equipamento:
   mao: IRON_SWORD
+rotina:
+  tipo: PATRULHA
+  raio: 6.0
+  pontos:
+  - 16 88 4
+  - 22 90 0
+  - 16 88 -5
+  - 10 94 0
+  falas:
+  - Tudo calmo na Vila Aurora.
+  - Olho vivo, cidadãos!
+  - Nada de confusão por aqui, hein?
+  dormir: false
 dialogo:
   saudacao:
   - Alto lá! Ah, é você, {jogador}. Bem-vindo à Vila Aurora. Aqui a gente vive em

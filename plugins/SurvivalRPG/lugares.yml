@@ -1,0 +1,614 @@
+# Lugares do mapa (criados pelo /rpgadmin ou pela construção automática).
+# raio-zona > 0 = zona segura (sem monstros e sem PvP). protegido = ninguém quebra nem coloca blocos.
+
+lugares:
+  capital:
+    nome: <gold>Vila Aurora
+    tipo: CAPITAL
+    mundo: sobrevivencia
+    x: 16
+    y: 88
+    z: 0
+    raio-zona: 44
+    protegido: true
+    estrutura: capital
+  vila_1:
+    nome: <green>Vila Ventoleste
+    tipo: VILA
+    mundo: sobrevivencia
+    x: -647
+    y: 71
+    z: -38
+    raio-zona: 48
+    protegido: true
+    estrutura: minecraft:village_plains
+  vila_2:
+    nome: <green>Aldeia do Riacho
+    tipo: VILA
+    mundo: sobrevivencia
+    x: 398
+    y: 96
+    z: -25
+    raio-zona: 48
+    protegido: true
+    estrutura: minecraft:village_taiga
+  vila_3:
+    nome: <green>Vila Carvalhal
+    tipo: VILA
+    mundo: sobrevivencia
+    x: 59
+    y: 94
+    z: 440
+    raio-zona: 48
+    protegido: true
+    estrutura: minecraft:village_taiga
+  taverna_1:
+    nome: <yellow>Estalagem da Lua Cheia
+    tipo: TAVERNA
+    mundo: sobrevivencia
+    x: 450
+    y: 66
+    z: 636
+    raio-zona: 24
+    protegido: true
+    estrutura: nova_structures:tavern_oak
+  taverna_2:
+    nome: <yellow>Taverna da Última Gota
+    tipo: TAVERNA
+    mundo: sobrevivencia
+    x: -1245
+    y: 69
+    z: 614
+    raio-zona: 24
+    protegido: true
+    estrutura: nova_structures:tavern_oak
+  taverna_3:
+    nome: <yellow>Estalagem do Viajante
+    tipo: TAVERNA
+    mundo: sobrevivencia
+    x: -353
+    y: 71
+    z: -1296
+    raio-zona: 24
+    protegido: true
+    estrutura: nova_structures:tavern_oak
+  torre_1:
+    nome: <aqua>Torre de Vigia do Norte
+    tipo: TORRE
+    mundo: sobrevivencia
+    x: -810
+    y: 70
+    z: 308
+    raio-zona: 0
+    protegido: false
+    estrutura: structory_towers:wizard_tower
+  torre_2:
+    nome: <aqua>Torre do Arcano
+    tipo: TORRE
+    mundo: sobrevivencia
+    x: 226
+    y: 85
+    z: -980
+    raio-zona: 0
+    protegido: false
+    estrutura: structory:firetower
+  torre_3:
+    nome: <aqua>Torre do Engenheiro
+    tipo: TORRE
+    mundo: sobrevivencia
+    x: 1237
+    y: 70
+    z: 903
+    raio-zona: 0
+    protegido: false
+    estrutura: structory:firetower
+  ruina_1:
+    nome: <gray>Solar Esquecido
+    tipo: RUINA
+    mundo: sobrevivencia
+    x: 849
+    y: 64
+    z: -1279
+    raio-zona: 0
+    protegido: false
+    estrutura: structory:old_manor
+  ruina_2:
+    nome: <gray>Ruínas de Velhária
+    tipo: RUINA
+    mundo: sobrevivencia
+    x: 496
+    y: 84
+    z: 350
+    raio-zona: 0
+    protegido: false
+    estrutura: structory:graveyard
+  ruina_3:
+    nome: <gray>Cemitério dos Antigos
+    tipo: RUINA
+    mundo: sobrevivencia
+    x: 252
+    y: 66
+    z: 1203
+    raio-zona: 0
+    protegido: false
+    estrutura: structory:graveyard
+  ruina_4:
+    nome: <gray>Capela Abandonada
+    tipo: RUINA
+    mundo: sobrevivencia
+    x: -985
+    y: 71
+    z: -218
+    raio-zona: 0
+    protegido: false
+    estrutura: structory:old_manor
+  masmorra_1:
+    nome: <dark_red>Catacumbas Esquecidas
+    tipo: MASMORRA
+    mundo: sobrevivencia
+    x: -997
+    y: 68
+    z: -782
+    raio-zona: 0
+    protegido: false
+    estrutura: nova_structures:catacomb
+  masmorra_2:
+    nome: <dark_red>Cripta dos Lamentos
+    tipo: MASMORRA
+    mundo: sobrevivencia
+    x: 863
+    y: 68
+    z: -2034
+    raio-zona: 0
+    protegido: false
+    estrutura: nova_structures:undead_crypt
+  masmorra_3:
+    nome: <dark_red>Salões Selados
+    tipo: MASMORRA
+    mundo: sobrevivencia
+    x: 2144
+    y: 64
+    z: -605
+    raio-zona: 0
+    protegido: false
+    estrutura: nova_structures:catacomb
+  masmorra_4:
+    nome: <dark_red>Masmorra do Eco
+    tipo: MASMORRA
+    mundo: sobrevivencia
+    x: 533
+    y: 72
+    z: 2027
+    raio-zona: 0
+    protegido: false
+    estrutura: nova_structures:undead_crypt
+  masmorra_5:
+    nome: <dark_red>Cripta Rastejante
+    tipo: MASMORRA
+    mundo: sobrevivencia
+    x: -1345
+    y: 69
+    z: 1103
+    raio-zona: 0
+    protegido: false
+    estrutura: nova_structures:creeping_crypt
+  castelo_1:
+    nome: <red>Fortaleza de Grimhold
+    tipo: CASTELO
+    mundo: sobrevivencia
+    x: -1157
+    y: 71
+    z: -1305
+    raio-zona: 0
+    protegido: false
+    estrutura: nova_structures:illager_barracks
+  castelo_2:
+    nome: <red>Cidadela de Ferro
+    tipo: CASTELO
+    mundo: sobrevivencia
+    x: 2436
+    y: 71
+    z: -181
+    raio-zona: 0
+    protegido: false
+    estrutura: nova_structures:lone_citadel
+  castelo_3:
+    nome: <red>Bastião Sombrio
+    tipo: CASTELO
+    mundo: sobrevivencia
+    x: -1771
+    y: 68
+    z: 1879
+    raio-zona: 0
+    protegido: false
+    estrutura: nova_structures:illager_barracks
+  acampamento_1:
+    nome: <dark_green>Acampamento Saqueador
+    tipo: ACAMPAMENTO
+    mundo: sobrevivencia
+    x: 802
+    y: 78
+    z: 1244
+    raio-zona: 0
+    protegido: false
+    estrutura: nova_structures:illager_camp
+  acampamento_2:
+    nome: <dark_green>Posto dos Bandidos
+    tipo: ACAMPAMENTO
+    mundo: sobrevivencia
+    x: -657
+    y: 67
+    z: -993
+    raio-zona: 0
+    protegido: false
+    estrutura: nova_structures:illager_camp
+  vila_4:
+    nome: <green>Vila Lumebrasa
+    tipo: VILA
+    mundo: sobrevivencia
+    x: -186
+    y: 92
+    z: -380
+    raio-zona: 48
+    protegido: true
+    estrutura: nova_structures:hamlet
+  vila_5:
+    nome: <green>Vila Trigal
+    tipo: VILA
+    mundo: sobrevivencia
+    x: -697
+    y: 68
+    z: -1686
+    raio-zona: 48
+    protegido: true
+    estrutura: nova_structures:village_birch
+  vila_6:
+    nome: <green>Aldeia Bruma Dourada
+    tipo: VILA
+    mundo: sobrevivencia
+    x: 884
+    y: 71
+    z: -658
+    raio-zona: 48
+    protegido: true
+    estrutura: minecraft:village_plains
+  vila_7:
+    nome: <green>Aldeia dos Salgueiros
+    tipo: VILA
+    mundo: sobrevivencia
+    x: 2044
+    y: 80
+    z: -1156
+    raio-zona: 48
+    protegido: true
+    estrutura: minecraft:village_snowy
+  vila_8:
+    nome: <green>Vila Rosaferro
+    tipo: VILA
+    mundo: sobrevivencia
+    x: 1580
+    y: 63
+    z: -107
+    raio-zona: 48
+    protegido: true
+    estrutura: minecraft:village_snowy
+  vila_9:
+    nome: <green>Vila Pedra Alta
+    tipo: VILA
+    mundo: sobrevivencia
+    x: 1340
+    y: 76
+    z: -99
+    raio-zona: 48
+    protegido: true
+    estrutura: minecraft:village_plains
+  vila_10:
+    nome: <green>Aldeia Folhaverde
+    tipo: VILA
+    mundo: sobrevivencia
+    x: 986
+    y: 65
+    z: 765
+    raio-zona: 48
+    protegido: true
+    estrutura: minecraft:village_taiga
+  vila_11:
+    nome: <green>Vila Brumafria
+    tipo: VILA
+    mundo: sobrevivencia
+    x: 135
+    y: 70
+    z: 1443
+    raio-zona: 48
+    protegido: true
+    estrutura: nova_structures:hamlet
+  vila_12:
+    nome: <green>Aldeia Cerro Azul
+    tipo: VILA
+    mundo: sobrevivencia
+    x: 447
+    y: 66
+    z: 994
+    raio-zona: 48
+    protegido: true
+    estrutura: minecraft:village_plains
+  taverna_4:
+    nome: <yellow>Taverna do Corvo Bêbado
+    tipo: TAVERNA
+    mundo: sobrevivencia
+    x: 220
+    y: 101
+    z: -401
+    raio-zona: 24
+    protegido: true
+    estrutura: nova_structures:tavern_spruce
+  taverna_5:
+    nome: <yellow>Taverna da Caneca Furada
+    tipo: TAVERNA
+    mundo: sobrevivencia
+    x: 1573
+    y: 64
+    z: -961
+    raio-zona: 24
+    protegido: true
+    estrutura: nova_structures:tavern_snowy
+  taverna_6:
+    nome: <yellow>Taverna do Javali Manco
+    tipo: TAVERNA
+    mundo: sobrevivencia
+    x: 979
+    y: 72
+    z: -394
+    raio-zona: 24
+    protegido: true
+    estrutura: nova_structures:tavern_oak
+  torre_4:
+    nome: <aqua>Atalaia do Vento
+    tipo: TORRE
+    mundo: sobrevivencia
+    x: -752
+    y: 69
+    z: -1904
+    raio-zona: 0
+    protegido: false
+    estrutura: structory_towers:engineer_tower
+  torre_5:
+    nome: <aqua>Posto do Nômade
+    tipo: TORRE
+    mundo: sobrevivencia
+    x: 1624
+    y: 66
+    z: -1880
+    raio-zona: 0
+    protegido: false
+    estrutura: structory_towers:taiga_outpost
+  torre_6:
+    nome: <aqua>Atalaia Solitária
+    tipo: TORRE
+    mundo: sobrevivencia
+    x: 1089
+    y: 125
+    z: 94
+    raio-zona: 0
+    protegido: false
+    estrutura: structory_towers:engineer_tower
+  ruina_5:
+    nome: <gray>Ruínas do Norte
+    tipo: RUINA
+    mundo: sobrevivencia
+    x: -2409
+    y: 71
+    z: 944
+    raio-zona: 0
+    protegido: false
+    estrutura: structory:northern_ruin
+  ruina_6:
+    nome: <gray>Escombros da Floresta
+    tipo: RUINA
+    mundo: sobrevivencia
+    x: -1827
+    y: 71
+    z: -1279
+    raio-zona: 0
+    protegido: false
+    estrutura: nova_structures:wild_ruin
+  ruina_7:
+    nome: <gray>Cidade em Ruínas
+    tipo: RUINA
+    mundo: sobrevivencia
+    x: 1766
+    y: 64
+    z: -1346
+    raio-zona: 0
+    protegido: false
+    estrutura: structory:abandoned_chapel
+  ruina_8:
+    nome: <gray>Ruínas Selvagens
+    tipo: RUINA
+    mundo: sobrevivencia
+    x: 471
+    y: 72
+    z: -1249
+    raio-zona: 0
+    protegido: false
+    estrutura: structory:ruin_grassy
+  ruina_9:
+    nome: <gray>Templo da Relíquia
+    tipo: RUINA
+    mundo: sobrevivencia
+    x: 2745
+    y: 63
+    z: -1183
+    raio-zona: 0
+    protegido: false
+    estrutura: structory:dense_forest_ruin
+  masmorra_6:
+    nome: <dark_red>Santuário de Sangue
+    tipo: MASMORRA
+    mundo: sobrevivencia
+    x: -97
+    y: 64
+    z: -2729
+    raio-zona: 0
+    protegido: false
+    estrutura: nova_structures:surface_dungeon_default
+  masmorra_7:
+    nome: <dark_red>Tumba do Rei Sem Nome
+    tipo: MASMORRA
+    mundo: sobrevivencia
+    x: -1034
+    y: 64
+    z: -1012
+    raio-zona: 0
+    protegido: false
+    estrutura: nova_structures:shrine_combat_tier_3
+  masmorra_8:
+    nome: <dark_red>Cripta dos Mil Ossos
+    tipo: MASMORRA
+    mundo: sobrevivencia
+    x: 1921
+    y: 63
+    z: -1544
+    raio-zona: 0
+    protegido: false
+    estrutura: nova_structures:sealing_halls
+  masmorra_9:
+    nome: <dark_red>Poço das Almas
+    tipo: MASMORRA
+    mundo: sobrevivencia
+    x: 2518
+    y: 63
+    z: 448
+    raio-zona: 0
+    protegido: false
+    estrutura: nova_structures:shrine_combat_tier_3
+  masmorra_10:
+    nome: <dark_red>Ossuário Profundo
+    tipo: MASMORRA
+    mundo: sobrevivencia
+    x: 1061
+    y: 71
+    z: 491
+    raio-zona: 0
+    protegido: false
+    estrutura: nova_structures:small_creeping_crypt
+  masmorra_11:
+    nome: <dark_red>Covil Tóxico
+    tipo: MASMORRA
+    mundo: sobrevivencia
+    x: 1414
+    y: 73
+    z: 1433
+    raio-zona: 0
+    protegido: false
+    estrutura: nova_structures:creeping_crypt
+  masmorra_12:
+    nome: <dark_red>Esconderijo dos Saqueadores
+    tipo: MASMORRA
+    mundo: sobrevivencia
+    x: 956
+    y: 64
+    z: 1414
+    raio-zona: 0
+    protegido: false
+    estrutura: nova_structures:catacomb
+  masmorra_13:
+    nome: <dark_red>Câmaras da Provação
+    tipo: MASMORRA
+    mundo: sobrevivencia
+    x: 129
+    y: 90
+    z: 2646
+    raio-zona: 0
+    protegido: false
+    estrutura: nova_structures:undead_crypt
+  masmorra_14:
+    nome: <dark_red>Vila da Bruxa
+    tipo: MASMORRA
+    mundo: sobrevivencia
+    x: -667
+    y: 71
+    z: 2281
+    raio-zona: 0
+    protegido: false
+    estrutura: nova_structures:undead_crypt
+  castelo_4:
+    nome: <red>Forte Gélido
+    tipo: CASTELO
+    mundo: sobrevivencia
+    x: -1400
+    y: 67
+    z: 1320
+    raio-zona: 0
+    protegido: false
+    estrutura: nova_structures:stray_fort
+  castelo_5:
+    nome: <red>Torreão Maldito
+    tipo: CASTELO
+    mundo: sobrevivencia
+    x: -2702
+    y: 64
+    z: 365
+    raio-zona: 0
+    protegido: false
+    estrutura: nova_structures:illager_barracks
+  acampamento_3:
+    nome: <dark_green>Casa na Árvore dos Saqueadores
+    tipo: ACAMPAMENTO
+    mundo: sobrevivencia
+    x: 1311
+    y: 63
+    z: -1521
+    raio-zona: 0
+    protegido: false
+    estrutura: nova_structures:deepslate_camp
+  acampamento_4:
+    nome: <dark_green>Acampamento Abandonado
+    tipo: ACAMPAMENTO
+    mundo: sobrevivencia
+    x: 1366
+    y: 64
+    z: 405
+    raio-zona: 0
+    protegido: false
+    estrutura: nova_structures:illager_treehouse
+  acampamento_5:
+    nome: <dark_green>Refúgio dos Foras-da-Lei
+    tipo: ACAMPAMENTO
+    mundo: sobrevivencia
+    x: 1271
+    y: 88
+    z: 2225
+    raio-zona: 0
+    protegido: false
+    estrutura: nova_structures:deepslate_camp
+  reino_valdoria:
+    nome: <gold>Castelo de Valdoria
+    tipo: REINO
+    mundo: sobrevivencia
+    x: -1366
+    y: 71
+    z: 244
+    raio-zona: 0
+    protegido: true
+    estrutura: castelo-real
+  reino_corvanor:
+    nome: <red>Castelo de Corvanor
+    tipo: REINO
+    mundo: sobrevivencia
+    x: -133
+    y: 70
+    z: -1418
+    raio-zona: 0
+    protegido: true
+    estrutura: castelo-real
+  reino_eldoria:
+    nome: <aqua>Castelo de Eldoria
+    tipo: REINO
+    mundo: sobrevivencia
+    x: 1180
+    y: 68
+    z: 1134
+    raio-zona: 0
+    protegido: true
+    estrutura: castelo-real

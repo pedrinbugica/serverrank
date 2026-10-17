@@ -6,6 +6,8 @@
 #          (o que não estiver aqui vem do atributos: do combate.yml)
 # faccao: id de um arquivo em faccoes/ (guardas só protegem a própria facção). Vazio = sem facção.
 # dialogo.arvore: nome de um arquivo em dialogos/ (conversa com opções). Sem ele, a conversa é simples.
+# rotina: tipo PARADO, PASSEAR (anda até 'raio' blocos de casa) ou PATRULHA (segue os 'pontos' "x y z"),
+#         falas = o que ele diz sozinho num balão, dormir = à noite volta para casa
 # loja.compra = o que o JOGADOR COMPRA do NPC | loja.venda = o que o JOGADOR VENDE ao NPC
 # preco_base = preço do lote inteiro (quantidade). estoque_max 0 = infinito. limite_diario 0 = sem limite.
 
@@ -15,12 +17,21 @@ skin: makena
 local:
   mundo: sobrevivencia
   x: 11.5
-  y: 85.0
+  y: 88.0
   z: -4.5
   yaw: 315.0
 faccao: mercadores_livres
 papeis:
 - COMERCIANTE
+rotina:
+  tipo: PASSEAR
+  raio: 3.0
+  pontos: []
+  falas:
+  - Mercadorias do Sul, do Norte e de além-mar!
+  - Preço bom é preço de quem chega cedo!
+  - A caravana parte quando a lua cheia subir.
+  dormir: true
 dialogo:
   saudacao:
   - Olá, {jogador}! Acabei de chegar com a caravana. Coisas do Sul, do Norte, de todo

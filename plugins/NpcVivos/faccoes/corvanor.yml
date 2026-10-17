@@ -1,0 +1,15 @@
+# Facção do Reino de Corvanor (criada pelo reinos.yml).
+# Depois de editar: /npcv reload
+
+id: corvanor
+nome: <red>Reino de Corvanor
+tag: '<dark_gray>[<red>Corvanor<dark_gray>] '
+lider: rei_corvanor
+descricao:
+- Reino guerreiro das terras vermelhas.
+- Dizem que nunca perdoam uma ofensa.
+relacoes:
+  valdoria: RIVAL
+  eldoria: RIVAL
+beneficios_membro:
+  desconto: 0.1

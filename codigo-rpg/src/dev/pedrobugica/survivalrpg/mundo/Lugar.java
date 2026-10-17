@@ -7,7 +7,10 @@ import org.bukkit.World;
 
 import java.util.Locale;
 
-/** Um lugar marcado no mapa: a capital, vilas, tavernas, castelos, torres, masmorras, ruínas e acampamentos. */
+/**
+ * Um lugar marcado no mapa: a capital, vilas, tavernas, castelos, torres, masmorras, ruínas, acampamentos e os
+ * castelos dos reinos (REINO: sem zona segura, porque lá acontecem os cercos, mas protegidos contra quebrar blocos).
+ */
 public record Lugar(String id, String nome, Tipo tipo, String mundo, int x, int y, int z, int raioZona, boolean protegido,
                     String estrutura) {
 
@@ -19,7 +22,8 @@ public record Lugar(String id, String nome, Tipo tipo, String mundo, int x, int 
         TORRE("Torre", "<aqua>", Material.SPYGLASS, false),
         MASMORRA("Masmorra", "<dark_red>", Material.SKELETON_SKULL, false),
         RUINA("Ruína", "<gray>", Material.CRACKED_STONE_BRICKS, false),
-        ACAMPAMENTO("Acampamento", "<dark_green>", Material.CAMPFIRE, false);
+        ACAMPAMENTO("Acampamento", "<dark_green>", Material.CAMPFIRE, false),
+        REINO("Castelo Real", "<gold>", Material.GOLDEN_HELMET, true);
 
         private final String nome;
         private final String cor;
@@ -69,6 +73,11 @@ public record Lugar(String id, String nome, Tipo tipo, String mundo, int x, int 
     public Location local() {
         World w = Bukkit.getWorld(mundo);
         return w == null ? null : new Location(w, x + 0.5, y, z + 0.5);
+    }
+
+    /** Raio em que ninguém quebra nem coloca blocos (castelos de reino não têm zona segura, mas são protegidos). */
+    public int raioProtecao() {
+        return tipo == Tipo.REINO ? 42 : raioZona;
     }
 
     public double distancia(Location l) {

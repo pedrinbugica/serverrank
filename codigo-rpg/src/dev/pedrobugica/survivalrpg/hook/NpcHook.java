@@ -16,6 +16,7 @@ import org.bukkit.plugin.Plugin;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.logging.Level;
 
 /**
@@ -54,6 +55,74 @@ public final class NpcHook {
         tentar("arrumar os NPCs da capital", () -> Ponte.arrumarCapital(w, cx, h, cz));
     }
 
+    /** Um reino do NpcVivos (reinos.yml), do jeito que o RPG precisa para construir castelos e o lobby. */
+    public record InfoReino(String id, String nome, String curto, String cor, String bandeira, String lema, String rei) {
+    }
+
+    /** Os reinos do NpcVivos (vazio se o plugin não estiver ligado). */
+    public List<InfoReino> reinos() {
+        if (!ativo()) {
+            return List.of();
+        }
+        try {
+            return Ponte.reinos();
+        } catch (RuntimeException | LinkageError e) {
+            return List.of();
+        }
+    }
+
+    public void registrarCastelo(String reino, String nome, Location centro, int raio, Location trono) {
+        tentar("registrar o castelo de " + reino, () -> Ponte.registrarCastelo(reino, nome, centro, raio, trono));
+    }
+
+    /**
+     * Avisa o NpcVivos de todas as vilas e castelos do mapa (as vilas ficam com o reino do castelo mais perto)
+     * e ensina os moradores a contar fofocas sobre os lugares em volta.
+     */
+    public void sincronizarReinos() {
+        tentar("sincronizar os reinos", () -> {
+            for (Lugar l : plugin.lugares().todos()) {
+                Location c = l.local();
+                if (c == null) {
+                    continue;
+                }
+                if (l.tipo() == Lugar.Tipo.REINO && l.id().startsWith("reino_")) {
+                    Ponte.registrarCastelo(l.id().substring(6), l.nome(), c.clone().add(0, 0, 6), 25, c.clone().add(0, 1, -19));
+                }
+            }
+            for (Lugar l : plugin.lugares().todos()) {
+                if (l.tipo() == Lugar.Tipo.VILA && l.local() != null) {
+                    Ponte.registrarVila(l.id(), l.nome(), l.local(), Math.max(32, l.raioZona()));
+                }
+            }
+            Ponte.localizador(plugin);
+        });
+    }
+
+    /** O arauto do lobby do RPG: dá dicas para quem acabou de chegar. */
+    public void guiaDoLobby(Location l) {
+        tentar("criar o guia do lobby", () -> Ponte.criar("arauto_lobby_rpg", Papel.GUIA, "<gold><bold>Aldo, o Arauto", "sunny", l, l.getYaw(),
+                Material.GOAT_HORN, null, Rotina.Tipo.PASSEAR, 3,
+                List.of("Bem-vindo à Cidadela dos Heróis, {jogador}! Escolha sua classe nas estátuas a oeste.",
+                        "Os portais a leste levam à capital, às terras selvagens e às masmorras.",
+                        "Três reinos disputam estas terras. Jure lealdade a um deles com /reino!"),
+                List.of("Os reinos estão em guerra... escolha bem o seu lado!", "Leia o mural ao norte: tem todos os comandos.",
+                        "Os moradores das vilas adoram presentes. Flores, bolo, esmeraldas...",
+                        "Dizem que quem tirar a espada da pedra será rei... hahaha!", "Novato? A primeira classe é de graça!")));
+    }
+
+    /** Resumo dos reinos para o painel do lobby (castelos, vilas e guerras). */
+    public List<String> linhasReinos() {
+        if (!ativo()) {
+            return List.of();
+        }
+        try {
+            return Ponte.linhasReinos();
+        } catch (RuntimeException | LinkageError e) {
+            return List.of();
+        }
+    }
+
     public void moverBorin(Location l) {
         tentar("mover o Borin", () -> Ponte.mover("ferreiro_borin", l, 0));
     }
@@ -75,8 +144,11 @@ public final class NpcHook {
         });
     }
 
-    /** Um morador para vilas e tavernas novas. */
+    /** Um morador para vilas e tavernas novas (e a vila entra no reino mais perto). */
     public void povoar(Lugar l) {
+        if (l.tipo() == Lugar.Tipo.VILA && l.local() != null) {
+            tentar("registrar a vila " + l.id(), () -> Ponte.registrarVila(l.id(), l.nome(), l.local(), Math.max(32, l.raioZona())));
+        }
         if (l.tipo() != Lugar.Tipo.VILA && l.tipo() != Lugar.Tipo.TAVERNA) {
             return;
         }
@@ -112,6 +184,79 @@ public final class NpcHook {
 
         static NpcVivosPlugin np() {
             return (NpcVivosPlugin) Bukkit.getPluginManager().getPlugin("NpcVivos");
+        }
+
+        static List<InfoReino> reinos() {
+            List<InfoReino> l = new ArrayList<>();
+            for (dev.pedrobugica.npcvivos.reino.Reino r : np().reinos().todos()) {
+                l.add(new InfoReino(r.id(), r.nome(), r.curto(), r.cor(), r.bandeira().name(), r.lema(), r.rei()));
+            }
+            return l;
+        }
+
+        static List<String> linhasReinos() {
+            List<String> l = new ArrayList<>();
+            var rs = np().reinos();
+            for (dev.pedrobugica.npcvivos.reino.Reino r : rs.todos()) {
+                long castelos = rs.castelosDe(r.id()).size();
+                long vilas = rs.territorios().stream().filter(t -> r.id().equals(t.dono())
+                        && t.tipo() == dev.pedrobugica.npcvivos.reino.Territorio.Tipo.VILA).count();
+                List<String> inimigos = new ArrayList<>();
+                for (var g : np().guerras().ativas()) {
+                    if (g.envolve(r.id())) {
+                        var o = rs.obter(g.inimiga(r.id()));
+                        inimigos.add(o == null ? g.inimiga(r.id()) : o.curto());
+                    }
+                }
+                l.add(r.cor() + r.curto() + " <dark_gray>| <gray>🏰 " + castelos + " <gray>🏘 " + vilas + " "
+                        + (inimigos.isEmpty() ? "<green>em paz" : "<red>⚔ " + String.join(", ", inimigos)));
+            }
+            for (String x : rs.campanhas().resumo()) {
+                l.add(x);
+            }
+            return l;
+        }
+
+        static void registrarCastelo(String reino, String nome, Location centro, int raio, Location trono) {
+            np().reinos().registrarCastelo(reino, nome, centro, raio, trono);
+        }
+
+        static void registrarVila(String id, String nome, Location centro, int raio) {
+            np().reinos().registrarVila(id, nome, centro, raio);
+        }
+
+        /** Fofoca dos moradores: lugares que o jogador ainda não descobriu, com distância e direção. */
+        static void localizador(SurvivalRpgPlugin rpg) {
+            np().moradores().setLocalizador((p, onde) -> {
+                List<String> r = new ArrayList<>();
+                var perfil = rpg.perfis().perfil(p);
+                List<Lugar> candidatos = new ArrayList<>();
+                for (Lugar l : rpg.lugares().todos()) {
+                    if (l.mundo().equals(onde.getWorld().getName()) && !rpg.lugares().descoberto(perfil, l)
+                            && l.tipo() != Lugar.Tipo.CAPITAL && l.distancia(onde) < 3000 && l.distancia(onde) > 60) {
+                        candidatos.add(l);
+                    }
+                }
+                candidatos.sort(java.util.Comparator.comparingDouble(l -> l.distancia(onde)));
+                for (int i = 0; i < Math.min(2, candidatos.size()); i++) {
+                    Lugar l = candidatos.get(i);
+                    double dx = l.x() - onde.getX();
+                    double dz = l.z() - onde.getZ();
+                    String tipo = l.tipo().nome().toLowerCase(Locale.ROOT);
+                    r.add("Ouvi falar de " + Texto.semCor(l.nome()) + " (" + tipo + "), a uns " + Math.round(l.distancia(onde) / 50) * 50
+                            + " blocos ao " + direcao(dx, dz) + ".");
+                }
+                return r;
+            });
+        }
+
+        static String direcao(double dx, double dz) {
+            double ang = Math.toDegrees(Math.atan2(dx, -dz));
+            if (ang < 0) {
+                ang += 360;
+            }
+            String[] nomes = {"norte", "nordeste", "leste", "sudeste", "sul", "sudoeste", "oeste", "noroeste"};
+            return nomes[(int) Math.round(ang / 45) % 8];
         }
 
         static void mover(String id, Location l, float yaw) {

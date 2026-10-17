@@ -43,6 +43,7 @@ public final class MenuOp implements CommandExecutor, TabCompleter {
     private final OpItens itens;
     private final OpMundos mundos;
     private final OpServidor servidor;
+    private final OpRpg rpg;
 
     public MenuOp(RankupSupremo plugin, FerramentasOp ferramentas) {
         this.plugin = plugin;
@@ -53,6 +54,7 @@ public final class MenuOp implements CommandExecutor, TabCompleter {
         this.itens = new OpItens(this);
         this.mundos = new OpMundos(this);
         this.servidor = new OpServidor(this);
+        this.rpg = new OpRpg(this);
     }
 
     @Override
@@ -130,6 +132,11 @@ public final class MenuOp implements CommandExecutor, TabCompleter {
                 "<gray>Anúncios, manutenção, whitelist, regras",
                 "<gray>da Sobrevivência, ações para todos,",
                 "<gray>desempenho e desligar."), (p, c) -> servidor.abrir(p, alvo));
+        categoria(m, 31, Material.GOLDEN_HELMET, "<gold><bold>RPG, Reinos e NPCs", List.of(
+                "<gray>Personagem (nível, classe, itens),",
+                "<gray>lobby do RPG, capital, lugares, masmorras,",
+                "<gray>castelos, guerras, exércitos, moradores,",
+                "<gray>NPCs, reputação e aprimoramento."), (p, c) -> rpg.abrir(p, alvo));
 
         // Atalhos rápidos do próprio dono
         acao(m, 38, Itens.criar(Material.ENDER_EYE, "<gray><bold>Invisível (vanish)",

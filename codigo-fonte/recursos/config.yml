@@ -488,6 +488,10 @@ sobrevivencia:
   ativado: true
   # Nome do mundo principal. O Nether e o End usam o sufixo _nether e _the_end.
   mundo: sobrevivencia
+  # Lobby do RPG (Cidadela dos Heróis, criado pelo SurvivalRPG). Com passar-pelo-lobby-rpg: true, o portal
+  # verde e o /sobrevivencia levam primeiro para lá; de lá o portal "Continuar" leva para onde o jogador parou.
+  lobby-rpg: rpg_lobby
+  passar-pelo-lobby-rpg: true
   dificuldade: NORMAL
   pvp: true
   # Raio da borda do mundo (a borda do Nether fica proporcional, 1/8)

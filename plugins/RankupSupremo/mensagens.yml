@@ -4,6 +4,12 @@
 # Deixe uma mensagem vazia ("") para não enviá-la.
 # ==================================================================
 
+lobby-bem-vindo:
+- ''
+- <gradient:#FFD700:#FF8C00><bold>  ✦ RANKUP SUPREMO ✦</bold></gradient>
+- '<gray>  Escolha seu modo: atravesse um portal ou use a <gold>bússola<gray>.'
+- <gold>  ⬅ Rankup <gray>| <green>SMP RPG ➡
+- ''
 menuop-confirmar: '<yellow>⚠ Segure <white>Shift<yellow> e clique de novo para confirmar:
   <white>{acao}'
 menuop-pergunta: <aqua>✎ {pergunta} <gray>(digite no chat, ou <white>cancelar<gray>)

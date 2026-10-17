@@ -1,0 +1,28 @@
+# Conversa do rei/rainha do Reino de Valdoria. Veja dialogos/borin.yml para entender.
+
+inicio: entrada
+nos:
+  entrada:
+    fala:
+    - Saudações, {jogador}. Eu sou Rei Aldric, o Justo, soberano de Valdoria. Ouro
+      e honra!
+    - Ajoelhe-se diante do trono de Valdoria, {jogador}.
+    fala_retorno:
+    - Bem-vindo de volta, {jogador}.
+    - '{jogador}! O reino precisa de você.'
+    opcoes:
+    - acao: entrar_faccao
+      texto: Quero jurar lealdade a Valdoria
+    - texto: Como anda a guerra?
+      comandos:
+      - reino noticias {jogador}
+      ir: entrada
+    - ir: historia
+      texto: Fale-me do seu reino
+  historia:
+    fala:
+    - Reino rico das planícies douradas. Seus cavaleiros juram proteger os fracos.
+      Ouro e honra!
+    opcoes:
+    - ir: entrada
+      texto: Voltar

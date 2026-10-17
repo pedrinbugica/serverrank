@@ -388,3 +388,25 @@ editor-remover-titulo: <dark_red>Remover {npc}?
 ajuda-editor:
 - <yellow>  /npcv editar [id] <gray>- menu com tudo do NPC (papéis, facção, skin,
   conversa, loja, mover, remover)
+rotina-definida: '<green>Rotina de {npc}<green>: <white>{tipo} <gray>(raio {raio},
+  {pontos} ponto(s) de ronda, volta para casa à noite: {dormir})'
+vida-cumprimentos:
+- Olá, {jogador}!
+- Bom te ver, {jogador}!
+- Ei, {jogador}! Tudo certo?
+- Seja bem-vindo, {jogador}.
+- Opa, {jogador}! Precisando de algo?
+vida-falas-comuns:
+- Que dia bonito hoje.
+- Dizem que tem tesouro nas ruínas do leste...
+- Os monstros andam mais fortes longe da vila.
+- Já ouviu falar da cripta afundada?
+- Hmm... o que eu ia fazer mesmo?
+- Cuidado ao sair à noite!
+vida-conversas:
+- Viu a caravana que chegou? | Vi sim! Trouxeram pérolas do Sul.
+- Os guardas dobraram a ronda. | É por causa da Irmandade, dizem.
+- Como vai a colheita? | Melhor do que a do ano passado!
+- Ouvi uivos perto da floresta. | Melhor ficar dentro da muralha hoje.
+- Precisa de ferro? | O Borin tem do bom, mas cobra caro.
+- Dizem que um aventureiro venceu a duelista! | Duvido... a Kaela não perde fácil.

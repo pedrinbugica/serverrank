@@ -39,7 +39,7 @@ public final class ChatListener implements Listener {
                 : "";
         String prefixo = Texto.converterLegado(plugin.economia().prefixo(p));
         String formato = plugin.getConfig().getString("chat.formato", "{rank} <white>{jogador}<gray>: {mensagem}");
-        String tagMundo = plugin.sobrevivencia().ehSobrevivencia(p.getWorld())
+        String tagMundo = plugin.sobrevivencia().ehReinoRpg(p.getWorld())
                 ? plugin.getConfig().getString("chat.tag-mundo.sobrevivencia", "")
                 : plugin.getConfig().getString("chat.tag-mundo.rankup", "");
         // Etiqueta da facção do plugin NpcVivos (ex.: [Aurora]); vai onde estiver {faccao} ou no começo da linha

@@ -46,3 +46,4 @@ spawn-sobrevivencia-construido: true
 comandos-unicos-executados:
 - sobrevivencia-v1
 - rankup-v2
+lobby-construido: true

@@ -66,14 +66,14 @@ public final class Variaveis {
                 ? plugin.mensagens().bruta("variavel-ligado") : plugin.mensagens().bruta("variavel-desligado"));
         int naSobrevivencia = 0;
         for (Player outro : Bukkit.getOnlinePlayers()) {
-            if (plugin.sobrevivencia().ehSobrevivencia(outro.getWorld())) {
+            if (plugin.sobrevivencia().ehReinoRpg(outro.getWorld())) {
                 naSobrevivencia++;
             }
         }
         v.put("online_sobrevivencia", String.valueOf(naSobrevivencia));
         v.put("online_rankup", String.valueOf(Bukkit.getOnlinePlayers().size() - naSobrevivencia));
         v.put("mundo", nomeMundo(p.getWorld()));
-        v.put("mundo_tag", plugin.sobrevivencia().ehSobrevivencia(p.getWorld())
+        v.put("mundo_tag", plugin.sobrevivencia().ehReinoRpg(p.getWorld())
                 ? plugin.getConfig().getString("chat.tag-mundo.sobrevivencia", "")
                 : plugin.getConfig().getString("chat.tag-mundo.rankup", ""));
         return v;
@@ -83,6 +83,9 @@ public final class Variaveis {
     public String nomeMundo(World w) {
         if (plugin.ehMundoRankup(w)) {
             return plugin.mensagens().bruta("nome-mundo-rankup");
+        }
+        if (w.getName().equalsIgnoreCase(plugin.sobrevivencia().nomeLobbyRpg())) {
+            return "Cidadela dos Heróis";
         }
         if (plugin.sobrevivencia().ehSobrevivencia(w)) {
             return switch (w.getEnvironment()) {

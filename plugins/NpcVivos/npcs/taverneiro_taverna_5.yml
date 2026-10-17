@@ -1,0 +1,45 @@
+# NPC do plugin NpcVivos. Depois de editar, use /npcv reload.
+# skin: steve, alex, ari, efe, kai, makena, noor, sunny, zuri (+ "-fino" para braço fino)
+#       ou jogador:Nick para usar a skin de um jogador (precisa de internet)
+# papeis: COMERCIANTE, FERREIRO, GUIA, MISSIONARIO, GUARDA, MERCENARIO, DUELISTA, BOSS
+# combate: vida, dano, armadura, velocidade, alcance, arqueiro e respawn-segundos só deste NPC
+#          (o que não estiver aqui vem do atributos: do combate.yml)
+# faccao: id de um arquivo em faccoes/ (guardas só protegem a própria facção). Vazio = sem facção.
+# dialogo.arvore: nome de um arquivo em dialogos/ (conversa com opções). Sem ele, a conversa é simples.
+# rotina: tipo PARADO, PASSEAR (anda até 'raio' blocos de casa) ou PATRULHA (segue os 'pontos' "x y z"),
+#         falas = o que ele diz sozinho num balão, dormir = à noite volta para casa
+# loja.compra = o que o JOGADOR COMPRA do NPC | loja.venda = o que o JOGADOR VENDE ao NPC
+# preco_base = preço do lote inteiro (quantidade). estoque_max 0 = infinito. limite_diario 0 = sem limite.
+
+id: taverneiro_taverna_5
+nome: <yellow><bold>Taverneiro de Taverna da Caneca Furada
+skin: kai
+local:
+  mundo: sobrevivencia
+  x: 1573.5
+  y: 64.0
+  z: -960.5
+  yaw: 0.0
+papeis:
+- GUIA
+equipamento:
+  mao: HONEY_BOTTLE
+rotina:
+  tipo: PASSEAR
+  raio: 4.0
+  pontos: []
+  falas:
+  - Dizem que tem um castelo cheio de saqueadores lá longe...
+  - Bebida boa e cama quente, só aqui!
+  - 'Daqui dá pra viajar rápido pra capital: /lugares'
+  dormir: true
+dialogo:
+  saudacao:
+  - Bem-vindo à Taverna da Caneca Furada, {jogador}! A casa é sua.
+  - Mais um aventureiro! Senta aí.
+  retorno:
+  - De volta, {jogador}? Bom te ver!
+  falas: []
+loja:
+  compra: []
+  venda: []

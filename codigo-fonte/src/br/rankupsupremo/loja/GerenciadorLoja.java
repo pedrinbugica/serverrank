@@ -133,7 +133,7 @@ public final class GerenciadorLoja {
         if (plugin.ehMundoRankup(p.getWorld())) {
             return lojas.get("rankup");
         }
-        if (plugin.sobrevivencia().ehSobrevivencia(p.getWorld())) {
+        if (plugin.sobrevivencia().ehReinoRpg(p.getWorld())) {
             return lojas.get("sobrevivencia");
         }
         return null;

@@ -6,6 +6,21 @@
 # Compras e vendas ficam registradas em logs/transacoes-AAAA-MM.log
 # ==================================================================
 
+vida:
+  # NPCs que passeiam, fazem ronda e falam sozinhos (rotina no npcs/<id>.yml ou /npcv rotina)
+  ativo: true
+  # Só NPCs com algum jogador até esta distância andam e falam (os outros "dormem" e não pesam)
+  distancia-acordado: 40
+  # Blocos por passo (um passo a cada 2 ticks)
+  velocidade: 0.11
+  pausa-minima-segundos: 4
+  pausa-maxima-segundos: 12
+  # De quanto em quanto tempo (mais ou menos) o NPC fala sozinho
+  falar-a-cada-segundos: 35
+  balao-segundos: 4.5
+  # Cumprimenta quem chega a esta distância (uma vez a cada X minutos por jogador)
+  distancia-cumprimento: 4
+  cumprimentar-a-cada-minutos: 5
 missoes:
   # Quantas missões cada jogador pode ter ao mesmo tempo
   maximo-ativas: 5

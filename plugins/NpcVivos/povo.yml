@@ -1,0 +1,276 @@
+# ==================================================================
+#   MORADORES HUMANOS - aldeões com corpo de gente (NpcVivos)
+# ==================================================================
+# Todo aldeão (e mercador ambulante) dos mundos abaixo vira uma pessoa:
+# nome e sobrenome, skin, roupa da profissão, personalidade, humor,
+# vida (❤) em cima da cabeça, amizade com cada jogador, conversa,
+# presentes, casamento, trabalhos e fofocas sobre os reinos e guerras.
+# As trocas normais do aldeão continuam funcionando ("Negociar").
+#
+# Depois de editar: /povo recarregar
+# Placeholders: {jogador} {nome} {vila} {reino} {inimigo} {conjuge}
+# ==================================================================
+
+ativo: true
+mundos:
+  - sobrevivencia
+  - sobrevivencia_nether
+  - sobrevivencia_the_end
+  - rpg_lobby
+# Mercadores ambulantes também viram gente
+mercador-ambulante: true
+# Só moradores com jogador até esta distância falam sozinhos e cumprimentam
+distancia-ativa: 40
+# De quanto em quanto tempo (mais ou menos) cada morador fala alguma coisa sozinho
+falar-a-cada-segundos: 45
+balao-segundos: 5
+# Cumprimenta quem passa a esta distância (uma vez a cada X minutos por jogador)
+distancia-cumprimento: 4
+cumprimentar-a-cada-minutos: 6
+# Espera entre duas interações iguais (conversar, piada...) com o mesmo morador
+espera-interacao-segundos: 45
+# Amizade mínima para cada coisa (-100 a 100)
+amizade-minima:
+  abracar: 20
+  flertar: 40
+  seguir: 30
+  casar: 90
+  trabalho: -20
+# Reputação perdida com o reino da vila ao bater num morador
+reputacao-ao-bater: 5
+
+nomes:
+  masculinos: [Afonso, Alaric, Aldo, Anselmo, Antero, Artur, Baltasar, Benedito, Bento, Bernardo, Caetano, Caio, Cassiano, Cícero,
+    Cristóvão, Dário, Davi, Diogo, Duarte, Edmundo, Elias, Emílio, Estêvão, Fabrício, Felipe, Fernão, Filipe, Gaspar, Gonçalo,
+    Gregório, Guilherme, Gustavo, Heitor, Henrique, Horácio, Inácio, Isaque, Jacó, Jerônimo, Joaquim, Jonas, Jorge, Leandro,
+    Lourenço, Lucas, Manuel, Marcelo, Martim, Mateus, Miguel, Nuno, Otávio, Pedro, Raul, Renato, Rodrigo, Rui, Samuel, Sancho,
+    Sebastião, Simão, Teodoro, Tiago, Tomé, Valter, Vasco, Vicente, Xavier]
+  femininos: [Adélia, Alice, Amélia, Ana, Antônia, Aurora, Beatriz, Benedita, Branca, Brígida, Carolina, Catarina, Cecília, Clara,
+    Constança, Dalva, Diana, Dóris, Elisa, Elvira, Emília, Ester, Eulália, Filipa, Flora, Gabriela, Graça, Helena, Hilda, Inês,
+    Isabel, Isolda, Joana, Júlia, Laura, Leonor, Lívia, Luísa, Madalena, Mafalda, Marta, Matilde, Mécia, Miriam, Natália, Olívia,
+    Paula, Raquel, Rosa, Sara, Sílvia, Sofia, Susana, Tânia, Teresa, Urraca, Valéria, Vera, Violeta, Yara]
+  sobrenomes: [Almeida, Alvarenga, Andrade, Bastos, Bezerra, Brandão, Cabral, Caldeira, Campos, Carvalho, Castro, Coelho, Correia,
+    Cunha, Dantas, Duarte, Esteves, Falcão, Faria, Ferraz, Fonseca, Freitas, Galvão, Gouveia, Leal, Leite, Lobo, Macedo, Magalhães,
+    Malheiro, Mendes, Moreira, Morais, Moura, Nogueira, Pacheco, Paiva, Pereira, Pimentel, Pinheiro, Queiroz, Rebelo, Ribeiro,
+    Rocha, Sampaio, Seixas, Serrano, Silveira, Soares, Tavares, Teles, Valadares, Vasconcelos, Viana, Vieira, Xavier]
+
+skins:
+  masculinas: [steve, kai, sunny, zuri, ari]
+  femininas: [alex-fino, efe-fino, makena-fino, noor-fino]
+  # Skins de jogadores reais para variar (precisa de internet), ex.: "jogador:Notch". Misturadas com as de cima.
+  extras-masculinas: []
+  extras-femininas: []
+
+# Nome da profissão (masculino | feminino)
+profissoes:
+  none: "Morador|Moradora"
+  nitwit: "Desocupado|Desocupada"
+  farmer: "Fazendeiro|Fazendeira"
+  fisherman: "Pescador|Pescadora"
+  shepherd: "Pastor|Pastora"
+  fletcher: "Flecheiro|Flecheira"
+  librarian: "Bibliotecário|Bibliotecária"
+  cartographer: "Cartógrafo|Cartógrafa"
+  cleric: "Clérigo|Clériga"
+  armorer: "Armeiro|Armeira"
+  weaponsmith: "Ferreiro de Armas|Ferreira de Armas"
+  toolsmith: "Ferramenteiro|Ferramenteira"
+  butcher: "Açougueiro|Açougueira"
+  leatherworker: "Coureiro|Coureira"
+  mason: "Pedreiro|Pedreira"
+  ambulante: "Mercador Viajante|Mercadora Viajante"
+  crianca: "Criança|Criança"
+
+falas:
+  manha:
+    - "Bom dia! Que o sol nos abençoe."
+    - "Mais um dia de trabalho... vamos lá!"
+    - "O galo cantou cedo hoje."
+    - "Bom dia, bom dia! Já tomou café?"
+  tarde:
+    - "Que calor esta tarde..."
+    - "Falta pouco pro fim do expediente."
+    - "Alguém viu meu chapéu?"
+    - "O mercado está movimentado hoje."
+  noite:
+    - "Está ficando escuro, melhor ir pra casa."
+    - "Ouviu isso? Acho que tem zumbi lá fora..."
+    - "Hora de descansar. Boa noite!"
+    - "Tranquem as portas!"
+  chuva:
+    - "Essa chuva não para nunca!"
+    - "Pelo menos as plantações agradecem."
+    - "Estou encharcado até os ossos..."
+  perigo:
+    - "Monstro! Monstro na vila!"
+    - "Socorro! Alguém ajuda!"
+    - "Corram! Pra dentro de casa!"
+    - "Guardas! GUARDAS!"
+  ferido:
+    - "Ai! Isso doeu!"
+    - "Por que você fez isso?!"
+    - "Socorro!"
+  guerra:
+    - "Dizem que o exército de {inimigo} está marchando..."
+    - "Malditos de {inimigo}! Que os soldados de {reino} os detenham."
+    - "Meu primo foi convocado pra guerra contra {inimigo}."
+    - "Se a guerra chegar aqui, eu fujo pra floresta."
+    - "O rei de {reino} prometeu nos proteger. Espero que cumpra."
+  profissao:
+    farmer: ["O trigo está quase no ponto.", "Essas pragas comem tudo!", "Nada como pão quentinho.", "A colheita deste ano vai ser boa."]
+    fisherman: ["Os peixes estão mordendo hoje!", "Pesquei um bacalhau deste tamanho!", "O rio está calmo..."]
+    shepherd: ["Minhas ovelhas são as mais fofas da região.", "Lã nova para o inverno!", "Alguém viu uma ovelha rosa?"]
+    fletcher: ["Flechas boas fazem bons caçadores.", "Preciso de mais penas...", "Esse arco está perfeito."]
+    librarian: ["Silêncio, por favor. Estou lendo.", "Este livro fala de um dragão no Fim...", "Conhecimento é poder!"]
+    cartographer: ["Mapeei mais uma região ontem.", "Há terras inexploradas a leste.", "Cuidado com os confins do mapa."]
+    cleric: ["Que a luz te proteja.", "Preciso de mais pó de redstone para minhas poções.", "Rezo pelos soldados toda noite."]
+    armorer: ["Essa armadura aguenta qualquer golpe!", "O fogo da forja não pode apagar.", "Martelo, bigorna, suor!"]
+    weaponsmith: ["Uma boa espada vale mais que ouro.", "Afiei vinte lâminas hoje.", "Os soldados vivem me pedindo armas novas."]
+    toolsmith: ["Picareta quebrada? Eu conserto.", "Ferramenta boa é meio caminho andado.", "O ferro anda caro..."]
+    butcher: ["Carne fresquinha!", "Hoje tem ensopado.", "Quem quer uma costela?"]
+    leatherworker: ["Couro de primeira!", "Estou fazendo uma sela nova.", "Esse cheiro de couro... adoro."]
+    mason: ["Pedra sobre pedra se ergue um castelo.", "Essa parede vai durar séculos.", "Tijolos, tijolos e mais tijolos."]
+    nitwit: ["Hehe... o que eu ia fazer mesmo?", "Fiquei olhando as nuvens o dia todo.", "Trabalhar? Amanhã, quem sabe."]
+    none: ["Ainda não sei o que vou ser da vida...", "Procuro trabalho, alguém precisa de ajuda?", "Que vila bonita, né?"]
+    ambulante: ["Mercadorias de terras distantes!", "Tenho coisas raras, viajante...", "Amanhã já estou na próxima vila."]
+    crianca: ["Pega-pega! Tá com você!", "Quando eu crescer vou ser cavaleiro!", "Mãe, olha eu!", "Hihihi!"]
+  personalidade:
+    simpatico: ["Que bom ver gente nova por aqui!", "Precisando de algo, é só chamar!"]
+    rabugento: ["Hmpf. Mais um forasteiro.", "Saia da frente, estou ocupado.", "No meu tempo as coisas eram melhores."]
+    timido: ["...oi.", "Ah! Você me assustou...", "Eu... prefiro ficar quieto."]
+    engracado: ["Sabe por que o creeper não tem amigos? Porque ele explode de emoção!", "Hahaha, a vida é boa!"]
+    romantico: ["Ah, o amor... está no ar!", "Que noite linda pra ver as estrelas a dois."]
+    orgulhoso: ["Sou o melhor desta vila, sabia?", "Ninguém faz isso melhor que eu."]
+    preguicoso: ["*boceja* Que sono...", "Cinco minutinhos de descanso..."]
+    corajoso: ["Monstro nenhum me assusta!", "Se tiver guerra, eu luto!"]
+    ganancioso: ["Esmeraldas... preciso de mais esmeraldas.", "Tempo é dinheiro!"]
+    sonhador: ["Um dia vou conhecer o mundo inteiro...", "Já imaginou voar como um dragão?"]
+  cumprimento-desconhecido:
+    - "Olá, forasteiro."
+    - "Hm? Não te conheço."
+    - "Bem-vindo a {vila}, viajante."
+  cumprimento-amigo:
+    - "Olá, {jogador}! Que bom te ver!"
+    - "{jogador}! Meu amigo!"
+    - "Ei, {jogador}! Tudo bem?"
+  cumprimento-inimigo:
+    - "Você de novo? Some daqui!"
+    - "Não quero conversa com você, {jogador}."
+  cumprimento-conjuge:
+    - "Meu amor! ❤"
+    - "{jogador}, querido(a)! Senti saudades!"
+    - "Voltou pra casa, amor?"
+  # Conversas entre dois moradores (um fala, o outro responde)
+  conversas:
+    - ["Você viu o preço do pão?", "Um absurdo! Culpa da guerra."]
+    - ["Dizem que tem uma masmorra perto daqui.", "Deus me livre de entrar lá."]
+    - ["Seu filho cresceu, hein!", "Pois é, já quer ser soldado..."]
+    - ["Que tempo bom hoje.", "Bom pra colheita!"]
+    - ["Ouvi um uivo ontem à noite.", "Deve ser lobo... ou coisa pior."]
+    - ["O ferreiro está cobrando caro.", "Ferro tá raro, né?"]
+    - ["Você vai na festa da vila?", "Só se tiver bolo!"]
+    - ["Vi um aventureiro voltando todo ferido.", "Coitado. Essas masmorras são perigosas."]
+
+# Interações (o que o jogador faz e como o morador reage)
+piadas:
+  - "Por que o esqueleto não foi à festa? Porque não tinha corpo pra isso!"
+  - "O que o creeper disse pra namorada? Você me deixa explodindo de amor!"
+  - "Por que o Enderman não joga cartas? Porque ele teleporta o baralho!"
+  - "Qual o doce preferido do zumbi? Pé-de-moleque!"
+  - "Por que a galinha atravessou a ponte de pedra? Pra chegar no outro bioma!"
+  - "Como o aldeão chama o vizinho? Hmmmmm!"
+elogios:
+  - "Você tem um sorriso muito bonito."
+  - "Seu trabalho é o melhor da vila!"
+  - "Que roupa elegante!"
+  - "Você é muito sábio(a)."
+  - "Adoro conversar com você."
+cantadas:
+  - "Você é feito de redstone? Porque meu coração liga quando te vejo."
+  - "Se beleza fosse diamante, você seria uma mina inteira."
+  - "Você não é um creeper, mas me deixou explodindo de paixão."
+  - "Posso te acompanhar até em casa? Está escuro e tem zumbis..."
+respostas:
+  conversar-ok: ["Hahaha, é verdade!", "Que bom conversar com você!", "Sabe que você é gente boa?", "Conta mais!"]
+  conversar-falha: ["Hm... tá.", "Agora não, estou ocupado.", "Que conversa estranha..."]
+  piada-ok: ["HAHAHAHA! Essa foi ótima!", "Kkkkk! Vou contar pros outros!", "Hahaha, você é engraçado!"]
+  piada-falha: ["...não entendi.", "Sem graça.", "Essa foi péssima."]
+  elogio-ok: ["Ah, obrigado! Que gentil!", "Você acha mesmo? *fica vermelho*", "Hehe, valeu!"]
+  elogio-falha: ["Sei, sei... o que você quer?", "Não precisa puxar saco.", "Hmpf."]
+  abraco-ok: ["*retribui o abraço* Que carinho!", "Awn! Obrigado!", "Eu precisava disso hoje."]
+  abraco-falha: ["Ei! Calma lá!", "Não gosto de abraços...", "*se afasta*"]
+  flerte-ok: ["*fica vermelho* Seu bobo(a)...", "Você está me deixando sem graça! ❤", "Hihi... talvez eu também goste de você."]
+  flerte-falha: ["Que isso?! Respeito!", "Não estou interessado(a).", "*revira os olhos*"]
+  brincar-ok: ["Eba! Tá com você!", "Hihihi, de novo!", "Você é o adulto mais legal!"]
+  brincar-falha: ["Não quero brincar agora!", "Minha mãe disse pra não falar com estranhos!"]
+  presente-amou: ["UAU! É pra mim?! Muito obrigado!", "Que presente maravilhoso! ❤", "Você é incrível!"]
+  presente-gostou: ["Obrigado! Gostei.", "Que gentileza.", "Vou guardar com carinho."]
+  presente-tanto-faz: ["Hm... obrigado, eu acho.", "O que eu faço com isso?"]
+  presente-odiou: ["Eca! Que nojo!", "Isso é uma ofensa?!", "Joga isso fora!"]
+  presente-repetido: ["De novo isso? Já tenho bastante.", "Obrigado... mas já me deu isso."]
+  casar-sim: ["SIM! Mil vezes sim! ❤", "Eu achei que você nunca ia pedir! SIM!"]
+  casar-nao: ["Desculpa... ainda não estou pronto(a).", "Casar? A gente mal se conhece!"]
+  seguir-ok: ["Vamos lá! Eu te sigo.", "Para onde vamos?"]
+  seguir-nao: ["Seguir você? Nem pensar.", "Tenho mais o que fazer."]
+  ficar-ok: ["Tá bom, espero aqui.", "Fico aqui então."]
+  liberar-ok: ["Vou voltar pras minhas coisas. Até mais!", "Foi bom passear!"]
+  odeia: ["Não falo com você!", "Some daqui!", "Guardas! Esse aí de novo!"]
+
+# Presentes: quanto cada item vale de amizade (o que não está aqui vale "outros")
+presentes:
+  amados: {DIAMOND: 15, EMERALD: 9, CAKE: 12, GOLD_INGOT: 7, ENCHANTED_GOLDEN_APPLE: 25, GOLDEN_APPLE: 12, AMETHYST_SHARD: 6,
+    POPPY: 4, DANDELION: 4, BLUE_ORCHID: 6, ALLIUM: 5, AZURE_BLUET: 5, RED_TULIP: 5, PINK_TULIP: 5, OXEYE_DAISY: 4, CORNFLOWER: 5,
+    LILY_OF_THE_VALLEY: 6, SUNFLOWER: 6, PEONY: 6, ROSE_BUSH: 6, TORCHFLOWER: 8, PINK_PETALS: 5, COOKIE: 5, PUMPKIN_PIE: 6,
+    BREAD: 3, COOKED_BEEF: 4, COOKED_PORKCHOP: 4, COOKED_CHICKEN: 3, BAKED_POTATO: 3, HONEY_BOTTLE: 5, MUSIC_DISC_CAT: 15,
+    BOOK: 4, ENCHANTED_BOOK: 10, IRON_INGOT: 3, NAME_TAG: 8}
+  odiados: {ROTTEN_FLESH: -8, POISONOUS_POTATO: -6, SPIDER_EYE: -6, BONE: -3, GUNPOWDER: -5, DIRT: -2, STRING: -1, SLIME_BALL: -2}
+  outros: 1
+  # Itens que cada profissão adora (vale o dobro)
+  favoritos:
+    farmer: [BONE_MEAL, WHEAT_SEEDS, BREAD, CAKE]
+    fisherman: [COD, SALMON, FISHING_ROD, TROPICAL_FISH]
+    shepherd: [WHITE_WOOL, SHEARS, WHEAT]
+    fletcher: [FEATHER, FLINT, ARROW, BOW]
+    librarian: [BOOK, ENCHANTED_BOOK, PAPER, INK_SAC]
+    cartographer: [MAP, COMPASS, PAPER, SPYGLASS]
+    cleric: [REDSTONE, GLOWSTONE_DUST, GHAST_TEAR, LAPIS_LAZULI]
+    armorer: [IRON_INGOT, DIAMOND, IRON_CHESTPLATE]
+    weaponsmith: [IRON_INGOT, DIAMOND, IRON_SWORD]
+    toolsmith: [IRON_INGOT, DIAMOND, IRON_PICKAXE]
+    butcher: [COOKED_BEEF, COAL, SWEET_BERRIES]
+    leatherworker: [LEATHER, RABBIT_HIDE, SADDLE]
+    mason: [CLAY_BALL, STONE_BRICKS, QUARTZ]
+    crianca: [COOKIE, CAKE, SWEET_BERRIES, SNOWBALL]
+
+# Trabalhos que os moradores pedem (um por jogador de cada vez)
+trabalhos:
+  recompensa-base: 60
+  recompensa-por-item: 6
+  recompensa-por-monstro: 18
+  amizade: 12
+  reputacao: 10
+  xp: 25
+  entregas:
+    farmer: [[WHEAT, 24], [CARROT, 16], [POTATO, 16], [PUMPKIN, 6]]
+    fisherman: [[COD, 8], [SALMON, 6], [STRING, 10]]
+    shepherd: [[WHITE_WOOL, 12], [WHEAT, 16]]
+    fletcher: [[FEATHER, 12], [FLINT, 10], [STICK, 32]]
+    librarian: [[PAPER, 24], [BOOK, 6], [INK_SAC, 8]]
+    cartographer: [[PAPER, 16], [GLASS_PANE, 12], [COMPASS, 1]]
+    cleric: [[ROTTEN_FLESH, 24], [REDSTONE, 16], [RABBIT_FOOT, 2]]
+    armorer: [[IRON_INGOT, 8], [COAL, 24], [LAVA_BUCKET, 1]]
+    weaponsmith: [[IRON_INGOT, 8], [FLINT, 12], [COAL, 24]]
+    toolsmith: [[IRON_INGOT, 8], [COAL, 24], [STICK, 32]]
+    butcher: [[BEEF, 10], [PORKCHOP, 10], [CHICKEN, 10]]
+    leatherworker: [[LEATHER, 12], [RABBIT_HIDE, 8]]
+    mason: [[CLAY_BALL, 24], [STONE, 64], [ANDESITE, 32]]
+    padrao: [[BREAD, 6], [OAK_LOG, 32], [TORCH, 32], [APPLE, 6]]
+  cacadas: [[ZOMBIE, 8], [SKELETON, 8], [SPIDER, 6], [CREEPER, 4], [PILLAGER, 4], [WITCH, 2]]
+
+boatos:
+  - "Dizem que existe um castelo cheio de saqueadores longe daqui..."
+  - "Um mercador jurou ter visto um dragão voando à noite."
+  - "Os mais velhos falam de um rei que não morre nas Catacumbas."
+  - "Se precisar viajar rápido, use o /lugares nas cidades."
+  - "Os soldados pagam bem por cabeças de bandidos."
+  - "Dizem que no Vale Sombrio os monstros são duas vezes mais fortes."

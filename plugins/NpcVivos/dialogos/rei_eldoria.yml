@@ -1,0 +1,28 @@
+# Conversa do rei/rainha do Reino de Eldoria. Veja dialogos/borin.yml para entender.
+
+inicio: entrada
+nos:
+  entrada:
+    fala:
+    - Saudações, {jogador}. Eu sou Rei Theron, o Sábio, soberano de Eldoria. Sabedoria
+      acima da espada.
+    - Ajoelhe-se diante do trono de Eldoria, {jogador}.
+    fala_retorno:
+    - Bem-vindo de volta, {jogador}.
+    - '{jogador}! O reino precisa de você.'
+    opcoes:
+    - acao: entrar_faccao
+      texto: Quero jurar lealdade a Eldoria
+    - texto: Como anda a guerra?
+      comandos:
+      - reino noticias {jogador}
+      ir: entrada
+    - ir: historia
+      texto: Fale-me do seu reino
+  historia:
+    fala:
+    - Reino de magos e eruditos do norte. Suas torres guardam segredos antigos. Sabedoria
+      acima da espada.
+    opcoes:
+    - ir: entrada
+      texto: Voltar

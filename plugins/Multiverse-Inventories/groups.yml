@@ -13,6 +13,7 @@ groups:
     - sobrevivencia
     - sobrevivencia_nether
     - sobrevivencia_the_end
+    - rpg_lobby
     shares:
     - all
   lobby:

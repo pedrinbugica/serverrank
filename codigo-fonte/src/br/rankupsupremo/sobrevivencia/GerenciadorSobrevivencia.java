@@ -65,6 +65,19 @@ public final class GerenciadorSobrevivencia {
         return w != null && ativado() && nomesMundos().contains(w.getName());
     }
 
+    /** Nome do mundo do lobby do RPG (Cidadela dos Heróis, criado pelo SurvivalRPG). */
+    public String nomeLobbyRpg() {
+        return cfg().getString("sobrevivencia.lobby-rpg", "rpg_lobby");
+    }
+
+    /**
+     * Mundos do "lado RPG" do servidor: a Sobrevivência (normal, Nether e End) e o lobby do RPG.
+     * Vale para placar, chat, loja e dinheiro; o teleporte e a posição salva continuam só na Sobrevivência.
+     */
+    public boolean ehReinoRpg(World w) {
+        return ehSobrevivencia(w) || (w != null && ativado() && w.getName().equalsIgnoreCase(nomeLobbyRpg()));
+    }
+
     /** Mundo principal (overworld) da Sobrevivência, ou null se ainda não existir. */
     public World mundo() {
         return ativado() ? Bukkit.getWorld(nomeBase()) : null;
@@ -202,6 +215,17 @@ public final class GerenciadorSobrevivencia {
         }
         if (ehSobrevivencia(p.getWorld())) {
             plugin.mensagens().enviar(p, "sobrevivencia-ja-esta");
+            return;
+        }
+        // Quem vem de fora (lobby principal, Rankup) passa primeiro pelo lobby do RPG; de lá o portal
+        // "Continuar a Aventura" (ou /sobrevivencia de novo) leva para onde parou.
+        World lobbyRpg = Bukkit.getWorld(nomeLobbyRpg());
+        if (lobbyRpg != null && !lobbyRpg.equals(p.getWorld()) && cfg().getBoolean("sobrevivencia.passar-pelo-lobby-rpg", true)) {
+            p.teleportAsync(lobbyRpg.getSpawnLocation()).thenAccept(ok -> Bukkit.getScheduler().runTask(plugin, () -> {
+                if (ok && p.isOnline()) {
+                    Acoes.som(p, "entity.enderman.teleport", 1f, 1f);
+                }
+            }));
             return;
         }
         DadosJogador d = plugin.jogadores().obter(p);
