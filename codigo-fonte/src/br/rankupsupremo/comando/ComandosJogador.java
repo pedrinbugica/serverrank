@@ -67,6 +67,7 @@ public final class ComandosJogador implements CommandExecutor, TabCompleter {
                 }
             }
             case "spawn" -> plugin.acoes().teleportarSpawn(p, true);
+            case "lobby" -> plugin.lobby().teleportar(p);
             case "toprank" -> plugin.acoes().mostrarTop(p);
             case "sobrevivencia" -> plugin.sobrevivencia().teleportar(p);
             case "mundos" -> plugin.menus().mundos(p);

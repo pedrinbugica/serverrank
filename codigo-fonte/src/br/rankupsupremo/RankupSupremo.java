@@ -21,6 +21,7 @@ import br.rankupsupremo.menu.Menus;
 import br.rankupsupremo.mina.GerenciadorMinas;
 import br.rankupsupremo.mina.Mina;
 import br.rankupsupremo.mundo.ConstrutorMundo;
+import br.rankupsupremo.mundo.Lobby;
 import br.rankupsupremo.mundo.GeradorVazio;
 import br.rankupsupremo.listener.SobrevivenciaListener;
 import br.rankupsupremo.menu.FerramentasOp;
@@ -68,6 +69,7 @@ public final class RankupSupremo extends JavaPlugin {
     private Economia economia;
     private Acoes acoes;
     private Menus menus;
+    private Lobby lobby;
     private GerenciadorLoja loja;
     private EfeitosPicareta efeitos;
     private CombateListener combate;
@@ -113,10 +115,12 @@ public final class RankupSupremo extends JavaPlugin {
         pm.registerEvents(new SobrevivenciaListener(this), this);
         pm.registerEvents(combate, this);
         pm.registerEvents(new PagamentoListener(this), this);
+        lobby = new Lobby(this);
+        pm.registerEvents(lobby, this);
 
         ComandosJogador cj = new ComandosJogador(this);
         for (String c : List.of("rankup", "ranks", "prestigio", "minas", "vender", "autovender", "picareta", "spawn",
-                "toprank", "sobrevivencia", "mundos", "rtp", "loja")) {
+                "toprank", "sobrevivencia", "mundos", "rtp", "loja", "lobby")) {
             registrarComando(c, cj);
         }
         ComandoAdmin admin = new ComandoAdmin(this);
@@ -191,6 +195,7 @@ public final class RankupSupremo extends JavaPlugin {
 
         hologramas.iniciar(mundo);
         sobrevivencia.configurarTodos();
+        lobby.iniciar();
         visual.iniciar();
         minas.iniciarTarefa();
         efeitos.iniciar();
@@ -315,6 +320,9 @@ public final class RankupSupremo extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        if (lobby != null) {
+            lobby.parar();
+        }
         if (minas != null) {
             minas.pararTarefa();
         }
@@ -395,6 +403,10 @@ public final class RankupSupremo extends JavaPlugin {
 
     public Economia economia() {
         return economia;
+    }
+
+    public Lobby lobby() {
+        return lobby;
     }
 
     public Acoes acoes() {

@@ -47,8 +47,12 @@ public final class JogadorListener implements Listener {
             if (!p.isOnline()) {
                 return;
             }
-            // Quem saiu no mundo Sobrevivência continua lá; os demais vão para o spawn do Rankup.
-            if (novo || (!naSobrevivencia && plugin.getConfig().getBoolean("spawn.teleportar-ao-entrar", true))) {
+            // Com o lobby ligado, todo mundo chega no lobby e escolhe o modo nos portais.
+            // Sem lobby: quem saiu no mundo Sobrevivência continua lá; os demais vão para o spawn do Rankup.
+            boolean lobby = plugin.lobby() != null && plugin.lobby().ativo() && plugin.getConfig().getBoolean("lobby.teleportar-ao-entrar", true);
+            if (lobby) {
+                plugin.lobby().aoEntrar(p);
+            } else if (novo || (!naSobrevivencia && plugin.getConfig().getBoolean("spawn.teleportar-ao-entrar", true))) {
                 plugin.acoes().teleportarSpawn(p, false);
             }
             plugin.visual().criar(p);
@@ -60,7 +64,7 @@ public final class JogadorListener implements Listener {
                     p.getInventory().setItem(i, it);
                 }
             }
-            if (!d.recebeuPicareta()) {
+            if (!d.recebeuPicareta() && plugin.ehMundoRankup(p.getWorld())) {
                 d.setRecebeuPicareta(true);
                 plugin.acoes().darPicareta(p, true);
             }

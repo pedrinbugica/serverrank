@@ -5,6 +5,7 @@ import br.rankupsupremo.dados.DadosJogador;
 import br.rankupsupremo.util.Texto;
 import io.papermc.paper.chat.ChatRenderer;
 import io.papermc.paper.event.player.AsyncChatEvent;
+import me.clip.placeholderapi.PlaceholderAPI;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
@@ -41,8 +42,19 @@ public final class ChatListener implements Listener {
         String tagMundo = plugin.sobrevivencia().ehSobrevivencia(p.getWorld())
                 ? plugin.getConfig().getString("chat.tag-mundo.sobrevivencia", "")
                 : plugin.getConfig().getString("chat.tag-mundo.rankup", "");
+        // Etiqueta da facção do plugin NpcVivos (ex.: [Aurora]); vai onde estiver {faccao} ou no começo da linha
+        String faccao = "";
+        if (plugin.temPlaceholderAPI() && plugin.getConfig().getBoolean("chat.mostrar-faccao", true)) {
+            String t = PlaceholderAPI.setPlaceholders(p, "%npcvivos_tag%");
+            if (!t.contains("%npcvivos_")) {
+                faccao = Texto.converterLegado(t);
+            }
+        }
+        if (!formato.contains("{faccao}")) {
+            formato = "{faccao}" + formato;
+        }
         String modelo = Texto.substituir(formato, "mundo_tag", tagMundo, "prestigio", prestigioTxt, "rank", tag,
-                "prefixo", prefixo, "jogador", p.getName()).replace("{mensagem}", "<mensagem>");
+                "prefixo", prefixo, "faccao", faccao, "jogador", p.getName()).replace("{mensagem}", "<mensagem>");
 
         Component mensagem = e.message();
         if (p.hasPermission("rankupsupremo.chat.cores")) {

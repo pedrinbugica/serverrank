@@ -290,7 +290,7 @@ public final class Menus {
         for (Player outro : org.bukkit.Bukkit.getOnlinePlayers()) {
             if (plugin.sobrevivencia().ehSobrevivencia(outro.getWorld())) {
                 sobrevivencia++;
-            } else {
+            } else if (plugin.ehMundoRankup(outro.getWorld())) {
                 rankup++;
             }
         }
@@ -306,11 +306,12 @@ public final class Menus {
             plugin.acoes().teleportarSpawn(pl, true);
         });
         boolean disponivel = plugin.sobrevivencia().mundo() != null;
-        menu.item(15, Itens.criar(Material.GRASS_BLOCK, "<gradient:#56AB2F:#A8E063><bold>SOBREVIVÊNCIA</bold></gradient>", List.of(
-                "<gray>Survival clássico com Nether e End,",
-                "<gray>terrenos protegidos, habilidades,",
-                "<gray>lojas, túmulos e muito mais!",
-                "<gray>Inventário separado do Rankup.",
+        menu.item(15, Itens.criar(Material.GRASS_BLOCK, "<gradient:#56AB2F:#A8E063><bold>SMP RPG</bold></gradient>", List.of(
+                "<gray>Survival com RPG: 5 classes, níveis,",
+                "<gray>habilidades, monstros com nível, itens raros,",
+                "<gray>a capital Vila Aurora, vilas, castelos",
+                "<gray>e masmorras com chefes!",
+                "<gray>Terrenos protegidos e inventário próprio.",
                 "",
                 "<gray>Jogadores: <green>" + sobrevivencia,
                 "",
@@ -319,6 +320,16 @@ public final class Menus {
             pl.closeInventory();
             plugin.sobrevivencia().teleportar(pl);
         });
+        if (plugin.lobby() != null && plugin.lobby().ativo()) {
+            menu.item(13, Itens.criar(Material.BEACON, "<gradient:#FFD700:#FFFFFF><bold>LOBBY</bold></gradient>", List.of(
+                    "<gray>Voltar para a ilha inicial",
+                    "<gray>(os portais levam aos modos)",
+                    "",
+                    "<yellow>/lobby"), plugin.lobby().ehLobby(p.getWorld())), (pl, c) -> {
+                pl.closeInventory();
+                plugin.lobby().teleportar(pl);
+            });
+        }
         menu.preencherVazios(borda());
         menu.abrir(p);
     }

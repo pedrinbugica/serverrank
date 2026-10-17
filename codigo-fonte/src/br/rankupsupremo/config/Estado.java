@@ -56,6 +56,15 @@ public final class Estado {
         salvar();
     }
 
+    public boolean lobbyConstruido() {
+        return yml.getBoolean("lobby-construido", false);
+    }
+
+    public void setLobbyConstruido(boolean v) {
+        yml.set("lobby-construido", v);
+        salvar();
+    }
+
     public boolean spawnSobrevivenciaConstruido() {
         return yml.getBoolean("spawn-sobrevivencia-construido", false);
     }

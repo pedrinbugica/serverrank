@@ -118,7 +118,8 @@ public final class GerenciadorVisual {
         if (obj == null) {
             return;
         }
-        String chave = plugin.sobrevivencia().ehSobrevivencia(p.getWorld()) ? "scoreboard.linhas-sobrevivencia" : "scoreboard.linhas";
+        String chave = plugin.sobrevivencia().ehSobrevivencia(p.getWorld()) ? "scoreboard.linhas-sobrevivencia"
+                : plugin.lobby() != null && plugin.lobby().ehLobby(p.getWorld()) ? "scoreboard.linhas-lobby" : "scoreboard.linhas";
         List<String> linhas = plugin.getConfig().getStringList(chave);
         if (linhas.isEmpty()) {
             linhas = plugin.getConfig().getStringList("scoreboard.linhas");

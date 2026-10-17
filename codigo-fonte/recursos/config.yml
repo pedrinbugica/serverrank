@@ -20,6 +20,22 @@ discord: "discord.gg/rankupsupremo"
 # Mundo principal (gerado vazio, o plugin constrói o spawn e as minas)
 mundo: world
 
+# ---------------------------------------------------------------------------- LOBBY
+# Ilha flutuante onde todo mundo chega, com portais para o Rankup e para o SMP RPG.
+lobby:
+  ativado: true
+  mundo: lobby
+  # true = todo mundo que entra no servidor aparece no lobby (o portal do SMP leva de volta para onde parou)
+  teleportar-ao-entrar: true
+  horario: 6000
+  mural:
+    - "<gold><bold>Bem-vindo(a) ao RankUP Supremo!</bold>"
+    - "<gray>⬅ <yellow>Rankup<gray>: minere, venda e suba de rank"
+    - "<gray>➡ <green>SMP RPG<gray>: classes, masmorras e vilas"
+    - ""
+    - "<white>Respeite todos • Sem hack • Divirta-se!"
+    - "<gray>/lobby volta para cá a qualquer hora"
+
 spawn:
   # Use /rankupadmin setspawn para mudar sem editar aqui.
   x: 0.5
@@ -40,7 +56,9 @@ geral:
 
 chat:
   ativado: true
-  # {mundo_tag} {prestigio} {rank} {prefixo} (VIP/Staff do LuckPerms) {jogador} {mensagem}
+  # {faccao} (facção do NpcVivos, ex.: [Aurora]) {mundo_tag} {prestigio} {rank} {prefixo} (VIP/Staff do LuckPerms) {jogador} {mensagem}
+  # Sem {faccao} no formato, a etiqueta da facção vai no começo da linha (desligue com mostrar-faccao: false).
+  mostrar-faccao: true
   formato: "{mundo_tag}{prestigio}{rank} {prefixo}<white>{jogador} <dark_gray>» <gray>{mensagem}"
   formato-prestigio: "<dark_purple>[<light_purple>✦{prestigio}<dark_purple>] "
   # Etiqueta que aparece antes do nome conforme o mundo onde o jogador está
@@ -269,6 +287,20 @@ scoreboard:
     - " <white>Online: <green>{online}"
     - "<dark_gray><strikethrough>                              </strikethrough>"
     - "   <yellow>{site}"
+  # Scoreboard mostrada no lobby
+  linhas-lobby:
+    - "<dark_gray><strikethrough>                              </strikethrough>"
+    - " <white>Olá, <yellow>{jogador}<white>!"
+    - ""
+    - " <gold>⬅ Rankup <gray>(portal dourado)"
+    - " <white>Rank: {rank}"
+    - ""
+    - " <green>SMP RPG ➡ <gray>(portal verde)"
+    - " <white>Classe: %rpg_classe_cor% <gray>Nv <yellow>%rpg_nivel%"
+    - ""
+    - " <white>Online: <green>{online}"
+    - "<dark_gray><strikethrough>                              </strikethrough>"
+    - "   <yellow>{site}"
   # Scoreboard mostrada no mundo Sobrevivência (também aceita {mundo}, {online_sobrevivencia}, {online_rankup})
   linhas-sobrevivencia:
     - "<dark_gray><strikethrough>                              </strikethrough>"
@@ -276,7 +308,8 @@ scoreboard:
     - ""
     - " <white>Dinheiro: <green>${dinheiro}"
     - " <white>Rank: {rank}"
-    - " <white>Habilidades: <aqua>%auraskills_power%"
+    - " <white>Classe: %rpg_classe_cor% <gray>Nv <yellow>%rpg_nivel%"
+    - " <white>XP: <green>%rpg_xp_porcento%% <gray>• <white>Lugar: %rpg_regiao%"
     - ""
     - " <white>No survival: <green>{online_sobrevivencia}"
     - " <white>Online total: <green>{online}"
@@ -329,14 +362,14 @@ hologramas:
   top-vazio: "<gray>Ninguém ainda... seja o primeiro!"
   # Holograma no spawn do mundo Sobrevivência
   sobrevivencia:
-    - "<gradient:#56AB2F:#A8E063><bold>✦ SOBREVIVÊNCIA ✦</bold></gradient>"
-    - "<gray>Survival clássico com Nether e End!"
+    - "<gradient:#56AB2F:#A8E063><bold>✦ SMP RPG ✦</bold></gradient>"
+    - "<gray>Bem-vindo(a) a Vila Aurora!"
     - ""
-    - "<white>/rtp <dark_gray>» <gray>ir para um lugar aleatório"
-    - "<white>Pá de ouro <dark_gray>» <gray>proteger seu terreno"
-    - "<white>/skills <dark_gray>» <gray>suas habilidades"
-    - "<white>/sethome <dark_gray>» <gray>marcar sua casa"
-    - "<white>/spawn <dark_gray>» <gray>voltar ao Rankup"
+    - "<white>/classe <dark_gray>» <gray>escolha sua classe"
+    - "<white>/rpg <dark_gray>» <gray>seu personagem"
+    - "<white>/lugares <dark_gray>» <gray>vilas, castelos e viagem"
+    - "<white>/rtp <dark_gray>» <gray>ir para longe e construir"
+    - "<white>/lobby <dark_gray>» <gray>voltar ao lobby"
   # Holograma em cima de cada mina. Variáveis: {mina} {rank} {restante} {barra} {tempo}
   mina:
     - "{mina}"
