@@ -6,7 +6,8 @@
 Versão do servidor: Paper 26.3 (Minecraft mais recente)
 Versões aceitas:    clientes 1.10 até 26.3 (ViaVersion + ViaBackwards)
 Modo:               Original + Pirata (login com /registrar e /logar)
-Mundos:             Rankup (minas e ranks) + Sobrevivência (survival com Nether e End)
+Mundos:             Lobby (ilha com portais) + Rankup (minas e ranks)
+                    + SMP RPG (survival com RPG, Nether e End)
 Java:               já incluso na pasta "java" (Java 25) - não precisa instalar nada
 Site:               pasta "site" (abra site/index.html no navegador)
 
@@ -62,8 +63,8 @@ alguns plugins falharem ao abrir seus bancos de dados.
 ---------------------------------------------------------------------
  4. COMO FUNCIONA O RANKUP
 ---------------------------------------------------------------------
-  • O jogador nasce no spawn (ilha flutuante com sinalizador dourado).
-  • Recebe a "Picareta Suprema" (inquebrável) ao entrar pela 1ª vez.
+  • O jogador chega no lobby e entra pelo portal dourado (ou /spawn).
+  • Recebe a "Picareta Suprema" (inquebrável) ao chegar no Rankup pela 1ª vez.
   • /minas  -> vai para a mina do seu rank (15 minas, uma por rank).
   • Os blocos minerados vão direto para o inventário.
   • /vender -> vende tudo e ganha dinheiro.
@@ -108,12 +109,21 @@ alguns plugins falharem ao abrir seus bancos de dados.
   /prestigio                   Informações do prestígio
   /prestigio confirmar         Renasce (precisa estar no rank Lenda)
   /toprank                     Melhores jogadores
-  /spawn                       Volta ao spawn
+  /lobby (ou /hub)             Volta ao lobby (ilha com os portais dos modos)
+  /spawn                       Vai ao spawn do Rankup
   /dinheiro  /pagar  /topmoney Economia (também: /money /pay /baltop)
                                O /pay só funciona com quem está online no mesmo mundo
   /sethome  /home  /tpa  /tpaccept  /msg  /r  /rules  /helpop
-  /sobrevivencia               Vai para o mundo Sobrevivência (de onde parou)
-  /mundos                      Menu para escolher Rankup ou Sobrevivência
+  /sobrevivencia               Vai para o SMP RPG (de onde parou)
+  /mundos                      Menu: Lobby, Rankup ou SMP RPG
+  -- SMP RPG --
+  /rpg                         Seu personagem (menu com tudo)
+  /classe                      Escolher classe (1ª grátis) ou trocar
+  /atributos                   Distribuir os pontos de cada nível
+  /poderes                     Suas 3 habilidades de classe (F + 1, 2, 3)
+  /grupo convidar|aceitar|sair|lista|ir   e   /g <msg> (chat do grupo)
+  /lugares                     Lugares descobertos, direção e viagem rápida
+  /masmorra  /masmorra sair    Masmorras (entrada no portal da capital)
   /rtp                         Teleporte aleatório e seguro no survival
   /terrenos /confiar /preso    Terrenos protegidos (pá de ouro)
   /habilidades  /qs (lojas em baú)  /sentar  /deitar  /back
@@ -123,12 +133,23 @@ alguns plugins falharem ao abrir seus bancos de dados.
 ---------------------------------------------------------------------
  6. COMANDOS DE ADMINISTRAÇÃO
 ---------------------------------------------------------------------
-  /menuop [jogador]                      PAINEL DO DONO (só o grupo dono e OPs):
-                                         dinheiro (+/- 1K, 100K, 1M, 1B), Picareta MAX,
-                                         Picareta Divina, rank máximo, prestígio,
-                                         criativo, voar, curar, Pressa V, Kit OP,
-                                         vanish, modo construção, resetar minas,
-                                         tokens (+/- 1.000)...
+  /menuop [jogador]                      PAINEL DO DONO com tudo, em 7 categorias:
+     • Jogador: curar, modo de jogo, voar, modo deus, velocidade, efeitos,
+       XP, teleporte, ver/editar inventário e baú do End, limpar inventário,
+       matar, raio, fogos, fazer falar, apelido, mensagem, informações
+     • Moderação: expulsar, silenciar, banir (1 dia, 7 dias ou para
+       sempre), desbanir, congelar, avisar, espiar, limpar chat
+     • Cargos: VIP, VIP+, MVP, staff, cargo por 30 dias, permissões, OP
+     • Economia: dinheiro, tokens, rank, prestígio, blocos, boosters,
+       autovenda, resetar progresso
+     • Itens: picaretas MAX/Divina, editor de picareta, kits e itens OP,
+       encantar tudo, consertar, renomear, pacotes de blocos e livros
+     • Mundos: teleportes, todas as minas, dia/noite, clima, spawns,
+       pré-gerar o mapa, limpar itens do chão e monstros
+     • Servidor: anúncio, título, manutenção/whitelist, regras do survival
+       (PvP, dificuldade, manter inventário...), presentes para todos,
+       desempenho e desligar com contagem
+     Ações perigosas pedem Shift + clique. Textos são digitados no chat.
   /rankupadmin                           Lista de comandos do plugin
   /rankupadmin recarregar                Recarrega as configs
   /rankupadmin setrank <nick> <rank>     Define o rank de alguém
@@ -177,7 +198,9 @@ alguns plugins falharem ao abrir seus bancos de dados.
 ---------------------------------------------------------------------
  8. PLUGINS INCLUSOS
 ---------------------------------------------------------------------
-  RankupSupremo 1.2.0   Plugin próprio deste servidor (código em codigo-fonte)
+  RankupSupremo 1.3.0   Plugin próprio deste servidor (código em codigo-fonte)
+  NpcVivos 0.9.0        Plugin próprio de NPCs (código em codigo-npcvivos)
+  SurvivalRPG 1.0.0     Plugin próprio do SMP RPG (código em codigo-rpg)
   EssentialsX 2.22.0    Economia, homes, tpa, mensagens (pt_BR)
   LuckPerms 5.5.87      Grupos e permissões
   VaultUnlocked 2.20.3  Ponte de economia/permissões (substitui o Vault)
@@ -199,6 +222,261 @@ alguns plugins falharem ao abrir seus bancos de dados.
   VeinMiner 2.12.3                Agachar e minerar o veio inteiro
   GSit 3.7.0                      Sentar e deitar (em português)
   Chunky 1.5.3                    Pré-gerar o mapa (admin)
+  -- Datapacks (world/datapacks) --
+  Dungeons and Taverns 6.0.2      Tavernas, vilas, criptas, masmorras, castelos
+  Structory 1.3.18                Ruínas, capelas, cemitérios, solares
+  Structory: Towers 1.0.19        Torres de mago, de vigia, faróis
+  (aparecem sozinhos nas partes NOVAS do mapa; o SurvivalRPG também
+   espalha alguns perto do spawn na primeira vez - ver 8.2)
+
+
+---------------------------------------------------------------------
+ 8.0 NPCs VIVOS (plugin próprio, fases 1 a 8 do documento)
+---------------------------------------------------------------------
+  NPCs com corpo de jogador (o "Manequim" do próprio Minecraft, sem
+  plugin extra) que olham para quem chega perto, conversam com opções
+  clicáveis no chat, lembram de você ("Olá de novo, Pedro!"), vendem,
+  compram, consertam itens, aprimoram armas e armaduras, dão missões,
+  pertencem a facções e LUTAM (mercenários, duelos e chefes), num
+  mundo que muda sozinho: preços, alianças, guerras e invasões.
+
+  Já vêm prontos (criados na primeira vez que o servidor liga):
+    • Lucas, o Guia ........ spawn do Rankup (dá uma dica a cada clique)
+    • Na capital Vila Aurora (SMP RPG) também: Sentinelas nos 3 portões,
+      Morvan (Portão das Masmorras), Rurik (Campo de Treino) e Bento
+      (Taverna). Cada vila e taverna nova ganha um morador.
+    NPCs VIVOS: andam pela praça, patrulham, voltam para casa à noite,
+    cumprimentam quem passa e conversam entre si (balão de fala).
+      /npcv rotina <id> <parado|passear|patrulha> [raio]
+      /npcv rotina <id> ponto | limpar-pontos | dormir
+      /npcv fala <id> ambiente <texto>   (o que ele fala sozinho)
+    • Borin, o Ferreiro .... praça da Sobrevivência (ferramentas e
+                             armaduras, compra minérios, conserta itens,
+                             aprimora armas e armaduras, vende Pedras de
+                             Aprimoramento Comuns,
+                             3 missões + 1 especial para amigos da vila)
+    • Marta, a Fazendeira .. praça da Sobrevivência (sementes e pão,
+                             compra o que você colher, 2 missões)
+    • Tomás, o Guarda ...... praça da Sobrevivência (protege a Vila Aurora)
+    • Kaela, a Duelista .... praça da Sobrevivência (duelos 1 contra 1
+                             em 4 dificuldades, com aposta e título)
+    • Dargo, o Mercenário .. praça da Sobrevivência (você paga e ele
+                             te segue e luta por você por 30 minutos)
+    • Iara, a Mercadora .... praça da Sobrevivência (caravana dos
+                             Mercadores Livres: pão, pérolas e varas do
+                             Sul, flechas, selas; troca estoque com a
+                             Marta e o Borin)
+
+  JOGADORES
+    Clique com o botão direito no NPC e escolha as opções no chat.
+    Loja: aba Comprar (estoque acaba e volta aos poucos) e aba Vender
+    (cada NPC compra um limite por dia de cada jogador).
+    /missoes ..................... suas missões e o progresso
+    /missoes abandonar <número> .. desiste de uma missão
+    /faccao ...................... facções, relações e sua reputação
+    /faccao entrar <id> | sair ... jurar lealdade / sair (espera 24h
+                                   para entrar em outra, custa 100 de
+                                   reputação com a que você deixou)
+    /reputacao ................... sua reputação com cada facção
+    /mercenario .................. seu contrato e quanto tempo falta
+    /mercenario dispensar ........ encerra o contrato antes da hora
+    /faccao guerras .............. placar das guerras acontecendo
+
+  MISSÕES: matar mobs, coletar itens ou entregar um pacote a outro
+  NPC. Podem ser únicas, diárias ou semanais, formar cadeias (uma
+  libera a outra) e pedir reputação mínima. Recompensa: dinheiro,
+  itens com nome/encantamentos, comandos e reputação.
+
+  FACÇÕES E REPUTAÇÃO (de -1000 a +1000 com cada facção)
+    Inimigo (até -501) .. o NPC não conversa nem vende; guardas atacam
+    Hostil (-500 a -101)  preços 50% mais caros, sem missões
+    Neutro .............. normal
+    Amigo (101 a 500) ... 10% de desconto, vendas pagam 5% a mais,
+                          missões especiais
+    Herói (501+) ........ 20% de desconto, vendas pagam 10% a mais
+    Membro da facção: mais 10% de desconto nas lojas dela.
+    Ganha reputação: missões, vender para a facção, matar monstros
+    perto da vila (vendas + monstros: no máximo 30 pontos por dia).
+    Perde: bater num NPC (-15) ou num membro perto de um guarda (-5).
+    Reputação negativa volta 5 pontos a cada 10 minutos online.
+    Guardas: avisam, batem de perto e atiram flechas em quem é Inimigo,
+    em quem acabou de atacar a vila e em membros de facção em guerra.
+    No chat aparece a etiqueta da facção, ex.: [Aurora] Pedro » oi
+    Facções de exemplo: Vila Aurora e Irmandade do Sul (rivais).
+
+  APRIMORAR ITENS (+1 a +10)
+    Segure a arma ou armadura, fale com o Borin (ou qualquer ferreiro)
+    e escolha "Aprimorar uma arma ou armadura" (também tem botão na
+    loja). A forja mostra custo, chance e o que você ganha.
+    Armas: espadas, machados, lanças, tridente, maça, arco e besta.
+    Armaduras: capacete, peitoral, calças e botas.
+    Cada tentativa custa dinheiro + Pedras de Aprimoramento e pode
+    falhar (o custo é gasto do mesmo jeito). Do +7 para cima a falha
+    ainda faz o item PERDER nível, a não ser que você tenha um
+    Pergaminho de Proteção.
+    O nível mora dentro do item: não some ao renomear nem dá para
+    falsificar escrevendo na lore.
+
+    Nível máximo pela raridade do item:
+      Comum (madeira, pedra, couro...) .. +5
+      Raro (ferro, malha, casco, arcos) . +7
+      Épico (diamante) .................. +9
+      Lendário (netherite, maça, tridente) +10
+    Ganho: cada nível soma 5% a 12% de dano (armas) ou de defesa
+    (armaduras, as 4 peças somam). No PvP o bônus tem teto de 40%.
+    Do +9 em diante a arma desperta uma habilidade sorteada: roubo de
+    vida, dano em área ou lentidão no alvo. O +9 e o +10 são anunciados
+    para o servidor inteiro.
+    Pedras: caem dos monstros que VOCÊ matar (nunca de spawner e nunca
+    no mundo do Rankup); comum 2%, rara 0,4%, épica 0,05%, lendária
+    0,01%, e pergaminho 0,02%. Chefes (Wither, Dragão, Warden, Guardião
+    Ancião) sempre deixam pedras boas. O Borin vende as comuns por $40.
+    Ser Amigo (+5%) ou Herói (+8%) da facção do ferreiro melhora a
+    chance, e a reputação também dá desconto no preço.
+    Regras, chances, custos e drops: plugins/NpcVivos/upgrades.yml
+
+  COMBATE: MERCENÁRIOS, DUELOS E CHEFES
+    A vida desses NPCs é do plugin, não do manequim: eles não morrem de
+    queda, de fogo, de lava nem de flecha perdida, só de golpe de
+    jogador. Quando o servidor liga, todos voltam ociosos e com a vida
+    cheia. Ninguém some do mapa: quem cai volta ao posto depois do
+    tempo de respawn.
+    O NPC tem estados visíveis: Ocioso, Alerta, Combate, Fugindo,
+    Seguindo o dono, Voltando ao posto e Conversando. Com menos de 20%
+    da vida ele foge e chama os aliados da facção que estiverem perto
+    (o chefe nunca foge).
+
+    MERCENÁRIO (Dargo): fale com ele, escolha "Contratar como
+    mercenário" e pague $1.500 por 30 minutos. Ele anda atrás de você,
+    teleporta se você se afastar muito e bate em quem bater em você.
+    Só aceita contrato em mundo com PvP ligado, 1 por jogador, e se
+    cair em combate fica 10 minutos se recuperando antes do próximo
+    contrato. Bater no SEU mercenário não é agressão: a facção dele
+    não leva a mal.
+
+    DUELO (Kaela): escolha "Me desafie para um duelo" e a dificuldade.
+      Fácil ..... aposta $200 .... prêmio $500 .... +2 de reputação
+      Média ..... aposta $800 .... prêmio $2.200 .. +5, título Bronze
+      Difícil ... aposta $2.500 .. prêmio $8.000 .. +10, título Ferro
+      Lendária .. aposta $8.000 .. prêmio $30.000 . +20, título Lendário
+    A aposta é cobrada na hora. Você perde se morrer, se sair da arena
+    (24 blocos do posto dela), se estourar 3 minutos ou se desistir
+    pela conversa. Ninguém pode se meter no duelo de outro jogador.
+    Entre dois duelos a duelista descansa 10 segundos.
+
+    CHEFE (/npcv criar boss): 400 de vida, barra no topo da tela para
+    quem está a até 48 blocos, não foge e tem 4 habilidades: investida,
+    puxar o jogador, acender o chão em volta e chamar ajudantes
+    (essa só abaixo de 70% da vida). A queda e a volta dele são
+    anunciadas no chat do servidor.
+
+    Matar um NPC de combate paga dinheiro e deixa cair itens e Pedras
+    de Aprimoramento (chefe: $5.000, 7 pedras, diamantes e maçãs de
+    ouro). Para ninguém farmar o mesmo NPC em loop, cada jogador pega
+    no máximo 10 recompensas de NPC por hora.
+    Tudo isso se ajusta em plugins/NpcVivos/combate.yml (vida, dano,
+    armadura, velocidade, preços, dificuldades, habilidades e drops),
+    e "ativo: false" desliga a fase 6 inteira sem mexer nos NPCs.
+
+  MUNDO VIVO (o que muda sozinho)
+    PREÇOS: cada loja lembra o que foi comprado e vendido nas últimas
+    horas. Muita gente comprando sobe o preço (até +60%), muita gente
+    vendendo derruba (até -40%), em degraus de 5%, e com o tempo tudo
+    volta ao normal. A lore do item explica: "Muita procura +25%".
+    Em guerra, armas, armaduras, flechas, escudos e poções da facção
+    ficam 25% mais caros (e valem mais na venda).
+    COMÉRCIO ENTRE NPCs: a cada 20 minutos os comerciantes da mesma
+    facção ou de facções aliadas trocam estoque (quem está sem recebe
+    de quem tem de sobra). Itens "importado_de" uma facção (ex.: as
+    pérolas da Iara vêm do Sul) param de chegar e ficam 50% mais caros
+    se a facção do NPC entrar em guerra com quem fornece.
+    ALIANÇAS QUE MUDAM: cada par de facções tem uma pontuação de -100 a
+    +100. Membro de uma matar NPC da outra: -20; membro matar membro:
+    -5; vencerem um chefe juntos: +30; troca entre comerciantes: +5.
+    Abaixo de -60 o líder declara GUERRA; acima de 50 viram aliadas.
+    A cada hora a pontuação volta 2 pontos para a relação dos arquivos.
+    GUERRAS: duram 3 dias ou até uma facção fazer 500 pontos. Pontos:
+    matar NPC inimigo (10), jogador inimigo (15), soldado invasor (5),
+    defender uma invasão (50), saquear uma vila (60) e missões com
+    "pontos_guerra". Membros veem o placar no topo da tela. No fim, a
+    vencedora fica com as lojas 10% mais baratas (e pagando 10% mais)
+    por 7 dias, e quem fez pontos ganha $300 e +50 de reputação.
+    INVASÕES: em guerra, de hora em hora pode vir uma invasão (se tiver
+    gente no mundo): ondas de soldados aparecem a 20 blocos da vila e
+    marcham para o centro. Quem mata soldados ganha dinheiro, reputação
+    e pontos; vila defendida dá +$100 a quem ajudou. Soldado que chega
+    no centro saqueia: 3 saques e a vila perde 30% do estoque das lojas.
+    PROMOÇÕES: a staff anuncia descontos com /npcv promocao.
+    Tudo isso se ajusta em plugins/NpcVivos/mundo.yml.
+
+  STAFF (/npcv, grupo admin e dono):
+    /npcv editar [id]                 MENU com tudo do NPC: papéis, facção,
+                                      skin, conversa, item na mão, preços da
+                                      loja, mover, ir até ele e remover
+                                      (sem id: o NPC mais perto de você)
+    /npcv criar <papel> <id> [nome]   cria onde você está
+                                      papéis: comerciante, ferreiro, guia,
+                                      missionario, guarda, mercenario,
+                                      duelista, boss
+    /npcv remover | lista | info | tp | mover <id>
+    /npcv nome <id> <nome>            aceita cores (&a, <gold>...)
+    /npcv skin <id> <skin>            steve, alex, ari, efe, kai, makena, noor,
+                                      sunny, zuri (+ "-fino") ou jogador:Nick
+    /npcv mao <id>                    o NPC segura o item da sua mão
+    /npcv fala <id> adicionar|saudacao|retorno|limpar [texto]
+    /npcv loja <id> compra <preço> [estoque] [repõe/hora]
+                                      o JOGADOR COMPRA o item da sua mão
+                                      (a quantidade na mão é o tamanho do lote)
+    /npcv loja <id> venda <preço> [limite/dia]
+                                      o JOGADOR VENDE o item da sua mão
+    /npcv loja <id> ver|limpar        /npcv reload
+    /npcv faccao <npc> <facção|nenhuma>        põe o NPC numa facção
+    /npcv relacao <facção> <outra> <aliada|neutra|rival|guerra>
+                                      muda a relação e anuncia para todos
+                                      ("guerra" começa uma guerra com placar)
+    /npcv guerra iniciar|parar <facção> <outra> [horas]   /npcv guerra lista
+    /npcv invasao <atacante> <defensor> | parar
+    /npcv pontuacao <facção> <outra> [valor|~n]  pontuação entre facções
+    /npcv mercado ligar|desligar|ver <npc>|trocar
+                                      preço dinâmico e troca entre NPCs
+    /npcv promocao <facção|todas> <desconto %> <minutos>
+    /npcv reputacao <jogador> <facção> [valor|~n]
+                                      vê, define (ex.: -600) ou soma (~50)
+    /npcv membro <jogador> <facção|nenhuma>    coloca/tira, sem espera
+    /npcv dar <jogador> <comum|rara|epica|lendaria|pergaminho> [qtd]
+                                      dá pedras de aprimoramento
+    /npcv aprimorar <nível 0-10> [comum|raro|epico|lendario]
+                                      define o nível do item da sua mão
+                                      (e, se quiser, força a raridade)
+    /npcv combate                     resumo de todos os NPCs que lutam
+    /npcv combate <id> [ver|vida <n>|curar|matar|posto]
+                                      estado, vida e alvo de um NPC;
+                                      "posto" remarca o lugar de origem
+
+  ARQUIVOS (plugins/NpcVivos, edite e use /npcv reload):
+    npcs/<id>.yml ........ um por NPC (loja, falas, papéis, facção e
+                           "dialogo.arvore" = qual conversa ele usa)
+    dialogos/<nome>.yml .. conversas com opções (nós, condições, ações)
+    missoes/<id>.yml ..... uma por missão (tipo, objetivo, recompensa)
+    faccoes/<id>.yml ..... nome, etiqueta do chat, relações, desconto
+    upgrades.yml ......... níveis +1 a +10: chance, custo, pedras,
+                           bônus, habilidades e drops dos monstros
+    combate.yml .......... vida/dano/armadura por tipo de NPC, preço e
+                           tempo do mercenário, dificuldades dos duelos,
+                           habilidades dos chefes e tabelas de drop
+    mundo.yml ............ preço dinâmico, comércio entre NPCs, relações
+                           automáticas, guerras e invasões
+    config.yml / mensagens.yml
+    dados.db ............. memória, estoques, missões e reputação dos
+                           jogadores (SQLite; o dados.yml antigo é
+                           migrado sozinho)
+    logs/transacoes-AAAA-MM.log  todas as compras, vendas, consertos
+                           e tentativas de aprimoramento
+  Placeholders: %npcvivos_tag%, %npcvivos_faccao%, %npcvivos_missoes%,
+  %npcvivos_reputacao_<facção>%, %npcvivos_nivel_<facção>%,
+  %npcvivos_item_nivel%, %npcvivos_guerra%
+
+  Todas as 8 fases do documento de design estão prontas.
 
 
 ---------------------------------------------------------------------
@@ -206,7 +484,7 @@ alguns plugins falharem ao abrir seus bancos de dados.
 ---------------------------------------------------------------------
   • Criado automaticamente na primeira vez que o servidor liga com
     esta versão (mundos sobrevivencia, sobrevivencia_nether e
-    sobrevivencia_the_end) com uma praça de spawn protegida.
+    sobrevivencia_the_end). O spawn virou a capital Vila Aurora (ver 8.2).
   • Inventário, vida, XP e baú do End são separados do Rankup.
     O DINHEIRO também é separado: o do Rankup fica no Rankup e o da
     Sobrevivência começa do zero (ganhe vendendo farm, drops e minérios
@@ -219,6 +497,87 @@ alguns plugins falharem ao abrir seus bancos de dados.
       chunky world sobrevivencia
       chunky radius 3000
       chunky start
+
+
+---------------------------------------------------------------------
+ 8.2 SMP RPG (plugin SurvivalRPG)
+---------------------------------------------------------------------
+  O mundo de sobrevivência virou um RPG (o Rankup não muda nada).
+
+  NA PRIMEIRA VEZ QUE O SERVIDOR LIGA com o SurvivalRPG (sozinho):
+    1) Constrói a CAPITAL Vila Aurora em volta do spawn do survival:
+       muralha redonda com 3 portões e torres, praça com chafariz (os
+       NPCs ficam lá), Castelo de Aurora, ruas com postes, casas de
+       verdade das vilas do jogo (Taverna do Javali Dourado, Forja de
+       Borin, Templo da Luz, Biblioteca Arcana...), fazenda, jardim,
+       Campo de Treino e o Portão das Masmorras. Leva uns 2 segundos.
+       Se achar construções de jogador perto do spawn, NÃO constrói
+       (avisa no console).
+    2) Constrói as 3 masmorras (2 cópias de cada) bem longe, no alto.
+    3) Espalha pelo mapa ~24 lugares prontos (datapacks): 4 vilas,
+       3 tavernas, torres, ruínas, criptas, castelos e acampamentos,
+       SEMPRE longe das bases, camas e terrenos dos jogadores.
+       Isso leva uns 3 minutos e pode dar umas travadinhas (é só uma vez).
+    Antes de cada obra o plugin tira uma FOTO do terreno:
+       /rpgadmin desfazer <id>   volta o terreno como era
+       (ids em /rpgadmin lugar lista; a capital é "capital")
+
+  CLASSES (/classe): Guerreiro, Arqueiro, Mago, Clérigo e Ladino.
+    Cada uma tem atributo principal, arma (bônus de dano) e 3
+    habilidades (níveis 1, 10 e 20). Usar: arma da classe na mão,
+    aperte F (trocar de mão), depois 1, 2 ou 3. F de novo sai.
+    Agachado + F troca de mão normalmente.
+  NÍVEIS 1 a 50: XP matando monstros, descobrindo lugares e vencendo
+    chefes. A cada nível: 3 pontos para /atributos (Força, Destreza,
+    Inteligência, Vitalidade, Sabedoria, Agilidade).
+  REGIÕES: quanto mais longe do spawn, mais fortes os monstros
+    (Planícies 1-6, Fronteira 6-13, Terras Selvagens 13-22, Vale
+    Sombrio 22-32, Confins 32-42, Terras Sem Lei 42-50; Nether 12-30;
+    End 25-40). O nome aparece na tela ao entrar.
+  MONSTROS: nível e vida no nome; Elites (dourados) e Campeões
+    (brilhando) com poderes (rápido, vampiro, explosivo, invocador,
+    blindado, congelante) e loot raro.
+  ITENS DE RPG: Comum, Incomum, Raro, Épico e Lendário, com atributos
+    e efeitos especiais (sangramento, roubo de vida, golpe certeiro).
+  CIDADES (capital, vilas e tavernas): zona segura (sem monstros e sem
+    PvP), protegidas (ninguém quebra nem coloca blocos) e com viagem
+    rápida entre elas pelo /lugares (custa um pouco de dinheiro).
+  MASMORRAS: no Portão das Masmorras da capital (pedra-guia ou
+    /masmorra). Cripta dos Esquecidos (nível 5+), Covil da Rainha
+    Aracna (15+) e Fortaleza do Rei Caído (30+). Até 5 do grupo entram
+    juntos, os portões fecham durante cada luta, 3 salas com ondas e o
+    chefe (barra de vida, golpes especiais, fica furioso na metade).
+    Lá dentro ninguém perde itens: renasce na entrada. Vitória: XP,
+    dinheiro e 2 itens raros; recarga de 20 min por masmorra.
+  PvP: igual ao survival de antes (ligado), menos nas cidades. Quem está
+    10+ níveis acima não consegue bater em quem está abaixo.
+
+  ADMIN (/rpgadmin):
+    status | reload | nivel|xp|pontos <nick> <valor> | item <nick> [nível] [raridade]
+    classe <nick> <classe> | resetar <nick>
+    capital construir [forcar] | capital ir
+    lugar popular | lista | ir <id> | remover <id>
+    lugar colocar <estrutura> <tipo> <raio> [nome]  (onde você está)
+    lugar marcar <tipo> <raio> <nome>   (marcar algo que já existe)
+    desfazer <id> | masmorra construir | reconstruir | ir <instância>
+    mapa [raio] [mundo x z]   (salva uma imagem vista de cima)
+  Configuração: plugins/SurvivalRPG/config.yml e mensagens.yml
+  Placeholders: %rpg_classe% %rpg_classe_cor% %rpg_nivel% %rpg_xp_porcento%
+    %rpg_mana% %rpg_regiao% %rpg_pontos% %rpg_grupo% %rpg_lugares%
+
+
+---------------------------------------------------------------------
+ 8.3 LOBBY
+---------------------------------------------------------------------
+  Todo mundo que entra aparece no LOBBY: uma ilha flutuante com um
+  farol dourado, a praça e dois portais:
+    ⬅ portal DOURADO = Rankup      ➡ portal VERDE = SMP RPG
+  O portal do SMP leva de volta exatamente para onde você parou.
+  A bússola (no meio da barra) abre o menu de mundos. /lobby volta.
+  No lobby ninguém se machuca, não tem fome e nada quebra; o inventário
+  do lobby é separado (grupo "lobby" no Multiverse-Inventories).
+  Configuração: plugins/RankupSupremo/config.yml, seção "lobby"
+  (lobby.ativado, lobby.teleportar-ao-entrar, mural, letreiros).
 
 
 ---------------------------------------------------------------------
@@ -264,3 +623,5 @@ alguns plugins falharem ao abrir seus bancos de dados.
   O código do RankupSupremo está em  codigo-fonte/src  (Java).
   Para recompilar: instale o JDK 25, desligue o servidor e rode
   codigo-fonte/compilar.bat
+  O NpcVivos fica em codigo-npcvivos/src: recompile com
+  codigo-npcvivos/compilar.bat (também com o servidor desligado).

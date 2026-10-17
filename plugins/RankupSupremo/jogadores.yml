@@ -1,19 +1,13 @@
 21a04d01-7e32-310a-bae8-8e5057de7859:
   nome: pedrin_bugica
   rank: lenda
-  prestigio: 70
-  blocos: 206463
+  prestigio: 100
+  blocos: 1023223
   autovender: true
   recebeu-picareta: true
-  ultima-sobrevivencia: sobrevivencia;68.22;94.00;-430.49;-152.3;0.2
+  ultima-sobrevivencia: sobrevivencia;155.96;134.36;550.17;-133.9;22.4
   visitou-sobrevivencia: true
-  tokens: 2885
-  booster:
-    bonus: 2.0
-    ate: 1791950967400
-  booster-tokens:
-    bonus: 1.0
-    ate: 1791936253296
+  tokens: 384251
 3a35e25a-64d2-3b32-8bcd-18504bd9c1b5:
   nome: 3teste
   rank: mendigo

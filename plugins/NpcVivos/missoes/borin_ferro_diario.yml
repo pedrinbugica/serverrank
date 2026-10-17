@@ -1,0 +1,18 @@
+# Missão diária do Borin (só aparece depois de "O minério perdido"). Explicações em borin_minerio_perdido.yml.
+id: borin_ferro_diario
+nome: "<gold>Encomenda de ferro"
+npc: ferreiro_borin
+tipo: COLETAR
+objetivo:
+  item: IRON_INGOT
+  quantidade: 16
+requisito: borin_minerio_perdido
+repetir: DIARIA
+descricao:
+  - "Tenho encomendas todo dia e o ferro nunca é suficiente."
+  - "Me traga 16 barras de ferro e eu pago bem. Pode voltar amanhã para mais!"
+fala_aceitar: "Combinado! Te espero aqui."
+fala_conclusao: "Obrigado, {jogador}! Volte amanhã que sempre tem mais."
+recompensa:
+  dinheiro: 120
+  reputacao: 10

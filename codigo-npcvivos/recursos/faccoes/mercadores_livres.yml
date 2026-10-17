@@ -1,0 +1,18 @@
+# ==================================================================
+#  Facção: Mercadores Livres (caravana da Iara)
+# ==================================================================
+# Aliados da Vila Aurora: os comerciantes trocam estoque entre si (comércio entre NPCs).
+# Depois de editar: /npcv reload
+# ==================================================================
+id: mercadores_livres
+nome: "<aqua>Mercadores Livres"
+tag: "<dark_aqua>[<aqua>Livres<dark_aqua>] "
+lider: mercadora_iara
+descricao:
+  - "Caravanas que levam mercadoria de vila em vila."
+  - "Fazem negócio com todo mundo, mas preferem os amigos da Aurora."
+relacoes:
+  vila_aurora: ALIADA
+  irmandade_do_sul: NEUTRA
+beneficios_membro:
+  desconto: 0.05

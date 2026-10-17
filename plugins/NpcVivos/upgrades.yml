@@ -1,0 +1,113 @@
+# ==================================================================
+#              NPCs VIVOS - UPGRADE DE ITENS (+1 a +10)
+# ==================================================================
+# O jogador segura uma arma ou armadura e fala com um NPC FERREIRO
+# ("Aprimorar" na conversa ou na loja). Paga dinheiro + pedras de
+# aprimoramento e tenta subir o nível do item.
+# O nível fica guardado DENTRO do item: não some ao renomear e não dá
+# para falsificar escrevendo na lore.
+# Armas: espadas, machados, lanças, tridente, maça, arco e besta.
+# Armaduras: capacete, peitoral, calças e botas.
+# Depois de editar: /npcv reload
+# ==================================================================
+
+ativo: true
+
+# Anuncia para o servidor inteiro quando alguém consegue este nível ou mais
+anunciar-a-partir-do-nivel: 9
+
+raridade:
+  # Até que nível cada raridade pode ir
+  nivel-maximo:
+    COMUM: 5
+    RARO: 7
+    EPICO: 9
+    LENDARIO: 10
+  # Começo do nome do material -> raridade (o que não estiver aqui é COMUM).
+  # Recompensas de missão podem ter raridade própria (raridade: LENDARIO).
+  materiais:
+    NETHERITE_: LENDARIO
+    MACE: LENDARIO
+    TRIDENT: LENDARIO
+    DIAMOND_: EPICO
+    IRON_: RARO
+    CHAINMAIL_: RARO
+    TURTLE_: RARO
+    CROSSBOW: RARO
+    BOW: RARO
+
+# Para subir o item PARA cada nível:
+#   chance ...... % de sucesso
+#   dinheiro .... custo (tem o mesmo desconto da loja: reputação e membro da facção)
+#   pedra ....... comum, rara, epica, lendaria (ou nenhuma) | quantidade: quantas
+#   se-falhar ... quantos níveis o item perde se falhar (0 = perde só o custo)
+#   bonus ....... quanto este nível soma de dano (armas) ou defesa (armaduras), em %
+# O custo é gasto mesmo se falhar.
+niveis:
+  1:  {chance: 100, dinheiro: 50,   pedra: comum,    quantidade: 1, se-falhar: 0, bonus: 5}
+  2:  {chance: 100, dinheiro: 100,  pedra: comum,    quantidade: 2, se-falhar: 0, bonus: 5}
+  3:  {chance: 100, dinheiro: 150,  pedra: comum,    quantidade: 3, se-falhar: 0, bonus: 5}
+  4:  {chance: 80,  dinheiro: 300,  pedra: rara,     quantidade: 1, se-falhar: 0, bonus: 7}
+  5:  {chance: 70,  dinheiro: 450,  pedra: rara,     quantidade: 2, se-falhar: 0, bonus: 7}
+  6:  {chance: 60,  dinheiro: 650,  pedra: rara,     quantidade: 3, se-falhar: 0, bonus: 7}
+  7:  {chance: 45,  dinheiro: 1000, pedra: epica,    quantidade: 1, se-falhar: 1, bonus: 10}
+  8:  {chance: 35,  dinheiro: 1500, pedra: epica,    quantidade: 2, se-falhar: 1, bonus: 10}
+  9:  {chance: 25,  dinheiro: 2500, pedra: lendaria, quantidade: 1, se-falhar: 2, bonus: 12}
+  10: {chance: 15,  dinheiro: 4000, pedra: lendaria, quantidade: 2, se-falhar: 2, bonus: 12}
+
+# Pontos de % a mais na chance pela reputação com a facção do ferreiro
+chance-por-reputacao:
+  AMIGO: 5
+  HEROI: 8
+
+# true = o dinheiro do upgrade tem o desconto da loja (reputação e membro da facção)
+desconto-da-loja: true
+
+# Armas: dano x (1 + bônus). Ex.: +10 = +80% de dano.
+# Armaduras: cada peça soma o bônus dela e o dano recebido é dividido
+# por (1 + soma / 4). Ex.: as 4 peças +10 = dano / 1,8 (44% a menos).
+pvp:
+  # Teto do bônus quando é jogador contra jogador (0.40 = no máximo +40%
+  # de dano e no máximo dano / 1,4 na defesa), para um +10 não destruir todo mundo
+  bonus-maximo: 0.40
+# Mundos onde os upgrades não valem (ex.: uma arena de kits)
+mundos-sem-upgrade: []
+
+# Armas +9 e +10 ganham uma habilidade sorteada ao chegar no +9
+habilidades:
+  roubo-de-vida:      # % do dano causado que vira vida
+    nivel-9: 8
+    nivel-10: 12
+  dano-em-area:       # % do dano que também acerta os monstros em volta do alvo
+    nivel-9: 25
+    nivel-10: 40
+    raio: 3
+  lentidao:           # segundos de lentidão no alvo (nível I no +9, nível II no +10)
+    nivel-9: 2
+    nivel-10: 3
+
+# Pedras que caem dos monstros (só se um jogador matou; nunca de spawner)
+drops:
+  mundos-proibidos:
+    - world
+  # Chance em % por monstro
+  chance:
+    comum: 2.0
+    rara: 0.4
+    epica: 0.05
+    lendaria: 0.01
+  # Pergaminho de proteção (impede o item de perder nível quando o upgrade falha)
+  pergaminho-chance: 0.02
+  # Chefes sempre deixam estas pedras
+  chefes:
+    WITHER:
+      epica: 2
+      lendaria: 1
+    ENDER_DRAGON:
+      lendaria: 2
+    WARDEN:
+      epica: 2
+      lendaria: 1
+    ELDER_GUARDIAN:
+      rara: 3
+      epica: 1

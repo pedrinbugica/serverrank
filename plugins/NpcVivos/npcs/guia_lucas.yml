@@ -1,0 +1,42 @@
+# NPC do plugin NpcVivos. Depois de editar, use /npcv reload.
+# skin: steve, alex, ari, efe, kai, makena, noor, sunny, zuri (+ "-fino" para braço fino)
+#       ou jogador:Nick para usar a skin de um jogador (precisa de internet)
+# papeis: COMERCIANTE, FERREIRO, GUIA (os outros papéis chegam nas próximas fases)
+# loja.compra = o que o JOGADOR COMPRA do NPC | loja.venda = o que o JOGADOR VENDE ao NPC
+# preco_base = preço do lote inteiro (quantidade). estoque_max 0 = infinito. limite_diario 0 = sem limite.
+
+id: guia_lucas
+nome: <gold><bold>Lucas, o Guia
+skin: sunny
+local:
+  mundo: world
+  x: 3.5
+  y: 101.0
+  z: 6.5
+  yaw: 56.309932708740234
+papeis:
+- GUIA
+dialogo:
+  saudacao:
+  - Olá, {jogador}! Eu sou o Lucas, o guia do RankUP Supremo. Clique em mim de novo
+    para ouvir uma dica!
+  retorno:
+  - Olá de novo, {jogador}! Quer mais uma dica?
+  falas:
+  - Use <yellow>/minas</yellow> para ir até a mina do seu rank e minere tudo!
+  - Venda os minérios com <yellow>/vender</yellow> e depois use <yellow>/rankup</yellow>
+    para subir de rank.
+  - Os <light_purple>tokens</light_purple> que caem minerando compram encantamentos
+    especiais em <yellow>/picareta</yellow>.
+  - No último rank, use <yellow>/prestigio</yellow> para renascer mais forte e vender
+    mais caro.
+  - Na <yellow>/loja</yellow> tem boosters que aumentam o dinheiro das vendas por
+    um tempo.
+  - 'Cuidado na <red>Mina PvP</red>: lá dentro os outros jogadores podem te atacar!'
+  - Quer um survival normal? Use <yellow>/sobrevivencia</yellow>. O inventário e o
+    dinheiro de lá são separados.
+  - Na Sobrevivência, o Ferreiro Borin e a Fazendeira Marta ficam no spawn. Fale com
+    eles!
+loja:
+  compra: []
+  venda: []

@@ -1,0 +1,30 @@
+# ==================================================================
+#  Missão: Encomenda especial (só para quem é Amigo da Vila Aurora)
+# ==================================================================
+# reputacao_minima: reputação que o jogador precisa ter com a facção do NPC para receber a missão
+# apenas_membros: true = só para quem jurou lealdade à facção do NPC (/faccao entrar)
+# Depois de editar: /npcv reload
+# ==================================================================
+id: borin_encomenda_especial
+nome: "<aqua>Encomenda especial"
+npc: ferreiro_borin
+tipo: COLETAR
+objetivo:
+  item: DIAMOND
+  quantidade: 4
+repetir: SEMANAL
+reputacao_minima: 101
+descricao:
+  - "Só faço isso para amigos da vila, {jogador}."
+  - "Me traga 4 diamantes e eu forjo uma espada digna de um herói."
+fala_aceitar: "Diamantes ficam bem fundo, perto da lava. Vá com cuidado!"
+fala_conclusao: "Olhe só esse brilho! Esta espada é sua, {jogador}. A vila tem orgulho de você."
+recompensa:
+  dinheiro: 500
+  reputacao: 30
+  itens:
+    - item: DIAMOND_SWORD
+      nome: "<aqua>Lâmina da Aurora"
+      encantamentos:
+        sharpness: 3
+        unbreaking: 3

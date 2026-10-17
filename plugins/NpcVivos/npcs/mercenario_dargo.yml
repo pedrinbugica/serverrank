@@ -1,0 +1,38 @@
+# NPC do plugin NpcVivos. Depois de editar, use /npcv reload.
+# skin: steve, alex, ari, efe, kai, makena, noor, sunny, zuri (+ "-fino" para braço fino)
+#       ou jogador:Nick para usar a skin de um jogador (precisa de internet)
+# papeis: COMERCIANTE, FERREIRO, GUIA, MISSIONARIO, GUARDA, MERCENARIO, DUELISTA, BOSS
+# combate: vida, dano, armadura, velocidade, alcance, arqueiro e respawn-segundos só deste NPC
+#          (o que não estiver aqui vem do atributos: do combate.yml)
+# faccao: id de um arquivo em faccoes/ (guardas só protegem a própria facção). Vazio = sem facção.
+# dialogo.arvore: nome de um arquivo em dialogos/ (conversa com opções). Sem ele, a conversa é simples.
+# loja.compra = o que o JOGADOR COMPRA do NPC | loja.venda = o que o JOGADOR VENDE ao NPC
+# preco_base = preço do lote inteiro (quantidade). estoque_max 0 = infinito. limite_diario 0 = sem limite.
+
+id: mercenario_dargo
+nome: <dark_red><bold>Dargo, o Mercenário
+skin: ari
+local:
+  mundo: sobrevivencia
+  x: 21.5
+  y: 89.0
+  z: -4.5
+  yaw: 45.0
+faccao: vila_aurora
+papeis:
+- MERCENARIO
+equipamento:
+  mao: IRON_AXE
+dialogo:
+  saudacao:
+  - Eu luto por quem paga, {jogador}. E eu não sou barato.
+  retorno:
+  - O machado está afiado, {jogador}. Quanto você tem aí?
+  falas:
+  - Me contrate e eu te sigo e bato em quem te bater.
+  - Só trabalho em mundo onde o PvP está ligado. No spawn eu fico de bobeira.
+  - Se eu cair em combate, preciso de um tempo para me recuperar antes do próximo
+    contrato.
+loja:
+  compra: []
+  venda: []

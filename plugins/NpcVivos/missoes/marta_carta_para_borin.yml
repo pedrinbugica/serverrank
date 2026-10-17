@@ -1,0 +1,22 @@
+# Missão de entrega: a Marta dá uma carta para levar ao Borin. Explicações em borin_minerio_perdido.yml.
+id: marta_carta_para_borin
+nome: "<yellow>Uma carta para o ferreiro"
+npc: fazendeira_marta
+entregar_para: ferreiro_borin
+tipo: ENTREGAR
+objetivo:
+  item: PAPER
+  nome_item: "<yellow>Carta da Marta"
+  quantidade: 1
+repetir: NUNCA
+descricao:
+  - "Preciso que o Borin conserte minha enxada, mas não posso sair da plantação."
+  - "Leva esta carta até ele? Ele fica do outro lado da praça."
+fala_aceitar: "Aqui está a carta. Não vá perder, hein!"
+fala_conclusao: "Uma carta da Marta? Deixa eu ver... Claro que conserto a enxada dela! Tome, pelo trabalho."
+recompensa:
+  dinheiro: 80
+  reputacao: 10
+  itens:
+    - item: GOLDEN_CARROT
+      quantidade: 8

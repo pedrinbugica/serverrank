@@ -1,0 +1,298 @@
+# ============================================================================
+#  SurvivalRPG - configuração
+#  Textos para os jogadores ficam em mensagens.yml. Depois de editar: /rpgadmin reload
+# ============================================================================
+
+# Mundos onde o RPG vale (mobs com nível, habilidades, XP de RPG, barra de vida/mana)
+mundos:
+  - sobrevivencia
+  - sobrevivencia_nether
+  - sobrevivencia_the_end
+# Mundo da capital e centro dos anéis de regiões (o spawn dele)
+mundo-principal: sobrevivencia
+
+nivel-maximo: 50
+pontos-por-nivel: 3
+
+xp:
+  # XP para passar do nível n: base x n^expoente
+  base: 100
+  expoente: 1.5
+  # XP por mob = por-mob x nível do mob (elite x4, campeão x15)
+  por-mob: 8
+  # Mobs de spawner dão só esta fração (contra farm)
+  fator-spawner: 0.1
+  # Descobrir um lugar (multiplicado por nível/5)
+  descobrir-lugar: 150
+
+mana:
+  base: 100
+  regeneracao-por-segundo: 2
+
+hud:
+  # A barra de XP do jogo mostra o nível do RPG (a XP de encantar continua igual por baixo)
+  barra-xp-rpg: true
+
+classes:
+  bonus-arma-da-classe: 0.15
+  troca:
+    custo: 5000
+    espera-horas: 24
+
+atributos:
+  custo-resetar: 2000
+
+grupo:
+  maximo: 5
+  raio-xp: 30
+  bonus-xp-por-membro: 0.10
+  teleporte-espera-segundos: 300
+
+pvp:
+  # true = PvP só nas regiões com pvp: true (as Terras Sem Lei). Nas cidades (zonas seguras) nunca tem PvP.
+  somente-em-regioes-pvp: false
+  # Quem está muitos níveis acima não consegue bater em quem está abaixo
+  diferenca-maxima-de-nivel: 10
+
+# Anéis de distância do spawn: quanto mais longe, mais fortes os monstros (e melhor o loot)
+regioes:
+  planicies:
+    nome: "<green>Planícies de Aurora"
+    mundo: sobrevivencia
+    de: 0
+    ate: 400
+    niveis: [1, 6]
+  fronteira:
+    nome: "<yellow>Fronteira Verde"
+    mundo: sobrevivencia
+    de: 400
+    ate: 900
+    niveis: [6, 13]
+  selvagem:
+    nome: "<gold>Terras Selvagens"
+    mundo: sobrevivencia
+    de: 900
+    ate: 1600
+    niveis: [13, 22]
+  sombria:
+    nome: "<red>Vale Sombrio"
+    mundo: sobrevivencia
+    de: 1600
+    ate: 2500
+    niveis: [22, 32]
+  confins:
+    nome: "<dark_red>Confins Esquecidos"
+    mundo: sobrevivencia
+    de: 2500
+    ate: 4000
+    niveis: [32, 42]
+  semlei:
+    nome: "<dark_purple>Terras Sem Lei"
+    mundo: sobrevivencia
+    de: 4000
+    ate: -1
+    niveis: [42, 50]
+    pvp: true
+  nether:
+    nome: "<red>O Nether"
+    mundo: sobrevivencia_nether
+    de: -1
+    niveis: [12, 30]
+  fim:
+    nome: "<light_purple>O Fim"
+    mundo: sobrevivencia_the_end
+    de: -1
+    niveis: [25, 40]
+
+mobs:
+  mostrar-nome: true
+  vida-por-nivel: 0.12
+  dano-por-nivel: 0.06
+  elite:
+    chance: 0.05
+    vida: 3
+    dano: 1.5
+    xp: 4
+  campeao:
+    chance: 0.005
+    vida: 8
+    dano: 2.0
+    xp: 15
+
+loot:
+  # Chance de cair um item de RPG
+  chance:
+    normal: 0.03
+    elite: 0.35
+    campeao: 1.0
+  # Pesos de raridade: comum, incomum, raro, épico, lendário
+  pesos:
+    normal: [60, 30, 9, 1, 0]
+    elite: [0, 40, 45, 13, 2]
+    campeao: [0, 0, 40, 50, 10]
+
+viagem:
+  custo-base: 50
+  custo-por-100-blocos: 10
+  espera-segundos: 3
+
+# ---------------------------------------------------------------------------- CONSTRUÇÃO
+construcao:
+  # Na primeira vez que o plugin liga: constrói a capital no spawn, as masmorras e espalha lugares pelo mapa.
+  # Tudo tem foto antes (/rpgadmin desfazer <id> volta o terreno como era).
+  automatica: true
+  espera-segundos: 15
+
+capital:
+  # Se tiver mais que isto de blocos de jogador (baús, camas, placas...) perto do spawn, a capital NÃO é construída
+  maximo-blocos-de-jogador: 12
+  blocos-por-tique: 6000
+  # Casas (modelos das vilas do próprio jogo). Os lotes especiais tentam primeiro as listas abaixo.
+  casas:
+    - minecraft:village/plains/houses/plains_small_house_1
+    - minecraft:village/plains/houses/plains_small_house_2
+    - minecraft:village/plains/houses/plains_small_house_3
+    - minecraft:village/plains/houses/plains_small_house_4
+    - minecraft:village/plains/houses/plains_small_house_5
+    - minecraft:village/plains/houses/plains_small_house_6
+    - minecraft:village/plains/houses/plains_small_house_7
+    - minecraft:village/plains/houses/plains_small_house_8
+    - minecraft:village/plains/houses/plains_medium_house_1
+    - minecraft:village/plains/houses/plains_medium_house_2
+    - minecraft:village/plains/houses/plains_masons_house_1
+    - minecraft:village/plains/houses/plains_fletcher_house_1
+    - minecraft:village/plains/houses/plains_shepherds_house_1
+    - minecraft:village/plains/houses/plains_butcher_shop_1
+    - minecraft:village/plains/houses/plains_tannery_1
+    - minecraft:village/plains/houses/plains_fisher_cottage_1
+    - minecraft:village/taiga/houses/taiga_small_house_1
+    - minecraft:village/taiga/houses/taiga_small_house_2
+    - minecraft:village/taiga/houses/taiga_small_house_3
+    - minecraft:village/taiga/houses/taiga_small_house_4
+    - minecraft:village/taiga/houses/taiga_medium_house_1
+    - minecraft:village/taiga/houses/taiga_medium_house_2
+  taverna:
+    - minecraft:village/plains/houses/plains_big_house_1
+    - minecraft:village/taiga/houses/taiga_medium_house_4
+    - minecraft:village/taiga/houses/taiga_medium_house_3
+  forja:
+    - minecraft:village/plains/houses/plains_weaponsmith_1
+    - minecraft:village/plains/houses/plains_armorer_house_1
+    - minecraft:village/plains/houses/plains_tool_smith_1
+  biblioteca:
+    - minecraft:village/plains/houses/plains_library_1
+    - minecraft:village/plains/houses/plains_library_2
+    - minecraft:village/taiga/houses/taiga_library_1
+  templo:
+    - minecraft:village/plains/houses/plains_temple_4
+    - minecraft:village/plains/houses/plains_temple_3
+    - minecraft:village/taiga/houses/taiga_temple_1
+  cartografo:
+    - minecraft:village/plains/houses/plains_cartographer_1
+    - minecraft:village/taiga/houses/taiga_cartographer_house_1
+
+lugares:
+  # Espalha vilas, tavernas, castelos, torres, masmorras, ruínas e acampamentos prontos (datapacks) pelo mapa
+  automatico: true
+  raio-descoberta: 40
+  distancia-minima-entre: 220
+  # Longe da última posição, cama e terrenos (GriefPrevention) de todos os jogadores
+  distancia-de-jogadores: 160
+  tentativas: 40
+  # Área carregada em volta de cada estrutura na hora de colocar (o jogo exige tudo carregado)
+  raio-carregar: 144
+  planos:
+    vilas:
+      tipo: VILA
+      quantidade: 4
+      anel: [350, 1100]
+      estruturas: [auto-vila]
+      raio-zona: 48
+      protegido: true
+      raio-foto: 96
+    tavernas:
+      tipo: TAVERNA
+      quantidade: 3
+      anel: [250, 1400]
+      estruturas: [auto-taverna]
+      raio-zona: 24
+      protegido: true
+      raio-foto: 48
+    torres:
+      tipo: TORRE
+      quantidade: 3
+      anel: [400, 1600]
+      estruturas: [structory_towers:wizard_tower, structory_towers:engineer_tower, structory_towers:farmer_outpost, structory:firetower]
+      raio-zona: 0
+      raio-foto: 40
+    ruinas:
+      tipo: RUINA
+      quantidade: 4
+      anel: [200, 1800]
+      estruturas: [structory:abandoned_chapel, structory:ruin_grassy, structory:graveyard, structory:old_manor, nova_structures:ruin_town]
+      raio-zona: 0
+      raio-foto: 56
+    masmorras:
+      tipo: MASMORRA
+      quantidade: 5
+      anel: [300, 2400]
+      estruturas: [nova_structures:catacomb, nova_structures:undead_crypt, nova_structures:creeping_crypt, nova_structures:surface_dungeon_default, nova_structures:trial_dungeon, nova_structures:toxic_lair]
+      raio-zona: 0
+      raio-foto: 56
+    castelos:
+      tipo: CASTELO
+      quantidade: 3
+      anel: [900, 2600]
+      estruturas: [nova_structures:illager_manor, nova_structures:lone_citadel, nova_structures:remnant_taiga_castle, nova_structures:illager_barracks]
+      raio-zona: 0
+      raio-foto: 72
+    acampamentos:
+      tipo: ACAMPAMENTO
+      quantidade: 2
+      anel: [300, 1500]
+      estruturas: [nova_structures:illager_camp, structory:abandoned_camp]
+      raio-zona: 0
+      raio-foto: 40
+  nomes:
+    vila: ["<green>Vila de Pedravale", "<green>Vila Ventoleste", "<green>Aldeia do Riacho", "<green>Vila Brumafria", "<green>Aldeia Solaris", "<green>Vila Carvalhal"]
+    taverna: ["<yellow>Taverna do Corvo Bêbado", "<yellow>Estalagem da Lua Cheia", "<yellow>Taverna da Última Gota", "<yellow>Estalagem do Viajante"]
+    torre: ["<aqua>Torre do Arcano", "<aqua>Torre de Vigia do Norte", "<aqua>Torre do Engenheiro", "<aqua>Atalaia Solitária"]
+    ruina: ["<gray>Ruínas de Velhária", "<gray>Capela Abandonada", "<gray>Cemitério dos Antigos", "<gray>Cidade em Ruínas", "<gray>Solar Esquecido"]
+    masmorra: ["<dark_red>Catacumbas Esquecidas", "<dark_red>Cripta dos Lamentos", "<dark_red>Covil Tóxico", "<dark_red>Masmorra do Eco", "<dark_red>Cripta Rastejante", "<dark_red>Salões Selados"]
+    castelo: ["<red>Fortaleza de Grimhold", "<red>Bastião Sombrio", "<red>Cidadela de Ferro", "<red>Solar dos Saqueadores"]
+    acampamento: ["<dark_green>Acampamento Saqueador", "<dark_green>Acampamento Abandonado", "<dark_green>Posto dos Bandidos"]
+
+masmorras:
+  mundo: sobrevivencia
+  # Construídas bem alto, num canto do mapa (dentro da borda do mundo), longe de tudo
+  altura: 270
+  distancia: 40000
+  instancias-por-masmorra: 2
+  recarga-minutos: 20
+  tempo-maximo-minutos: 40
+  # Vida do chefe x isto (e +50% por jogador a mais)
+  chefe-vida: 2.5
+  xp-por-nivel: 120
+  # Raridade dos 2 itens do chefe: comum, incomum, raro, épico, lendário
+  pesos-recompensa: [0, 0, 35, 50, 15]
+  # false = só dá para entrar pelo Portão das Masmorras (santuário da capital)
+  entrar-de-qualquer-lugar-da-capital: false
+  lista:
+    cripta:
+      nome: "<gray><bold>Cripta dos Esquecidos"
+      tema: cripta
+      nivel: 10
+      nivel-minimo: 5
+      dinheiro: 600
+    aranhas:
+      nome: "<dark_green><bold>Covil da Rainha Aracna"
+      tema: aranhas
+      nivel: 22
+      nivel-minimo: 15
+      dinheiro: 1800
+    fortaleza:
+      nome: "<dark_red><bold>Fortaleza do Rei Caído"
+      tema: fortaleza
+      nivel: 38
+      nivel-minimo: 30
+      dinheiro: 5000

@@ -1,0 +1,33 @@
+# ==================================================================
+#  Missão: O minério perdido
+# ==================================================================
+# tipo: MATAR (objetivo.mob + quantidade [+ mundo]) | COLETAR (objetivo.item + quantidade)
+#       ENTREGAR (o jogador recebe objetivo.item com objetivo.nome_item e leva até "entregar_para")
+# npc: quem oferece | entregar_para: onde termina (padrão: o mesmo NPC)
+# requisito: missão que precisa ter sido feita antes (cadeia de missões)
+# repetir: NUNCA, DIARIA ou SEMANAL
+# recompensa: dinheiro, itens (com nome/encantamentos), comandos ({jogador}) e reputacao (usada na fase 4)
+# Depois de editar: /npcv reload
+# ==================================================================
+id: borin_minerio_perdido
+nome: "<gold>O minério perdido"
+npc: ferreiro_borin
+tipo: COLETAR
+objetivo:
+  item: IRON_INGOT
+  quantidade: 32
+repetir: NUNCA
+descricao:
+  - "Perdi um carregamento inteiro de ferro quando a mina desabou..."
+  - "Se você me trouxer 32 barras de ferro, faço uma picareta especial para você!"
+fala_aceitar: "Ótimo! Funda o minério de ferro numa fornalha e me traga as barras."
+fala_conclusao: "Perfeito, {jogador}! Como prometido, aqui está a sua picareta. Feita com carinho!"
+recompensa:
+  dinheiro: 300
+  reputacao: 50
+  itens:
+    - item: IRON_PICKAXE
+      nome: "<aqua>Picareta do Borin"
+      encantamentos:
+        efficiency: 3
+        unbreaking: 2

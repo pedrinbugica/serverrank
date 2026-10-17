@@ -15,3 +15,8 @@ groups:
     - sobrevivencia_the_end
     shares:
     - all
+  lobby:
+    worlds:
+    - lobby
+    shares:
+    - all

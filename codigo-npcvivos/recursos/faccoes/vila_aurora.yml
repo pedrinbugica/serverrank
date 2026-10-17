@@ -1,0 +1,20 @@
+# ==================================================================
+#  Facção: Vila Aurora
+# ==================================================================
+# NPCs entram numa facção com /npcv faccao <npc> vila_aurora
+# relacoes: ALIADA, NEUTRA, RIVAL ou GUERRA com outras facções (a staff muda no jogo com /npcv relacao)
+# beneficios_membro.desconto: desconto nas lojas da facção para quem jurou lealdade (0.10 = 10%)
+# Reputação: -1000 a +1000. Inimigo (-1000 a -501) | Hostil (-500 a -101) | Neutro | Amigo (101 a 500) | Herói (501+)
+# Depois de editar: /npcv reload
+# ==================================================================
+id: vila_aurora
+nome: "<green>Vila Aurora"
+tag: "<dark_green>[<green>Aurora<dark_green>] "
+lider: ferreiro_borin
+descricao:
+  - "Ferreiros e fazendeiros que vivem em volta da praça do spawn."
+  - "Pagam bem quem protege a vila dos monstros."
+relacoes:
+  irmandade_do_sul: RIVAL
+beneficios_membro:
+  desconto: 0.10

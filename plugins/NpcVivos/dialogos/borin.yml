@@ -1,0 +1,90 @@
+# ==================================================================
+#  Conversa do Borin, o Ferreiro (ligada ao NPC por "dialogo.arvore: borin")
+# ==================================================================
+# Cada nó tem "fala" (o NPC diz uma delas) e "opcoes" (linhas clicáveis no chat).
+# "fala_retorno" é usada quando o jogador já conversou antes (o NPC lembra dele).
+# Opção:
+#   texto: o que aparece para clicar
+#   ir: <nó>                 vai para outro nó
+#   acao: loja | vender | fechar | ver_missao | dar_missao | entregar_missao | entrar_faccao
+#   missao: <id>             para as ações de missão
+#   fala: "..."              resposta do NPC antes de seguir
+#   comandos: ["..."]        comandos do console ({jogador} = nome)
+#   se:                      condições (todas precisam valer para a opção aparecer)
+#     missao_ativa / missao_pronta / missao_concluida / missao_nao_concluida / missao_disponivel: <id>
+#     visitas_min: 3   |   permissao: algo.vip   |   tem_item: IRON_INGOT:32
+#     reputacao_min: 150   |   nivel_min: AMIGO   |   membro: npc   |   nao_membro: npc   (npc = facção do NPC)
+# As missões do NPC aparecem sozinhas na primeira tela ("Missão: ..." e "Entregar: ...").
+# Depois de editar: /npcv reload
+# ==================================================================
+inicio: entrada
+nos:
+  entrada:
+    fala:
+      - "Bem-vindo à minha forja, {jogador}! Ferramentas, armaduras e consertos. O que vai ser?"
+    fala_retorno:
+      - "Olá de novo, {jogador}! A forja está quente, o que vai ser?"
+      - "Ah, {jogador}! Trouxe o ferro?"
+    opcoes:
+      - texto: "Quero ver suas mercadorias"
+        acao: loja
+      - texto: "Conte um pouco sobre você"
+        ir: historia
+      - texto: "Alguma notícia da região?"
+        ir: noticias
+      - texto: "O que é a Vila Aurora?"
+        ir: vila
+  vila:
+    fala:
+      - "A Vila Aurora somos nós: eu, a Marta, o Tomás da guarda e todo mundo em volta da praça."
+      - "Quem ajuda a vila ganha nossa confiança. Quem ataca a gente... vai se ver com o Tomás."
+    opcoes:
+      - texto: "Quero jurar lealdade à Vila Aurora"
+        se:
+          nao_membro: npc
+        fala: "Hah! Gosto de gente decidida, {jogador}."
+        acao: entrar_faccao
+      - texto: "Como ganho a confiança de vocês?"
+        fala: "Faça missões, venda suas coisas aqui e mate os monstros que rondam a vila. Veja como está em /reputacao."
+        ir: vila
+      - texto: "Tem algum trabalho especial?"
+        se:
+          missao_disponivel: borin_encomenda_especial
+        acao: ver_missao
+        missao: borin_encomenda_especial
+      - texto: "Voltar"
+        ir: entrada
+  historia:
+    fala:
+      - "Forjo há mais de trinta anos. Meu martelo já moldou espadas para reis... e pás para fazendeiros!"
+    opcoes:
+      - texto: "Por que você veio para cá?"
+        ir: historia2
+      - texto: "Voltar"
+        ir: entrada
+  historia2:
+    fala:
+      - "O ferro daqui é o melhor que já vi. Só falta gente corajosa para buscá-lo nas cavernas."
+    opcoes:
+      - texto: "Eu posso ajudar com isso!"
+        se:
+          missao_disponivel: borin_minerio_perdido
+        acao: ver_missao
+        missao: borin_minerio_perdido
+      - texto: "Sua picareta ficou ótima, obrigado!"
+        se:
+          missao_concluida: borin_minerio_perdido
+        fala: "Hah! Cuide bem dela, {jogador}. E volte quando precisar de conserto."
+        ir: entrada
+      - texto: "Voltar"
+        ir: entrada
+  noticias:
+    fala:
+      - "A Marta, lá do outro lado da praça, anda preocupada com os zumbis perto da plantação."
+      - "Ouvi dizer que tem gente minerando diamante bem fundo. Tenha cuidado com a lava!"
+    opcoes:
+      - texto: "Vou falar com ela"
+        fala: "Faça isso. Ela paga bem quem ajuda."
+        ir: entrada
+      - texto: "Voltar"
+        ir: entrada

@@ -14,7 +14,7 @@ menuop-mensagem-servidor: <gold>[Servidor] <white>{mensagem}
 menuop-aviso: <red><bold>⚠ AVISO DA STAFF:</bold> <white>{mensagem}
 menuop-chat-limpo: <gray>O chat foi limpo por <white>{jogador}<gray>.
 menuop-mao-vazia: <red>{jogador} não está segurando nenhum item.
-menuop-anuncio: <gold><bold>📢 ANÚNCIO</bold> <dark_gray>» <white>{mensagem}
+menuop-anuncio: <gold><bold>✦ ANÚNCIO</bold> <dark_gray>» <white>{mensagem}
 menuop-presente: '<gold>✦ Presente do Dono: <white>{presente}<gold>!'
 menuop-desligamento-cancelado: <green>O desligamento do servidor foi cancelado.
 menuop-desligando: <red>⚠ O servidor vai desligar em <white>{segundos}s<red>! <gray>(por

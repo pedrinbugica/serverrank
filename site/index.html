@@ -136,7 +136,7 @@ footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line);
       <canvas id="icone" width="16" height="16" aria-hidden="true"></canvas>
       <h1>RANKUP <span>SUPREMO</span></h1>
     </div>
-    <p class="lead">Servidor brasileiro de Minecraft com <strong>Rankup</strong> (15 ranks, 15 minas e 100 prestígios) e um mundo <strong>Sobrevivência</strong> completo, com Nether e End próprios. Tudo em português.</p>
+    <p class="lead">Servidor brasileiro de Minecraft com <strong>Rankup</strong> (15 ranks, 15 minas e 100 prestígios) e um <strong>SMP RPG</strong> com classes, níveis, masmorras com chefes, vilas, tavernas e castelos, com Nether e End próprios. Tudo começa num lobby com portais. Tudo em português.</p>
     <div class="ip">
       <span class="rotulo">IP do servidor</span>
       <span class="valor" id="ip">SEU-IP-AQUI</span>
@@ -147,19 +147,23 @@ footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line);
       <span class="fato">Original e pirata</span>
       <span class="fato">Paper 26.3</span>
       <span class="fato">Inventário e dinheiro separados por mundo</span>
+      <span class="fato">Lobby com portais</span>
+      <span class="fato">SMP RPG: classes e masmorras</span>
     </div>
   </header>
 
   <nav class="secoes" aria-label="Seções">
     <ul>
       <li><a href="#comecar">Começar</a></li>
+      <li><a href="#lobby">Lobby</a></li>
       <li><a href="#comandos">Comandos</a></li>
       <li><a href="#ranks">Ranks e minas</a></li>
       <li><a href="#especiais">Minas especiais</a></li>
       <li><a href="#picareta">Picareta</a></li>
       <li><a href="#loja">Tokens e loja</a></li>
+      <li><a href="#npcs">NPCs</a></li>
       <li><a href="#prestigio">Prestígio</a></li>
-      <li><a href="#sobrevivencia">Sobrevivência</a></li>
+      <li><a href="#sobrevivencia">SMP RPG</a></li>
       <li><a href="#vip">VIP</a></li>
       <li><a href="#staff">Staff</a></li>
       <li><a href="#dono">Dono</a></li>
@@ -173,12 +177,12 @@ footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line);
     <ol class="passos">
       <li><div><strong>Entre no servidor</strong> pelo IP acima (Multijogador → Adicionar servidor).</div></li>
       <li><div><strong>Crie sua conta</strong> com <code>/registrar SENHA SENHA</code>. Nas próximas vezes, use <code>/logar SENHA</code>. Tem Minecraft original? Use <code>/premium</code> uma vez e entre sem senha.</div></li>
-      <li><div>Você nasce no spawn com a <strong>Picareta Suprema</strong> (inquebrável). Use <code>/minas</code> para ir à sua mina.</div></li>
+      <li><div>Você chega no <strong>lobby</strong>. Atravesse o portal <strong>dourado</strong> para o Rankup (lá você ganha a <strong>Picareta Suprema</strong>, inquebrável, e usa <code>/minas</code> para ir à sua mina) ou o portal <strong>verde</strong> para o <strong>SMP RPG</strong>.</div></li>
       <li><div><strong>Minere</strong>: os blocos vão direto para o inventário. Depois use <code>/vender</code>.</div></li>
       <li><div>Junte dinheiro e use <code>/rankup</code> para subir de rank e liberar uma mina melhor.</div></li>
       <li><div>Melhore a picareta com <code>/picareta</code>: Eficiência, Fortuna e Explosão com dinheiro; Laser, Sorte de Token, Velocidade, Visão Noturna e Fundição com <strong>tokens</strong>, que caem enquanto você minera.</div></li>
       <li><div>Use <code>/loja</code> para comprar boosters de venda e de tokens.</div></li>
-      <li><div>Quer um survival normal? Use <code>/sobrevivencia</code>. O inventário <strong>e o dinheiro</strong> de lá são separados do Rankup.</div></li>
+      <li><div>Quer aventura? No <strong>SMP RPG</strong> escolha sua classe com <code>/classe</code>, explore vilas e castelos e enfrente masmorras com o seu grupo. O inventário <strong>e o dinheiro</strong> de lá são separados do Rankup.</div></li>
     </ol>
     <div class="aviso"><strong>Nunca</strong> use a mesma senha de outros jogos ou do seu e-mail. A staff jamais pede sua senha.</div>
   </section>
@@ -224,15 +228,26 @@ footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line);
           <tr data-quem="jogador"><td><span class="cmd">/toprank</span><span class="alias">/topranks</span></td><td>Os 10 melhores jogadores.</td><td><span class="selo s-todos">Todos</span></td></tr>
 
           <tr class="grupo" data-quem="jogador"><td colspan="3">Mundos e teleporte</td></tr>
-          <tr data-quem="jogador"><td><span class="cmd">/spawn</span><span class="alias">/lobby</span></td><td>Volta ao spawn do Rankup.</td><td><span class="selo s-todos">Todos</span></td></tr>
-          <tr data-quem="jogador"><td><span class="cmd">/sobrevivencia</span><span class="alias">/survival /sv</span></td><td>Vai para o mundo Sobrevivência, de onde você parou.</td><td><span class="selo s-todos">Todos</span></td></tr>
-          <tr data-quem="jogador"><td><span class="cmd">/mundos</span><span class="alias">/servidores</span></td><td>Menu para escolher entre Rankup e Sobrevivência.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/lobby</span><span class="alias">/hub /inicio</span></td><td>Volta para a ilha do lobby, com os portais dos modos de jogo.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/spawn</span></td><td>Vai ao spawn do Rankup.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/sobrevivencia</span><span class="alias">/survival /sv</span></td><td>Vai para o SMP RPG, de onde você parou.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/mundos</span><span class="alias">/servidores</span></td><td>Menu para escolher entre Lobby, Rankup e SMP RPG.</td><td><span class="selo s-todos">Todos</span></td></tr>
           <tr data-quem="jogador"><td><span class="cmd">/rtp</span><span class="alias">/aleatorio /wild</span></td><td>Teleporte para um lugar aleatório e seguro do survival (a cada 60 s).</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
           <tr data-quem="jogador"><td><span class="cmd">/tpa &lt;jogador&gt;</span></td><td>Pede para ir até um jogador. Ele aceita com <code>/tpaccept</code> ou recusa com <code>/tpdeny</code>.</td><td><span class="selo s-todos">Todos</span></td></tr>
           <tr data-quem="jogador"><td><span class="cmd">/tpahere &lt;jogador&gt;</span></td><td>Pede para um jogador vir até você. <code>/tpacancel</code> cancela.</td><td><span class="selo s-todos">Todos</span></td></tr>
           <tr data-quem="jogador"><td><span class="cmd">/sethome [nome]</span></td><td>Marca uma casa (2 casas; VIP 5; VIP+ 7; MVP 10).</td><td><span class="selo s-todos">Todos</span></td></tr>
           <tr data-quem="jogador"><td><span class="cmd">/home [nome]</span><span class="alias">/delhome [nome]</span></td><td>Vai para a casa ou apaga uma casa.</td><td><span class="selo s-todos">Todos</span></td></tr>
           <tr data-quem="jogador"><td><span class="cmd">/back</span></td><td>Volta para onde você estava antes, ou para o local da morte.</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
+
+          <tr class="grupo" data-quem="jogador"><td colspan="3">SMP RPG</td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/rpg</span><span class="alias">/perfil /personagem</span></td><td>Seu personagem: nível, XP, mana, classe, atributos, habilidades, grupo, lugares e masmorras.</td><td><span class="selo s-surv">SMP RPG</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/classe [nome]</span><span class="alias">/classes</span></td><td>Escolhe a classe (a primeira é grátis). Trocar custa dinheiro, devolve os pontos e tem espera de 24 h.</td><td><span class="selo s-surv">SMP RPG</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/atributos</span><span class="alias">/pontos</span></td><td>Distribui os pontos que você ganha a cada nível (clique +1, Shift +5).</td><td><span class="selo s-surv">SMP RPG</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/poderes</span><span class="alias">/magias</span></td><td>Mostra as 3 habilidades da sua classe. Para usar: F com a arma da classe, depois 1, 2 ou 3.</td><td><span class="selo s-surv">SMP RPG</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/grupo convidar &lt;nick&gt;</span><span class="alias">/party</span></td><td>Monta um grupo de até 5: sem fogo amigo e com bônus de XP. Também: aceitar, sair, expulsar, lista e ir (teleporta até o líder).</td><td><span class="selo s-surv">SMP RPG</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/g &lt;mensagem&gt;</span></td><td>Chat do grupo.</td><td><span class="selo s-surv">SMP RPG</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/lugares</span><span class="alias">/mapa /viajar</span></td><td>Lugares descobertos com distância e direção. De dentro de uma cidade, vila ou taverna: viagem rápida para outra.</td><td><span class="selo s-surv">SMP RPG</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/masmorra</span><span class="alias">/dungeon /dg</span></td><td>Menu das masmorras (entre pelo Portão das Masmorras da capital). <code>/masmorra sair</code> desiste.</td><td><span class="selo s-surv">SMP RPG</span></td></tr>
 
           <tr class="grupo" data-quem="jogador"><td colspan="3">Sobrevivência</td></tr>
           <tr data-quem="jogador"><td><span class="cmd">Pá de ouro</span></td><td>Clique com o botão direito em 2 cantos para proteger um terreno (começa com 100 blocos e ganha mais jogando).</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
@@ -250,6 +265,14 @@ footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line);
           <tr data-quem="jogador"><td><span class="cmd">/qs</span><span class="alias">/quickshop</span></td><td>Lojas em baú entre jogadores. Para criar: segure o item, bata no baú e digite o preço.</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
           <tr data-quem="jogador"><td><span class="cmd">/sentar</span><span class="alias">/sit · /deitar /lay</span></td><td>Senta ou deita onde você está.</td><td><span class="selo s-todos">Todos</span></td></tr>
           <tr data-quem="jogador"><td><span class="cmd">Agachar + quebrar minério</span></td><td>Minera o veio inteiro de uma vez (até 64 blocos).</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
+
+          <tr class="grupo" data-quem="jogador"><td colspan="3">NPCs, missões e facções</td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/missoes</span><span class="alias">/missao /quests</span></td><td>Suas missões e o progresso de cada uma (máximo de 5 ao mesmo tempo).</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/missoes abandonar &lt;número&gt;</span></td><td>Desiste de uma missão (o pacote de entrega, se tiver, some).</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/faccao</span><span class="alias">/faccoes</span></td><td>Lista as facções, as relações entre elas e sua reputação com cada uma.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/faccao entrar &lt;id&gt; · sair</span></td><td>Jura lealdade a uma facção (precisa estar pelo menos Neutro) ou sai dela (custa 100 de reputação e espera de 24h para entrar em outra).</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/faccao guerras</span></td><td>Placar das guerras entre facções que estão acontecendo e quanto tempo falta.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="jogador"><td><span class="cmd">/reputacao</span><span class="alias">/rep</span></td><td>Sua reputação com cada facção e o que ela muda (preços, missões, guardas).</td><td><span class="selo s-todos">Todos</span></td></tr>
 
           <tr class="grupo" data-quem="jogador"><td colspan="3">Dinheiro e conversa</td></tr>
           <tr data-quem="jogador"><td><span class="cmd">/dinheiro</span><span class="alias">/money /bal</span></td><td>Mostra seu saldo no mundo onde você está (Rankup e Sobrevivência têm dinheiro separado).</td><td><span class="selo s-todos">Todos</span></td></tr>
@@ -287,8 +310,23 @@ footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line);
           <tr data-quem="staff"><td><span class="cmd">/axgraves list · tp</span></td><td>Lista túmulos e teleporta até eles (Admin).</td><td><span class="selo s-surv">Sobrevivência</span></td></tr>
 
           <tr class="grupo" data-quem="dono"><td colspan="3">Dono e administração</td></tr>
-          <tr data-quem="dono"><td><span class="cmd">/menuop [jogador]</span><span class="alias">/painelop</span></td><td>Painel do dono: dinheiro, picaretas OP, ranks, prestígio, kit OP e utilidades.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="dono"><td><span class="cmd">/menuop [jogador]</span><span class="alias">/painelop</span></td><td>Painel do dono com tudo: jogador, moderação, cargos, economia, itens, mundos e servidor.</td><td><span class="selo s-todos">Todos</span></td></tr>
           <tr data-quem="dono"><td><span class="cmd">/rankupadmin</span><span class="alias">/rua</span></td><td>Lista de subcomandos do plugin de rankup (veja a seção Dono).</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="dono"><td><span class="cmd">/npcv editar [id]</span></td><td>Menu com tudo do NPC: papéis, facção, skin, conversa, item na mão, preços da loja, mover e remover (sem id, abre o NPC mais perto).</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="dono"><td><span class="cmd">/npcv criar &lt;papel&gt; &lt;id&gt; [nome]</span><span class="alias">/npcs</span></td><td>Cria um NPC onde você está (comerciante, ferreiro, guia, missionario, guarda, mercenario, duelista ou boss). Veja <code>/npcv</code> para editar nome, skin, falas e loja.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="dono"><td><span class="cmd">/npcv loja &lt;id&gt; compra|venda &lt;preço&gt;</span></td><td>Coloca o item da sua mão na loja do NPC (o jogador compra ou vende).</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="dono"><td><span class="cmd">/npcv faccao &lt;npc&gt; &lt;facção|nenhuma&gt;</span></td><td>Coloca o NPC numa facção (guardas protegem a facção deles).</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="dono"><td><span class="cmd">/npcv dar &lt;jogador&gt; &lt;pedra&gt; [qtd]</span></td><td>Dá pedras de aprimoramento (comum, rara, epica, lendaria) ou um pergaminho de proteção.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="dono"><td><span class="cmd">/npcv aprimorar &lt;nível 0-10&gt;</span></td><td>Define o nível do item que você está segurando (e, se quiser, força a raridade dele).</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="dono"><td><span class="cmd">/npcv relacao &lt;facção&gt; &lt;outra&gt; &lt;aliada|neutra|rival|guerra&gt;</span></td><td>Muda a relação entre duas facções e anuncia para o servidor inteiro ("guerra" começa uma guerra com placar e prazo).</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="dono"><td><span class="cmd">/npcv guerra iniciar|parar &lt;facção&gt; &lt;outra&gt; [horas]</span></td><td>Começa ou termina uma guerra de facção (quem tem mais pontos vence). <code>/npcv guerra lista</code> mostra o placar.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="dono"><td><span class="cmd">/npcv invasao &lt;atacante&gt; &lt;defensor&gt; | parar</span></td><td>Manda ondas de soldados contra a vila de uma facção (ótimo para eventos).</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="dono"><td><span class="cmd">/npcv mercado ligar|desligar|ver &lt;npc&gt;|trocar</span></td><td>Liga/desliga o preço dinâmico, mostra procura e oferta de uma loja e força a troca de estoque entre NPCs.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="dono"><td><span class="cmd">/npcv promocao &lt;facção|todas&gt; &lt;%&gt; &lt;minutos&gt;</span></td><td>Anuncia uma promoção nas lojas dos NPCs.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="dono"><td><span class="cmd">/npcv pontuacao &lt;facção&gt; &lt;outra&gt; [valor|~n]</span></td><td>Vê ou muda a pontuação entre duas facções (de -100 a 100); passar dos limites muda a relação sozinho.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="dono"><td><span class="cmd">/npcv reputacao &lt;jogador&gt; &lt;facção&gt; [valor|~n]</span></td><td>Vê, define (de -1000 a 1000) ou soma (<code>~50</code>, <code>~-50</code>) a reputação de um jogador.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="dono"><td><span class="cmd">/npcv membro &lt;jogador&gt; &lt;facção|nenhuma&gt;</span></td><td>Coloca ou tira um jogador de uma facção, sem espera.</td><td><span class="selo s-todos">Todos</span></td></tr>
+          <tr data-quem="dono"><td><span class="cmd">/npcv combate [&lt;id&gt; ver|vida &lt;n&gt;|curar|matar|posto]</span></td><td>Mostra o estado, a vida e o alvo dos NPCs que lutam, e deixa ajustar a vida ou remarcar o posto de origem.</td><td><span class="selo s-todos">Todos</span></td></tr>
           <tr data-quem="dono"><td><span class="cmd">/rankupadmin tokens &lt;jogador&gt; dar|tirar|definir &lt;qtd&gt;</span></td><td>Mexe nos tokens de mina de um jogador.</td><td><span class="selo s-todos">Todos</span></td></tr>
           <tr data-quem="dono"><td><span class="cmd">/eco give|take|set &lt;jogador&gt; &lt;valor&gt;</span></td><td>Mexe no dinheiro de um jogador (no mundo onde ele está agora).</td><td><span class="selo s-todos">Todos</span></td></tr>
           <tr data-quem="dono"><td><span class="cmd">/lp user &lt;jogador&gt; parent add vip</span></td><td>Dá um grupo (vip, vipplus, mvp, ajudante, moderador, admin, dono).</td><td><span class="selo s-todos">Todos</span></td></tr>
@@ -378,6 +416,120 @@ footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line);
     <div class="dica">Na Sobrevivência, a <code>/loja</code> vende blocos, comida, ferramentas (incluindo a pá de ouro), sementes e itens especiais, e compra farm, drops de mobs e minérios. O dinheiro da Sobrevivência começa do zero e não se mistura com o do Rankup.</div>
   </section>
 
+  <!-- NPCs -->
+  <section id="npcs">
+    <span class="eyebrow">Mundo vivo</span>
+    <h2>NPCs</h2>
+    <p>Os NPCs olham para quem chega perto, conversam e lembram de você. Clique com o botão direito para falar com eles e escolha as opções clicando no chat.</p>
+    <div class="tabela">
+      <table>
+        <thead><tr><th>NPC</th><th>Onde</th><th>O que faz</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Lucas, o Guia</strong></td><td>Spawn do Rankup</td><td>Dá uma dica diferente sobre o servidor a cada clique.</td></tr>
+          <tr><td><strong>Borin, o Ferreiro</strong></td><td>Spawn da Sobrevivência</td><td>Vende ferramentas e armaduras de ferro, compra minérios, conserta itens gastos, <strong>aprimora armas e armaduras</strong> e dá missões (uma especial só para amigos da vila).</td></tr>
+          <tr><td><strong>Marta, a Fazendeira</strong></td><td>Spawn da Sobrevivência</td><td>Vende sementes, pão e farinha de osso, compra o que você colher e pede ajuda contra os zumbis.</td></tr>
+          <tr><td><strong>Tomás, o Guarda</strong></td><td>Spawn da Sobrevivência</td><td>Protege a Vila Aurora: avisa, bate e atira flechas em quem ataca a vila ou é inimigo dela.</td></tr>
+          <tr><td><strong>Kaela, a Duelista</strong></td><td>Spawn da Sobrevivência</td><td>Desafia você para um <strong>duelo 1 contra 1</strong> em quatro dificuldades, com aposta, prêmio e título.</td></tr>
+          <tr><td><strong>Dargo, o Mercenário</strong></td><td>Spawn da Sobrevivência</td><td>Você paga e ele <strong>te segue e luta por você</strong> por 30 minutos.</td></tr>
+          <tr><td><strong>Iara, a Mercadora</strong></td><td>Spawn da Sobrevivência</td><td>Caravana dos <strong>Mercadores Livres</strong>: pão, pérolas e varas de blaze do Sul, flechas, selas e etiquetas. Troca estoque com a Marta e o Borin.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="dica">O estoque dos NPCs acaba e volta aos poucos, e cada um compra só uma quantidade por dia de cada jogador, então vale visitar todo dia. Os preços costumam ser melhores que os da <code>/loja</code>.</div>
+
+    <h3>Missões</h3>
+    <p>Quando um NPC tem trabalho, aparece <strong>✦ Missão</strong> na conversa. Há missões de matar mobs, de coletar itens e de levar um pacote até outro NPC. Algumas são diárias ou semanais, e algumas só aparecem depois de terminar outra. Acompanhe tudo no <code>/missoes</code> e volte ao NPC para receber a recompensa (dinheiro, itens especiais e reputação).</p>
+
+    <h3>Aprimorar armas e armaduras (+1 a +10)</h3>
+    <p>Segure a arma ou a armadura na mão, fale com o <strong>Borin</strong> (ou qualquer ferreiro) e escolha <strong>"Aprimorar uma arma ou armadura"</strong>. A forja mostra o custo, a chance de dar certo e o que você ganha. Cada nível soma de 5% a 12% de dano (armas) ou de defesa (armaduras, as quatro peças somam). Em PvP o bônus para de crescer nos 40%.</p>
+    <p>Cada tentativa custa dinheiro e <strong>Pedras de Aprimoramento</strong>, e pode falhar — o custo é gasto do mesmo jeito. Do <strong>+7</strong> para cima a falha ainda faz o item <strong>perder nível</strong>, a não ser que você tenha um <strong>Pergaminho de Proteção</strong>. O nível fica guardado dentro do item: não some ao renomear.</p>
+    <div class="tabela">
+      <table>
+        <thead><tr><th>Raridade do item</th><th>Exemplos</th><th>Vai até</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Lendário</strong></td><td>Netherite, maça, tridente</td><td>+10</td></tr>
+          <tr><td><strong>Épico</strong></td><td>Diamante</td><td>+9</td></tr>
+          <tr><td><strong>Raro</strong></td><td>Ferro, malha, casco, arco e besta</td><td>+7</td></tr>
+          <tr><td><strong>Comum</strong></td><td>Madeira, pedra, ouro, couro</td><td>+5</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul>
+      <li><strong>Onde achar pedras:</strong> caem dos monstros que você matar (não valem os de spawner, e não caem no mundo do Rankup). Comum 2%, rara 0,4%, épica 0,05% e lendária 0,01%. O Borin vende as comuns por $40.</li>
+      <li><strong>Chefes</strong> (Wither, Dragão, Warden e Guardião Ancião) sempre deixam pedras boas.</li>
+      <li><strong>Do +9 em diante</strong> a arma desperta uma habilidade sorteada: roubo de vida, dano em área ou lentidão no alvo. Quem chega ao +9 ou +10 é anunciado para o servidor inteiro.</li>
+      <li>Ser <strong>Amigo</strong> (+5%) ou <strong>Herói</strong> (+8%) da facção do ferreiro melhora a chance, e a reputação também dá desconto no preço.</li>
+    </ul>
+
+    <h3>Facções e reputação</h3>
+    <p>Os NPCs pertencem a facções. Sua reputação com cada uma vai de -1000 a +1000 e muda o jeito que eles te tratam. Veja a sua no <code>/reputacao</code>.</p>
+    <div class="tabela">
+      <table>
+        <thead><tr><th>Nível</th><th>Pontos</th><th>O que acontece</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Herói</strong></td><td>501 a 1000</td><td>20% de desconto e vendas pagam 10% a mais.</td></tr>
+          <tr><td><strong>Amigo</strong></td><td>101 a 500</td><td>10% de desconto, vendas pagam 5% a mais e missões especiais.</td></tr>
+          <tr><td><strong>Neutro</strong></td><td>-100 a 100</td><td>Preços normais.</td></tr>
+          <tr><td><strong>Hostil</strong></td><td>-500 a -101</td><td>Preços 50% mais caros e nada de missões.</td></tr>
+          <tr><td><strong>Inimigo</strong></td><td>-1000 a -501</td><td>Os NPCs não conversam nem vendem, e os guardas atacam.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul>
+      <li><strong>Ganha reputação:</strong> fazendo missões, vendendo para os NPCs da facção e matando monstros perto da vila (vendas e monstros dão até 30 pontos por dia).</li>
+      <li><strong>Perde reputação:</strong> batendo num NPC (-15) ou num membro da facção perto de um guarda (-5). Quem está negativo recupera 5 pontos a cada 10 minutos online.</li>
+      <li><strong>Jurar lealdade</strong> (<code>/faccao entrar</code>) dá mais 10% de desconto nas lojas da facção e a etiqueta dela no chat, como <code>[Aurora]</code>. Membros de facções rivais não podem negociar com a outra.</li>
+      <li>A <strong>Vila Aurora</strong> (Borin, Marta, Tomás, Kaela e Dargo) e a <strong>Irmandade do Sul</strong> são rivais. A staff pode declarar guerra ou paz a qualquer momento, e o servidor inteiro fica sabendo.</li>
+    </ul>
+
+    <h3>Mercenários, duelos e chefes</h3>
+    <p>Alguns NPCs lutam. A vida deles é do plugin, não do corpo: não morrem de queda, de fogo nem de flecha perdida — só de golpe de jogador. Quem cai volta ao posto depois de um tempo, e com menos de 20% da vida foge e chama os aliados da facção que estiverem perto (chefe nunca foge).</p>
+    <div class="grade-2">
+      <div class="bloco">
+        <h3>Contratar um mercenário</h3>
+        <ul>
+          <li>Fale com o <strong>Dargo</strong> e escolha <strong>"Contratar como mercenário"</strong>: <strong>$1.500 por 30 minutos</strong>.</li>
+          <li>Ele anda atrás de você, teleporta se você se afastar muito e <strong>bate em quem bater em você</strong>.</li>
+          <li>Só aceita contrato em mundo com PvP ligado, e é um por jogador.</li>
+          <li>Se cair em combate, fica 10 minutos se recuperando antes do próximo contrato.</li>
+          <li><code>/mercenario</code> mostra o contrato e <code>/mercenario dispensar</code> encerra.</li>
+        </ul>
+      </div>
+      <div class="bloco">
+        <h3>Enfrentar um chefe</h3>
+        <ul>
+          <li>Chefes têm <strong>400 de vida</strong> e barra no topo da tela para quem está a até 48 blocos.</li>
+          <li>Quatro habilidades: <strong>investida</strong>, <strong>puxar você</strong>, <strong>acender o chão</strong> e <strong>chamar ajudantes</strong> (essa só abaixo de 70% da vida).</li>
+          <li>Deixam <strong>$5.000</strong>, sete Pedras de Aprimoramento, diamantes e maçãs de ouro.</li>
+          <li>A queda e a volta do chefe são anunciadas no chat do servidor.</li>
+        </ul>
+      </div>
+    </div>
+    <p>No <strong>duelo</strong> com a Kaela você escolhe a dificuldade e a aposta é cobrada na hora. Você perde se morrer, se sair da arena (24 blocos), se estourar <strong>3 minutos</strong> ou se desistir pela conversa — e ninguém pode se meter no duelo de outro jogador.</p>
+    <div class="tabela">
+      <table>
+        <thead><tr><th>Dificuldade</th><th>Aposta</th><th>Prêmio</th><th>Reputação</th><th>Título</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Fácil</strong></td><td>$200</td><td>$500</td><td>+2</td><td>—</td></tr>
+          <tr><td><strong>Média</strong></td><td>$800</td><td>$2.200</td><td>+5</td><td>Duelista de Bronze</td></tr>
+          <tr><td><strong>Difícil</strong></td><td>$2.500</td><td>$8.000</td><td>+10</td><td>Duelista de Ferro</td></tr>
+          <tr><td><strong>Lendária</strong></td><td>$8.000</td><td>$30.000</td><td>+20</td><td>Duelista Lendário</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="dica">Matar um NPC de combate fora do duelo também paga dinheiro e deixa cair Pedras de Aprimoramento, mas cada jogador pega no máximo <strong>10 recompensas de NPC por hora</strong> — não dá para farmar o mesmo NPC em loop.</div>
+
+    <h3>Um mundo que muda sozinho</h3>
+    <p>As lojas, as alianças e as guerras mudam conforme o que os jogadores fazem — ninguém da staff precisa mexer.</p>
+    <ul>
+      <li><strong>Preços que mudam:</strong> muita gente comprando um item sobe o preço (até +60%); muita gente vendendo derruba (até -40%). Com o tempo tudo volta ao normal. A descrição do item na loja avisa: <em>"Muita procura +25%"</em>.</li>
+      <li><strong>Comércio entre NPCs:</strong> comerciantes da mesma facção ou de facções aliadas trocam estoque entre si a cada 20 minutos. Itens que vêm de outra facção param de chegar e ficam 50% mais caros se as duas entrarem em guerra.</li>
+      <li><strong>Alianças que mudam:</strong> cada par de facções tem uma pontuação. Matar NPCs ou membros da outra derruba; vencer um chefe junto e o comércio entre elas sobem. Passou do limite, o líder declara <strong>guerra</strong> — ou propõe aliança.</li>
+      <li><strong>Guerras com placar:</strong> duram 3 dias ou até alguém fazer 500 pontos (matar NPCs e jogadores inimigos, missões de guerra, invasões). Membros veem o placar no topo da tela e em <code>/faccao guerras</code>. A vencedora fica com as lojas <strong>10% mais baratas por 7 dias</strong> e quem ajudou ganha <strong>$300 e reputação</strong>. Em guerra, armas, armaduras, flechas e poções ficam 25% mais caras.</li>
+      <li><strong>Invasões:</strong> numa guerra, a facção inimiga pode mandar <strong>ondas de soldados</strong> contra a vila. Mate os soldados para ganhar dinheiro, reputação e pontos; se três chegarem ao centro, a vila é saqueada e as lojas perdem 30% do estoque.</li>
+    </ul>
+  </section>
+
   <!-- PRESTÍGIO -->
   <section id="prestigio">
     <span class="eyebrow">Fim de jogo</span>
@@ -404,11 +556,70 @@ footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line);
     </div>
   </section>
 
-  <!-- SOBREVIVÊNCIA -->
+  <!-- LOBBY -->
+  <section id="lobby">
+    <span class="eyebrow">Onde tudo começa</span>
+    <h2>Lobby</h2>
+    <p>Todo mundo que entra aparece numa <strong>ilha flutuante</strong> com um farol dourado no centro. Escolha o modo atravessando um portal: o <strong>dourado</strong> (à esquerda) leva ao <strong>Rankup</strong> e o <strong>verde</strong> (à direita) ao <strong>SMP RPG</strong>, de volta exatamente onde você parou. A bússola no meio da barra abre o menu de mundos e <code>/lobby</code> traz você de volta a qualquer hora. No lobby ninguém se machuca nem passa fome.</p>
+  </section>
+
+  <!-- SMP RPG -->
   <section id="sobrevivencia">
-    <span class="eyebrow">Segundo mundo</span>
-    <h2>Sobrevivência</h2>
-    <p>Um survival normal, com Nether e End próprios, dificuldade normal, PvP ligado e borda de 10.000 blocos. Inventário, vida, XP, baú do End <strong>e dinheiro</strong> são separados do Rankup: ganhe dinheiro vendendo farm, drops e minérios na <code>/loja</code> ou nas lojas em baú.</p>
+    <span class="eyebrow">Segundo modo</span>
+    <h2>SMP RPG</h2>
+    <p>Um survival de verdade (Nether, End, terrenos, lojas em baú) que virou <strong>RPG</strong>: escolha uma classe, suba até o nível 50, use habilidades, enfrente monstros com nível, descubra vilas, tavernas, torres, ruínas e castelos e derrote chefes em masmorras com o seu grupo. Inventário, vida, XP <strong>e dinheiro</strong> são separados do Rankup.</p>
+
+    <h3>Classes</h3>
+    <div class="tabela">
+      <table>
+        <thead><tr><th>Classe</th><th>Papel e arma</th><th>Habilidades (níveis 1, 10 e 20)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Guerreiro</strong></td><td>Tanque (Vitalidade). Espadas, machados e maça.</td><td>Grito de Guerra (puxa os monstros e ganha defesa) · Investida (avança derrubando) · Fúria (força, velocidade e cura)</td></tr>
+          <tr><td><strong>Arqueiro</strong></td><td>Dano à distância (Destreza). Arco e besta.</td><td>Tiro Triplo · Chuva de Flechas · Salto Evasivo</td></tr>
+          <tr><td><strong>Mago</strong></td><td>Magias de área (Inteligência). Vara de blaze, graveto ou tocha.</td><td>Bola de Fogo · Escudo de Gelo (absorve dano e deixa lento quem bate) · Teleporte Curto</td></tr>
+          <tr><td><strong>Clérigo</strong></td><td>Cura e protege o grupo (Sabedoria). Machado, maça ou pá.</td><td>Luz Curativa · Bênção (regeneração e defesa) · Martelo Sagrado (dano dobrado em mortos-vivos)</td></tr>
+          <tr><td><strong>Ladino</strong></td><td>Críticos e furtividade (Agilidade). Espadas.</td><td>Passo Sombrio (invisível e próximo golpe crítico) · Lâminas Venenosas · Bomba de Fumaça</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="dica"><strong>Como usar as habilidades:</strong> segure a arma da sua classe, aperte <strong>F</strong> (trocar de mão) e depois <strong>1</strong>, <strong>2</strong> ou <strong>3</strong>. <strong>F</strong> de novo sai do modo. Agachado + F troca de mão normalmente. A vida e a mana aparecem embaixo da tela.</div>
+
+    <div class="grade-2">
+      <div class="bloco">
+        <h3>Níveis, atributos e regiões</h3>
+        <ul>
+          <li>XP de RPG matando monstros, descobrindo lugares e vencendo chefes. A barra de XP mostra o seu nível de RPG.</li>
+          <li>A cada nível: 3 pontos em <code>/atributos</code> (Força, Destreza, Inteligência, Vitalidade, Sabedoria e Agilidade).</li>
+          <li>Quanto mais longe do spawn, mais fortes os monstros: Planícies de Aurora (1-6), Fronteira Verde (6-13), Terras Selvagens (13-22), Vale Sombrio (22-32), Confins Esquecidos (32-42) e Terras Sem Lei (42-50). Nether 12-30, End 25-40.</li>
+          <li>Monstros <strong>Elite</strong> (nome dourado) e <strong>Campeão</strong> (brilhando) têm poderes (rápido, vampiro, explosivo, invocador, blindado, congelante) e derrubam itens raros.</li>
+          <li>Itens de RPG: Comum, Incomum, Raro, Épico e Lendário, com atributos e efeitos (sangramento, roubo de vida, golpe certeiro). Cada um exige um nível.</li>
+        </ul>
+      </div>
+      <div class="bloco">
+        <h3>Vila Aurora e o mundo</h3>
+        <ul>
+          <li>O spawn é a capital <strong>Vila Aurora</strong>: muralha com 3 portões, praça com chafariz, Castelo de Aurora, Taverna do Javali Dourado, Forja de Borin, Templo da Luz, Biblioteca Arcana, fazenda, jardim, Campo de Treino e o Portão das Masmorras.</li>
+          <li>NPCs <strong>vivos</strong>: andam pela praça, patrulham, cumprimentam quem passa e conversam entre si.</li>
+          <li>Pelo mapa: vilas, tavernas, torres de mago, ruínas, cemitérios, criptas, castelos e acampamentos de saqueadores. Descobrir dá XP.</li>
+          <li>Cidades são <strong>zonas seguras</strong>: sem monstros, sem PvP e protegidas.</li>
+          <li><code>/lugares</code> mostra o que você já descobriu, aponta a direção e faz <strong>viagem rápida</strong> entre cidades, vilas e tavernas.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Masmorras</h3>
+    <p>Entre pelo <strong>Portão das Masmorras</strong> da capital (clique na pedra-guia ou use <code>/masmorra</code> perto dele). Até 5 jogadores do grupo entram juntos; os portões de grade fecham durante cada luta; são 3 salas com ondas de monstros e o chefe no fim, com barra de vida, golpes especiais e fúria na metade da vida. Lá dentro ninguém perde itens: quem cai renasce na entrada. Vencer dá XP, dinheiro e <strong>2 itens raros</strong> (recarga de 20 minutos por masmorra).</p>
+    <div class="tabela">
+      <table>
+        <thead><tr><th>Masmorra</th><th>Nível mínimo</th><th>Chefe</th><th>Recompensa</th></tr></thead>
+        <tbody>
+          <tr><td>Cripta dos Esquecidos</td><td>5</td><td>Ossian, o Rei Esqueleto</td><td>$600 + 2 itens</td></tr>
+          <tr><td>Covil da Rainha Aracna</td><td>15</td><td>Aracna, a Rainha Aranha</td><td>$1.800 + 2 itens</td></tr>
+          <tr><td>Fortaleza do Rei Caído</td><td>30</td><td>Malakar, o Rei Caído</td><td>$5.000 + 2 itens</td></tr>
+        </tbody>
+      </table>
+    </div>
+
     <div class="grade-2">
       <div class="bloco">
         <h3>Proteja sua base</h3>
@@ -417,18 +628,16 @@ footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line);
           <li>Você começa com 100 blocos de terreno e ganha mais conforme joga.</li>
           <li>A proteção vale no mundo normal do survival. No Nether e no End não há terrenos.</li>
           <li>Dentro do terreno, só você e quem você <code>/confiar</code> pode construir e abrir baús.</li>
-          <li>O spawn do survival é protegido num raio de 24 blocos: use <code>/rtp</code> para começar longe.</li>
+          <li>Não dá para criar terreno dentro das cidades. Use <code>/rtp</code> para começar longe.</li>
         </ul>
       </div>
       <div class="bloco">
-        <h3>Recursos extras</h3>
+        <h3>Grupo e recursos extras</h3>
         <ul>
-          <li><strong>Habilidades</strong> estilo mcMMO (<code>/habilidades</code>): suba de nível minerando, lutando, cortando árvores e mais.</li>
-          <li><strong>Lojas em baú</strong>: venda e compre itens de outros jogadores.</li>
-          <li><strong>Túmulo</strong>: ao morrer, seus itens ficam num túmulo por 10 minutos e só você pode abri-lo.</li>
-          <li><strong>VeinMiner</strong>: agache e quebre um minério para levar o veio inteiro.</li>
-          <li>Sente e deite com <code>/sentar</code> e <code>/deitar</code>.</li>
-          <li>A noite passa quando 30% dos jogadores dormem.</li>
+          <li><code>/grupo convidar NICK</code>: sem fogo amigo, XP dividida com bônus e chat próprio (<code>/g</code>).</li>
+          <li>PvP ligado fora das cidades; quem está 10+ níveis acima não consegue bater em quem está abaixo.</li>
+          <li><strong>Habilidades</strong> estilo mcMMO (<code>/habilidades</code> do AuraSkills), <strong>lojas em baú</strong>, <strong>túmulo</strong> ao morrer e <strong>VeinMiner</strong>.</li>
+          <li>Sente e deite com <code>/sentar</code> e <code>/deitar</code>. A noite passa quando 30% dos jogadores dormem.</li>
         </ul>
       </div>
     </div>
@@ -490,14 +699,16 @@ footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line);
         </ol>
       </div>
       <div class="bloco">
-        <h3>/menuop</h3>
+        <h3>/menuop: tudo do dono em 7 categorias</h3>
         <ul>
-          <li><strong>Dinheiro</strong>: +/− $1K, $100K, $1M e $1B (Shift = ×10), ou zerar.</li>
-          <li><strong>Tokens</strong>: +/− 1.000 (Shift = ×10).</li>
-          <li><strong>Picareta MAX</strong> (todas as melhorias no máximo) e <strong>Picareta Divina</strong> (Eficiência 50, Fortuna 300, Explosão 66, Laser 100 e mais).</li>
-          <li><strong>Ranks</strong>: subir/descer, rank máximo, prestígio ±1.</li>
-          <li><strong>Jogador</strong>: criativo, voar, curar, Pressa V, Kit OP, +30 níveis.</li>
-          <li><strong>Servidor</strong>: vanish, modo construção, resetar minas, dia no survival, recarregar.</li>
+          <li><strong>Jogador</strong>: curar, modo de jogo, voar, modo deus, velocidade, efeitos OP, XP, teleporte, ver e editar inventário e baú do End, limpar inventário, matar, raio, fogos, fazer falar, apelido e mensagem.</li>
+          <li><strong>Moderação</strong>: expulsar, silenciar, banir (1 dia, 7 dias ou para sempre), desbanir, congelar, avisar, espiar e limpar o chat.</li>
+          <li><strong>Cargos</strong>: VIP, VIP+, MVP e staff (ou só por 30 dias), permissões avulsas e OP.</li>
+          <li><strong>Economia</strong>: dinheiro, tokens, rank, prestígio, blocos, boosters, autovenda e resetar progresso.</li>
+          <li><strong>Itens</strong>: Picaretas MAX e Divina, editor de picareta, kits OP, encantar tudo, consertar, renomear, pacotes e livros encantados.</li>
+          <li><strong>Mundos</strong>: teleportes, todas as minas, dia/noite, clima, spawns, pré-gerar o mapa, limpar itens e monstros.</li>
+          <li><strong>Servidor</strong>: anúncio, título, manutenção, regras do survival, presentes para todos, desempenho e desligar com contagem.</li>
+          <li>Ações perigosas pedem <strong>Shift + clique</strong>; textos (anúncio, motivo, valor) são digitados no chat.</li>
           <li>Use em outros jogadores com <code>/menuop NICK</code> ou pela bússola do menu.</li>
         </ul>
       </div>
@@ -521,6 +732,24 @@ footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line);
         </tbody>
       </table>
     </div>
+    <h3>Comandos do /rpgadmin (SMP RPG)</h3>
+    <div class="tabela">
+      <table>
+        <thead><tr><th>Comando</th><th>O que faz</th></tr></thead>
+        <tbody>
+          <tr><td><span class="cmd">/rpgadmin status</span></td><td>Capital, lugares e masmorras construídos.</td></tr>
+          <tr><td><span class="cmd">/rpgadmin nivel|xp|pontos &lt;nick&gt; &lt;valor&gt;</span></td><td>Mexe no nível, XP ou pontos de atributo.</td></tr>
+          <tr><td><span class="cmd">/rpgadmin item &lt;nick&gt; [nível] [raridade]</span></td><td>Dá um item de RPG (comum, incomum, raro, epico, lendario).</td></tr>
+          <tr><td><span class="cmd">/rpgadmin classe &lt;nick&gt; &lt;classe&gt;</span> · <span class="cmd">resetar &lt;nick&gt;</span></td><td>Define a classe sem custo / zera o personagem.</td></tr>
+          <tr><td><span class="cmd">/rpgadmin lugar popular|lista|ir|remover</span></td><td>Espalha os lugares que faltam, lista, teleporta ou tira do mapa.</td></tr>
+          <tr><td><span class="cmd">/rpgadmin lugar colocar &lt;estrutura&gt; &lt;tipo&gt; &lt;raio&gt; [nome]</span></td><td>Coloca uma estrutura pronta (ex.: <code>nova_structures:tavern_oak</code>) onde você está.</td></tr>
+          <tr><td><span class="cmd">/rpgadmin desfazer &lt;id&gt;</span></td><td>Volta o terreno ao que era antes da obra (a capital é <code>capital</code>).</td></tr>
+          <tr><td><span class="cmd">/rpgadmin masmorra construir|reconstruir|ir</span></td><td>Constrói, refaz ou visita as masmorras.</td></tr>
+          <tr><td><span class="cmd">/rpgadmin mapa [raio]</span></td><td>Salva uma imagem da área vista de cima em <code>plugins/SurvivalRPG/mapas</code>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="dica">Na primeira vez que liga, o SurvivalRPG constrói sozinho a capital no spawn do survival, as masmorras e espalha ~24 lugares prontos pelo mapa (longe das bases dos jogadores). Tudo tem foto para desfazer.</div>
     <h3>Onde editar</h3>
     <div class="tabela">
       <table>
@@ -532,6 +761,8 @@ footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line);
           <tr><td><code>plugins/RankupSupremo/loja.yml</code></td><td>Itens e preços da <code>/loja</code> do Rankup e da Sobrevivência.</td></tr>
           <tr><td><code>plugins/RankupSupremo/vendas.yml</code></td><td>Preço de cada bloco.</td></tr>
           <tr><td><code>plugins/RankupSupremo/mensagens.yml</code></td><td>Todas as mensagens do plugin.</td></tr>
+          <tr><td><code>plugins/SurvivalRPG/config.yml</code></td><td>Classes, XP, regiões, mobs, loot, viagem, capital, lugares e masmorras do SMP RPG.</td></tr>
+          <tr><td><code>plugins/SurvivalRPG/mensagens.yml</code></td><td>Todas as mensagens do SMP RPG.</td></tr>
           <tr><td><code>plugins/GriefPreventionData/config.yml</code></td><td>Blocos de terreno iniciais e por hora.</td></tr>
           <tr><td><code>plugins/Essentials/rules.txt</code></td><td>Regras do <code>/rules</code>.</td></tr>
           <tr><td><code>server.properties</code></td><td>Descrição (MOTD), slots e porta.</td></tr>
@@ -542,7 +773,7 @@ footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line);
   </section>
 
   <footer>
-    <span>RankUP Supremo · Paper 26.3 · Plugins: RankupSupremo, EssentialsX, LuckPerms, AuthMe, Multiverse, GriefPrevention, AuraSkills, QuickShop, AxGraves, VeinMiner, GSit, WorldEdit, WorldGuard, ViaVersion.</span>
+    <span>RankUP Supremo · Paper 26.3 · Plugins: RankupSupremo, SurvivalRPG, NpcVivos, EssentialsX, LuckPerms, AuthMe, Multiverse, GriefPrevention, AuraSkills, QuickShop, AxGraves, VeinMiner, GSit, WorldEdit, WorldGuard, ViaVersion. Datapacks: Dungeons and Taverns, Structory e Structory: Towers.</span>
     <span>Valores de ranks, minas e picareta conferidos com as configurações do servidor.</span>
   </footer>
 </div>

@@ -1,0 +1,41 @@
+# NPC do plugin NpcVivos. Depois de editar, use /npcv reload.
+# skin: steve, alex, ari, efe, kai, makena, noor, sunny, zuri (+ "-fino" para braço fino)
+#       ou jogador:Nick para usar a skin de um jogador (precisa de internet)
+# papeis: COMERCIANTE, FERREIRO, GUIA, MISSIONARIO, GUARDA (os outros papéis chegam nas próximas fases)
+# faccao: id de um arquivo em faccoes/ (guardas só protegem a própria facção). Vazio = sem facção.
+# dialogo.arvore: nome de um arquivo em dialogos/ (conversa com opções). Sem ele, a conversa é simples.
+# loja.compra = o que o JOGADOR COMPRA do NPC | loja.venda = o que o JOGADOR VENDE ao NPC
+# preco_base = preço do lote inteiro (quantidade). estoque_max 0 = infinito. limite_diario 0 = sem limite.
+
+id: guarda_tomas
+nome: <aqua><bold>Tomás, o Guarda
+skin: efe
+local:
+  mundo: sobrevivencia
+  x: 16.5
+  y: 88.0
+  z: 4.5
+  yaw: 180.0
+faccao: vila_aurora
+papeis:
+- GUARDA
+equipamento:
+  mao: IRON_SWORD
+dialogo:
+  saudacao:
+  - Alto lá! Ah, é você, {jogador}. Bem-vindo à Vila Aurora. Aqui a gente vive em
+    paz.
+  retorno:
+  - Tudo tranquilo por aqui, {jogador}.
+  falas:
+  - Quem ataca o povo da vila vira inimigo... e eu não deixo inimigo passar.
+  - Quer fazer parte da vila? Use <yellow>/faccao entrar vila_aurora</yellow>. Os
+    membros ganham desconto nas lojas!
+  - Use <yellow>/reputacao</yellow> para ver como a vila te vê. Missões e vendas para
+    o Borin e a Marta ajudam.
+  - Os monstros que você mata perto da vila também contam a seu favor.
+  - A Irmandade do Sul não gosta da gente. Se jurar lealdade a eles, nada de negócio
+    por aqui!
+loja:
+  compra: []
+  venda: []

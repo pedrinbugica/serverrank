@@ -1,0 +1,38 @@
+# NPC do plugin NpcVivos. Depois de editar, use /npcv reload.
+# skin: steve, alex, ari, efe, kai, makena, noor, sunny, zuri (+ "-fino" para braço fino)
+#       ou jogador:Nick para usar a skin de um jogador (precisa de internet)
+# papeis: COMERCIANTE, FERREIRO, GUIA, MISSIONARIO, GUARDA, MERCENARIO, DUELISTA, BOSS
+# combate: vida, dano, armadura, velocidade, alcance, arqueiro e respawn-segundos só deste NPC
+#          (o que não estiver aqui vem do atributos: do combate.yml)
+# faccao: id de um arquivo em faccoes/ (guardas só protegem a própria facção). Vazio = sem facção.
+# dialogo.arvore: nome de um arquivo em dialogos/ (conversa com opções). Sem ele, a conversa é simples.
+# loja.compra = o que o JOGADOR COMPRA do NPC | loja.venda = o que o JOGADOR VENDE ao NPC
+# preco_base = preço do lote inteiro (quantidade). estoque_max 0 = infinito. limite_diario 0 = sem limite.
+
+id: duelista_kaela
+nome: <red><bold>Kaela, a Duelista
+skin: zuri-fino
+local:
+  mundo: sobrevivencia
+  x: 16.5
+  y: 88.0
+  z: -4.5
+  yaw: 0.0
+faccao: vila_aurora
+papeis:
+- DUELISTA
+equipamento:
+  mao: IRON_SWORD
+dialogo:
+  saudacao:
+  - Então você é {jogador}? Dizem que sabe lutar. Quer provar?
+  retorno:
+  - De volta para mais, {jogador}?
+  - Pegue a espada, {jogador}. A areia está esperando.
+  falas:
+  - 'No duelo não vale fugir: saia da arena e você perde a aposta.'
+  - Ganhe na dificuldade Lendária e você leva um título que ninguém mais tem.
+  - Arma aprimorada ajuda, sim. Mas não salva quem não sabe desviar.
+loja:
+  compra: []
+  venda: []

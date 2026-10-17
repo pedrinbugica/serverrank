@@ -1,0 +1,42 @@
+# Conversa da Marta, a Fazendeira. Veja as explicações em dialogos/borin.yml.
+inicio: entrada
+nos:
+  entrada:
+    fala:
+      - "Olá, {jogador}! Tenho sementes fresquinhas e compro tudo o que você colher."
+    fala_retorno:
+      - "Olá de novo, {jogador}! Como está a plantação?"
+      - "{jogador}! Que bom te ver. Trouxe trigo hoje?"
+    opcoes:
+      - texto: "Quero comprar ou vender"
+        acao: loja
+      - texto: "Alguma dica de plantação?"
+        ir: dicas
+      - texto: "Você parece preocupada..."
+        ir: preocupada
+  dicas:
+    fala:
+      - "Plante perto da água e use farinha de osso para crescer mais rápido!"
+      - "Cana-de-açúcar cresce sozinha na beira da água. Eu compro tudo!"
+      - "Abóbora e melancia precisam de espaço vazio do lado do talo para nascer."
+    opcoes:
+      - texto: "Mais uma dica"
+        ir: dicas
+      - texto: "Voltar"
+        ir: entrada
+  preocupada:
+    fala:
+      - "Os zumbis andam pisoteando minha plantação toda noite... Se alguém desse um jeito neles, eu pagaria bem."
+    opcoes:
+      - texto: "Eu cuido disso!"
+        se:
+          missao_disponivel: marta_praga_zumbis
+        acao: ver_missao
+        missao: marta_praga_zumbis
+      - texto: "Já estou caçando eles"
+        se:
+          missao_ativa: marta_praga_zumbis
+        fala: "Obrigada, {jogador}! Volte aqui quando terminar."
+        ir: entrada
+      - texto: "Voltar"
+        ir: entrada

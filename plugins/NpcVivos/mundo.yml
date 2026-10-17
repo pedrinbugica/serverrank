@@ -1,0 +1,124 @@
+# ==================================================================
+#              NPCs VIVOS - MUNDO VIVO (fase 7)
+# ==================================================================
+# Preços que mudam com a procura e a oferta, comércio entre NPCs,
+# relações entre facções que mudam sozinhas, guerras com placar e
+# invasões de vilas. Depois de editar: /npcv reload
+# ==================================================================
+
+precos:
+  # Preço dinâmico: muita gente comprando sobe o preço, muita gente vendendo derruba.
+  # Também liga/desliga no jogo com /npcv mercado ligar|desligar
+  ativo: true
+  # Fórmula: preço = base x (1 + (procura - oferta) / (procura + oferta + suavizar))
+  # procura/oferta = lotes comprados/vendidos nas últimas horas. Quanto maior "suavizar", mais devagar muda.
+  suavizar: 24
+  # Em quanto tempo a procura e a oferta registradas caem pela metade (o preço volta ao normal sozinho)
+  meia-vida-minutos: 120
+  # Limites do preço (0.6 = no mínimo 60% do base; 1.6 = no máximo 160%)
+  minimo: 0.6
+  maximo: 1.6
+  # O preço anda em degraus (0.05 = de 5 em 5%), para não ficar mudando a cada compra
+  degrau: 0.05
+  # Facção em guerra: armas, armaduras, flechas, escudos, poções... ficam mais caros (e valem mais na venda)
+  guerra-itens-de-combate: 0.25
+  # Item "importado_de" uma facção com quem a do NPC está em guerra: não repõe e fica mais caro
+  rota-cortada: 0.5
+  # Quem vence uma guerra: lojas da facção mais baratas (e pagando mais) por alguns dias
+  vitoria-desconto: 0.10
+  vitoria-dias: 7
+
+comercio-entre-npcs:
+  # Comerciantes da mesma facção ou de facções aliadas trocam estoque entre si
+  ativo: true
+  intervalo-minutos: 20
+  # Quem tem menos de 30% do estoque máximo recebe de quem tem mais de 60%
+  falta: 0.3
+  sobra: 0.6
+  # Cada troca entre facções diferentes aproxima as duas
+  pontos-relacao-por-troca: 5
+
+relacoes:
+  # As relações mudam sozinhas conforme a pontuação entre as facções (-100 a 100)
+  automaticas: true
+  # Pontuação natural de cada relação (onde começa e para onde volta com o tempo)
+  inicial:
+    ALIADA: 70
+    NEUTRA: 0
+    RIVAL: -40
+    GUERRA: -80
+  # Relação conforme a pontuação: a partir de 50 aliadas, de -20 neutras, de -60 rivais; abaixo disso, GUERRA
+  limites:
+    ALIADA: 50
+    NEUTRA: -20
+    RIVAL: -60
+  eventos:
+    # Membro de uma facção mata um NPC de combate de outra
+    matar-npc: -20
+    # Membro de uma facção mata um jogador membro de outra
+    matar-membro: -5
+    # Jogadores de duas facções vencem um chefe juntos
+    boss-juntos: 30
+  # A cada hora a pontuação anda estes pontos de volta para a relação dos arquivos (as mágoas cicatrizam)
+  volta-por-hora: 2
+  # Tempo mínimo entre duas mudanças automáticas do mesmo par de facções
+  espera-entre-mudancas-horas: 6
+
+guerras:
+  # Uma guerra dura este tempo ou até uma facção chegar na meta de pontos
+  duracao-horas: 72
+  meta-de-pontos: 500
+  pontos:
+    matar-npc: 10
+    matar-jogador: 15
+    invasor-morto: 5
+    invasao-defendida: 50
+    invasao-vitoriosa: 60
+  # Para cada jogador que fez pontos pela facção vencedora
+  recompensa:
+    dinheiro: 300
+    reputacao: 50
+  # Relação entre as duas depois da guerra
+  relacao-depois: RIVAL
+  # Placar no topo da tela dos membros das facções em guerra
+  barra: true
+
+invasoes:
+  ativo: true
+  # Facções em guerra atacam a vila da inimiga sozinhas (a staff também pode: /npcv invasao)
+  automaticas: true
+  intervalo-minutos: 60
+  chance: 40
+  # Só invade se houver pelo menos este número de jogadores no mundo da vila
+  jogadores-minimos-no-mundo: 1
+  ondas: 3
+  soldados-por-onda: 3
+  # +1 soldado por jogador perto da vila (até o máximo)
+  soldados-por-jogador: 1
+  maximo-por-onda: 8
+  # Distância (blocos) da vila onde os soldados aparecem
+  distancia: 20
+  # Soldado a esta distância do centro da vila saqueia (e some)
+  raio-do-saque: 3.5
+  saques-para-perder: 3
+  tempo-maximo-minutos: 10
+  # Dinheiro por soldado morto (cai como recompensa de combate) e prêmio de quem ajudou a defender
+  recompensa-por-soldado: 15
+  recompensa-vitoria: 100
+  reputacao-por-soldado: 3
+  # Vila saqueada: as lojas da facção perdem esta parte do estoque
+  estoque-perdido: 0.3
+  soldado:
+    vida: 30
+    dano: 4
+    armadura: 2
+    velocidade: 0.24
+    alcance: 3.0
+    # Parte dos soldados que vem com arco
+    arqueiros: 0.3
+  skins:
+    - noor
+    - zuri
+    - makena
+    - kai
+    - efe

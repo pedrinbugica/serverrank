@@ -1,0 +1,27 @@
+dia: '2026-10-14'
+estoque:
+  ferreiro_borin:
+    compra-1: 10.0
+    compra-0: 10.0
+    compra-3: 10.0
+    compra-2: 10.0
+    compra-10: 2.0
+    compra-9: 8.0
+    compra-8: 5.0
+    compra-5: 5.0
+    compra-4: 6.0
+    compra-7: 5.0
+    compra-6: 5.0
+  fazendeira_marta:
+    compra-5: 20.0
+visitas:
+  21a04d01-7e32-310a-bae8-8e5057de7859:
+    fazendeira_marta: 1
+    ferreiro_borin: 3
+    guia_lucas: 11
+falas:
+  21a04d01-7e32-310a-bae8-8e5057de7859:
+    guia_lucas: 2
+marcas:
+- exemplos-v1
+- permissoes-v1

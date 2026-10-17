@@ -86,7 +86,7 @@ action_bar:
   enabled: true
   idle: false
   ability: true
-  xp: true
+  xp: false
   maxed: false
   update_period: 5
   round_xp: false

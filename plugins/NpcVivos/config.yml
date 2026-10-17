@@ -1,0 +1,59 @@
+# ==================================================================
+#                 NPCs VIVOS - CONFIGURAÇÃO
+# ==================================================================
+# Cada NPC fica em um arquivo na pasta npcs/ (crie e edite pelo /npcv).
+# Depois de editar à mão, use /npcv reload.
+# Compras e vendas ficam registradas em logs/transacoes-AAAA-MM.log
+# ==================================================================
+
+missoes:
+  # Quantas missões cada jogador pode ter ao mesmo tempo
+  maximo-ativas: 5
+dados:
+  # sqlite (padrão, arquivo dados.db) ou yaml (arquivo dados.yml). O dados.yml antigo é migrado sozinho.
+  tipo: sqlite
+faccoes:
+  # Depois de sair de uma facção, quantas horas até poder entrar em outra
+  espera-trocar-horas: 24
+  # Reputação perdida com a facção ao sair dela
+  reputacao-perdida-ao-sair: 100
+reputacao:
+  # Pontos ganhos por venda para um NPC da facção (conta no limite diário abaixo)
+  por-venda: 1
+  # Pontos por monstro morto perto de um NPC da facção (até "raio-vila" blocos)
+  por-monstro: 1
+  raio-vila: 48
+  # Máximo de pontos por dia ganhos com vendas e monstros (missões não contam)
+  limite-diario-ajuda: 30
+  # Pontos perdidos ao bater num NPC / num membro da facção perto de um guarda
+  atacar-npc: 15
+  atacar-membro: 5
+  # Quem está negativo recupera estes pontos a cada 10 minutos online (até chegar a 0)
+  recuperacao-a-cada-10-min: 5
+guardas:
+  # NPCs com papel GUARDA protegem a facção deles: avisam, depois atacam inimigos e procurados
+  raio-alerta: 12
+  raio-ataque: 3.5
+  dano: 4.0
+  intervalo-golpe-segundos: 1.2
+  # Atiram flechas em quem foge (entre o raio de ataque e o de alerta)
+  flechas: true
+  intervalo-flecha-segundos: 2.0
+  dano-flecha: 1.5
+  # Quem bater num NPC ou membro fica "procurado" pelos guardas por este tempo
+  tempo-procurado-segundos: 60
+  # Depois de morrer, o jogador fica este tempo sem ser atacado pelos guardas
+  imunidade-ao-renascer-segundos: 30
+  # Mundos onde os guardas nunca atacam (ex.: o spawn do rankup)
+  mundos-proibidos:
+  - world
+npc:
+  # Distância (blocos) em que o NPC vira a cabeça para olhar o jogador
+  olhar-distancia: 8
+  # Distância máxima para negociar com o menu aberto
+  distancia-interacao: 8
+
+ferreiro:
+  # Conserto: custo por ponto de durabilidade gasto (mínimo abaixo)
+  custo-por-ponto: 0.5
+  custo-minimo: 5

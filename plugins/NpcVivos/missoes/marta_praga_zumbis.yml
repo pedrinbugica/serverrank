@@ -1,0 +1,21 @@
+# Missão diária da Marta: matar zumbis. Explicações em borin_minerio_perdido.yml.
+id: marta_praga_zumbis
+nome: "<green>Praga de zumbis"
+npc: fazendeira_marta
+tipo: MATAR
+objetivo:
+  mob: ZOMBIE
+  quantidade: 10
+  mundo: sobrevivencia
+repetir: DIARIA
+descricao:
+  - "Os zumbis estão destruindo minha plantação toda noite!"
+  - "Derrote 10 zumbis no mundo Sobrevivência e volte aqui."
+fala_aceitar: "Muito obrigada! Eles aparecem à noite e em lugares escuros."
+fala_conclusao: "Você é um herói, {jogador}! Tome, pão fresquinho e um pagamento."
+recompensa:
+  dinheiro: 150
+  reputacao: 15
+  itens:
+    - item: BREAD
+      quantidade: 16

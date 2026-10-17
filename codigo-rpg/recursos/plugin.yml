@@ -1,0 +1,56 @@
+name: SurvivalRPG
+version: '1.0.0'
+main: dev.pedrobugica.survivalrpg.SurvivalRpgPlugin
+api-version: '1.21'
+description: O mundo de sobrevivência vira um RPG - classes, níveis, atributos, habilidades, mobs com nível, itens raros, grupos, lugares para descobrir, a capital Vila Aurora e masmorras com chefes.
+authors: [pedrobugica]
+depend: [Vault]
+softdepend: [NpcVivos, PlaceholderAPI, Multiverse-Core, RankupSupremo, GriefPrevention, Essentials]
+
+commands:
+  rpg:
+    description: Seu personagem (menu com tudo)
+    aliases: [perfil, personagem]
+    permission: survivalrpg.usar
+  classe:
+    description: Escolher ou trocar de classe
+    aliases: [classes]
+    permission: survivalrpg.usar
+  atributos:
+    description: Distribuir pontos de atributo
+    aliases: [atributo, pontos]
+    permission: survivalrpg.usar
+  poderes:
+    description: Ver as habilidades da sua classe (F + 1, 2, 3)
+    aliases: [habilidadesrpg, magias]
+    permission: survivalrpg.usar
+  grupo:
+    description: Grupo (party) - convidar, aceitar, sair, expulsar, lista, ir
+    aliases: [party, gp]
+    permission: survivalrpg.usar
+  g:
+    description: Chat do grupo
+    permission: survivalrpg.usar
+  lugares:
+    description: Lugares descobertos, direção e viagem rápida
+    aliases: [mapa, viajar, lugar]
+    permission: survivalrpg.usar
+  masmorra:
+    description: Masmorras (entre pelo portal da capital) e /masmorra sair
+    aliases: [masmorras, dungeon, dg]
+    permission: survivalrpg.usar
+  rpgadmin:
+    description: Administração do RPG
+    aliases: [rpga]
+    permission: survivalrpg.admin
+
+permissions:
+  survivalrpg.usar:
+    description: Jogar o RPG
+    default: true
+  survivalrpg.admin:
+    description: /rpgadmin
+    default: op
+  survivalrpg.admin.construir:
+    description: Construir e quebrar dentro das cidades protegidas e das masmorras
+    default: op

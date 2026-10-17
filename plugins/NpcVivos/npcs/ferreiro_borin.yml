@@ -1,0 +1,120 @@
+# NPC do plugin NpcVivos. Depois de editar, use /npcv reload.
+# skin: steve, alex, ari, efe, kai, makena, noor, sunny, zuri (+ "-fino" para braço fino)
+#       ou jogador:Nick para usar a skin de um jogador (precisa de internet)
+# papeis: COMERCIANTE, FERREIRO, GUIA, MISSIONARIO, GUARDA, MERCENARIO, DUELISTA, BOSS
+# combate: vida, dano, armadura, velocidade, alcance, arqueiro e respawn-segundos só deste NPC
+#          (o que não estiver aqui vem do atributos: do combate.yml)
+# faccao: id de um arquivo em faccoes/ (guardas só protegem a própria facção). Vazio = sem facção.
+# dialogo.arvore: nome de um arquivo em dialogos/ (conversa com opções). Sem ele, a conversa é simples.
+# loja.compra = o que o JOGADOR COMPRA do NPC | loja.venda = o que o JOGADOR VENDE ao NPC
+# preco_base = preço do lote inteiro (quantidade). estoque_max 0 = infinito. limite_diario 0 = sem limite.
+
+id: ferreiro_borin
+nome: <gold><bold>Borin, o Ferreiro
+skin: steve
+local:
+  mundo: sobrevivencia
+  x: 20.5
+  y: 88.0
+  z: 0.5
+  yaw: 90.0
+faccao: vila_aurora
+papeis:
+- COMERCIANTE
+- FERREIRO
+- MISSIONARIO
+equipamento:
+  mao: IRON_PICKAXE
+dialogo:
+  arvore: borin
+  saudacao:
+  - Bem-vindo à minha forja, {jogador}! Vendo ferramentas, compro minérios e conserto
+    o que estiver gasto.
+  retorno:
+  - Olá de novo, {jogador}! Trouxe o ferro?
+  - Ah, {jogador}! A forja está quente, o que vai ser?
+  falas: []
+loja:
+  compra:
+  - item: IRON_SWORD
+    quantidade: 1
+    preco_base: 70.0
+    estoque_max: 10
+    repoe_por_hora: 2.0
+  - item: IRON_PICKAXE
+    quantidade: 1
+    preco_base: 80.0
+    estoque_max: 10
+    repoe_por_hora: 2.0
+  - item: IRON_AXE
+    quantidade: 1
+    preco_base: 80.0
+    estoque_max: 10
+    repoe_por_hora: 2.0
+  - item: IRON_SHOVEL
+    quantidade: 1
+    preco_base: 35.0
+    estoque_max: 10
+    repoe_por_hora: 2.0
+  - item: SHIELD
+    quantidade: 1
+    preco_base: 60.0
+    estoque_max: 6
+    repoe_por_hora: 1.0
+  - item: IRON_HELMET
+    quantidade: 1
+    preco_base: 90.0
+    estoque_max: 5
+    repoe_por_hora: 1.0
+  - item: IRON_CHESTPLATE
+    quantidade: 1
+    preco_base: 140.0
+    estoque_max: 5
+    repoe_por_hora: 1.0
+  - item: IRON_LEGGINGS
+    quantidade: 1
+    preco_base: 125.0
+    estoque_max: 5
+    repoe_por_hora: 1.0
+  - item: IRON_BOOTS
+    quantidade: 1
+    preco_base: 70.0
+    estoque_max: 5
+    repoe_por_hora: 1.0
+  - item: BUCKET
+    quantidade: 1
+    preco_base: 50.0
+    estoque_max: 8
+    repoe_por_hora: 2.0
+  - item: ANVIL
+    quantidade: 1
+    preco_base: 350.0
+    estoque_max: 2
+    repoe_por_hora: 0.5
+  - item: FLINT
+    item_completo: H4sIAAAAAAAA/4WRwUrDQBCG/9pG0ggVFPEisk/gA/SmFU/W9mKvZUwmZWl2N8zuBn0aX9U1FHNowcsMDPN//P9MAYxx8UyBNixeOwtcf+c40xUujbZcCtVhXjfahjGy0kUbAIwKFKUzrbNsg59iNqw2TrhIK5MRznWgRpfIMQn8GXC/UjWLsBanoifFPpBquZJUSSj/5Sc5JjuhLxzr76gVbZyQKBJDXnHfqyjkH/5V48Ts9pW7BFHRqLf1Qr0c3A2waUWy3/bEAjdDyjL64MzWkuETPtd9porV48GwSWdyauFMNH/obCfM9iS2Su8ocLWOHwn7FPd7HTbURPY5ZrYtO905P+8Ph2yxWr4vUzj8AP07YZrKAQAA
+    quantidade: 1
+    preco_base: 40.0
+    estoque_max: 16
+    repoe_por_hora: 4.0
+  venda:
+  - item: IRON_INGOT
+    quantidade: 16
+    preco_base: 48.0
+    limite_diario: 128
+  - item: GOLD_INGOT
+    quantidade: 16
+    preco_base: 64.0
+    limite_diario: 64
+  - item: COPPER_INGOT
+    quantidade: 64
+    preco_base: 80.0
+    limite_diario: 256
+  - item: COAL
+    quantidade: 64
+    preco_base: 64.0
+    limite_diario: 256
+  - item: DIAMOND
+    quantidade: 1
+    preco_base: 50.0
+    limite_diario: 16

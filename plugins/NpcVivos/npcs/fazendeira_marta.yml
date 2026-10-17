@@ -1,0 +1,111 @@
+# NPC do plugin NpcVivos. Depois de editar, use /npcv reload.
+# skin: steve, alex, ari, efe, kai, makena, noor, sunny, zuri (+ "-fino" para braço fino)
+#       ou jogador:Nick para usar a skin de um jogador (precisa de internet)
+# papeis: COMERCIANTE, FERREIRO, GUIA, MISSIONARIO, GUARDA (os outros papéis chegam nas próximas fases)
+# faccao: id de um arquivo em faccoes/ (guardas só protegem a própria facção). Vazio = sem facção.
+# dialogo.arvore: nome de um arquivo em dialogos/ (conversa com opções). Sem ele, a conversa é simples.
+# loja.compra = o que o JOGADOR COMPRA do NPC | loja.venda = o que o JOGADOR VENDE ao NPC
+# preco_base = preço do lote inteiro (quantidade). estoque_max 0 = infinito. limite_diario 0 = sem limite.
+
+id: fazendeira_marta
+nome: <green><bold>Marta, a Fazendeira
+skin: alex-fino
+local:
+  mundo: sobrevivencia
+  x: 12.5
+  y: 88.0
+  z: 0.5
+  yaw: 270.0
+faccao: vila_aurora
+papeis:
+- COMERCIANTE
+- MISSIONARIO
+equipamento:
+  mao: IRON_HOE
+dialogo:
+  arvore: marta
+  saudacao:
+  - Olá, {jogador}! Tenho sementes fresquinhas e compro tudo o que você colher.
+  retorno:
+  - Olá de novo, {jogador}! Como está a plantação?
+  - '{jogador}! Trouxe trigo hoje?'
+  falas: []
+loja:
+  compra:
+  - item: WHEAT_SEEDS
+    quantidade: 16
+    preco_base: 12.0
+    estoque_max: 0
+    repoe_por_hora: 0.0
+  - item: CARROT
+    quantidade: 16
+    preco_base: 20.0
+    estoque_max: 0
+    repoe_por_hora: 0.0
+  - item: POTATO
+    quantidade: 16
+    preco_base: 20.0
+    estoque_max: 0
+    repoe_por_hora: 0.0
+  - item: MELON_SEEDS
+    quantidade: 8
+    preco_base: 20.0
+    estoque_max: 0
+    repoe_por_hora: 0.0
+  - item: PUMPKIN_SEEDS
+    quantidade: 8
+    preco_base: 20.0
+    estoque_max: 0
+    repoe_por_hora: 0.0
+  - item: BREAD
+    quantidade: 16
+    preco_base: 28.0
+    estoque_max: 20
+    repoe_por_hora: 6.0
+  - item: BONE_MEAL
+    quantidade: 32
+    preco_base: 28.0
+    estoque_max: 0
+    repoe_por_hora: 0.0
+  - item: OAK_SAPLING
+    quantidade: 8
+    preco_base: 20.0
+    estoque_max: 0
+    repoe_por_hora: 0.0
+  venda:
+  - item: WHEAT
+    quantidade: 64
+    preco_base: 40.0
+    limite_diario: 640
+  - item: CARROT
+    quantidade: 64
+    preco_base: 20.0
+    limite_diario: 640
+  - item: POTATO
+    quantidade: 64
+    preco_base: 20.0
+    limite_diario: 640
+  - item: BEETROOT
+    quantidade: 64
+    preco_base: 30.0
+    limite_diario: 640
+  - item: MELON_SLICE
+    quantidade: 64
+    preco_base: 30.0
+    limite_diario: 640
+  - item: PUMPKIN
+    quantidade: 16
+    preco_base: 30.0
+    limite_diario: 160
+  - item: SUGAR_CANE
+    quantidade: 64
+    preco_base: 50.0
+    limite_diario: 640
+  - item: EGG
+    quantidade: 16
+    preco_base: 8.0
+    limite_diario: 160
+  - item: LEATHER
+    quantidade: 16
+    preco_base: 40.0
+    limite_diario: 64

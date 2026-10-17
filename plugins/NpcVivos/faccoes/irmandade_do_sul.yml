@@ -1,0 +1,16 @@
+# ==================================================================
+#  Facção: Irmandade do Sul (exemplo de facção rival)
+# ==================================================================
+# Ainda não tem NPCs: crie alguns e use /npcv faccao <npc> irmandade_do_sul
+# Depois de editar: /npcv reload
+# ==================================================================
+id: irmandade_do_sul
+nome: "<red>Irmandade do Sul"
+tag: "<dark_red>[<red>Sul<dark_red>] "
+lider: ""
+descricao:
+  - "Mercenários e contrabandistas que querem tomar as minas da Vila Aurora."
+relacoes:
+  vila_aurora: RIVAL
+beneficios_membro:
+  desconto: 0.15

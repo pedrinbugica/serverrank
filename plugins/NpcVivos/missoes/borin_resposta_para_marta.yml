@@ -1,0 +1,22 @@
+# Continuação da carta: o Borin manda a resposta para a Marta. Explicações em borin_minerio_perdido.yml.
+id: borin_resposta_para_marta
+nome: "<yellow>A resposta do ferreiro"
+npc: ferreiro_borin
+entregar_para: fazendeira_marta
+tipo: ENTREGAR
+objetivo:
+  item: PAPER
+  nome_item: "<gold>Resposta do Borin"
+  quantidade: 1
+requisito: marta_carta_para_borin
+repetir: NUNCA
+descricao:
+  - "Já que você está indo e voltando... leva minha resposta para a Marta?"
+fala_aceitar: "Diga a ela que a enxada fica pronta amanhã!"
+fala_conclusao: "Uma resposta do Borin! Que gentil. Obrigada por ajudar a gente, {jogador}!"
+recompensa:
+  dinheiro: 100
+  reputacao: 10
+  itens:
+    - item: CAKE
+      quantidade: 1

@@ -1,0 +1,92 @@
+name: NpcVivos
+version: '0.9.0'
+main: dev.pedrobugica.npcvivos.NpcVivosPlugin
+api-version: '1.21'
+description: NPCs que conversam, vendem, compram, dão missões, têm facções e guardas, aprimoram itens, lutam (mercenários, duelos e chefes), vivem num mundo que muda sozinho (preços, alianças, guerras e invasões) e lembram dos jogadores e andam e conversam sozinhos (fases 1 a 8 do documento de design + vida própria).
+authors: [pedrobugica]
+depend: [Vault]
+softdepend: [Essentials, LuckPerms, Multiverse-Core, RankupSupremo, PlaceholderAPI]
+
+commands:
+  npcv:
+    description: Criar e editar NPCs
+    aliases: [npcvivos, npcs]
+    permission: npcvivos.admin.editar
+
+  npcconversa:
+    description: Escolher uma opção da conversa com um NPC (usado ao clicar no chat)
+    permission: npcvivos.usar
+  missoes:
+    description: Suas missões e o progresso
+    aliases: [missao, quests]
+    permission: npcvivos.missoes
+  faccao:
+    description: Facções, relações, entrar e sair
+    aliases: [faccoes]
+    permission: npcvivos.faccao.ver
+  reputacao:
+    description: Sua reputação com cada facção
+    aliases: [rep]
+    permission: npcvivos.faccao.ver
+  mercenario:
+    description: Seu mercenário contratado (e /mercenario dispensar)
+    aliases: [merc]
+    permission: npcvivos.mercenario
+
+permissions:
+  npcvivos.usar:
+    description: Falar e negociar com os NPCs
+    default: true
+  npcvivos.missoes:
+    description: Usar o /missoes
+    default: true
+  npcvivos.faccao.ver:
+    description: Usar /faccao e /reputacao
+    default: true
+  npcvivos.faccao.entrar:
+    description: Jurar lealdade a uma facção
+    default: true
+  npcvivos.faccao.sair:
+    description: Sair da facção
+    default: true
+  npcvivos.mercenario:
+    description: Contratar mercenários e usar o /mercenario
+    default: true
+  npcvivos.duelo:
+    description: Desafiar NPCs duelistas
+    default: true
+  npcvivos.admin.*:
+    description: Todos os comandos de administração dos NPCs
+    default: op
+    children:
+      npcvivos.admin.criar: true
+      npcvivos.admin.remover: true
+      npcvivos.admin.editar: true
+      npcvivos.admin.loja: true
+      npcvivos.admin.faccao: true
+      npcvivos.admin.upgrade: true
+      npcvivos.admin.combate: true
+      npcvivos.admin.guerra: true
+      npcvivos.admin.reload: true
+  npcvivos.admin.criar:
+    default: op
+  npcvivos.admin.remover:
+    default: op
+  npcvivos.admin.editar:
+    default: op
+  npcvivos.admin.loja:
+    default: op
+  npcvivos.admin.faccao:
+    description: Mudar relações, reputação e membros das facções (e entrar sem esperar)
+    default: op
+  npcvivos.admin.upgrade:
+    description: Dar pedras/pergaminho e definir o nível de itens (/npcv dar, /npcv aprimorar)
+    default: op
+  npcvivos.admin.combate:
+    description: Ver e mexer no combate dos NPCs (/npcv combate)
+    default: op
+  npcvivos.admin.guerra:
+    description: Guerras de facção e invasões (/npcv guerra, /npcv invasao)
+    default: op
+  npcvivos.admin.reload:
+    default: op

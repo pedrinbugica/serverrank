@@ -1,0 +1,215 @@
+# ==================================================================
+#            NPCs VIVOS - COMBATE (fase 6 do documento)
+# ==================================================================
+# Aqui ficam os NPCs que LUTAM: mercenários (você contrata e eles te
+# seguem), duelistas (desafio 1 contra 1 na arena) e chefes (muita
+# vida, barra no topo da tela e habilidades).
+#
+# A vida desses NPCs é do plugin, não do manequim: eles não morrem de
+# queda, de fogo nem de flecha perdida, só de golpe de jogador.
+# Quando o servidor liga, todos voltam ocioso e com a vida cheia.
+#
+# Depois de editar: /npcv reload
+# ==================================================================
+
+# Desliga a fase 6 inteira (mercenários, duelos e chefes) sem mexer nos NPCs
+ativo: true
+
+# Mundos onde NPC nenhum luta (spawn, lobby, mundo de construção...)
+mundos-sem-combate:
+  - world_nether_lobby
+
+# Quantas recompensas de NPC morto cada jogador pode pegar por hora (0 = sem limite).
+# Serve para ninguém ficar matando o mesmo duelista em loop só pelo dinheiro.
+limite-de-recompensa-por-hora: 10
+
+# ------------------------------------------------------------------
+# ATRIBUTOS: quanto cada tipo de NPC aguenta e bate
+# ------------------------------------------------------------------
+#   vida ............. pontos de vida (10 = 5 corações de jogador)
+#   dano ............. dano por golpe
+#   armadura ......... cada ponto corta 2% do dano recebido (máximo 60%)
+#   velocidade ....... blocos por tick (0,05 a 0,6 - 0,28 é um jogador andando)
+#   alcance .......... a que distância ele acerta (ou atira)
+#   arqueiro ......... true = atira flecha em vez de bater
+#   respawn-segundos . quanto tempo depois de morrer ele volta ao posto
+atributos:
+  padrao:
+    vida: 40
+    dano: 4
+    armadura: 0
+    velocidade: 0.28
+    alcance: 3.0
+    arqueiro: false
+    respawn-segundos: 120
+  guarda:
+    vida: 80
+    dano: 7
+    armadura: 6
+    velocidade: 0.30
+    alcance: 3.2
+    respawn-segundos: 120
+  mercenario:
+    vida: 120
+    dano: 8
+    armadura: 8
+    velocidade: 0.32
+    alcance: 3.2
+    respawn-segundos: 300
+  duelista:
+    vida: 100
+    dano: 6
+    armadura: 4
+    velocidade: 0.30
+    alcance: 3.2
+    respawn-segundos: 60
+  boss:
+    vida: 400
+    dano: 14
+    armadura: 12
+    velocidade: 0.26
+    alcance: 4.0
+    respawn-segundos: 1800
+
+# ------------------------------------------------------------------
+# COMPORTAMENTO: como o NPC anda e decide
+# ------------------------------------------------------------------
+comportamento:
+  # A que distância o NPC vê o jogador
+  raio-de-visao: 16
+  # Se ele se afastar mais do que isto do posto, volta na hora (caiu, foi empurrado)
+  distancia-do-posto: 24
+  # Quantos blocos ele aceita descer para passar (acima disso não anda para lá)
+  queda-maxima: 3
+  # Com menos que esta fração da vida ele foge e chama os aliados (chefe nunca foge)
+  vida-para-fugir: 0.2
+  # Quem está na mesma facção e a menos que isto ajuda quem está fugindo
+  raio-de-ajuda: 20
+  # Tempo entre golpes e entre flechas
+  intervalo-golpe-segundos: 1.2
+  intervalo-flecha-segundos: 2.0
+
+# ------------------------------------------------------------------
+# MERCENÁRIOS: o jogador paga e o NPC luta por ele
+# ------------------------------------------------------------------
+mercenarios:
+  preco: 1500
+  minutos: 30
+  # Quantos mercenários cada jogador pode ter ao mesmo tempo
+  limite-por-jogador: 1
+  # Só contrata em mundo com PvP ligado (deixe true para não virar escolta no spawn)
+  so-com-pvp-ligado: true
+  # Depois de cair em combate, o mercenário só pode ser contratado de novo depois disto
+  espera-para-recontratar-minutos: 10
+  # Se o dono se afastar mais que isto, o mercenário teleporta até ele
+  distancia-maxima-do-dono: 24
+
+# ------------------------------------------------------------------
+# DUELOS: 1 contra 1 com um NPC duelista
+# ------------------------------------------------------------------
+duelos:
+  # O jogador precisa ficar a até tantos blocos do posto do duelista
+  raio-da-arena: 24
+  tempo-maximo-segundos: 180
+  # Tempo que o duelista descansa entre dois duelos
+  espera-entre-duelos-segundos: 10
+  # Dá um empurrãozinho de vida e comida para quem termina o duelo
+  curar-no-fim: true
+  dificuldades:
+    facil:
+      nome: "<green>Fácil"
+      vida: 60
+      dano: 4
+      aposta: 200
+      premio: 500
+      reputacao: 2
+      titulo: ""
+    media:
+      nome: "<yellow>Média"
+      vida: 120
+      dano: 7
+      aposta: 800
+      premio: 2200
+      reputacao: 5
+      titulo: "Duelista de Bronze"
+    dificil:
+      nome: "<red>Difícil"
+      vida: 220
+      dano: 11
+      aposta: 2500
+      premio: 8000
+      reputacao: 10
+      titulo: "Duelista de Ferro"
+    lendaria:
+      nome: "<dark_purple>Lendária"
+      vida: 400
+      dano: 16
+      aposta: 8000
+      premio: 30000
+      reputacao: 20
+      titulo: "Duelista Lendário"
+
+# ------------------------------------------------------------------
+# CHEFES: barra de vida e habilidades
+# ------------------------------------------------------------------
+bosses:
+  # Quem está a até tantos blocos vê a barra de vida e os avisos das habilidades
+  raio-da-barra: 48
+  # Anuncia no chat do servidor quando o chefe cai e quando volta
+  anunciar-no-servidor: true
+  # Tempo mínimo entre duas habilidades quaisquer
+  intervalo-habilidade-segundos: 8
+  # Cada habilidade sorteia a sua chance na ordem abaixo. "vida-maxima-para-usar"
+  # deixa a habilidade guardada para quando o chefe já está machucado
+  # (0.5 = só a partir de metade da vida).
+  habilidades:
+    investida:
+      chance: 40
+      dano: 10
+      alcance: 20
+      passos: 14
+      espera-segundos: 12
+    puxar:
+      chance: 30
+      forca: 1.3
+      altura: 0.45
+      alcance: 24
+      espera-segundos: 16
+    area-de-fogo:
+      chance: 30
+      raio: 5
+      dano: 4
+      segundos: 4
+      espera-segundos: 20
+    invocar:
+      chance: 35
+      tipo: ZOMBIE
+      quantidade: 2
+      limite-vivos: 4
+      segundos: 60
+      vida-maxima-para-usar: 0.7
+      espera-segundos: 30
+
+# ------------------------------------------------------------------
+# DROPS: o que cai quando um NPC de combate morre
+# ------------------------------------------------------------------
+# Cada NPC pode ter o seu próprio bloco "combate.drops" no npcs/<id>.yml.
+# itens: lista de "MATERIAL quantidade"
+drops:
+  padrao:
+    dinheiro: 150
+    itens: []
+  duelista:
+    dinheiro: 400
+    pedras:
+      COMUM: 1
+    itens: []
+  boss:
+    dinheiro: 5000
+    pedras:
+      COMUM: 4
+      RARA: 2
+      EPICA: 1
+    itens:
+      - DIAMOND 6
+      - GOLDEN_APPLE 2

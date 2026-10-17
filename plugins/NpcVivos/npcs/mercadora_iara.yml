@@ -1,0 +1,93 @@
+# NPC do plugin NpcVivos. Depois de editar, use /npcv reload.
+# skin: steve, alex, ari, efe, kai, makena, noor, sunny, zuri (+ "-fino" para braço fino)
+#       ou jogador:Nick para usar a skin de um jogador (precisa de internet)
+# papeis: COMERCIANTE, FERREIRO, GUIA, MISSIONARIO, GUARDA, MERCENARIO, DUELISTA, BOSS
+# combate: vida, dano, armadura, velocidade, alcance, arqueiro e respawn-segundos só deste NPC
+#          (o que não estiver aqui vem do atributos: do combate.yml)
+# faccao: id de um arquivo em faccoes/ (guardas só protegem a própria facção). Vazio = sem facção.
+# dialogo.arvore: nome de um arquivo em dialogos/ (conversa com opções). Sem ele, a conversa é simples.
+# loja.compra = o que o JOGADOR COMPRA do NPC | loja.venda = o que o JOGADOR VENDE ao NPC
+# preco_base = preço do lote inteiro (quantidade). estoque_max 0 = infinito. limite_diario 0 = sem limite.
+
+id: mercadora_iara
+nome: <aqua><bold>Iara, a Mercadora
+skin: makena
+local:
+  mundo: sobrevivencia
+  x: 11.5
+  y: 85.0
+  z: -4.5
+  yaw: 315.0
+faccao: mercadores_livres
+papeis:
+- COMERCIANTE
+dialogo:
+  saudacao:
+  - Olá, {jogador}! Acabei de chegar com a caravana. Coisas do Sul, do Norte, de todo
+    canto!
+  retorno:
+  - Voltou, {jogador}! A caravana trouxe novidades.
+  - '{jogador}! Os preços mudam toda hora, aproveite enquanto está barato.'
+  falas: []
+loja:
+  compra:
+  - item: BREAD
+    quantidade: 16
+    preco_base: 30.0
+    estoque_max: 30
+    repoe_por_hora: 10.0
+  - item: ENDER_PEARL
+    quantidade: 1
+    preco_base: 60.0
+    estoque_max: 4
+    repoe_por_hora: 1.0
+    importado_de: irmandade_do_sul
+  - item: BLAZE_ROD
+    quantidade: 1
+    preco_base: 45.0
+    estoque_max: 6
+    repoe_por_hora: 1.0
+    importado_de: irmandade_do_sul
+  - item: GLOWSTONE_DUST
+    quantidade: 8
+    preco_base: 40.0
+    estoque_max: 8
+    repoe_por_hora: 2.0
+  - item: ARROW
+    quantidade: 16
+    preco_base: 20.0
+    estoque_max: 16
+    repoe_por_hora: 4.0
+  - item: NAME_TAG
+    quantidade: 1
+    preco_base: 120.0
+    estoque_max: 2
+    repoe_por_hora: 0.25
+  - item: SADDLE
+    quantidade: 1
+    preco_base: 150.0
+    estoque_max: 2
+    repoe_por_hora: 0.25
+  - item: FLINT
+    item_completo: H4sIAAAAAAAA/4WRwUrDQBCG/9pG0ggVFPEisk/gA/SmFU/W9mKvZUwmZWl2N8zuBn0aX9U1FHNowcsMDPN//P9MAYxx8UyBNixeOwtcf+c40xUujbZcCtVhXjfahjGy0kUbAIwKFKUzrbNsg59iNqw2TrhIK5MRznWgRpfIMQn8GXC/UjWLsBanoifFPpBquZJUSSj/5Sc5JjuhLxzr76gVbZyQKBJDXnHfqyjkH/5V48Ts9pW7BFHRqLf1Qr0c3A2waUWy3/bEAjdDyjL64MzWkuETPtd9porV48GwSWdyauFMNH/obCfM9iS2Su8ocLWOHwn7FPd7HTbURPY5ZrYtO905P+8Ph2yxWr4vUzj8AP07YZrKAQAA
+    quantidade: 1
+    preco_base: 45.0
+    estoque_max: 12
+    repoe_por_hora: 3.0
+  venda:
+  - item: LEATHER
+    quantidade: 8
+    preco_base: 16.0
+    limite_diario: 64
+  - item: WHITE_WOOL
+    quantidade: 16
+    preco_base: 12.0
+    limite_diario: 128
+  - item: HONEY_BOTTLE
+    quantidade: 4
+    preco_base: 20.0
+    limite_diario: 32
+  - item: GOLD_INGOT
+    quantidade: 8
+    preco_base: 40.0
+    limite_diario: 64
